@@ -32,24 +32,97 @@ SKIP_DIRS = {".archive", "data", "__pycache__"}
 DATA_REF = re.compile(r"data/(\d{8})/facts\.json")
 
 
-def asset_groups() -> list[tuple[str, list[Path]]]:
-    """按 site.config.json 的 groups 排序资产；配置里没写的资产落到「其他」，按名排序。
+NAMING = ROOT.parent / "insseek-ai-investment-framework" / "docs" / "report-conventions.md"
 
-    顺序由配置决定，不由 Unicode 码位决定——中文按码位排出来是随机的，
-    而读者需要的是稳定的、有意义的顺序。
+# 类别是展示层的判断，不是命名表的一部分：命名表说「这是什么产物」，
+# 这里说「它该出现在侧边栏的哪一组」。所以映射写在这里，词表来自命名表。
+CATEGORY_OF_ENTRY = {
+    "invest-index": "指数",
+    "invest-industry": "行业",
+    "invest-bottleneck": "专题",
+    "invest-commodity": "商品",
+    "invest-bitcoin": "加密",
+    "invest-portfolio": "组合",
+}
+DEFAULT_CATEGORY = "个股"
+
+# 资产内分五组：先看结论，再看论证，然后是事件、文章、系列
+GROUP_OF_TOKEN = {
+    "thesis": "结论",
+    "research": "研究",
+    "team": "研究",
+    "management": "研究",
+    "screen": "研究",
+    "index": "研究",
+    "benchmark": "研究",
+    "commodity": "研究",
+    "bitcoin": "研究",
+    "private": "研究",
+    "industry": "研究",
+    "funnel": "研究",
+    "era": "研究",
+    "earnings": "财报与事件",
+    "news": "财报与事件",
+    "checklist": "财报与事件",
+    "memo": "财报与事件",
+    "income": "财报与事件",
+    "latest": "财报与事件",
+    "article": "文章",
+    "series": "系列",
+}
+GROUP_ORDER = ["结论", "研究", "财报与事件", "文章", "系列"]
+
+
+def parse_naming_table() -> tuple[dict, dict]:
+    """从框架仓库的命名表读「类型词 → 入口」，让分类跟着命名表走。
+
+    命名表是唯一真源（有 tests/test_mode_naming.py 守着）。这里不另造词表：
+    表里新增一个产物类型，同步脚本第二天就知道它叫什么。
     """
-    if not SOURCE.is_dir():
-        raise SystemExit(f"找不到产物目录：{SOURCE}")
-    on_disk = {p.name: p for p in SOURCE.iterdir() if p.is_dir() and p.name not in SKIP_DIRS}
-    result = []
-    for group in CONFIG.get("groups", []):
-        assets = [on_disk.pop(name) for name in group["assets"] if name in on_disk]
-        if assets:
-            result.append((group["title"], assets))
-    rest = [on_disk[name] for name in sorted(on_disk)]
-    if rest:
-        result.append(("其他", rest))
-    return result
+    if not NAMING.exists():
+        raise SystemExit(f"找不到命名表：{NAMING}")
+    row = re.compile(r"^\| (invest-[a-z]+)(?:（[^）]*）)? \| (.+?) \| (.+?) \|$")
+    tok = re.compile(r"-([a-z]+)(?:-[a-z]+)*-(?:\{YYYYMMDD\}|\{期间\})|-([a-z]+)\.md")
+    token_to_entry = {}
+    for line in NAMING.read_text(encoding="utf-8").splitlines():
+        m = row.match(line.strip())
+        if not m:
+            continue
+        entry, fmt = m.group(1), m.group(2)
+        tokens = {a or b for a, b in tok.findall(fmt)}
+        if "team-" in fmt:
+            tokens.add("team")
+        for token in tokens:
+            token_to_entry[token] = entry
+    return token_to_entry, set(token_to_entry)
+
+
+def page_tokens(page: Path, known: set[str]) -> set[str]:
+    """页面属于哪类产物：看文件名里的类型词，系列看目录名。"""
+    stem = page.stem
+    found = {t for t in known if f"-{t}-" in stem or stem.endswith(f"-{t}")}
+    parent = page.parent.name
+    for token in ("team", "series"):
+        if f"{token}-" in parent:
+            found.add(token)
+    return found
+
+
+def category_of(tokens: set[str], token_to_entry: dict, name: str) -> str:
+    if "对照" in name or "跨资产" in name:
+        return "跨资产"
+    for token in ("index", "benchmark", "industry", "funnel", "era", "bottleneck", "commodity", "bitcoin", "private", "latest"):
+        if token in tokens:
+            entry = token_to_entry.get(token, "")
+            return CATEGORY_OF_ENTRY.get(entry, DEFAULT_CATEGORY)
+    return DEFAULT_CATEGORY
+
+
+def group_of(tokens: set[str]) -> str:
+    for token in sorted(tokens):
+        if token in GROUP_OF_TOKEN:
+            return GROUP_OF_TOKEN[token]
+    return "研究"
 
 
 def split_title(text: str, fallback: str) -> tuple[str, str]:
@@ -115,39 +188,78 @@ def sync() -> int:
     if PUBLIC_FACTS.exists():
         shutil.rmtree(PUBLIC_FACTS)
     PUBLIC_FACTS.mkdir(parents=True)
+    if not SOURCE.is_dir():
+        raise SystemExit(f"找不到产物目录：{SOURCE}")
 
-    groups = []
-    for category, assets in asset_groups():
-        for asset in assets:
-            pages = []
-            for md in sorted(asset.rglob("*.md")):
-                if any(part in SKIP_DIRS for part in md.parts):
-                    continue
-                dest = target_of(md, SOURCE)
-                dest.parent.mkdir(parents=True, exist_ok=True)
-                # 页面 URL 是 /{资产}/.../{文件名}/，深度按相对 output/ 的路径算
-                rel = md.relative_to(SOURCE).with_suffix("")
-                text = build_page(md, asset.name, len(rel.parts))
-                dest.write_text(text, encoding="utf-8")
-                pages.append((dest, page_title(text, dest.stem)))
-                changed += 1
-            for facts in sorted(asset.rglob("facts.json")):
-                date = facts.parent.name
-                dest = PUBLIC_FACTS / asset.name / f"{date}.json"
-                dest.parent.mkdir(parents=True, exist_ok=True)
-                shutil.copy2(facts, dest)
-                changed += 1
-            if pages:
-                groups.append((category, asset.name, pages))
+    token_to_entry, known = parse_naming_table()
+    entries = []  # (类别, 资产名或 None, [(组名, [(页面, 标题)])])
 
-    nested: list[tuple[str, list[tuple[str, list]]]] = []
-    for category, asset_name, pages in groups:
-        if not nested or nested[-1][0] != category:
-            nested.append((category, []))
-        nested[-1][1].append((asset_name, pages))
+    for asset in sorted(p for p in SOURCE.iterdir() if p.is_dir() and p.name not in SKIP_DIRS):
+        pages = []
+        for md in sorted(asset.rglob("*.md")):
+            if any(part in SKIP_DIRS for part in md.parts):
+                continue
+            dest = target_of(md, SOURCE)
+            dest.parent.mkdir(parents=True, exist_ok=True)
+            rel = md.relative_to(SOURCE).with_suffix("")
+            text = build_page(md, asset.name, len(rel.parts))
+            dest.write_text(text, encoding="utf-8")
+            pages.append((dest, page_title(text, dest.stem)))
+            changed += 1
+        for facts in sorted(asset.rglob("facts.json")):
+            date = facts.parent.name
+            dest = PUBLIC_FACTS / asset.name / f"{date}.json"
+            dest.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(facts, dest)
+            changed += 1
+        if not pages:
+            continue
+        tokens: set[str] = set()
+        for page, _ in pages:
+            tokens |= page_tokens(page, known)
+        entries.append((category_of(tokens, token_to_entry, asset.name), asset.name,
+                        bucketise(pages, known)))
 
-    SIDEBAR.write_text(sidebar_module(nested), encoding="utf-8")
-    write_index(groups)
+    # 根级产物：行业、专题、组合这类不挂在某个资产目录下
+    for md in sorted(SOURCE.glob("*.md")):
+        if md.name.startswith("."):
+            continue
+        rel = md.relative_to(SOURCE).with_suffix("")
+        dest = target_of(md, SOURCE)
+        text = build_page(md, md.stem, len(rel.parts))
+        dest.write_text(text, encoding="utf-8")
+        changed += 1
+        page = (dest, page_title(text, dest.stem))
+        tokens = page_tokens(md, known)
+        entries.append((category_of(tokens, token_to_entry, md.stem), None,
+                        [(group_of(tokens), [page])]))
+
+    order = [g["title"] for g in CONFIG.get("groups", [])]
+
+    def rank(entry):
+        category, asset, _ = entry
+        return (order.index(category) if category in order else len(order), asset or "")
+
+    entries.sort(key=rank)
+
+    tree: list[tuple[str, list[tuple[str | None, list]]]] = []
+    for category, asset, groups in entries:
+        if not tree or tree[-1][0] != category:
+            tree.append((category, []))
+        tree[-1][1].append((asset, groups))
+
+    SIDEBAR.write_text(sidebar_module(tree), encoding="utf-8")
+    write_index(entries)
+
+    # 对齐检查：产物里出现命名表没有的类型词，说明框架那边加了新产物类型，
+    # 而站点还不知道该把它归到哪一组。宁可吵一句，也不要静默归错类。
+    unknown = set()
+    for page in DOCS.rglob("*.md"):
+        for token in re.findall(r"-([a-z]{3,})-", page.stem):
+            if token not in known:
+                unknown.add(token)
+    if unknown:
+        print("⚠ 命名表里没有这些类型词，先补 docs/report-conventions.md：" + "、".join(sorted(unknown)))
     return changed
 
 
@@ -169,18 +281,19 @@ KIND = {
     "news": "快评",
     "management": "管理层评估",
     "screen": "筛选结论",
+    "industry": "行业研究",
+    "benchmark": "基准对比",
+    "private": "未上市研究",
+    "income": "收息测算",
 }
 
-
 TEAM_PREFIX = "team-"
-SERIES_PREFIX = "series-"
 
 
 def page_order(page: Path) -> tuple:
-    """组内顺序：结论卡、研究报告、团队合成、分工、视角、文章、系列。
+    """组内顺序：结论卡 → 研究 → 团队合成 → 分工 → 视角 → 文章 → 系列。
 
-    早先按文件名倒序，结论卡因为字母 t 排在 research 前面，纯属巧合；
-    这里把「先看结论、再看论证」写成显式规则。
+    同一档内按日期倒序（新的在前），无日期的按文件名升序（视角 01→04）。
     """
     stem = page.stem
     if "-thesis" in stem:
@@ -196,7 +309,7 @@ def page_order(page: Path) -> tuple:
     else:
         rank = 1
     date = re.search(r"(\d{8})", stem)
-    return (rank, "" if date is None else "0" if False else date.group(1), stem)
+    return (rank, -(int(date.group(1)) if date else 0), stem)
 
 
 def page_label(page: Path, title: str) -> str:
@@ -204,8 +317,8 @@ def page_label(page: Path, title: str) -> str:
     date = re.search(r"(\d{8})", stem)
     tail = date.group(1) if date else ""
     for key, name in KIND.items():
-        if f"-{key}" in stem:
-            return f"{name} {tail}".strip() if key != "thesis" else name
+        if f"-{key}-" in stem or stem.endswith(f"-{key}"):
+            return name if key == "thesis" else f"{name} {tail}".strip()
     if stem == "最终报告":
         return "团队合成报告"
     if stem == "README":
@@ -213,44 +326,72 @@ def page_label(page: Path, title: str) -> str:
     m = re.match(r"(\d+)-(.+)", stem)
     if m:
         parent = page.parent.name
-        prefix = "视角" if "team-" in parent else "系列"
+        prefix = "视角" if TEAM_PREFIX in parent else "系列"
         return f"{prefix} {m.group(1)}：{m.group(2)}"
     return title
 
 
-def sidebar_module(groups: list[tuple[str, list[tuple[str, list[Path]]]]]) -> str:
+def bucketise(pages: list[tuple[Path, str]], known: set[str]):
+    """按「结论 / 研究 / 财报与事件 / 文章 / 系列」分组，组内按 page_order 排。"""
+    buckets: dict[str, list[tuple[Path, str]]] = {}
+    for page, title in pages:
+        buckets.setdefault(group_of(page_tokens(page, known)), []).append((page, title))
+    ordered = []
+    for name in GROUP_ORDER:
+        if name in buckets:
+            ordered.append((name, sorted(buckets[name], key=lambda item: page_order(item[0]))))
+    for name in sorted(buckets):
+        if name not in GROUP_ORDER:
+            ordered.append((name, sorted(buckets[name], key=lambda item: page_order(item[0]))))
+    return ordered
+
+
+def sidebar_module(tree) -> str:
     lines = ["// 由 scripts/sync_reports.py 生成，不要手改。", "export default ["]
     lines.append("  { label: '关于', link: '/' },")
-    for category, assets in groups:
+    for category, items in tree:
         lines.append(f"  {{ label: {json.dumps(category, ensure_ascii=False)}, items: [")
-        for name, pages in assets:
-            lines.append(f"    {{ label: {json.dumps(name, ensure_ascii=False)}, items: [")
-            for page, title in sorted(pages, key=lambda item: page_order(item[0])):
-                slug = page.relative_to(DOCS).with_suffix("").as_posix().lower()
-                label = page_label(page, title)
-                lines.append(
-                    f"      {{ label: {json.dumps(label, ensure_ascii=False)}, "
-                    f"slug: {json.dumps(slug, ensure_ascii=False)} }},"
-                )
-            lines.append("    ] },")
+        for asset, groups in items:
+            indent = "      "
+            if asset is not None:
+                lines.append(f"    {{ label: {json.dumps(asset, ensure_ascii=False)}, items: [")
+                indent = "        "
+            for group, pages in groups:
+                if asset is None:
+                    for page, title in pages:
+                        slug = page.relative_to(DOCS).with_suffix("").as_posix().lower()
+                        lines.append(
+                            f"      {{ label: {json.dumps(page_label(page, title), ensure_ascii=False)}, "
+                            f"slug: {json.dumps(slug, ensure_ascii=False)} }},"
+                        )
+                    continue
+                lines.append(f"{indent}{{ label: {json.dumps(group, ensure_ascii=False)}, items: [")
+                for page, title in pages:
+                    slug = page.relative_to(DOCS).with_suffix("").as_posix().lower()
+                    lines.append(
+                        f"{indent}  {{ label: {json.dumps(page_label(page, title), ensure_ascii=False)}, "
+                        f"slug: {json.dumps(slug, ensure_ascii=False)} }},"
+                    )
+                lines.append(f"{indent}] }},")
+            if asset is not None:
+                lines.append("    ] },")
         lines.append("  ] },")
     lines.append("];")
     return "\n".join(lines) + "\n"
 
 
-
-def write_index(groups: list[tuple[str, list[Path]]]) -> None:
+def write_index(entries) -> None:
     rows = ["---", "title: 全部报告", "description: 公司、指数、商品与加密资产的价值投资研究。", "---", ""]
-    rows.append("按资产分类的研究报告。每份报告都配一个数据包（`facts.json`），")
+    rows.append("按类别与资产整理的研究报告。每份报告都配一个数据包（`facts.json`），")
     rows.append("报告里的每个数字都能在数据包里找到出处，可离线复算。")
     rows.append("")
     rows.append("| 类别 | 资产 | 篇数 | 最近一篇 |")
     rows.append("| --- | --- | --- | --- |")
-    for category, name, pages in groups:
-        dated = [(re.search(r"(\d{8})", page.name), title) for page, title in pages]
-        dated = [(m.group(1), title) for m, title in dated if m]
+    for category, asset, groups in entries:
+        pages = [page for _, in_group in groups for page in in_group]
+        dated = [(m.group(1), title) for page, title in pages if (m := re.search(r"(\d{8})", page.name))]
         latest = max(dated)[1] if dated else pages[0][1]
-        rows.append(f"| {category} | {name} | {len(pages)} | {latest} |")
+        rows.append(f"| {category} | {asset or '—'} | {len(pages)} | {latest} |")
     rows.append("")
     (DOCS / "index.md").write_text("\n".join(rows), encoding="utf-8")
 
