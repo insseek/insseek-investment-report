@@ -36,15 +36,17 @@ NAMING = ROOT.parent / "insseek-ai-investment-framework" / "docs" / "report-conv
 
 # 类别是展示层的判断，不是命名表的一部分：命名表说「这是什么产物」，
 # 这里说「它该出现在侧边栏的哪一组」。所以映射写在这里，词表来自命名表。
+# 入口 → 组 id。组 id 是稳定标识，标题（个股/指数/…）只是展示，
+# 改标题不会影响归类；新增一类产物时，改这里 + site.config.json 的 groups 各加一项。
 CATEGORY_OF_ENTRY = {
-    "invest-index": "指数",
-    "invest-industry": "行业",
-    "invest-bottleneck": "专题",
-    "invest-commodity": "商品",
-    "invest-bitcoin": "加密",
-    "invest-portfolio": "组合",
+    "invest-index": "index",
+    "invest-industry": "industry",
+    "invest-bottleneck": "topic",
+    "invest-commodity": "commodity",
+    "invest-bitcoin": "crypto",
+    "invest-portfolio": "portfolio",
 }
-DEFAULT_CATEGORY = "个股"
+DEFAULT_CATEGORY = "stock"
 
 # 资产内分五组：先看结论，再看论证，然后是事件、文章、系列
 GROUP_OF_TOKEN = {
@@ -110,7 +112,7 @@ def page_tokens(page: Path, known: set[str]) -> set[str]:
 
 def category_of(tokens: set[str], token_to_entry: dict, name: str) -> str:
     if "对照" in name or "跨资产" in name:
-        return "跨资产"
+        return "cross"
     for token in ("index", "benchmark", "industry", "funnel", "era", "bottleneck", "commodity", "bitcoin", "private", "latest"):
         if token in tokens:
             entry = token_to_entry.get(token, "")
@@ -234,7 +236,9 @@ def sync() -> int:
         entries.append((category_of(tokens, token_to_entry, md.stem), None,
                         [(group_of(tokens), [page])]))
 
-    order = [g["title"] for g in CONFIG.get("groups", [])]
+    groups = CONFIG.get("groups", [])
+    order = [g["id"] for g in groups]
+    titles = {g["id"]: g["title"] for g in groups}
 
     def rank(entry):
         category, asset, _ = entry
@@ -244,8 +248,9 @@ def sync() -> int:
 
     tree: list[tuple[str, list[tuple[str | None, list]]]] = []
     for category, asset, groups in entries:
-        if not tree or tree[-1][0] != category:
-            tree.append((category, []))
+        label = titles.get(category, category)
+        if not tree or tree[-1][0] != label:
+            tree.append((label, []))
         tree[-1][1].append((asset, groups))
 
     SIDEBAR.write_text(sidebar_module(tree), encoding="utf-8")
@@ -260,6 +265,13 @@ def sync() -> int:
                 unknown.add(token)
     if unknown:
         print("⚠ 命名表里没有这些类型词，先补 docs/report-conventions.md：" + "、".join(sorted(unknown)))
+
+    # 第二道对齐检查：入口映射出的组 id 必须在 site.config.json 的 groups 里，
+    # 否则这一类产物会掉到侧边栏末尾、标题也不对。
+    missing = {cat for cat, _, _ in entries if cat not in order}
+    if missing:
+        print("⚠ site.config.json 的 groups 缺这些 id：" + "、".join(sorted(missing))
+              + "（CATEGORY_OF_ENTRY 里新加的组要同步加一项）")
     return changed
 
 

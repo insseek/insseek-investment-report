@@ -3,43 +3,28 @@
   "base": "/insseek-investment-report",
   "groups": [
     {
-      "title": "个股",
-      "assets": [
-        "小米",
-        "美团"
-      ]
+      "id": "stock",
+      "title": "个股"
     },
     {
-      "title": "指数",
-      "assets": [
-        "恒生科技",
-        "沪深300",
-        "纳斯达克",
-        "标普500"
-      ]
+      "id": "index",
+      "title": "指数"
     },
     {
-      "title": "行业",
-      "assets": []
+      "id": "industry",
+      "title": "行业"
     },
     {
-      "title": "商品",
-      "assets": [
-        "黄金",
-        "原油"
-      ]
+      "id": "commodity",
+      "title": "商品"
     },
     {
-      "title": "加密",
-      "assets": [
-        "比特币"
-      ]
+      "id": "crypto",
+      "title": "加密"
     },
     {
-      "title": "跨资产",
-      "assets": [
-        "跨资产"
-      ]
+      "id": "cross",
+      "title": "跨资产"
     }
   ]
 }
