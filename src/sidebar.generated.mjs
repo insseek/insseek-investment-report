@@ -2,7 +2,7 @@
 export default [
   { label: '关于', link: '/' },
   { label: "个股", items: [
-    { label: "小米", items: [
+    { label: "小米", collapsed: true, items: [
         { label: "结论", items: [
           { label: "结论卡", slug: "小米/小米-thesis" },
         ] },
@@ -23,7 +23,7 @@ export default [
           { label: "系列 02：互联网与估值", slug: "小米/articles/series-20261026/02-互联网与估值" },
         ] },
     ] },
-    { label: "美团", items: [
+    { label: "美团", collapsed: true, items: [
         { label: "结论", items: [
           { label: "结论卡", slug: "美团/美团-thesis" },
         ] },
@@ -39,7 +39,7 @@ export default [
     ] },
   ] },
   { label: "指数", items: [
-    { label: "恒生科技", items: [
+    { label: "恒生科技", collapsed: true, items: [
         { label: "结论", items: [
           { label: "结论卡", slug: "恒生科技/恒生科技-thesis" },
         ] },
@@ -47,7 +47,7 @@ export default [
           { label: "指数研究 20261026", slug: "恒生科技/恒生科技-index-20261026" },
         ] },
     ] },
-    { label: "标普500", items: [
+    { label: "标普500", collapsed: true, items: [
         { label: "结论", items: [
           { label: "结论卡", slug: "标普500/标普500-thesis" },
         ] },
@@ -55,7 +55,7 @@ export default [
           { label: "指数研究 20261026", slug: "标普500/标普500-index-20261026" },
         ] },
     ] },
-    { label: "沪深300", items: [
+    { label: "沪深300", collapsed: true, items: [
         { label: "结论", items: [
           { label: "结论卡", slug: "沪深300/沪深300-thesis" },
         ] },
@@ -63,7 +63,7 @@ export default [
           { label: "指数研究 20261026", slug: "沪深300/沪深300-index-20261026" },
         ] },
     ] },
-    { label: "纳斯达克", items: [
+    { label: "纳斯达克", collapsed: true, items: [
         { label: "结论", items: [
           { label: "结论卡", slug: "纳斯达克/纳斯达克-thesis" },
         ] },
@@ -73,7 +73,7 @@ export default [
     ] },
   ] },
   { label: "商品", items: [
-    { label: "原油", items: [
+    { label: "原油", collapsed: true, items: [
         { label: "结论", items: [
           { label: "结论卡", slug: "原油/原油-thesis" },
         ] },
@@ -81,7 +81,7 @@ export default [
           { label: "商品研究 20261026", slug: "原油/原油-commodity-20261026" },
         ] },
     ] },
-    { label: "黄金", items: [
+    { label: "黄金", collapsed: true, items: [
         { label: "结论", items: [
           { label: "结论卡", slug: "黄金/黄金-thesis" },
         ] },
@@ -91,7 +91,7 @@ export default [
     ] },
   ] },
   { label: "加密", items: [
-    { label: "比特币", items: [
+    { label: "比特币", collapsed: true, items: [
         { label: "结论", items: [
           { label: "结论卡", slug: "比特币/比特币-thesis" },
         ] },
@@ -101,7 +101,7 @@ export default [
     ] },
   ] },
   { label: "跨资产", items: [
-    { label: "跨资产", items: [
+    { label: "跨资产", collapsed: true, items: [
         { label: "结论", items: [
           { label: "结论卡", slug: "跨资产/跨资产-thesis" },
         ] },

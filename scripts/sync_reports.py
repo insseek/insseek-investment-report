@@ -173,7 +173,17 @@ def build_page(path: Path, asset: str, depth: int) -> str:
     body = re.sub(r"`((?:\.\./)+facts/[^`]+)`", lambda m: f"[{m.group(1)}]({m.group(1)})", body)
     m = re.search(r"(?:\.\./)+facts/[^\s)\]]+\.json", body)
     if m:
-        body = f"> 数据包：[{m.group(0)}]({m.group(0)})——报告里每个数都能在里面找到出处。\n\n" + body
+        # 头部固定字段（> 成稿 …）必须在最前面：数据包这行放到整个 > 块之后
+        head, rest = [], body.splitlines()
+        i = 0
+        while i < len(rest) and not rest[i].startswith("> "):
+            head.append(rest[i])
+            i += 1
+        while i < len(rest) and rest[i].startswith("> "):
+            head.append(rest[i])
+            i += 1
+        pack = f"> 数据包：[{m.group(0)}]({m.group(0)})——报告里每个数都能在里面找到出处。"
+        body = "\n".join(head) + "\n\n" + pack + "\n\n" + "\n".join(rest[i:]).lstrip("\n")
     front = ["---", f"title: {json.dumps(title, ensure_ascii=False)}"]
     desc = description_of(body)
     if desc:
@@ -366,7 +376,7 @@ def sidebar_module(tree) -> str:
         for asset, groups in items:
             indent = "      "
             if asset is not None:
-                lines.append(f"    {{ label: {json.dumps(asset, ensure_ascii=False)}, items: [")
+                lines.append(f"    {{ label: {json.dumps(asset, ensure_ascii=False)}, collapsed: true, items: [")
                 indent = "        "
             for group, pages in groups:
                 if asset is None:
