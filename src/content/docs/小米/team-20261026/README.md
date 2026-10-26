@@ -5,6 +5,8 @@ description: "四个视角稿是并行子代理独立写出的，彼此看不到
 
 > 数据包：[../../../facts/小米/20261026.json](../../../facts/小米/20261026.json)——报告里每个数都能在里面找到出处。
 
+> 成稿 2026-10-26
+
 **运行时间**：2026-10-26｜**数据截止**：2026-10-23｜**结论**：观察，不买
 
 ## 一、分工
@@ -49,3 +51,10 @@ description: "四个视角稿是并行子代理独立写出的，彼此看不到
 - `python3 tools/reproduce.py check --facts output/小米/../../../facts/小米/20261026.json` → 全部派生数可从本地原文重算。
 - `python3 tools/report_audit.py structure --report output/小米/team-20261026/最终报告.md` → 七项全过。
 - `python3 tools/coverage.py --report output/小米/team-20261026/最终报告.md --facts output/小米/../../../facts/小米/20261026.json` → 44/44，100%。
+
+---
+
+方法：insseek-ai-investment-framework 的价值投资流程与校验工具
+过程：取数、校验、初稿由 DeepSeek Harness 的 agent 完成；假设、判断、定稿由作者完成
+数据包：见文首「数据包」一行
+免责：基于公开信息，不构成投资建议。

@@ -42,3 +42,10 @@ description: "观察，不买。现价 71.65 港元，中性档折现 75.31 港�
 
 季度核心经营利润率、新业务亏损率、经营现金流、有息负债明细、回购与分红政策。
 用 `skills/invest-earnings.md` 的 quick 模式只更新变化；有新财报或股价较上一份报告日变动 >15%，才出新的 dated research。
+
+---
+
+方法：insseek-ai-investment-framework 的价值投资流程与校验工具
+过程：取数、校验、初稿由 DeepSeek Harness 的 agent 完成；假设、判断、定稿由作者完成
+数据包：见文首「数据包」一行
+免责：基于公开信息，不构成投资建议。

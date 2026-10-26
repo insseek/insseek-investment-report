@@ -40,3 +40,10 @@ description: "观察，不买。现价 26.80 港元，中性档折现后内在�
 
 手机 ASP 与毛利率、汽车单季经营利润与交付量、IoT 毛利率、回购力度。
 用 `skills/invest-earnings.md` 的 quick 模式，只更新变化。
+
+---
+
+方法：insseek-ai-investment-framework 的价值投资流程与校验工具
+过程：取数、校验、初稿由 DeepSeek Harness 的 agent 完成；假设、判断、定稿由作者完成
+数据包：见文首「数据包」一行
+免责：基于公开信息，不构成投资建议。
