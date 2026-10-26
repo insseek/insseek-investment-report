@@ -1,0 +1,1048 @@
+{
+ "meta": {
+  "company": "纳斯达克综合指数",
+  "code": "NDX (eastmoney 100.NDX，名称「纳斯达克」)",
+  "as_of": "2026-10-23",
+  "currency": "USD",
+  "fetched_at": "2026-10-26T10:36+08:00",
+  "note": "点位与美债为 2026-10-23（美股最后收盘日）/ 2026-10-22（FRED 滞后一日）；标普 PE 来自 multpl 静态口径；纳指自身 PE 无可用来源（东财指数行情 PE 字段返回 0），改用前十成分合成倍数与标普 PE 双锚"
+ },
+ "inputs": [
+  {
+   "key": "idx_now",
+   "label": "纳斯达克综合指数最新收盘（2026-10-23）",
+   "value": 25955.34,
+   "unit": "点",
+   "raw_file": "kline-NDX-monthly.json",
+   "snippet": "2026-10-23,25955.34",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=100.NDX&klt=103"
+  },
+  {
+   "key": "idx_ath",
+   "label": "盘中历史最高（2026-10-06）",
+   "value": 27722.75,
+   "unit": "点",
+   "raw_file": "kline-NDX-daily.json",
+   "snippet": "2026-10-06,27641.17,27599.89,27722.75,27592.56",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=100.NDX&klt=101"
+  },
+  {
+   "key": "idx_ath_close",
+   "label": "收盘历史最高（2026-10-06）",
+   "value": 27599.89,
+   "unit": "点",
+   "raw_file": "kline-NDX-daily.json",
+   "snippet": "2026-10-06,27641.17,27599.89,27722.75,27592.56",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=100.NDX&klt=101"
+  },
+  {
+   "key": "idx_lo52",
+   "label": "52 周最低收盘（2026-03-30）",
+   "value": 20794.64,
+   "unit": "点",
+   "raw_file": "kline-NDX-daily.json",
+   "snippet": "2026-03-30,21096.24,20794.64,21139.72,20690.25",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=100.NDX&klt=101"
+  },
+  {
+   "key": "idx_lo52_intra",
+   "label": "52 周最低盘中（2026-03-30）",
+   "value": 20690.25,
+   "unit": "点",
+   "raw_file": "kline-NDX-daily.json",
+   "snippet": "2026-03-30,21096.24,20794.64,21139.72,20690.25",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=100.NDX&klt=101"
+  },
+  {
+   "key": "idx_m2016",
+   "label": "2016-10-31 收盘",
+   "value": 5189.14,
+   "unit": "点",
+   "raw_file": "kline-NDX-monthly.json",
+   "snippet": "2016-10-31,5189.14",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=100.NDX&klt=103"
+  },
+  {
+   "key": "idx_m2011",
+   "label": "2011-10-31 收盘",
+   "value": 2684.41,
+   "unit": "点",
+   "raw_file": "kline-NDX-monthly.json",
+   "snippet": "2011-10-31,2684.41",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=100.NDX&klt=103"
+  },
+  {
+   "key": "idx_base",
+   "label": "基日 1991-08-30 收盘",
+   "value": 525.68,
+   "unit": "点",
+   "raw_file": "kline-NDX-monthly.json",
+   "snippet": "1991-08-30,525.68",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=100.NDX&klt=103"
+  },
+  {
+   "key": "idx_m2000",
+   "label": "2000-03-31 收盘（互联网泡沫顶月）",
+   "value": 4572.83,
+   "unit": "点",
+   "raw_file": "kline-NDX-monthly.json",
+   "snippet": "2000-03-31,4572.83",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=100.NDX&klt=103"
+  },
+  {
+   "key": "idx_m2025_10",
+   "label": "2025-10-31 收盘",
+   "value": 23724.96,
+   "unit": "点",
+   "raw_file": "kline-NDX-monthly.json",
+   "snippet": "2025-10-31,23724.96",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=100.NDX&klt=103"
+  },
+  {
+   "key": "idx_m2026_09",
+   "label": "2026-09-30 收盘",
+   "value": 26861.06,
+   "unit": "点",
+   "raw_file": "kline-NDX-monthly.json",
+   "snippet": "2026-09-30,26861.06",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=100.NDX&klt=103"
+  },
+  {
+   "key": "idx_m2021_11",
+   "label": "2021-11-30 收盘（上一轮顶月）",
+   "value": 15537.69,
+   "unit": "点",
+   "raw_file": "kline-NDX-monthly.json",
+   "snippet": "2021-11-30,15537.69",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=100.NDX&klt=103"
+  },
+  {
+   "key": "idx_m2022_12",
+   "label": "2022-12-30 收盘（上一轮底月）",
+   "value": 10466.48,
+   "unit": "点",
+   "raw_file": "kline-NDX-monthly.json",
+   "snippet": "2022-12-30,10466.48",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=100.NDX&klt=103"
+  },
+  {
+   "key": "spx_now",
+   "label": "标普500 2026-10-23 收盘",
+   "value": 7623.68,
+   "unit": "点",
+   "raw_file": "kline-SPX-monthly.json",
+   "snippet": "2026-10-23,7623.68",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=100.SPX&klt=103"
+  },
+  {
+   "key": "spx_m2016",
+   "label": "标普500 2016-10-31 收盘",
+   "value": 2126.15,
+   "unit": "点",
+   "raw_file": "kline-SPX-monthly.json",
+   "snippet": "2016-10-31,2126.15",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=100.SPX&klt=103"
+  },
+  {
+   "key": "spx_m2011",
+   "label": "标普500 2011-10-31 收盘",
+   "value": 1253.3,
+   "unit": "点",
+   "raw_file": "kline-SPX-monthly.json",
+   "snippet": "2011-10-31,1253.30",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=100.SPX&klt=103"
+  },
+  {
+   "key": "spx_base",
+   "label": "标普500 1991-08-30 收盘",
+   "value": 395.43,
+   "unit": "点",
+   "raw_file": "kline-SPX-monthly.json",
+   "snippet": "1991-08-30,395.43",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=100.SPX&klt=103"
+  },
+  {
+   "key": "spx_m2000",
+   "label": "标普500 2000-03-31 收盘",
+   "value": 1498.58,
+   "unit": "点",
+   "raw_file": "kline-SPX-monthly.json",
+   "snippet": "2000-03-31,1498.58",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=100.SPX&klt=103"
+  },
+  {
+   "key": "spx_m2025_10",
+   "label": "标普500 2025-10-31 收盘",
+   "value": 6840.2,
+   "unit": "点",
+   "raw_file": "kline-SPX-monthly.json",
+   "snippet": "2025-10-31,6840.20",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=100.SPX&klt=103"
+  },
+  {
+   "key": "us10y",
+   "label": "美国十年期国债收益率（2026-10-22）",
+   "value": 4.96,
+   "unit": "%",
+   "raw_file": "us10y.csv",
+   "snippet": "2026-10-22,4.96",
+   "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10"
+  },
+  {
+   "key": "us10y_2022",
+   "label": "美债 10Y（2022-10-14）",
+   "value": 4.0,
+   "unit": "%",
+   "raw_file": "us10y-history.csv",
+   "snippet": "2022-10-14,4.00",
+   "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10"
+  },
+  {
+   "key": "us10y_2020",
+   "label": "美债 10Y（2020-03-23）",
+   "value": 0.76,
+   "unit": "%",
+   "raw_file": "us10y-history.csv",
+   "snippet": "2020-03-23,0.76",
+   "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10"
+  },
+  {
+   "key": "sp500_pe",
+   "label": "标普500 静态市盈率（2026-10-23）",
+   "value": 26.01,
+   "unit": "倍",
+   "raw_file": "multpl-sp500-pe.html",
+   "snippet": "Current S&P 500 PE Ratio is 26.01",
+   "source_url": "https://www.multpl.com/s-p-500-pe-ratio"
+  },
+  {
+   "key": "sp500_pe_2025_10",
+   "label": "标普500 静态市盈率月度值（Oct 1, 2025）",
+   "value": 28.42,
+   "unit": "倍",
+   "raw_file": "multpl-sp500-pe-monthly.html",
+   "snippet": "Oct 1, 2025</td>\n<td>\n&#x2002;\n28.42",
+   "source_url": "https://www.multpl.com/s-p-500-pe-ratio/table/by-month"
+  },
+  {
+   "key": "sp500_pe_2022_10",
+   "label": "标普500 静态市盈率月度值（Oct 1, 2022）",
+   "value": 20.44,
+   "unit": "倍",
+   "raw_file": "multpl-sp500-pe-monthly.html",
+   "snippet": "Oct 1, 2022</td>\n<td>\n&#x2002;\n20.44",
+   "source_url": "https://www.multpl.com/s-p-500-pe-ratio/table/by-month"
+  },
+  {
+   "key": "sp500_pe_2021_02",
+   "label": "标普500 静态市盈率月度值（Feb 1, 2021）",
+   "value": 33.24,
+   "unit": "倍",
+   "raw_file": "multpl-sp500-pe-monthly.html",
+   "snippet": "Feb 1, 2021</td>\n<td>\n&#x2002;\n33.24",
+   "source_url": "https://www.multpl.com/s-p-500-pe-ratio/table/by-month"
+  },
+  {
+   "key": "sp500_pe_2011_09",
+   "label": "标普500 静态市盈率月度值（Sep 1, 2011）",
+   "value": 13.5,
+   "unit": "倍",
+   "raw_file": "multpl-sp500-pe-monthly.html",
+   "snippet": "Sep 1, 2011</td>\n<td>\n&#x2002;\n13.50",
+   "source_url": "https://www.multpl.com/s-p-500-pe-ratio/table/by-month"
+  },
+  {
+   "key": "sp500_pe_2020_03",
+   "label": "标普500 静态市盈率月度值（Mar 1, 2020）",
+   "value": 22.8,
+   "unit": "倍",
+   "raw_file": "multpl-sp500-pe-monthly.html",
+   "snippet": "Mar 1, 2020</td>\n<td>\n&#x2002;\n22.80",
+   "source_url": "https://www.multpl.com/s-p-500-pe-ratio/table/by-month"
+  },
+  {
+   "key": "sp500_pe_2009_08",
+   "label": "标普500 静态市盈率月度值（Aug 1, 2009）",
+   "value": 92.95,
+   "unit": "倍",
+   "raw_file": "multpl-sp500-pe-monthly.html",
+   "snippet": "Aug 1, 2009</td>\n<td>\n&#x2002;\n92.95",
+   "source_url": "https://www.multpl.com/s-p-500-pe-ratio/table/by-month"
+  },
+  {
+   "key": "px_NVDA",
+   "label": "英伟达 价格",
+   "value": 210.96,
+   "unit": "USD",
+   "raw_file": "quote-top10.json",
+   "snippet": "{\"f2\":210.96,\"f9\":26.36,\"f12\":\"NVDA\"",
+   "source_url": "https://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&secids=105.NVDA,..."
+  },
+  {
+   "key": "mc_NVDA",
+   "label": "英伟达 总市值",
+   "value": 5084136000000,
+   "unit": "USD",
+   "raw_file": "quote-top10.json",
+   "snippet": "\"f20\":5084136000000,\"f23\":22.2",
+   "source_url": "https://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&secids=105.NVDA,..."
+  },
+  {
+   "key": "pe_NVDA",
+   "label": "英伟达 市盈率 TTM",
+   "value": 26.36,
+   "unit": "倍",
+   "raw_file": "quote-top10.json",
+   "snippet": "\"f114\":42.34,\"f115\":26.36}",
+   "source_url": "https://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&secids=105.NVDA,..."
+  },
+  {
+   "key": "pes_NVDA",
+   "label": "英伟达 市盈率 静态（上一财年）",
+   "value": 42.34,
+   "unit": "倍",
+   "raw_file": "quote-top10.json",
+   "snippet": "\"f114\":42.34,\"f115\":26.36}",
+   "source_url": "https://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&secids=105.NVDA,..."
+  },
+  {
+   "key": "px_AAPL",
+   "label": "苹果 价格",
+   "value": 347.725,
+   "unit": "USD",
+   "raw_file": "quote-top10.json",
+   "snippet": "{\"f2\":347.725,\"f9\":39.36,\"f12\":\"AAPL\"",
+   "source_url": "https://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&secids=105.NVDA,..."
+  },
+  {
+   "key": "mc_AAPL",
+   "label": "苹果 总市值",
+   "value": 5074761240500,
+   "unit": "USD",
+   "raw_file": "quote-top10.json",
+   "snippet": "\"f20\":5074761240500,\"f23\":47.2",
+   "source_url": "https://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&secids=105.NVDA,..."
+  },
+  {
+   "key": "pe_AAPL",
+   "label": "苹果 市盈率 TTM",
+   "value": 39.36,
+   "unit": "倍",
+   "raw_file": "quote-top10.json",
+   "snippet": "\"f114\":45.31,\"f115\":39.36}",
+   "source_url": "https://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&secids=105.NVDA,..."
+  },
+  {
+   "key": "pes_AAPL",
+   "label": "苹果 市盈率 静态（上一财年）",
+   "value": 45.31,
+   "unit": "倍",
+   "raw_file": "quote-top10.json",
+   "snippet": "\"f114\":45.31,\"f115\":39.36}",
+   "source_url": "https://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&secids=105.NVDA,..."
+  },
+  {
+   "key": "px_GOOGL",
+   "label": "谷歌-A 价格",
+   "value": 320.21,
+   "unit": "USD",
+   "raw_file": "quote-top10.json",
+   "snippet": "{\"f2\":320.21,\"f9\":16.04,\"f12\":\"GOOGL\"",
+   "source_url": "https://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&secids=105.NVDA,..."
+  },
+  {
+   "key": "mc_GOOGL",
+   "label": "谷歌-A 总市值",
+   "value": 3916168300000,
+   "unit": "USD",
+   "raw_file": "quote-top10.json",
+   "snippet": "\"f20\":3916168300000,\"f23\":6.11",
+   "source_url": "https://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&secids=105.NVDA,..."
+  },
+  {
+   "key": "pe_GOOGL",
+   "label": "谷歌-A 市盈率 TTM",
+   "value": 16.04,
+   "unit": "倍",
+   "raw_file": "quote-top10.json",
+   "snippet": "\"f114\":29.63,\"f115\":16.04}",
+   "source_url": "https://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&secids=105.NVDA,..."
+  },
+  {
+   "key": "pes_GOOGL",
+   "label": "谷歌-A 市盈率 静态（上一财年）",
+   "value": 29.63,
+   "unit": "倍",
+   "raw_file": "quote-top10.json",
+   "snippet": "\"f114\":29.63,\"f115\":16.04}",
+   "source_url": "https://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&secids=105.NVDA,..."
+  },
+  {
+   "key": "px_MSFT",
+   "label": "微软 价格",
+   "value": 524.51,
+   "unit": "USD",
+   "raw_file": "quote-top10.json",
+   "snippet": "{\"f2\":524.51,\"f9\":29.12,\"f12\":\"MSFT\"",
+   "source_url": "https://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&secids=105.NVDA,..."
+  },
+  {
+   "key": "mc_MSFT",
+   "label": "微软 总市值",
+   "value": 3895235078383,
+   "unit": "USD",
+   "raw_file": "quote-top10.json",
+   "snippet": "\"f20\":3895235078383,\"f23\":8.81",
+   "source_url": "https://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&secids=105.NVDA,..."
+  },
+  {
+   "key": "pe_MSFT",
+   "label": "微软 市盈率 TTM",
+   "value": 29.12,
+   "unit": "倍",
+   "raw_file": "quote-top10.json",
+   "snippet": "\"f114\":29.12,\"f115\":29.12}",
+   "source_url": "https://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&secids=105.NVDA,..."
+  },
+  {
+   "key": "pes_MSFT",
+   "label": "微软 市盈率 静态（上一财年）",
+   "value": 29.12,
+   "unit": "倍",
+   "raw_file": "quote-top10.json",
+   "snippet": "\"f114\":29.12,\"f115\":29.12}",
+   "source_url": "https://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&secids=105.NVDA,..."
+  },
+  {
+   "key": "px_AMZN",
+   "label": "亚马逊 价格",
+   "value": 248.0,
+   "unit": "USD",
+   "raw_file": "quote-top10.json",
+   "snippet": "{\"f2\":248.0,\"f9\":19.77,\"f12\":\"AMZN\"",
+   "source_url": "https://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&secids=105.NVDA,..."
+  },
+  {
+   "key": "mc_AMZN",
+   "label": "亚马逊 总市值",
+   "value": 2675005765856,
+   "unit": "USD",
+   "raw_file": "quote-top10.json",
+   "snippet": "\"f20\":2675005765856,\"f23\":4.85",
+   "source_url": "https://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&secids=105.NVDA,..."
+  },
+  {
+   "key": "pe_AMZN",
+   "label": "亚马逊 市盈率 TTM",
+   "value": 19.77,
+   "unit": "倍",
+   "raw_file": "quote-top10.json",
+   "snippet": "\"f114\":34.44,\"f115\":19.77}",
+   "source_url": "https://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&secids=105.NVDA,..."
+  },
+  {
+   "key": "pes_AMZN",
+   "label": "亚马逊 市盈率 静态（上一财年）",
+   "value": 34.44,
+   "unit": "倍",
+   "raw_file": "quote-top10.json",
+   "snippet": "\"f114\":34.44,\"f115\":19.77}",
+   "source_url": "https://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&secids=105.NVDA,..."
+  },
+  {
+   "key": "px_META",
+   "label": "Meta 价格",
+   "value": 642.62,
+   "unit": "USD",
+   "raw_file": "quote-top10.json",
+   "snippet": "{\"f2\":642.62,\"f9\":21.83,\"f12\":\"META\"",
+   "source_url": "https://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&secids=105.NVDA,..."
+  },
+  {
+   "key": "mc_META",
+   "label": "Meta 总市值",
+   "value": 1642691754003,
+   "unit": "USD",
+   "raw_file": "quote-top10.json",
+   "snippet": "\"f20\":1642691754003,\"f23\":6.03",
+   "source_url": "https://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&secids=105.NVDA,..."
+  },
+  {
+   "key": "pe_META",
+   "label": "Meta 市盈率 TTM",
+   "value": 21.83,
+   "unit": "倍",
+   "raw_file": "quote-top10.json",
+   "snippet": "\"f114\":27.17,\"f115\":21.83}",
+   "source_url": "https://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&secids=105.NVDA,..."
+  },
+  {
+   "key": "pes_META",
+   "label": "Meta 市盈率 静态（上一财年）",
+   "value": 27.17,
+   "unit": "倍",
+   "raw_file": "quote-top10.json",
+   "snippet": "\"f114\":27.17,\"f115\":21.83}",
+   "source_url": "https://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&secids=105.NVDA,..."
+  },
+  {
+   "key": "px_AVGO",
+   "label": "博通 价格",
+   "value": 321.68,
+   "unit": "USD",
+   "raw_file": "quote-top10.json",
+   "snippet": "{\"f2\":321.68,\"f9\":40.13,\"f12\":\"AVGO\"",
+   "source_url": "https://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&secids=105.NVDA,..."
+  },
+  {
+   "key": "mc_AVGO",
+   "label": "博通 总市值",
+   "value": 1535581254973,
+   "unit": "USD",
+   "raw_file": "quote-top10.json",
+   "snippet": "\"f20\":1535581254973,\"f23\":15.4",
+   "source_url": "https://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&secids=105.NVDA,..."
+  },
+  {
+   "key": "pe_AVGO",
+   "label": "博通 市盈率 TTM",
+   "value": 40.13,
+   "unit": "倍",
+   "raw_file": "quote-top10.json",
+   "snippet": "\"f114\":66.4,\"f115\":40.13}",
+   "source_url": "https://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&secids=105.NVDA,..."
+  },
+  {
+   "key": "pes_AVGO",
+   "label": "博通 市盈率 静态（上一财年）",
+   "value": 66.4,
+   "unit": "倍",
+   "raw_file": "quote-top10.json",
+   "snippet": "\"f114\":66.4,\"f115\":40.13}",
+   "source_url": "https://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&secids=105.NVDA,..."
+  },
+  {
+   "key": "px_TSLA",
+   "label": "特斯拉 价格",
+   "value": 372.22,
+   "unit": "USD",
+   "raw_file": "quote-top10.json",
+   "snippet": "{\"f2\":372.22,\"f9\":457.21,\"f12\":\"TSLA\"",
+   "source_url": "https://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&secids=105.NVDA,..."
+  },
+  {
+   "key": "mc_TSLA",
+   "label": "特斯拉 总市值",
+   "value": 1471295562660,
+   "unit": "USD",
+   "raw_file": "quote-top10.json",
+   "snippet": "\"f20\":1471295562660,\"f23\":16.48",
+   "source_url": "https://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&secids=105.NVDA,..."
+  },
+  {
+   "key": "pe_TSLA",
+   "label": "特斯拉 市盈率 TTM",
+   "value": 457.21,
+   "unit": "倍",
+   "raw_file": "quote-top10.json",
+   "snippet": "\"f114\":387.8,\"f115\":457.21}",
+   "source_url": "https://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&secids=105.NVDA,..."
+  },
+  {
+   "key": "pes_TSLA",
+   "label": "特斯拉 市盈率 静态（上一财年）",
+   "value": 387.8,
+   "unit": "倍",
+   "raw_file": "quote-top10.json",
+   "snippet": "\"f114\":387.8,\"f115\":457.21}",
+   "source_url": "https://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&secids=105.NVDA,..."
+  },
+  {
+   "key": "px_WMT",
+   "label": "沃尔玛 价格",
+   "value": 119.89,
+   "unit": "USD",
+   "raw_file": "quote-top10.json",
+   "snippet": "{\"f2\":119.89,\"f9\":43.09,\"f12\":\"WMT\"",
+   "source_url": "https://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&secids=105.NVDA,..."
+  },
+  {
+   "key": "mc_WMT",
+   "label": "沃尔玛 总市值",
+   "value": 951176836833,
+   "unit": "USD",
+   "raw_file": "quote-top10.json",
+   "snippet": "\"f20\":951176836833,\"f23\":9.68",
+   "source_url": "https://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&secids=105.NVDA,..."
+  },
+  {
+   "key": "pe_WMT",
+   "label": "沃尔玛 市盈率 TTM",
+   "value": 43.09,
+   "unit": "倍",
+   "raw_file": "quote-top10.json",
+   "snippet": "\"f114\":43.45,\"f115\":43.09}",
+   "source_url": "https://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&secids=105.NVDA,..."
+  },
+  {
+   "key": "pes_WMT",
+   "label": "沃尔玛 市盈率 静态（上一财年）",
+   "value": 43.45,
+   "unit": "倍",
+   "raw_file": "quote-top10.json",
+   "snippet": "\"f114\":43.45,\"f115\":43.09}",
+   "source_url": "https://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&secids=105.NVDA,..."
+  },
+  {
+   "key": "px_PLTR",
+   "label": "Palantir 价格",
+   "value": 196.75,
+   "unit": "USD",
+   "raw_file": "quote-top10.json",
+   "snippet": "{\"f2\":196.75,\"f9\":156.73,\"f12\":\"PLTR\"",
+   "source_url": "https://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&secids=105.NVDA,..."
+  },
+  {
+   "key": "mc_PLTR",
+   "label": "Palantir 总市值",
+   "value": 472801755940,
+   "unit": "USD",
+   "raw_file": "quote-top10.json",
+   "snippet": "\"f20\":472801755940,\"f23\":48.37",
+   "source_url": "https://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&secids=105.NVDA,..."
+  },
+  {
+   "key": "pe_PLTR",
+   "label": "Palantir 市盈率 TTM",
+   "value": 156.73,
+   "unit": "倍",
+   "raw_file": "quote-top10.json",
+   "snippet": "\"f114\":290.95,\"f115\":156.73}",
+   "source_url": "https://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&secids=105.NVDA,..."
+  },
+  {
+   "key": "pes_PLTR",
+   "label": "Palantir 市盈率 静态（上一财年）",
+   "value": 290.95,
+   "unit": "倍",
+   "raw_file": "quote-top10.json",
+   "snippet": "\"f114\":290.95,\"f115\":156.73}",
+   "source_url": "https://push2.eastmoney.com/api/qt/ulist.np/get?fltt=2&secids=105.NVDA,..."
+  }
+ ],
+ "derived": [
+  {
+   "key": "mult_10y_ndx",
+   "label": "纳斯达克自 2016-10-31 累计倍数",
+   "expr": "idx_now / idx_m2016",
+   "value": 5.001858,
+   "unit": "倍"
+  },
+  {
+   "key": "cagr_10y_ndx",
+   "label": "纳斯达克自 2016-10-31 年化",
+   "expr": "((idx_now / idx_m2016) ** (1/9.9767) - 1) * 100",
+   "value": 17.510429,
+   "unit": "%"
+  },
+  {
+   "key": "mult_15y_ndx",
+   "label": "纳斯达克自 2011-10-31 累计倍数",
+   "expr": "idx_now / idx_m2011",
+   "value": 9.668918,
+   "unit": "倍"
+  },
+  {
+   "key": "cagr_15y_ndx",
+   "label": "纳斯达克自 2011-10-31 年化",
+   "expr": "((idx_now / idx_m2011) ** (1/14.9788) - 1) * 100",
+   "value": 16.354942,
+   "unit": "%"
+  },
+  {
+   "key": "mult_base_ndx",
+   "label": "纳斯达克自 基日 1991-08 累计倍数",
+   "expr": "idx_now / idx_base",
+   "value": 49.374791,
+   "unit": "倍"
+  },
+  {
+   "key": "cagr_base_ndx",
+   "label": "纳斯达克自 基日 1991-08 年化",
+   "expr": "((idx_now / idx_base) ** (1/35.1485) - 1) * 100",
+   "value": 11.732994,
+   "unit": "%"
+  },
+  {
+   "key": "mult_2000_ndx",
+   "label": "纳斯达克自 2000-03-31 累计倍数",
+   "expr": "idx_now / idx_m2000",
+   "value": 5.675991,
+   "unit": "倍"
+  },
+  {
+   "key": "cagr_2000_ndx",
+   "label": "纳斯达克自 2000-03-31 年化",
+   "expr": "((idx_now / idx_m2000) ** (1/26.5626) - 1) * 100",
+   "value": 6.754783,
+   "unit": "%"
+  },
+  {
+   "key": "mult_1y_ndx",
+   "label": "纳斯达克自 2025-10-31 累计倍数",
+   "expr": "idx_now / idx_m2025_10",
+   "value": 1.09401,
+   "unit": "倍"
+  },
+  {
+   "key": "cagr_1y_ndx",
+   "label": "纳斯达克自 2025-10-31 年化",
+   "expr": "((idx_now / idx_m2025_10) ** (1/0.9774) - 1) * 100",
+   "value": 9.628508,
+   "unit": "%"
+  },
+  {
+   "key": "mult_10y_spx",
+   "label": "标普500自 spx_m2016 累计倍数",
+   "expr": "spx_now / spx_m2016",
+   "value": 3.585674,
+   "unit": "倍"
+  },
+  {
+   "key": "cagr_10y_spx",
+   "label": "标普500自 spx_m2016 年化",
+   "expr": "((spx_now / spx_m2016) ** (1/9.9767) - 1) * 100",
+   "value": 13.654489,
+   "unit": "%"
+  },
+  {
+   "key": "mult_15y_spx",
+   "label": "标普500自 spx_m2011 累计倍数",
+   "expr": "spx_now / spx_m2011",
+   "value": 6.082885,
+   "unit": "倍"
+  },
+  {
+   "key": "cagr_15y_spx",
+   "label": "标普500自 spx_m2011 年化",
+   "expr": "((spx_now / spx_m2011) ** (1/14.9788) - 1) * 100",
+   "value": 12.810094,
+   "unit": "%"
+  },
+  {
+   "key": "mult_base_spx",
+   "label": "标普500自 spx_base 累计倍数",
+   "expr": "spx_now / spx_base",
+   "value": 19.279468,
+   "unit": "倍"
+  },
+  {
+   "key": "cagr_base_spx",
+   "label": "标普500自 spx_base 年化",
+   "expr": "((spx_now / spx_base) ** (1/35.1485) - 1) * 100",
+   "value": 8.783211,
+   "unit": "%"
+  },
+  {
+   "key": "mult_2000_spx",
+   "label": "标普500自 spx_m2000 累计倍数",
+   "expr": "spx_now / spx_m2000",
+   "value": 5.087269,
+   "unit": "倍"
+  },
+  {
+   "key": "cagr_2000_spx",
+   "label": "标普500自 spx_m2000 年化",
+   "expr": "((spx_now / spx_m2000) ** (1/26.5626) - 1) * 100",
+   "value": 6.315594,
+   "unit": "%"
+  },
+  {
+   "key": "mult_1y_spx",
+   "label": "标普500自 spx_m2025_10 累计倍数",
+   "expr": "spx_now / spx_m2025_10",
+   "value": 1.114541,
+   "unit": "倍"
+  },
+  {
+   "key": "cagr_1y_spx",
+   "label": "标普500自 spx_m2025_10 年化",
+   "expr": "((spx_now / spx_m2025_10) ** (1/0.9774) - 1) * 100",
+   "value": 11.733869,
+   "unit": "%"
+  },
+  {
+   "key": "mc_total_tn",
+   "label": "前十合计总市值",
+   "expr": "(mc_NVDA + mc_AAPL + mc_GOOGL + mc_MSFT + mc_AMZN + mc_META + mc_AVGO + mc_TSLA + mc_WMT + mc_PLTR) / 1000000000000",
+   "value": 26.718854,
+   "unit": "万亿美元"
+  },
+  {
+   "key": "earn_total_tn",
+   "label": "前十合计 TTM 利润",
+   "expr": "(mc_NVDA / pe_NVDA + mc_AAPL / pe_AAPL + mc_GOOGL / pe_GOOGL + mc_MSFT / pe_MSFT + mc_AMZN / pe_AMZN + mc_META / pe_META + mc_AVGO / pe_AVGO + mc_TSLA / pe_TSLA + mc_WMT / pe_WMT + mc_PLTR / pe_PLTR) / 1000000000000",
+   "value": 0.97685,
+   "unit": "万亿美元"
+  },
+  {
+   "key": "pe_top10",
+   "label": "前十合成市盈率 TTM",
+   "expr": "(mc_NVDA + mc_AAPL + mc_GOOGL + mc_MSFT + mc_AMZN + mc_META + mc_AVGO + mc_TSLA + mc_WMT + mc_PLTR) / (mc_NVDA / pe_NVDA + mc_AAPL / pe_AAPL + mc_GOOGL / pe_GOOGL + mc_MSFT / pe_MSFT + mc_AMZN / pe_AMZN + mc_META / pe_META + mc_AVGO / pe_AVGO + mc_TSLA / pe_TSLA + mc_WMT / pe_WMT + mc_PLTR / pe_PLTR)",
+   "value": 27.35206,
+   "unit": "倍"
+  },
+  {
+   "key": "pe_top10_static",
+   "label": "前十合成市盈率 静态",
+   "expr": "(mc_NVDA + mc_AAPL + mc_GOOGL + mc_MSFT + mc_AMZN + mc_META + mc_AVGO + mc_TSLA + mc_WMT + mc_PLTR) / (mc_NVDA / pes_NVDA + mc_AAPL / pes_AAPL + mc_GOOGL / pes_GOOGL + mc_MSFT / pes_MSFT + mc_AMZN / pes_AMZN + mc_META / pes_META + mc_AVGO / pes_AVGO + mc_TSLA / pes_TSLA + mc_WMT / pes_WMT + mc_PLTR / pes_PLTR)",
+   "value": 38.915783,
+   "unit": "倍"
+  },
+  {
+   "key": "earn_growth_implied",
+   "label": "前十隐含利润增速（静态口径→TTM 口径）",
+   "expr": "(pe_top10_static / pe_top10 - 1) * 100",
+   "value": 42.277339,
+   "unit": "%"
+  },
+  {
+   "key": "pe_premium_vs_spx",
+   "label": "前十合成 TTM 倍数相对标普溢价",
+   "expr": "(pe_top10 / sp500_pe - 1) * 100",
+   "value": 5.159785,
+   "unit": "%"
+  },
+  {
+   "key": "pe_premium_static",
+   "label": "前十合成静态倍数相对标普溢价",
+   "expr": "(pe_top10_static / sp500_pe - 1) * 100",
+   "value": 49.618543,
+   "unit": "%"
+  },
+  {
+   "key": "pe_vs_2022",
+   "label": "标普 PE 高于 2022-10 底部的幅度",
+   "expr": "(sp500_pe / sp500_pe_2022_10 - 1) * 100",
+   "value": 27.250489,
+   "unit": "%"
+  },
+  {
+   "key": "us10y_gap_2022",
+   "label": "美债 10Y 高于 2022-10 的幅度",
+   "expr": "us10y - us10y_2022",
+   "value": 0.96,
+   "unit": "pct"
+  },
+  {
+   "key": "mult_from_2022",
+   "label": "自 2022-12 收盘累计倍数",
+   "expr": "idx_now / idx_m2022_12",
+   "value": 2.479854,
+   "unit": "倍"
+  },
+  {
+   "key": "dd_2022",
+   "label": "纳指上一轮回撤（2021-11 收盘 → 2022-12 收盘）",
+   "expr": "(idx_m2022_12 / idx_m2021_11 - 1) * 100",
+   "value": -32.638121,
+   "unit": "%"
+  },
+  {
+   "key": "worst_earn20",
+   "label": "若利润下修两成、倍数不变的点位",
+   "expr": "idx_now * 0.8",
+   "value": 20764.272,
+   "unit": "点"
+  },
+  {
+   "key": "ey_top10",
+   "label": "前十合成盈利收益率（TTM）",
+   "expr": "100 / pe_top10",
+   "value": 3.656032,
+   "unit": "%"
+  },
+  {
+   "key": "ey_top10_static",
+   "label": "前十合成盈利收益率（静态）",
+   "expr": "100 / pe_top10_static",
+   "value": 2.569651,
+   "unit": "%"
+  },
+  {
+   "key": "ey_sp500",
+   "label": "标普盈利收益率",
+   "expr": "100 / sp500_pe",
+   "value": 3.844675,
+   "unit": "%"
+  },
+  {
+   "key": "spread_top10",
+   "label": "风险补偿（前十 TTM − 美债）",
+   "expr": "ey_top10 - us10y",
+   "value": -1.303968,
+   "unit": "pct"
+  },
+  {
+   "key": "spread_static",
+   "label": "风险补偿（前十 静态 − 美债）",
+   "expr": "ey_top10_static - us10y",
+   "value": -2.390349,
+   "unit": "pct"
+  },
+  {
+   "key": "spread_sp500",
+   "label": "风险补偿（标普 − 美债）",
+   "expr": "ey_sp500 - us10y",
+   "value": -1.115325,
+   "unit": "pct"
+  },
+  {
+   "key": "ey_2022",
+   "label": "2022-10 底部盈利收益率",
+   "expr": "100 / sp500_pe_2022_10",
+   "value": 4.892368,
+   "unit": "%"
+  },
+  {
+   "key": "spread_2022",
+   "label": "2022-10 底部风险补偿",
+   "expr": "ey_2022 - us10y_2022",
+   "value": 0.892368,
+   "unit": "pct"
+  },
+  {
+   "key": "ey_2020",
+   "label": "2020-03 底部盈利收益率",
+   "expr": "100 / sp500_pe_2020_03",
+   "value": 4.385965,
+   "unit": "%"
+  },
+  {
+   "key": "spread_2020",
+   "label": "2020-03 底部风险补偿",
+   "expr": "ey_2020 - us10y_2020",
+   "value": 3.625965,
+   "unit": "pct"
+  },
+  {
+   "key": "dd_ath",
+   "label": "距盘中历史最高",
+   "expr": "(idx_now / idx_ath - 1) * 100",
+   "value": -6.375305,
+   "unit": "%"
+  },
+  {
+   "key": "dd_ath_close",
+   "label": "距收盘历史最高",
+   "expr": "(idx_now / idx_ath_close - 1) * 100",
+   "value": -5.958538,
+   "unit": "%"
+  },
+  {
+   "key": "up_from_lo52",
+   "label": "距 52 周最低收盘",
+   "expr": "(idx_now / idx_lo52 - 1) * 100",
+   "value": 24.817453,
+   "unit": "%"
+  },
+  {
+   "key": "dd_from_0609",
+   "label": "较 2026-09-30 收盘",
+   "expr": "(idx_now / idx_m2026_09 - 1) * 100",
+   "value": -3.37187,
+   "unit": "%"
+  },
+  {
+   "key": "lvl_0",
+   "label": "补偿归零对应点位",
+   "expr": "idx_now * (1 / (us10y / 100)) / pe_top10",
+   "value": 19131.763573,
+   "unit": "点"
+  },
+  {
+   "key": "lvl_15",
+   "label": "补偿 1.5pct 对应点位",
+   "expr": "idx_now * (1 / ((us10y + 1.5) / 100)) / pe_top10",
+   "value": 14689.40361,
+   "unit": "点"
+  },
+  {
+   "key": "lvl_20",
+   "label": "补偿 2.0pct 对应点位",
+   "expr": "idx_now * (1 / ((us10y + 2.0) / 100)) / pe_top10",
+   "value": 13634.130363,
+   "unit": "点"
+  },
+  {
+   "key": "pct_0",
+   "label": "补偿归零线距现价",
+   "expr": "(lvl_0 / idx_now - 1) * 100",
+   "value": -26.289682,
+   "unit": "%"
+  },
+  {
+   "key": "pct_15",
+   "label": "补偿 1.5pct 线距现价",
+   "expr": "(lvl_15 / idx_now - 1) * 100",
+   "value": -43.405081,
+   "unit": "%"
+  },
+  {
+   "key": "pct_20",
+   "label": "补偿 2.0pct 线距现价",
+   "expr": "(lvl_20 / idx_now - 1) * 100",
+   "value": -47.470808,
+   "unit": "%"
+  },
+  {
+   "key": "worst_30",
+   "label": "从现在再跌 30% 的点位",
+   "expr": "idx_now * 0.7",
+   "value": 18168.738,
+   "unit": "点"
+  },
+  {
+   "key": "worst_30_pct",
+   "label": "再跌三成对应幅度",
+   "expr": "(worst_30 / idx_now - 1) * 100",
+   "value": -30.0,
+   "unit": "%"
+  },
+  {
+   "key": "spx_eps_now",
+   "label": "标普隐含每股盈利（现价 ÷ PE）",
+   "expr": "spx_now / sp500_pe",
+   "value": 293.105729,
+   "unit": "点"
+  },
+  {
+   "key": "spx_eps_2025",
+   "label": "标普隐含每股盈利（2025-10）",
+   "expr": "spx_m2025_10 / sp500_pe_2025_10",
+   "value": 240.682618,
+   "unit": "点"
+  },
+  {
+   "key": "spx_eps_growth",
+   "label": "标普隐含盈利增速（一年）",
+   "expr": "(spx_eps_now / spx_eps_2025 - 1) * 100",
+   "value": 21.781012,
+   "unit": "%"
+  },
+  {
+   "key": "spx_ret_1y",
+   "label": "标普一年涨幅",
+   "expr": "(spx_now / spx_m2025_10 - 1) * 100",
+   "value": 11.454051,
+   "unit": "%"
+  },
+  {
+   "key": "spx_pe_chg",
+   "label": "标普一年倍数变化",
+   "expr": "(sp500_pe / sp500_pe_2025_10 - 1) * 100",
+   "value": -8.479944,
+   "unit": "%"
+  }
+ ]
+}

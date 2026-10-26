@@ -1,0 +1,2062 @@
+{
+  "meta": {
+    "company": "跨资产",
+    "as_of": "2026-10-26",
+    "fetched_at": "2026-10-26T16:20:00+08:00",
+    "currency": "多币种（USD / CNY / HKD）",
+    "code": "NDX, SPX, 000300.SH, HSTECH, GC, CL, BTC",
+    "note": "表一的点位、估值、补偿、纪律线全部转抄自七个对象各自的 output/<对象>/data/20261026/facts.json，不重新估算；相关性由本目录 corr.py 计算，收益率为月末简单月收益。东财 kline 接口本机 curl 返回空（Empty reply from server），指数与商品改用新浪/腾讯日线落盘，见 source_url。"
+  },
+  "inputs": [
+    {
+      "key": "ndx_now",
+      "label": "纳斯达克综合最新点位",
+      "value": 25955.34,
+      "unit": "点",
+      "raw_file": "upstream-ndx-facts.json",
+      "snippet": "\"key\": \"idx_now\", \"label\": \"纳斯达克综合指数最新收盘（2026-10-23）\", \"value\": 25955.34, \"unit\": \"点\", \"raw_file\": \"kline-NDX-monthly.json\", \"snippet\": \"2026-10-23,25955.34\", \"source_url\": \"https://push2his",
+      "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=100.NDX&klt=103",
+      "note": "转抄自 output/纳斯达克/data/20261026/facts.json 的 idx_now"
+    },
+    {
+      "key": "ndx_dd_ath",
+      "label": "纳斯达克距历史收盘高点",
+      "value": -5.958538,
+      "unit": "%",
+      "raw_file": "upstream-ndx-facts.json",
+      "snippet": "\"key\": \"dd_ath_close\", \"label\": \"距收盘历史最高\", \"expr\": \"(idx_now / idx_ath_close - 1) * 100\", \"value\": -5.958538, \"unit\": \"%\" }, { \"key\": \"up_from_lo52\", \"label\": \"距 52 周最低收盘\", \"expr\": \"(idx_now",
+      "source_url": "https://stock.finance.sina.com.cn/usstock/api/jsonp.php/var%20_=/US_MinKService.getDailyK?symbol=.IXIC",
+      "note": "转抄自 output/纳斯达克/data/20261026/facts.json 的 dd_ath_close"
+    },
+    {
+      "key": "ndx_pe_top10",
+      "label": "纳斯达克前十大成分滚动 PE",
+      "value": 27.35206,
+      "unit": "倍",
+      "raw_file": "upstream-ndx-facts.json",
+      "snippet": "_TSLA / pe_TSLA + mc_WMT / pe_WMT + mc_PLTR / pe_PLTR)\", \"value\": 27.35206, \"unit\": \"倍\" }, { \"key\": \"pe_top10_static\", \"label\": \"前十合成市盈率 静态\", \"expr\": \"(mc_NVDA + mc_AAPL + mc_GOOGL",
+      "source_url": "https://stock.finance.sina.com.cn/usstock/api/jsonp.php/var%20_=/US_MinKService.getDailyK?symbol=.IXIC",
+      "note": "转抄自 output/纳斯达克/data/20261026/facts.json 的 pe_top10"
+    },
+    {
+      "key": "ndx_spread",
+      "label": "纳斯达克风险补偿（前十盈利收益率−美债10Y）",
+      "value": -1.303968,
+      "unit": "pct",
+      "raw_file": "upstream-ndx-facts.json",
+      "snippet": "\"key\": \"spread_top10\", \"label\": \"风险补偿（前十 TTM − 美债）\", \"expr\": \"ey_top10 - us10y\", \"value\": -1.303968, \"unit\": \"pct\" }, { \"key\": \"spread_static\", \"label\": \"风险补偿（前十 静态 − 美债）\", \"expr\": \"ey_top10",
+      "source_url": "https://stock.finance.sina.com.cn/usstock/api/jsonp.php/var%20_=/US_MinKService.getDailyK?symbol=.IXIC",
+      "note": "转抄自 output/纳斯达克/data/20261026/facts.json 的 spread_top10"
+    },
+    {
+      "key": "ndx_lvl_0",
+      "label": "纳斯达克补偿归零的纪律线",
+      "value": 19131.763573,
+      "unit": "点",
+      "raw_file": "upstream-ndx-facts.json",
+      "snippet": "\"key\": \"lvl_0\", \"label\": \"补偿归零对应点位\", \"expr\": \"idx_now * (1 / (us10y / 100)) / pe_top10\", \"value\": 19131.763573, \"unit\": \"点\" }, { \"key\": \"lvl_15\", \"label\": \"补偿 1.5pct 对应点位\", \"expr\": \"idx_now ",
+      "source_url": "https://stock.finance.sina.com.cn/usstock/api/jsonp.php/var%20_=/US_MinKService.getDailyK?symbol=.IXIC",
+      "note": "转抄自 output/纳斯达克/data/20261026/facts.json 的 lvl_0"
+    },
+    {
+      "key": "us10y",
+      "label": "美国 10 年期国债收益率",
+      "value": 4.96,
+      "unit": "%",
+      "raw_file": "upstream-ndx-facts.json",
+      "snippet": "\"key\": \"us10y\", \"label\": \"美国十年期国债收益率（2026-10-22）\", \"value\": 4.96, \"unit\": \"%\", \"raw_file\": \"us10y.csv\", \"snippet\": \"2026-10-22,4.96\", \"source_url\": \"https://fred.stlouisfed.org/graph/fredgra",
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10",
+      "note": "转抄自 output/纳斯达克/data/20261026/facts.json 的 us10y"
+    },
+    {
+      "key": "spx_now",
+      "label": "标普500最新点位",
+      "value": 7623.68,
+      "unit": "点",
+      "raw_file": "upstream-spx-facts.json",
+      "snippet": "\"key\": \"lvl_now\", \"label\": \"标普500 2026-10-23 收盘\", \"value\": 7623.68, \"unit\": \"点\", \"raw_file\": \"kline-SPX-monthly-ohlc.json\", \"snippet\": \"4,7782.19,7507.77\\\",\\\"2026-10-23,7666.47,7623.68,7844.",
+      "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=100.SPX&klt=103&fqt=1",
+      "note": "转抄自 output/标普500/data/20261026/facts.json 的 lvl_now"
+    },
+    {
+      "key": "spx_spread",
+      "label": "标普500风险补偿（盈利收益率−美债10Y）",
+      "value": -1.115325,
+      "unit": "pct",
+      "raw_file": "upstream-spx-facts.json",
+      "snippet": "\"key\": \"spread\", \"label\": \"风险补偿（盈利收益率 − 美债 10Y）\", \"expr\": \"ey - us10y\", \"value\": -1.115325, \"unit\": \"pct\" }, { \"key\": \"dd_hi52\", \"label\": \"距 52 周高\", \"expr\": \"(lvl_now / hi52 - 1) *",
+      "source_url": "https://stock.finance.sina.com.cn/usstock/api/jsonp.php/var%20_=/US_MinKService.getDailyK?symbol=.INX",
+      "note": "转抄自 output/标普500/data/20261026/facts.json 的 spread"
+    },
+    {
+      "key": "spx_pe",
+      "label": "标普500滚动 PE",
+      "value": 26.01,
+      "unit": "倍",
+      "raw_file": "upstream-spx-facts.json",
+      "snippet": "\"key\": \"pe_now\", \"label\": \"2026-10-23 滚动市盈率（multpl 官方口径）\", \"value\": 26.01, \"unit\": \"倍\", \"raw_file\": \"pe-monthly.csv\", \"snippet\": \"96 2026-10-01,26.29 2026-10-23,26.01\", \"source_url\": \"https:",
+      "source_url": "https://www.multpl.com/s-p-500-pe-ratio/table/by-month",
+      "note": "转抄自 output/标普500/data/20261026/facts.json 的 pe_now"
+    },
+    {
+      "key": "spx_pct_1990",
+      "label": "标普500 PE 的 1990 年以来分位",
+      "value": 71.11,
+      "unit": "%",
+      "raw_file": "upstream-spx-facts.json",
+      "snippet": "\"key\": \"pct_1990\", \"label\": \"PE 1990 年以来分位\", \"value\": 71.11, \"unit\": \"%\", \"raw_file\": \"pe-quantile-stats.txt\", \"snippet\": \"起）：93.05%（1871 个观测） 1990 起：71.11%（443 个观测） 1996 起：65.50%（371 个观测） 2",
+      "source_url": "https://www.multpl.com/s-p-500-pe-ratio/table/by-month",
+      "note": "转抄自 output/标普500/data/20261026/facts.json 的 pct_1990"
+    },
+    {
+      "key": "spx_lvl_s0",
+      "label": "标普500 补偿归零点位（可定投上沿）",
+      "value": 5909.389689,
+      "unit": "点",
+      "raw_file": "upstream-spx-facts.json",
+      "snippet": "\"key\": \"lvl_spread0\", \"label\": \"补偿 0（PE 20.16）对应点位\", \"expr\": \"lvl_now * (100 / us10y) / pe_now\", \"value\": 5909.389689, \"unit\": \"点\" }, { \"key\": \"lvl_spread05\", \"label\": \"补偿 0.5pct 对应点位\",",
+      "source_url": "https://stock.finance.sina.com.cn/usstock/api/jsonp.php/var%20_=/US_MinKService.getDailyK?symbol=.INX",
+      "note": "转抄自 output/标普500/data/20261026/facts.json 的 lvl_spread0"
+    },
+    {
+      "key": "spx_lvl_s10",
+      "label": "标普500 补偿 1% 点位（可定投下沿）",
+      "value": 4917.881352,
+      "unit": "点",
+      "raw_file": "upstream-spx-facts.json",
+      "snippet": "\"key\": \"lvl_spread10\", \"label\": \"补偿 1.0pct 对应点位\", \"expr\": \"lvl_now * (100 / (us10y + 1.0)) / pe_now\", \"value\": 4917.881352, \"unit\": \"点\" }, { \"key\": \"lvl_spread15\", \"label\": \"补偿 1.5pct 对应",
+      "source_url": "https://stock.finance.sina.com.cn/usstock/api/jsonp.php/var%20_=/US_MinKService.getDailyK?symbol=.INX",
+      "note": "转抄自 output/标普500/data/20261026/facts.json 的 lvl_spread10"
+    },
+    {
+      "key": "spx_lvl_s15",
+      "label": "标普500 补偿 1.5% 点位（加仓线）",
+      "value": 4537.24038,
+      "unit": "点",
+      "raw_file": "upstream-spx-facts.json",
+      "snippet": "\"key\": \"lvl_spread15\", \"label\": \"补偿 1.5pct 对应点位\", \"expr\": \"lvl_now * (100 / (us10y + 1.5)) / pe_now\", \"value\": 4537.24038, \"unit\": \"点\" }, { \"key\": \"lvl_spread20\", \"label\": \"补偿 2.0pct 对应点",
+      "source_url": "https://stock.finance.sina.com.cn/usstock/api/jsonp.php/var%20_=/US_MinKService.getDailyK?symbol=.INX",
+      "note": "转抄自 output/标普500/data/20261026/facts.json 的 lvl_spread15"
+    },
+    {
+      "key": "spx_w_nvda",
+      "label": "标普500 英伟达权重",
+      "value": 7.776316,
+      "unit": "%",
+      "raw_file": "upstream-spx-facts.json",
+      "snippet": "\"key\": \"w_NVDA\", \"label\": \"NVDA 在 SPY 中的权重（2026-10-22）\", \"value\": 7.776316, \"unit\": \"%\", \"raw_file\": \"sp500-weights.csv\", \"snippet\": \"ticker,weight_pct NVDA,7.776316 AAPL,7.695329 MSFT,5.858",
+      "source_url": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-spy.xlsx",
+      "note": "转抄自 output/标普500/data/20261026/facts.json 的 w_NVDA"
+    },
+    {
+      "key": "spx_w_aapl",
+      "label": "标普500 苹果权重",
+      "value": 7.695329,
+      "unit": "%",
+      "raw_file": "upstream-spx-facts.json",
+      "snippet": "\"key\": \"w_AAPL\", \"label\": \"AAPL 在 SPY 中的权重（2026-10-22）\", \"value\": 7.695329, \"unit\": \"%\", \"raw_file\": \"sp500-weights.csv\", \"snippet\": \"t_pct NVDA,7.776316 AAPL,7.695329 MSFT,5.858633 AMZN,3.7",
+      "source_url": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-spy.xlsx",
+      "note": "转抄自 output/标普500/data/20261026/facts.json 的 w_AAPL"
+    },
+    {
+      "key": "csi_now",
+      "label": "沪深300最新点位（盘中）",
+      "value": 4062.69,
+      "unit": "点",
+      "raw_file": "upstream-csi300-facts.json",
+      "snippet": "\"key\": \"idx_level\", \"label\": \"沪深300 现价（2026-10-26 盘中）\", \"value\": 4062.69, \"unit\": \"点\", \"raw_file\": \"kline-CSI300-monthly.json\", \"snippet\": \"\\\"2026-10-26,4062.69\\\"\", \"source_url\": \"https://pu",
+      "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=1.000300&klt=103&fqt=1&beg=0&end=20500101&fields1=f1,f2&fields2=f51,f53",
+      "note": "转抄自 output/沪深300/data/20261026/facts.json 的 idx_level"
+    },
+    {
+      "key": "csi_pe",
+      "label": "沪深300现价对应 PE",
+      "value": 12.6077,
+      "unit": "倍",
+      "raw_file": "upstream-csi300-facts.json",
+      "snippet": "\"key\": \"pe_adj\", \"label\": \"现价对应 PE（按 10-23 的 PE 与点位折算）\", \"expr\": \"pe_now*idx_level/px_now_official\", \"value\": 12.6077, \"unit\": \"倍\" }, { \"key\": \"ey\", \"label\": \"盈利收益率（100 ÷ PE）\", \"ex",
+      "source_url": "https://money.finance.sina.com.cn/quotes_service/api/json_v2.php/CN_MarketData.getKLineData?symbol=sh000300&scale=240&ma=no&datalen=5000",
+      "note": "转抄自 output/沪深300/data/20261026/facts.json 的 pe_adj"
+    },
+    {
+      "key": "csi_pe_pct",
+      "label": "沪深300 PE 历史分位",
+      "value": 46.24,
+      "unit": "%",
+      "raw_file": "upstream-csi300-facts.json",
+      "snippet": "\"key\": \"pe_pct_adj\", \"label\": \"PE 12.61 的历史分位\", \"value\": 46.24, \"unit\": \"%\", \"raw_file\": \"derived-stats.txt\", \"snippet\": \"pe_pct_1261 = 46.24\", \"source_url\": \"https://www.csindex.com.cn/csin",
+      "source_url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=000300&startDate=20050101&endDate=20261026",
+      "note": "转抄自 output/沪深300/data/20261026/facts.json 的 pe_pct_adj"
+    },
+    {
+      "key": "csi_spread",
+      "label": "沪深300风险补偿（盈利收益率−10年国债）",
+      "value": 6.2917,
+      "unit": "pct",
+      "raw_file": "upstream-csi300-facts.json",
+      "snippet": "\"key\": \"spread_cn\", \"label\": \"风险补偿（盈利收益率 − 10 年期国债）\", \"expr\": \"ey-cn10y\", \"value\": 6.2917, \"unit\": \"个百分点\" }, { \"key\": \"spread_us\", \"label\": \"风险补偿（盈利收益率 − 10 年期美债）\", \"expr\": \"ey-us1",
+      "source_url": "https://money.finance.sina.com.cn/quotes_service/api/json_v2.php/CN_MarketData.getKLineData?symbol=sh000300&scale=240&ma=no&datalen=5000",
+      "note": "转抄自 output/沪深300/data/20261026/facts.json 的 spread_cn"
+    },
+    {
+      "key": "csi_lvl_dingtou",
+      "label": "沪深300定投线（PE 33% 分位）",
+      "value": 3873.3176,
+      "unit": "点",
+      "raw_file": "upstream-csi300-facts.json",
+      "snippet": "\"key\": \"lvl_pe_1202\", \"label\": \"PE 12.02 倍（33% 分位）对应点位\", \"expr\": \"eps_now*pe_q33\", \"value\": 3873.3176, \"unit\": \"点\" }, { \"key\": \"lvl_pe_1452\", \"label\": \"PE 14.52 倍（80% 分位）对应点位\", \"ex",
+      "source_url": "https://money.finance.sina.com.cn/quotes_service/api/json_v2.php/CN_MarketData.getKLineData?symbol=sh000300&scale=240&ma=no&datalen=5000",
+      "note": "转抄自 output/沪深300/data/20261026/facts.json 的 lvl_pe_1202"
+    },
+    {
+      "key": "csi_lvl_jiacang",
+      "label": "沪深300加仓线（PE 10% 分位）",
+      "value": 3241.7284,
+      "unit": "点",
+      "raw_file": "upstream-csi300-facts.json",
+      "snippet": "\"key\": \"lvl_pe_1006\", \"label\": \"PE 10.06 倍（10% 分位）对应点位\", \"expr\": \"eps_now*pe_q10\", \"value\": 3241.7284, \"unit\": \"点\" }, { \"key\": \"lvl_pe_1202\", \"label\": \"PE 12.02 倍（33% 分位）对应点位\", \"ex",
+      "source_url": "https://money.finance.sina.com.cn/quotes_service/api/json_v2.php/CN_MarketData.getKLineData?symbol=sh000300&scale=240&ma=no&datalen=5000",
+      "note": "转抄自 output/沪深300/data/20261026/facts.json 的 lvl_pe_1006"
+    },
+    {
+      "key": "csi_lvl_zanting",
+      "label": "沪深300暂停线（PE 80% 分位）",
+      "value": 4678.9161,
+      "unit": "点",
+      "raw_file": "upstream-csi300-facts.json",
+      "snippet": "\"key\": \"lvl_pe_1452\", \"label\": \"PE 14.52 倍（80% 分位）对应点位\", \"expr\": \"eps_now*pe_q80\", \"value\": 4678.9161, \"unit\": \"点\" }, { \"key\": \"lvl_worst\", \"label\": \"PE 8.55 倍 + 盈利再降 15% 对应点位\", \"e",
+      "source_url": "https://money.finance.sina.com.cn/quotes_service/api/json_v2.php/CN_MarketData.getKLineData?symbol=sh000300&scale=240&ma=no&datalen=5000",
+      "note": "转抄自 output/沪深300/data/20261026/facts.json 的 lvl_pe_1452"
+    },
+    {
+      "key": "csi_top10_w",
+      "label": "沪深300前十大成分权重合计",
+      "value": 32.52,
+      "unit": "%",
+      "raw_file": "upstream-csi300-facts.json",
+      "snippet": "\"key\": \"top10_w\", \"label\": \"前十大成分合计权重\", \"value\": 32.52, \"unit\": \"%\", \"raw_file\": \"derived-stats.txt\", \"snippet\": \"top10_w = 32.52\", \"source_url\": \"https://push2.eastmoney.com/api/qt/clist/ge",
+      "source_url": "https://push2.eastmoney.com/api/qt/clist/get?fs=b:BK0500&fields=f12,f14,f9,f20,f100",
+      "note": "转抄自 output/沪深300/data/20261026/facts.json 的 top10_w"
+    },
+    {
+      "key": "hstech_now",
+      "label": "恒生科技最新点位",
+      "value": 3813.33,
+      "unit": "点",
+      "raw_file": "upstream-hstech-facts.json",
+      "snippet": "\"key\": \"idx_level\", \"label\": \"恒生科技最新点位\", \"value\": 3813.33, \"unit\": \"点\", \"raw_file\": \"kline-HSTECH.json\", \"snippet\": \"2026-10-26,3813.33\", \"source_url\": \"https://push2his.eastmoney.com/api/qt",
+      "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=124.HSTECH",
+      "note": "转抄自 output/恒生科技/data/20261026/facts.json 的 idx_level"
+    },
+    {
+      "key": "hstech_pe",
+      "label": "恒生科技前十大合计口径 PE",
+      "value": 17.291601,
+      "unit": "倍",
+      "raw_file": "upstream-hstech-facts.json",
+      "snippet": "\"key\": \"pe\", \"label\": \"十家合成市盈率\", \"expr\": \"tot_m / tot_e\", \"value\": 17.291601, \"unit\": \"倍\" }, { \"key\": \"pe_ex\", \"label\": \"剔美团亏损\", \"expr\": \"tot_m / (tot_e - ni_03690)\", \"value\": 15.775986, \"un",
+      "source_url": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=hkHSTECH,day,,,1600,qfq",
+      "note": "转抄自 output/恒生科技/data/20261026/facts.json 的 pe"
+    },
+    {
+      "key": "hstech_spread",
+      "label": "恒生科技风险补偿（盈利收益率−美债10Y）",
+      "value": 0.823154,
+      "unit": "pct",
+      "raw_file": "upstream-hstech-facts.json",
+      "snippet": "\"key\": \"spread\", \"label\": \"相对美债风险补偿\", \"expr\": \"ey - us10y\", \"value\": 0.823154, \"unit\": \"pct\" }, { \"key\": \"dd_hi\", \"label\": \"距 52 周高点\", \"expr\": \"(idx_level / idx_hi52 - 1) * 100\", \"value\": -3",
+      "source_url": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=hkHSTECH,day,,,1600,qfq",
+      "note": "转抄自 output/恒生科技/data/20261026/facts.json 的 spread"
+    },
+    {
+      "key": "hstech_lvl_dingtou",
+      "label": "恒生科技定投线（PE 20 倍）",
+      "value": 3168.545477,
+      "unit": "点",
+      "raw_file": "upstream-hstech-facts.json",
+      "snippet": "\"key\": \"lvl_20\", \"label\": \"补偿 2.0pct 对应点位\", \"expr\": \"idx_level * (1 / ((us10y + 2.0) / 100)) / pe\", \"value\": 3168.545477, \"unit\": \"点\" }, { \"key\": \"lvl_30\", \"label\": \"补偿 3.0pct 对应点位\", \"expr\":",
+      "source_url": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=hkHSTECH,day,,,1600,qfq",
+      "note": "转抄自 output/恒生科技/data/20261026/facts.json 的 lvl_20"
+    },
+    {
+      "key": "hstech_lvl_jiacang",
+      "label": "恒生科技加仓线（PE 30 倍）",
+      "value": 2770.487,
+      "unit": "点",
+      "raw_file": "upstream-hstech-facts.json",
+      "snippet": "\"key\": \"lvl_30\", \"label\": \"补偿 3.0pct 对应点位\", \"expr\": \"idx_level * (1 / ((us10y + 3.0) / 100)) / pe\", \"value\": 2770.487, \"unit\": \"点\" }, { \"key\": \"m2005_HSI_mult\", \"label\": \"HSI 自 2005-12-30 累计",
+      "source_url": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=hkHSTECH,day,,,1600,qfq",
+      "note": "转抄自 output/恒生科技/data/20261026/facts.json 的 lvl_30"
+    },
+    {
+      "key": "hstech_dd_peak",
+      "label": "恒生科技距 2021 峰值回撤",
+      "value": -59.251067,
+      "unit": "%",
+      "raw_file": "upstream-hstech-facts.json",
+      "snippet": "\"key\": \"dd_peak\", \"label\": \"距历史最高\", \"expr\": \"(idx_level / idx_peak - 1) * 100\", \"value\": -59.251067, \"unit\": \"%\" }, { \"key\": \"mult_base\", \"label\": \"自基日累计倍数\", \"expr\": \"idx_level / idx_base\", ",
+      "source_url": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=hkHSTECH,day,,,1600,qfq",
+      "note": "转抄自 output/恒生科技/data/20261026/facts.json 的 dd_peak"
+    },
+    {
+      "key": "hstech_top10_cov",
+      "label": "恒生科技前十成分权重覆盖",
+      "value": 55,
+      "unit": "%",
+      "raw_file": "upstream-hstech-facts.json",
+      "snippet": "\"key\": \"weight_cov\", \"label\": \"十家成分覆盖指数权重\", \"value\": 55, \"unit\": \"%\", \"raw_file\": \"upstream-估值全景.md\", \"snippet\": \"覆盖指数约 55% 权重\", \"source_url\": \"https://github.com/xbtlin/ai-berkshire/blob/ma",
+      "source_url": "https://github.com/xbtlin/ai-berkshire/blob/main/reports/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80%E4%BC%B0%E5%80%BC%E5%85%A8%E6%99%AF-20261023.md",
+      "note": "转抄自 output/恒生科技/data/20261026/facts.json 的 weight_cov"
+    },
+    {
+      "key": "gold_now",
+      "label": "黄金最新价",
+      "value": 4005.3,
+      "unit": "美元/盎司",
+      "raw_file": "upstream-gold-facts.json",
+      "snippet": "\"key\": \"gold_last\", \"label\": \"伦敦金最新收盘（2026-10-26 盘中）\", \"value\": 4005.3, \"raw_file\": \"gold-monthly.json\", \"snippet\": \"\\\"2026-10-26,4005.3\\\"\", \"source_url\": \"https://push2his.eastmoney.com/api",
+      "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=101.GC00Y&klt=103&fqt=1",
+      "note": "转抄自 output/黄金/data/20261026/facts.json 的 gold_last"
+    },
+    {
+      "key": "gold_pct_all",
+      "label": "黄金 1990 以来月线分位",
+      "value": 97.29,
+      "unit": "%",
+      "raw_file": "upstream-gold-facts.json",
+      "snippet": "\"key\": \"gold_pct_all\", \"label\": \"当前价在 1990 以来月线中的分位（%）\", \"expr\": \"100*430/442\", \"value\": 97.29, \"unit\": \"%\" }, { \"key\": \"gold_pct_10y\", \"label\": \"当前价在近 10 年月线中的分位（%）\", \"expr\": \"100",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=GC",
+      "note": "转抄自 output/黄金/data/20261026/facts.json 的 gold_pct_all"
+    },
+    {
+      "key": "gold_dd_ath",
+      "label": "黄金距历史高点",
+      "value": -24.38,
+      "unit": "%",
+      "raw_file": "upstream-gold-facts.json",
+      "snippet": "\"key\": \"gold_vs_ath\", \"label\": \"现价距历史最高（%）\", \"expr\": \"(gold_last/gold_ath-1)*100\", \"value\": -24.38, \"unit\": \"%\" }, { \"key\": \"gold_vs_2020\", \"label\": \"现价距 2020 年高点（%）\", \"expr\": \"(go",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=GC",
+      "note": "转抄自 output/黄金/data/20261026/facts.json 的 gold_vs_ath"
+    },
+    {
+      "key": "gold_cap",
+      "label": "黄金建议仓位上限",
+      "value": 10.0,
+      "unit": "%",
+      "raw_file": "upstream-gold-facts.json",
+      "snippet": "\"key\": \"pos_cap\", \"label\": \"黄金建议仓位上限（%）\", \"expr\": \"10\", \"value\": 10.0, \"unit\": \"%\", \"note\": \"政策参数；三批各 3.3%，合计 10%\" }, { \"key\": \"tranche_pct\", \"label\": \"单批建仓比例（%）\", \"expr\": \"p",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=GC",
+      "note": "转抄自 output/黄金/data/20261026/facts.json 的 pos_cap"
+    },
+    {
+      "key": "oil_now",
+      "label": "WTI 最新收盘",
+      "value": 101.25,
+      "unit": "美元/桶",
+      "raw_file": "upstream-oil-facts.json",
+      "snippet": "\"key\": \"wti_close\", \"label\": \"WTI 月收盘（2026-10-26）\", \"value\": 101.25, \"unit\": \"美元/桶\", \"raw_file\": \"wti-monthly.json\", \"snippet\": \"2026-10-26,101.25\", \"source_url\": \"https://push2his.eastmoney",
+      "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get",
+      "note": "转抄自 output/原油/data/20261026/facts.json 的 wti_close"
+    },
+    {
+      "key": "oil_band_lo",
+      "label": "原油区间下沿",
+      "value": 80,
+      "unit": "美元/桶",
+      "raw_file": "upstream-oil-facts.json",
+      "snippet": "\"key\": \"band_lo\", \"label\": \"区间下沿（只做区间的买入位）\", \"expr\": \"80\", \"value\": 80, \"unit\": \"美元/桶\" }, { \"key\": \"band_hi\", \"label\": \"区间上沿（只做区间的减仓位）\", \"expr\": \"100\", \"value\": 100, \"unit\": \"美元/桶\" }, { \"key",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=CL",
+      "note": "转抄自 output/原油/data/20261026/facts.json 的 band_lo"
+    },
+    {
+      "key": "oil_band_hi",
+      "label": "原油区间上沿",
+      "value": 100,
+      "unit": "美元/桶",
+      "raw_file": "upstream-oil-facts.json",
+      "snippet": "\"key\": \"band_hi\", \"label\": \"区间上沿（只做区间的减仓位）\", \"expr\": \"100\", \"value\": 100, \"unit\": \"美元/桶\" }, { \"key\": \"brent_premium\", \"label\": \"布伦特对 WTI 溢价\", \"expr\": \"109.672-101.087\", \"value\": 8.585, \"unit",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=CL",
+      "note": "转抄自 output/原油/data/20261026/facts.json 的 band_hi"
+    },
+    {
+      "key": "oil_pct_all",
+      "label": "WTI 1990 以来月线分位",
+      "value": 94.81,
+      "unit": "%",
+      "raw_file": "upstream-oil-facts.json",
+      "snippet": "\"key\": \"wti_pct_all\", \"label\": \"WTI 现价在 1986 以来月收盘中的分位\", \"value\": 94.81, \"unit\": \"%\", \"raw_file\": \"recount-output.txt\", \"snippet\": \"wti_pct_all: 94.81% (457/482\", \"source_url\": \"https://push",
+      "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get",
+      "note": "转抄自 output/原油/data/20261026/facts.json 的 wti_pct_all"
+    },
+    {
+      "key": "oil_risk_at_cap",
+      "label": "原油 5% 仓位在 3ATR 止损下的组合损失",
+      "value": 0.2445,
+      "unit": "%",
+      "raw_file": "upstream-oil-facts.json",
+      "snippet": "\"key\": \"risk_at_cap\", \"label\": \"5% 仓位在 3ATR 止损下的组合损失\", \"expr\": \"5*4.89/100\", \"value\": 0.2445, \"unit\": \"%\" }, { \"key\": \"price_vs_cost\", \"label\": \"现价对 Permian 盈亏平衡的溢价\", \"expr\": \"101.25-67\", \"v",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=CL",
+      "note": "转抄自 output/原油/data/20261026/facts.json 的 risk_at_cap"
+    },
+    {
+      "key": "btc_now",
+      "label": "比特币最新价",
+      "value": 80771.9,
+      "unit": "美元",
+      "raw_file": "upstream-btc-facts.json",
+      "snippet": "\"key\": \"px_now\", \"label\": \"BTC 现价（2026-10-25 收盘）\", \"value\": 80771.9, \"unit\": \"美元\", \"raw_file\": \"market-price-daily.csv\", \"snippet\": \"2026-10-25 00:00:00,80771.9\", \"source_url\": \"https://api.",
+      "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv&sampled=false",
+      "note": "转抄自 output/比特币/data/20261026/facts.json 的 px_now"
+    },
+    {
+      "key": "btc_cap",
+      "label": "比特币仓位上限（1.5% 亏损÷27.53% 止损）",
+      "value": 5.448328,
+      "unit": "%",
+      "raw_file": "upstream-btc-facts.json",
+      "snippet": "\"key\": \"position_pct\", \"label\": \"可承受亏损 1.5% ÷ 止损距离 27.53% = 仓位上限\", \"expr\": \"1.5 / (down_to_low * -1) * 100\", \"value\": 5.448328, \"unit\": \"%\" } ] }",
+      "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv",
+      "note": "转抄自 output/比特币/data/20261026/facts.json 的 position_pct"
+    },
+    {
+      "key": "btc_dd_ath",
+      "label": "比特币距历史高点",
+      "value": -35.26683,
+      "unit": "%",
+      "raw_file": "upstream-btc-facts.json",
+      "snippet": "\"key\": \"dd_from_ath\", \"label\": \"现价相对本轮峰值回撤\", \"expr\": \"(px_now / px_ath - 1) * 100\", \"value\": -35.26683, \"unit\": \"%\" }, { \"key\": \"dd_low_from_ath\", \"label\": \"本轮低点相对峰值回撤\", \"expr\": \"(px_low4 / ",
+      "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv",
+      "note": "转抄自 output/比特币/data/20261026/facts.json 的 dd_from_ath"
+    },
+    {
+      "key": "btc_corr_365",
+      "label": "比特币与纳指 365 日日相关",
+      "value": 0.064,
+      "unit": "相关系数",
+      "raw_file": "upstream-btc-facts.json",
+      "snippet": "\"key\": \"corr_365\", \"label\": \"BTC 与纳指日对数收益 365 日相关系数\", \"value\": 0.064, \"unit\": \"\", \"estimated\": true, \"note\": \"market-price-daily.csv 与 fred-NASDAQCOM.csv 同日对齐，最近 365 个交易日；换 90/180 日窗口仅 0.03 ",
+      "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv",
+      "note": "转抄自 output/比特币/data/20261026/facts.json 的 corr_365"
+    },
+    {
+      "key": "cap_cash",
+      "label": "现金类资产常态下限",
+      "value": 20,
+      "unit": "%",
+      "raw_file": "skills-invest-portfolio-仓位约束.md",
+      "snippet": "| 现金 | 现金类资产（货币基金、短债、活期） | 常态 ≥20% | 现金不是收益拖累，是在别人被迫卖出时你能出价的期权 |",
+      "source_url": "https://github.com/inseeker/insseek-ai-investment-framework/blob/main/skills/invest-portfolio.md"
+    },
+    {
+      "key": "cap_single",
+      "label": "单一资产常态上限",
+      "value": 20,
+      "unit": "%",
+      "raw_file": "skills-invest-portfolio-仓位约束.md",
+      "snippet": "| 单一资产（常态） | 任一标的占总资产 | ≤20% | 单标的归零，总资产最多损失两成，仍可继续 |",
+      "source_url": "https://github.com/inseeker/insseek-ai-investment-framework/blob/main/skills/invest-portfolio.md"
+    },
+    {
+      "key": "cap_lever",
+      "label": "杠杆上限",
+      "value": 20,
+      "unit": "%",
+      "raw_file": "skills-invest-portfolio-仓位约束.md",
+      "snippet": "| 杠杆 | 融资、保证金占总资产 | ≤20% | 杠杆放大的是错误，不是判断 |",
+      "source_url": "https://github.com/inseeker/insseek-ai-investment-framework/blob/main/skills/invest-portfolio.md"
+    },
+    {
+      "key": "cap_n_stock",
+      "label": "权益标的只数上限",
+      "value": 8,
+      "unit": "只",
+      "raw_file": "skills-invest-portfolio-仓位约束.md",
+      "snippet": "| 权益标的数量 | 个股只数 | 5–8 只，硬上限 8 | 5 只以下靠运气，8 只以上研究精力摊薄；指数基金、债券、现金类不计入这只数 |",
+      "source_url": "https://github.com/inseeker/insseek-ai-investment-framework/blob/main/skills/invest-portfolio.md"
+    },
+    {
+      "key": "cap_oil",
+      "label": "原油仓位上限",
+      "value": 5,
+      "unit": "%",
+      "raw_file": "upstream-oil-facts.json",
+      "snippet": "\"key\": \"risk_at_cap\", \"label\": \"5% 仓位在 3ATR 止损下的组合损失\", \"expr\": \"5*4.89/100\", \"value\": 0.2445, \"unit\": \"%\" }, { \"key\": \"price_vs_cost\", \"label\": \"现价对 Permian 盈亏平衡的溢价\", \"expr\": \"101.25-67\", \"v",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=CL",
+      "note": "原油 report 的 risk_at_cap 按「5% 仓位」算，上限即该前提"
+    },
+    {
+      "key": "corr_w10_SPX_NDX",
+      "label": "标普500×纳指月收益相关（10 年）",
+      "value": 0.94,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_w10_SPX_NDX = 0.94 n=120",
+      "source_url": "https://stock.finance.sina.com.cn/usstock/api/jsonp.php/var%20_=/US_MinKService.getDailyK?symbol=.INX",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_w10_CSI300_NDX",
+      "label": "沪深300×纳指月收益相关（10 年）",
+      "value": 0.39,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_w10_CSI300_NDX = 0.39 n=120",
+      "source_url": "https://money.finance.sina.com.cn/quotes_service/api/json_v2.php/CN_MarketData.getKLineData?symbol=sh000300&scale=240&ma=no&datalen=5000",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_w10_CSI300_SPX",
+      "label": "沪深300×标普500月收益相关（10 年）",
+      "value": 0.37,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_w10_CSI300_SPX = 0.37 n=120",
+      "source_url": "https://money.finance.sina.com.cn/quotes_service/api/json_v2.php/CN_MarketData.getKLineData?symbol=sh000300&scale=240&ma=no&datalen=5000",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_w10_HSTECH_NDX",
+      "label": "恒科×纳指月收益相关（10 年）",
+      "value": 0.23,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_w10_HSTECH_NDX = 0.23 n=75",
+      "source_url": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=hkHSTECH,day,,,1600,qfq",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_w10_HSTECH_SPX",
+      "label": "恒科×标普500月收益相关（10 年）",
+      "value": 0.21,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_w10_HSTECH_SPX = 0.21 n=75",
+      "source_url": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=hkHSTECH,day,,,1600,qfq",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_w10_HSTECH_CSI300",
+      "label": "恒科×沪深300月收益相关（10 年）",
+      "value": 0.75,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_w10_HSTECH_CSI300 = 0.75 n=75",
+      "source_url": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=hkHSTECH,day,,,1600,qfq",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_w10_GOLD_NDX",
+      "label": "黄金×纳指月收益相关（10 年）",
+      "value": 0.13,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_w10_GOLD_NDX = 0.13 n=120",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=GC",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_w10_GOLD_SPX",
+      "label": "黄金×标普500月收益相关（10 年）",
+      "value": 0.15,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_w10_GOLD_SPX = 0.15 n=120",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=GC",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_w10_GOLD_CSI300",
+      "label": "黄金×沪深300月收益相关（10 年）",
+      "value": 0.26,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_w10_GOLD_CSI300 = 0.26 n=120",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=GC",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_w10_GOLD_HSTECH",
+      "label": "黄金×恒科月收益相关（10 年）",
+      "value": 0.33,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_w10_GOLD_HSTECH = 0.33 n=75",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=GC",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_w10_OIL_NDX",
+      "label": "原油×纳指月收益相关（10 年）",
+      "value": 0.2,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_w10_OIL_NDX = 0.20 n=120",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=CL",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_w10_OIL_SPX",
+      "label": "原油×标普500月收益相关（10 年）",
+      "value": 0.27,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_w10_OIL_SPX = 0.27 n=120",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=CL",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_w10_OIL_CSI300",
+      "label": "原油×沪深300月收益相关（10 年）",
+      "value": 0.05,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_w10_OIL_CSI300 = 0.05 n=120",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=CL",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_w10_OIL_HSTECH",
+      "label": "原油×恒科月收益相关（10 年）",
+      "value": -0.03,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_w10_OIL_HSTECH = -0.03 n=75",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=CL",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_w10_OIL_GOLD",
+      "label": "原油×黄金月收益相关（10 年）",
+      "value": -0.09,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_w10_OIL_GOLD = -0.09 n=120",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=CL",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_w10_BTC_NDX",
+      "label": "比特币×纳指月收益相关（10 年）",
+      "value": 0.33,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_w10_BTC_NDX = 0.33 n=120",
+      "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_w10_BTC_SPX",
+      "label": "比特币×标普500月收益相关（10 年）",
+      "value": 0.34,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_w10_BTC_SPX = 0.34 n=120",
+      "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_w10_BTC_CSI300",
+      "label": "比特币×沪深300月收益相关（10 年）",
+      "value": 0.1,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_w10_BTC_CSI300 = 0.10 n=120",
+      "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_w10_BTC_HSTECH",
+      "label": "比特币×恒科月收益相关（10 年）",
+      "value": 0.05,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_w10_BTC_HSTECH = 0.05 n=75",
+      "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_w10_BTC_GOLD",
+      "label": "比特币×黄金月收益相关（10 年）",
+      "value": 0.15,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_w10_BTC_GOLD = 0.15 n=120",
+      "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_w10_BTC_OIL",
+      "label": "比特币×原油月收益相关（10 年）",
+      "value": 0.15,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_w10_BTC_OIL = 0.15 n=120",
+      "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_w5_SPX_NDX",
+      "label": "标普500×纳指月收益相关（5 年）",
+      "value": 0.94,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_w5_SPX_NDX = 0.94 n=60",
+      "source_url": "https://stock.finance.sina.com.cn/usstock/api/jsonp.php/var%20_=/US_MinKService.getDailyK?symbol=.INX",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_w5_CSI300_NDX",
+      "label": "沪深300×纳指月收益相关（5 年）",
+      "value": 0.24,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_w5_CSI300_NDX = 0.24 n=60",
+      "source_url": "https://money.finance.sina.com.cn/quotes_service/api/json_v2.php/CN_MarketData.getKLineData?symbol=sh000300&scale=240&ma=no&datalen=5000",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_w5_CSI300_SPX",
+      "label": "沪深300×标普500月收益相关（5 年）",
+      "value": 0.21,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_w5_CSI300_SPX = 0.21 n=60",
+      "source_url": "https://money.finance.sina.com.cn/quotes_service/api/json_v2.php/CN_MarketData.getKLineData?symbol=sh000300&scale=240&ma=no&datalen=5000",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_w5_HSTECH_NDX",
+      "label": "恒科×纳指月收益相关（5 年）",
+      "value": 0.2,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_w5_HSTECH_NDX = 0.20 n=60",
+      "source_url": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=hkHSTECH,day,,,1600,qfq",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_w5_HSTECH_SPX",
+      "label": "恒科×标普500月收益相关（5 年）",
+      "value": 0.2,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_w5_HSTECH_SPX = 0.20 n=60",
+      "source_url": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=hkHSTECH,day,,,1600,qfq",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_w5_HSTECH_CSI300",
+      "label": "恒科×沪深300月收益相关（5 年）",
+      "value": 0.75,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_w5_HSTECH_CSI300 = 0.75 n=60",
+      "source_url": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=hkHSTECH,day,,,1600,qfq",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_w5_GOLD_NDX",
+      "label": "黄金×纳指月收益相关（5 年）",
+      "value": 0.15,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_w5_GOLD_NDX = 0.15 n=60",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=GC",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_w5_GOLD_SPX",
+      "label": "黄金×标普500月收益相关（5 年）",
+      "value": 0.2,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_w5_GOLD_SPX = 0.20 n=60",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=GC",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_w5_GOLD_CSI300",
+      "label": "黄金×沪深300月收益相关（5 年）",
+      "value": 0.29,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_w5_GOLD_CSI300 = 0.29 n=60",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=GC",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_w5_GOLD_HSTECH",
+      "label": "黄金×恒科月收益相关（5 年）",
+      "value": 0.39,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_w5_GOLD_HSTECH = 0.39 n=60",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=GC",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_w5_OIL_NDX",
+      "label": "原油×纳指月收益相关（5 年）",
+      "value": -0.15,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_w5_OIL_NDX = -0.15 n=60",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=CL",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_w5_OIL_SPX",
+      "label": "原油×标普500月收益相关（5 年）",
+      "value": -0.07,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_w5_OIL_SPX = -0.07 n=60",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=CL",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_w5_OIL_CSI300",
+      "label": "原油×沪深300月收益相关（5 年）",
+      "value": -0.21,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_w5_OIL_CSI300 = -0.21 n=60",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=CL",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_w5_OIL_HSTECH",
+      "label": "原油×恒科月收益相关（5 年）",
+      "value": -0.07,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_w5_OIL_HSTECH = -0.07 n=60",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=CL",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_w5_OIL_GOLD",
+      "label": "原油×黄金月收益相关（5 年）",
+      "value": -0.12,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_w5_OIL_GOLD = -0.12 n=60",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=CL",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_w5_BTC_NDX",
+      "label": "比特币×纳指月收益相关（5 年）",
+      "value": 0.52,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_w5_BTC_NDX = 0.52 n=60",
+      "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_w5_BTC_SPX",
+      "label": "比特币×标普500月收益相关（5 年）",
+      "value": 0.49,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_w5_BTC_SPX = 0.49 n=60",
+      "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_w5_BTC_CSI300",
+      "label": "比特币×沪深300月收益相关（5 年）",
+      "value": 0.01,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_w5_BTC_CSI300 = 0.01 n=60",
+      "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_w5_BTC_HSTECH",
+      "label": "比特币×恒科月收益相关（5 年）",
+      "value": 0.02,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_w5_BTC_HSTECH = 0.02 n=60",
+      "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_w5_BTC_GOLD",
+      "label": "比特币×黄金月收益相关（5 年）",
+      "value": 0.25,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_w5_BTC_GOLD = 0.25 n=60",
+      "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_w5_BTC_OIL",
+      "label": "比特币×原油月收益相关（5 年）",
+      "value": 0.03,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_w5_BTC_OIL = 0.03 n=60",
+      "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_crisis_SPX_NDX",
+      "label": "标普500×纳指月收益相关（2022 年）",
+      "value": 0.96,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_crisis_SPX_NDX = 0.96 n=12",
+      "source_url": "https://stock.finance.sina.com.cn/usstock/api/jsonp.php/var%20_=/US_MinKService.getDailyK?symbol=.INX",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_crisis_CSI300_NDX",
+      "label": "沪深300×纳指月收益相关（2022 年）",
+      "value": -0.09,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_crisis_CSI300_NDX = -0.09 n=12",
+      "source_url": "https://money.finance.sina.com.cn/quotes_service/api/json_v2.php/CN_MarketData.getKLineData?symbol=sh000300&scale=240&ma=no&datalen=5000",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_crisis_CSI300_SPX",
+      "label": "沪深300×标普500月收益相关（2022 年）",
+      "value": -0.14,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_crisis_CSI300_SPX = -0.14 n=12",
+      "source_url": "https://money.finance.sina.com.cn/quotes_service/api/json_v2.php/CN_MarketData.getKLineData?symbol=sh000300&scale=240&ma=no&datalen=5000",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_crisis_HSTECH_NDX",
+      "label": "恒科×纳指月收益相关（2022 年）",
+      "value": -0.02,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_crisis_HSTECH_NDX = -0.02 n=12",
+      "source_url": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=hkHSTECH,day,,,1600,qfq",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_crisis_HSTECH_SPX",
+      "label": "恒科×标普500月收益相关（2022 年）",
+      "value": -0.01,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_crisis_HSTECH_SPX = -0.01 n=12",
+      "source_url": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=hkHSTECH,day,,,1600,qfq",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_crisis_HSTECH_CSI300",
+      "label": "恒科×沪深300月收益相关（2022 年）",
+      "value": 0.85,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_crisis_HSTECH_CSI300 = 0.85 n=12",
+      "source_url": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=hkHSTECH,day,,,1600,qfq",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_crisis_GOLD_NDX",
+      "label": "黄金×纳指月收益相关（2022 年）",
+      "value": 0.28,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_crisis_GOLD_NDX = 0.28 n=12",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=GC",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_crisis_GOLD_SPX",
+      "label": "黄金×标普500月收益相关（2022 年）",
+      "value": 0.27,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_crisis_GOLD_SPX = 0.27 n=12",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=GC",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_crisis_GOLD_CSI300",
+      "label": "黄金×沪深300月收益相关（2022 年）",
+      "value": 0.48,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_crisis_GOLD_CSI300 = 0.48 n=12",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=GC",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_crisis_GOLD_HSTECH",
+      "label": "黄金×恒科月收益相关（2022 年）",
+      "value": 0.61,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_crisis_GOLD_HSTECH = 0.61 n=12",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=GC",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_crisis_OIL_NDX",
+      "label": "原油×纳指月收益相关（2022 年）",
+      "value": -0.07,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_crisis_OIL_NDX = -0.07 n=12",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=CL",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_crisis_OIL_SPX",
+      "label": "原油×标普500月收益相关（2022 年）",
+      "value": 0.09,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_crisis_OIL_SPX = 0.09 n=12",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=CL",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_crisis_OIL_CSI300",
+      "label": "原油×沪深300月收益相关（2022 年）",
+      "value": -0.32,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_crisis_OIL_CSI300 = -0.32 n=12",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=CL",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_crisis_OIL_HSTECH",
+      "label": "原油×恒科月收益相关（2022 年）",
+      "value": -0.22,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_crisis_OIL_HSTECH = -0.22 n=12",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=CL",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_crisis_OIL_GOLD",
+      "label": "原油×黄金月收益相关（2022 年）",
+      "value": 0.02,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_crisis_OIL_GOLD = 0.02 n=12",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=CL",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_crisis_BTC_NDX",
+      "label": "比特币×纳指月收益相关（2022 年）",
+      "value": 0.54,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_crisis_BTC_NDX = 0.54 n=12",
+      "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_crisis_BTC_SPX",
+      "label": "比特币×标普500月收益相关（2022 年）",
+      "value": 0.54,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_crisis_BTC_SPX = 0.54 n=12",
+      "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_crisis_BTC_CSI300",
+      "label": "比特币×沪深300月收益相关（2022 年）",
+      "value": -0.67,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_crisis_BTC_CSI300 = -0.67 n=12",
+      "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_crisis_BTC_HSTECH",
+      "label": "比特币×恒科月收益相关（2022 年）",
+      "value": -0.57,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_crisis_BTC_HSTECH = -0.57 n=12",
+      "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_crisis_BTC_GOLD",
+      "label": "比特币×黄金月收益相关（2022 年）",
+      "value": 0.1,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_crisis_BTC_GOLD = 0.10 n=12",
+      "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_crisis_BTC_OIL",
+      "label": "比特币×原油月收益相关（2022 年）",
+      "value": 0.12,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_crisis_BTC_OIL = 0.12 n=12",
+      "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_down_SPX_NDX",
+      "label": "标普500×纳指月收益相关（下跌月）",
+      "value": 0.88,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_down_SPX_NDX = 0.88 n=29",
+      "source_url": "https://stock.finance.sina.com.cn/usstock/api/jsonp.php/var%20_=/US_MinKService.getDailyK?symbol=.INX",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_down_CSI300_NDX",
+      "label": "沪深300×纳指月收益相关（下跌月）",
+      "value": 0.27,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_down_CSI300_NDX = 0.27 n=29",
+      "source_url": "https://money.finance.sina.com.cn/quotes_service/api/json_v2.php/CN_MarketData.getKLineData?symbol=sh000300&scale=240&ma=no&datalen=5000",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_down_CSI300_SPX",
+      "label": "沪深300×标普500月收益相关（下跌月）",
+      "value": 0.18,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_down_CSI300_SPX = 0.18 n=29",
+      "source_url": "https://money.finance.sina.com.cn/quotes_service/api/json_v2.php/CN_MarketData.getKLineData?symbol=sh000300&scale=240&ma=no&datalen=5000",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_down_HSTECH_NDX",
+      "label": "恒科×纳指月收益相关（下跌月）",
+      "value": 0.07,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_down_HSTECH_NDX = 0.07 n=22",
+      "source_url": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=hkHSTECH,day,,,1600,qfq",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_down_HSTECH_SPX",
+      "label": "恒科×标普500月收益相关（下跌月）",
+      "value": 0.13,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_down_HSTECH_SPX = 0.13 n=22",
+      "source_url": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=hkHSTECH,day,,,1600,qfq",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_down_HSTECH_CSI300",
+      "label": "恒科×沪深300月收益相关（下跌月）",
+      "value": 0.48,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_down_HSTECH_CSI300 = 0.48 n=22",
+      "source_url": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=hkHSTECH,day,,,1600,qfq",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_down_GOLD_NDX",
+      "label": "黄金×纳指月收益相关（下跌月）",
+      "value": -0.03,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_down_GOLD_NDX = -0.03 n=29",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=GC",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_down_GOLD_SPX",
+      "label": "黄金×标普500月收益相关（下跌月）",
+      "value": 0.0,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_down_GOLD_SPX = 0.00 n=29",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=GC",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_down_GOLD_CSI300",
+      "label": "黄金×沪深300月收益相关（下跌月）",
+      "value": 0.06,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_down_GOLD_CSI300 = 0.06 n=29",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=GC",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_down_GOLD_HSTECH",
+      "label": "黄金×恒科月收益相关（下跌月）",
+      "value": 0.26,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_down_GOLD_HSTECH = 0.26 n=22",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=GC",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_down_OIL_NDX",
+      "label": "原油×纳指月收益相关（下跌月）",
+      "value": 0.28,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_down_OIL_NDX = 0.28 n=29",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=CL",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_down_OIL_SPX",
+      "label": "原油×标普500月收益相关（下跌月）",
+      "value": 0.44,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_down_OIL_SPX = 0.44 n=29",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=CL",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_down_OIL_CSI300",
+      "label": "原油×沪深300月收益相关（下跌月）",
+      "value": -0.06,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_down_OIL_CSI300 = -0.06 n=29",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=CL",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_down_OIL_HSTECH",
+      "label": "原油×恒科月收益相关（下跌月）",
+      "value": -0.12,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_down_OIL_HSTECH = -0.12 n=22",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=CL",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_down_OIL_GOLD",
+      "label": "原油×黄金月收益相关（下跌月）",
+      "value": -0.19,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_down_OIL_GOLD = -0.19 n=29",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=CL",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_down_BTC_NDX",
+      "label": "比特币×纳指月收益相关（下跌月）",
+      "value": 0.12,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_down_BTC_NDX = 0.12 n=29",
+      "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_down_BTC_SPX",
+      "label": "比特币×标普500月收益相关（下跌月）",
+      "value": 0.12,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_down_BTC_SPX = 0.12 n=29",
+      "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_down_BTC_CSI300",
+      "label": "比特币×沪深300月收益相关（下跌月）",
+      "value": -0.29,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_down_BTC_CSI300 = -0.29 n=29",
+      "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_down_BTC_HSTECH",
+      "label": "比特币×恒科月收益相关（下跌月）",
+      "value": -0.04,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_down_BTC_HSTECH = -0.04 n=22",
+      "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_down_BTC_GOLD",
+      "label": "比特币×黄金月收益相关（下跌月）",
+      "value": 0.27,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_down_BTC_GOLD = 0.27 n=29",
+      "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_down_BTC_OIL",
+      "label": "比特币×原油月收益相关（下跌月）",
+      "value": 0.05,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_down_BTC_OIL = 0.05 n=29",
+      "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_crisis_d_SPX_NDX",
+      "label": "标普500×纳指月收益相关（2022 年日）",
+      "value": 0.97,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_crisis_d_SPX_NDX = 0.97 n=251",
+      "source_url": "https://stock.finance.sina.com.cn/usstock/api/jsonp.php/var%20_=/US_MinKService.getDailyK?symbol=.INX",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_crisis_d_CSI300_NDX",
+      "label": "沪深300×纳指月收益相关（2022 年日）",
+      "value": 0.03,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_crisis_d_CSI300_NDX = 0.03 n=233",
+      "source_url": "https://money.finance.sina.com.cn/quotes_service/api/json_v2.php/CN_MarketData.getKLineData?symbol=sh000300&scale=240&ma=no&datalen=5000",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_crisis_d_CSI300_SPX",
+      "label": "沪深300×标普500月收益相关（2022 年日）",
+      "value": 0.0,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_crisis_d_CSI300_SPX = 0.00 n=233",
+      "source_url": "https://money.finance.sina.com.cn/quotes_service/api/json_v2.php/CN_MarketData.getKLineData?symbol=sh000300&scale=240&ma=no&datalen=5000",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_crisis_d_HSTECH_NDX",
+      "label": "恒科×纳指月收益相关（2022 年日）",
+      "value": 0.13,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_crisis_d_HSTECH_NDX = 0.13 n=239",
+      "source_url": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=hkHSTECH,day,,,1600,qfq",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_crisis_d_HSTECH_SPX",
+      "label": "恒科×标普500月收益相关（2022 年日）",
+      "value": 0.07,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_crisis_d_HSTECH_SPX = 0.07 n=239",
+      "source_url": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=hkHSTECH,day,,,1600,qfq",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_crisis_d_HSTECH_CSI300",
+      "label": "恒科×沪深300月收益相关（2022 年日）",
+      "value": 0.74,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_crisis_d_HSTECH_CSI300 = 0.74 n=236",
+      "source_url": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=hkHSTECH,day,,,1600,qfq",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_crisis_d_GOLD_NDX",
+      "label": "黄金×纳指月收益相关（2022 年日）",
+      "value": 0.16,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_crisis_d_GOLD_NDX = 0.16 n=251",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=GC",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_crisis_d_GOLD_SPX",
+      "label": "黄金×标普500月收益相关（2022 年日）",
+      "value": 0.2,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_crisis_d_GOLD_SPX = 0.20 n=251",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=GC",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_crisis_d_GOLD_CSI300",
+      "label": "黄金×沪深300月收益相关（2022 年日）",
+      "value": 0.15,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_crisis_d_GOLD_CSI300 = 0.15 n=240",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=GC",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_crisis_d_GOLD_HSTECH",
+      "label": "黄金×恒科月收益相关（2022 年日）",
+      "value": 0.12,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_crisis_d_GOLD_HSTECH = 0.12 n=246",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=GC",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_crisis_d_OIL_NDX",
+      "label": "原油×纳指月收益相关（2022 年日）",
+      "value": 0.06,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_crisis_d_OIL_NDX = 0.06 n=251",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=CL",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_crisis_d_OIL_SPX",
+      "label": "原油×标普500月收益相关（2022 年日）",
+      "value": 0.1,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_crisis_d_OIL_SPX = 0.10 n=251",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=CL",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_crisis_d_OIL_CSI300",
+      "label": "原油×沪深300月收益相关（2022 年日）",
+      "value": 0.16,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_crisis_d_OIL_CSI300 = 0.16 n=240",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=CL",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_crisis_d_OIL_HSTECH",
+      "label": "原油×恒科月收益相关（2022 年日）",
+      "value": 0.13,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_crisis_d_OIL_HSTECH = 0.13 n=246",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=CL",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_crisis_d_OIL_GOLD",
+      "label": "原油×黄金月收益相关（2022 年日）",
+      "value": 0.42,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_crisis_d_OIL_GOLD = 0.42 n=258",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=CL",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_crisis_d_BTC_NDX",
+      "label": "比特币×纳指月收益相关（2022 年日）",
+      "value": 0.11,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_crisis_d_BTC_NDX = 0.11 n=64",
+      "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_crisis_d_BTC_SPX",
+      "label": "比特币×标普500月收益相关（2022 年日）",
+      "value": 0.17,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_crisis_d_BTC_SPX = 0.17 n=64",
+      "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_crisis_d_BTC_CSI300",
+      "label": "比特币×沪深300月收益相关（2022 年日）",
+      "value": 0.05,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_crisis_d_BTC_CSI300 = 0.05 n=58",
+      "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_crisis_d_BTC_HSTECH",
+      "label": "比特币×恒科月收益相关（2022 年日）",
+      "value": 0.03,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_crisis_d_BTC_HSTECH = 0.03 n=63",
+      "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_crisis_d_BTC_GOLD",
+      "label": "比特币×黄金月收益相关（2022 年日）",
+      "value": -0.15,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_crisis_d_BTC_GOLD = -0.15 n=65",
+      "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_crisis_d_BTC_OIL",
+      "label": "比特币×原油月收益相关（2022 年日）",
+      "value": -0.12,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_crisis_d_BTC_OIL = -0.12 n=65",
+      "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_covid_SPX_NDX",
+      "label": "标普500×纳指月收益相关（2020-03）",
+      "value": 0.99,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_covid_SPX_NDX = 0.99 n=29",
+      "source_url": "https://stock.finance.sina.com.cn/usstock/api/jsonp.php/var%20_=/US_MinKService.getDailyK?symbol=.INX",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_covid_CSI300_NDX",
+      "label": "沪深300×纳指月收益相关（2020-03）",
+      "value": 0.39,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_covid_CSI300_NDX = 0.39 n=29",
+      "source_url": "https://money.finance.sina.com.cn/quotes_service/api/json_v2.php/CN_MarketData.getKLineData?symbol=sh000300&scale=240&ma=no&datalen=5000",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_covid_CSI300_SPX",
+      "label": "沪深300×标普500月收益相关（2020-03）",
+      "value": 0.46,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_covid_CSI300_SPX = 0.46 n=29",
+      "source_url": "https://money.finance.sina.com.cn/quotes_service/api/json_v2.php/CN_MarketData.getKLineData?symbol=sh000300&scale=240&ma=no&datalen=5000",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_covid_GOLD_NDX",
+      "label": "黄金×纳指月收益相关（2020-03）",
+      "value": 0.16,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_covid_GOLD_NDX = 0.16 n=29",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=GC",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_covid_GOLD_SPX",
+      "label": "黄金×标普500月收益相关（2020-03）",
+      "value": 0.17,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_covid_GOLD_SPX = 0.17 n=29",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=GC",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_covid_GOLD_CSI300",
+      "label": "黄金×沪深300月收益相关（2020-03）",
+      "value": 0.32,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_covid_GOLD_CSI300 = 0.32 n=29",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=GC",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_covid_OIL_NDX",
+      "label": "原油×纳指月收益相关（2020-03）",
+      "value": 0.61,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_covid_OIL_NDX = 0.61 n=29",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=CL",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_covid_OIL_SPX",
+      "label": "原油×标普500月收益相关（2020-03）",
+      "value": 0.59,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_covid_OIL_SPX = 0.59 n=29",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=CL",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_covid_OIL_CSI300",
+      "label": "原油×沪深300月收益相关（2020-03）",
+      "value": 0.49,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_covid_OIL_CSI300 = 0.49 n=29",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=CL",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_covid_OIL_GOLD",
+      "label": "原油×黄金月收益相关（2020-03）",
+      "value": 0.01,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_covid_OIL_GOLD = 0.01 n=29",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=CL",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_covid_BTC_NDX",
+      "label": "比特币×纳指月收益相关（2020-03）",
+      "value": 0.03,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_covid_BTC_NDX = 0.03 n=7",
+      "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_covid_BTC_SPX",
+      "label": "比特币×标普500月收益相关（2020-03）",
+      "value": 0.08,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_covid_BTC_SPX = 0.08 n=7",
+      "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_covid_BTC_CSI300",
+      "label": "比特币×沪深300月收益相关（2020-03）",
+      "value": -0.32,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_covid_BTC_CSI300 = -0.32 n=7",
+      "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_covid_BTC_GOLD",
+      "label": "比特币×黄金月收益相关（2020-03）",
+      "value": 0.34,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_covid_BTC_GOLD = 0.34 n=7",
+      "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "corr_covid_BTC_OIL",
+      "label": "比特币×原油月收益相关（2020-03）",
+      "value": -0.37,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_covid_BTC_OIL = -0.37 n=7",
+      "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "vol_w10_NDX",
+      "label": "纳指年化波动率（10 年）",
+      "value": 0.19,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "vol_w10_NDX = 0.19 n=120",
+      "source_url": "https://stock.finance.sina.com.cn/usstock/api/jsonp.php/var%20_=/US_MinKService.getDailyK?symbol=.IXIC",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "vol_w10_SPX",
+      "label": "标普500年化波动率（10 年）",
+      "value": 0.15,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "vol_w10_SPX = 0.15 n=120",
+      "source_url": "https://stock.finance.sina.com.cn/usstock/api/jsonp.php/var%20_=/US_MinKService.getDailyK?symbol=.INX",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "vol_w10_CSI300",
+      "label": "沪深300年化波动率（10 年）",
+      "value": 0.18,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "vol_w10_CSI300 = 0.18 n=120",
+      "source_url": "https://money.finance.sina.com.cn/quotes_service/api/json_v2.php/CN_MarketData.getKLineData?symbol=sh000300&scale=240&ma=no&datalen=5000",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "vol_w10_HSTECH",
+      "label": "恒科年化波动率（10 年）",
+      "value": 0.34,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "vol_w10_HSTECH = 0.34 n=75",
+      "source_url": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=hkHSTECH,day,,,1600,qfq",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "vol_w10_GOLD",
+      "label": "黄金年化波动率（10 年）",
+      "value": 0.16,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "vol_w10_GOLD = 0.16 n=120",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=GC",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "vol_w10_OIL",
+      "label": "原油年化波动率（10 年）",
+      "value": 0.47,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "vol_w10_OIL = 0.47 n=120",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=CL",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "vol_w10_BTC",
+      "label": "比特币年化波动率（10 年）",
+      "value": 0.77,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "vol_w10_BTC = 0.77 n=120",
+      "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "vol_w5_NDX",
+      "label": "纳指年化波动率（5 年）",
+      "value": 0.2,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "vol_w5_NDX = 0.20 n=60",
+      "source_url": "https://stock.finance.sina.com.cn/usstock/api/jsonp.php/var%20_=/US_MinKService.getDailyK?symbol=.IXIC",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "vol_w5_SPX",
+      "label": "标普500年化波动率（5 年）",
+      "value": 0.15,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "vol_w5_SPX = 0.15 n=60",
+      "source_url": "https://stock.finance.sina.com.cn/usstock/api/jsonp.php/var%20_=/US_MinKService.getDailyK?symbol=.INX",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "vol_w5_CSI300",
+      "label": "沪深300年化波动率（5 年）",
+      "value": 0.19,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "vol_w5_CSI300 = 0.19 n=60",
+      "source_url": "https://money.finance.sina.com.cn/quotes_service/api/json_v2.php/CN_MarketData.getKLineData?symbol=sh000300&scale=240&ma=no&datalen=5000",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "vol_w5_HSTECH",
+      "label": "恒科年化波动率（5 年）",
+      "value": 0.36,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "vol_w5_HSTECH = 0.36 n=60",
+      "source_url": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=hkHSTECH,day,,,1600,qfq",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "vol_w5_GOLD",
+      "label": "黄金年化波动率（5 年）",
+      "value": 0.18,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "vol_w5_GOLD = 0.18 n=60",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=GC",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "vol_w5_OIL",
+      "label": "原油年化波动率（5 年）",
+      "value": 0.38,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "vol_w5_OIL = 0.38 n=60",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=CL",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "vol_w5_BTC",
+      "label": "比特币年化波动率（5 年）",
+      "value": 0.54,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "vol_w5_BTC = 0.54 n=60",
+      "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "vol_crisis_NDX",
+      "label": "纳指年化波动率（2022 年）",
+      "value": 0.27,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "vol_crisis_NDX = 0.27 n=12",
+      "source_url": "https://stock.finance.sina.com.cn/usstock/api/jsonp.php/var%20_=/US_MinKService.getDailyK?symbol=.IXIC",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "vol_crisis_SPX",
+      "label": "标普500年化波动率（2022 年）",
+      "value": 0.23,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "vol_crisis_SPX = 0.23 n=12",
+      "source_url": "https://stock.finance.sina.com.cn/usstock/api/jsonp.php/var%20_=/US_MinKService.getDailyK?symbol=.INX",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "vol_crisis_CSI300",
+      "label": "沪深300年化波动率（2022 年）",
+      "value": 0.22,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "vol_crisis_CSI300 = 0.22 n=12",
+      "source_url": "https://money.finance.sina.com.cn/quotes_service/api/json_v2.php/CN_MarketData.getKLineData?symbol=sh000300&scale=240&ma=no&datalen=5000",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "vol_crisis_HSTECH",
+      "label": "恒科年化波动率（2022 年）",
+      "value": 0.49,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "vol_crisis_HSTECH = 0.49 n=12",
+      "source_url": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=hkHSTECH,day,,,1600,qfq",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "vol_crisis_GOLD",
+      "label": "黄金年化波动率（2022 年）",
+      "value": 0.14,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "vol_crisis_GOLD = 0.14 n=12",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=GC",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "vol_crisis_OIL",
+      "label": "原油年化波动率（2022 年）",
+      "value": 0.32,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "vol_crisis_OIL = 0.32 n=12",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=CL",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "vol_crisis_BTC",
+      "label": "比特币年化波动率（2022 年）",
+      "value": 0.6,
+      "unit": "相关系数",
+      "raw_file": "corr-output.txt",
+      "snippet": "vol_crisis_BTC = 0.60 n=12",
+      "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "year_ret_2022_NDX",
+      "label": "纳指 2022 年全年收益",
+      "value": -0.33,
+      "unit": "比例",
+      "raw_file": "corr-output.txt",
+      "snippet": "year_ret_2022_NDX = -0.33",
+      "source_url": "https://stock.finance.sina.com.cn/usstock/api/jsonp.php/var%20_=/US_MinKService.getDailyK?symbol=.IXIC",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "year_ret_2022_SPX",
+      "label": "标普500 2022 年全年收益",
+      "value": -0.19,
+      "unit": "比例",
+      "raw_file": "corr-output.txt",
+      "snippet": "year_ret_2022_SPX = -0.19",
+      "source_url": "https://stock.finance.sina.com.cn/usstock/api/jsonp.php/var%20_=/US_MinKService.getDailyK?symbol=.INX",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "year_ret_2022_CSI300",
+      "label": "沪深300 2022 年全年收益",
+      "value": -0.22,
+      "unit": "比例",
+      "raw_file": "corr-output.txt",
+      "snippet": "year_ret_2022_CSI300 = -0.22",
+      "source_url": "https://money.finance.sina.com.cn/quotes_service/api/json_v2.php/CN_MarketData.getKLineData?symbol=sh000300&scale=240&ma=no&datalen=5000",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "year_ret_2022_HSTECH",
+      "label": "恒科 2022 年全年收益",
+      "value": -0.27,
+      "unit": "比例",
+      "raw_file": "corr-output.txt",
+      "snippet": "year_ret_2022_HSTECH = -0.27",
+      "source_url": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=hkHSTECH,day,,,1600,qfq",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "year_ret_2022_GOLD",
+      "label": "黄金 2022 年全年收益",
+      "value": -0.0,
+      "unit": "比例",
+      "raw_file": "corr-output.txt",
+      "snippet": "year_ret_2022_GOLD = -0.00",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=GC",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "year_ret_2022_OIL",
+      "label": "原油 2022 年全年收益",
+      "value": 0.07,
+      "unit": "比例",
+      "raw_file": "corr-output.txt",
+      "snippet": "year_ret_2022_OIL = 0.07",
+      "source_url": "https://stock2.finance.sina.com.cn/futures/api/jsonp.php/var%20_=/GlobalFuturesService.getGlobalFuturesDailyKLine?symbol=CL",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "year_ret_2022_BTC",
+      "label": "比特币 2022 年全年收益",
+      "value": -0.64,
+      "unit": "比例",
+      "raw_file": "corr-output.txt",
+      "snippet": "year_ret_2022_BTC = -0.64",
+      "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv",
+      "note": "由 本地缓存目录 计算，脚本与原始序列同目录"
+    },
+    {
+      "key": "n_w10",
+      "label": "10 年窗口样本月数",
+      "value": 120,
+      "unit": "个月",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_w10_SPX_NDX = 0.94 n=120",
+      "source_url": "https://stock.finance.sina.com.cn/usstock/api/jsonp.php/var%20_=/US_MinKService.getDailyK?symbol=.IXIC",
+      "note": "相关性窗口的样本月数，与 corr-output.txt 同一行"
+    },
+    {
+      "key": "n_w10_h",
+      "label": "10 年窗口恒科样本月数",
+      "value": 75,
+      "unit": "个月",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_w10_HSTECH_NDX = 0.23 n=75",
+      "source_url": "https://stock.finance.sina.com.cn/usstock/api/jsonp.php/var%20_=/US_MinKService.getDailyK?symbol=.IXIC",
+      "note": "相关性窗口的样本月数，与 corr-output.txt 同一行"
+    },
+    {
+      "key": "n_w5",
+      "label": "5 年窗口样本月数",
+      "value": 60,
+      "unit": "个月",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_w5_SPX_NDX = 0.94 n=60",
+      "source_url": "https://stock.finance.sina.com.cn/usstock/api/jsonp.php/var%20_=/US_MinKService.getDailyK?symbol=.IXIC",
+      "note": "相关性窗口的样本月数，与 corr-output.txt 同一行"
+    },
+    {
+      "key": "n_crisis",
+      "label": "2022 年样本月数",
+      "value": 12,
+      "unit": "个月",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_crisis_SPX_NDX = 0.96 n=12",
+      "source_url": "https://stock.finance.sina.com.cn/usstock/api/jsonp.php/var%20_=/US_MinKService.getDailyK?symbol=.IXIC",
+      "note": "相关性窗口的样本月数，与 corr-output.txt 同一行"
+    },
+    {
+      "key": "n_down",
+      "label": "下跌月样本数",
+      "value": 29,
+      "unit": "个月",
+      "raw_file": "corr-output.txt",
+      "snippet": "corr_down_SPX_NDX = 0.88 n=29",
+      "source_url": "https://stock.finance.sina.com.cn/usstock/api/jsonp.php/var%20_=/US_MinKService.getDailyK?symbol=.IXIC",
+      "note": "相关性窗口的样本月数，与 corr-output.txt 同一行"
+    }
+  ],
+  "derived": [
+    {
+      "key": "corr_gap_csi",
+      "label": "沪深300×纳指：2022 减 10 年相关",
+      "value": -0.48,
+      "unit": "相关系数",
+      "expr": "corr_crisis_CSI300_NDX - corr_w10_CSI300_NDX"
+    },
+    {
+      "key": "corr_gap_btc",
+      "label": "比特币×纳指：2022 减 10 年相关",
+      "value": 0.21,
+      "unit": "相关系数",
+      "expr": "corr_crisis_BTC_NDX - corr_w10_BTC_NDX"
+    },
+    {
+      "key": "corr_gap_gold",
+      "label": "黄金×纳指：2022 减 10 年相关",
+      "value": 0.15,
+      "unit": "相关系数",
+      "expr": "corr_crisis_GOLD_NDX - corr_w10_GOLD_NDX"
+    },
+    {
+      "key": "corr_gap_oil",
+      "label": "原油×纳指：2020-03 减 10 年相关",
+      "value": 0.41,
+      "unit": "相关系数",
+      "expr": "corr_covid_OIL_NDX - corr_w10_OIL_NDX"
+    },
+    {
+      "key": "spread_gap_us",
+      "label": "标普与纳指风险补偿之差",
+      "value": 0.188643,
+      "unit": "百分比",
+      "expr": "spx_spread - ndx_spread"
+    },
+    {
+      "key": "cap_alt_total",
+      "label": "三桶非股权上限合计（金+油+加密）",
+      "value": 20.448328,
+      "unit": "百分比",
+      "expr": "gold_cap + cap_oil + btc_cap"
+    }
+  ]
+}

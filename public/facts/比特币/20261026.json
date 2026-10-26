@@ -1,0 +1,994 @@
+{
+ "meta": {
+  "company": "比特币",
+  "code": "BTC",
+  "as_of": "2026-10-26",
+  "currency": "USD",
+  "fetched_at": "2026-10-26T10:45+08:00",
+  "note": "价格/链上/利率/稳定币均为本机直取：blockchain.info 日度收盘、mempool.space、CoinMetrics 公开档、FRED、DefiLlama。ETF 净流入、上市公司持仓、合约资金费率与未平仓、全球 M2、MVRV 五类数据本机取不到，报告中标为数据缺口，未写入 inputs。聚合统计（30 日均值、波动率、回撤分布、相关系数、自然日数）标 estimated 并注明由哪个原文算出。"
+ },
+ "inputs": [
+  {
+   "key": "px_now",
+   "label": "BTC 现价（2026-10-25 收盘）",
+   "value": 80771.9,
+   "unit": "美元",
+   "raw_file": "market-price-daily.csv",
+   "snippet": "2026-10-25 00:00:00,80771.9",
+   "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv&sampled=false"
+  },
+  {
+   "key": "px_ath",
+   "label": "本轮周期最高价（2025-10-07）",
+   "value": 124776.68,
+   "unit": "美元",
+   "raw_file": "market-price-daily.csv",
+   "snippet": "2025-10-07 00:00:00,124776.68",
+   "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv&sampled=false"
+  },
+  {
+   "key": "px_low4",
+   "label": "本轮周期最低价（2026-07-01）",
+   "value": 58534.28,
+   "unit": "美元",
+   "raw_file": "market-price-daily.csv",
+   "snippet": "2026-07-01 00:00:00,58534.28",
+   "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv&sampled=false"
+  },
+  {
+   "key": "px_1y",
+   "label": "一年前同日价格（2025-10-25）",
+   "value": 111020.53,
+   "unit": "美元",
+   "raw_file": "market-price-daily.csv",
+   "snippet": "2025-10-25 00:00:00,111020.53",
+   "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv&sampled=false"
+  },
+  {
+   "key": "px_2y",
+   "label": "两年前同日价格（2024-10-25）",
+   "value": 68162.43,
+   "unit": "美元",
+   "raw_file": "market-price-daily.csv",
+   "snippet": "2024-10-25 00:00:00,68162.43",
+   "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv&sampled=false"
+  },
+  {
+   "key": "px_h1",
+   "label": "第一次减半 2012-11-28 当日价格",
+   "value": 12.5,
+   "unit": "美元",
+   "raw_file": "market-price-daily.csv",
+   "snippet": "2012-11-28 00:00:00,12.5",
+   "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv&sampled=false"
+  },
+  {
+   "key": "px_h2",
+   "label": "第二次减半 2016-07-09 当日价格",
+   "value": 663.0,
+   "unit": "美元",
+   "raw_file": "market-price-daily.csv",
+   "snippet": "2016-07-09 00:00:00,663.0",
+   "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv&sampled=false"
+  },
+  {
+   "key": "px_h3",
+   "label": "第三次减半 2020-05-11 当日价格",
+   "value": 8754.46,
+   "unit": "美元",
+   "raw_file": "market-price-daily.csv",
+   "snippet": "2020-05-11 00:00:00,8754.46",
+   "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv&sampled=false"
+  },
+  {
+   "key": "px_h4",
+   "label": "第四次减半 2024-04-20 当日价格",
+   "value": 63823.55,
+   "unit": "美元",
+   "raw_file": "market-price-daily.csv",
+   "snippet": "2024-04-20 00:00:00,63823.55",
+   "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv&sampled=false"
+  },
+  {
+   "key": "px_h1_12",
+   "label": "第1次减半后 12 个月当日价格（2013-11-28）",
+   "value": 965.0,
+   "unit": "美元",
+   "raw_file": "market-price-daily.csv",
+   "snippet": "2013-11-28 00:00:00,965.0",
+   "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv&sampled=false"
+  },
+  {
+   "key": "px_h2_12",
+   "label": "第2次减半后 12 个月当日价格（2017-07-09）",
+   "value": 2555.14,
+   "unit": "美元",
+   "raw_file": "market-price-daily.csv",
+   "snippet": "2017-07-09 00:00:00,2555.14",
+   "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv&sampled=false"
+  },
+  {
+   "key": "px_h3_12",
+   "label": "第3次减半后 12 个月当日价格（2021-05-11）",
+   "value": 55883.5,
+   "unit": "美元",
+   "raw_file": "market-price-daily.csv",
+   "snippet": "2021-05-11 00:00:00,55883.5",
+   "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv&sampled=false"
+  },
+  {
+   "key": "px_h4_12",
+   "label": "第4次减半后 12 个月当日价格（2025-04-20）",
+   "value": 85090.63,
+   "unit": "美元",
+   "raw_file": "market-price-daily.csv",
+   "snippet": "2025-04-20 00:00:00,85090.63",
+   "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv&sampled=false"
+  },
+  {
+   "key": "px_h1_18",
+   "label": "第1次减半后 18 个月当日价格（2014-05-30）",
+   "value": 569.01,
+   "unit": "美元",
+   "raw_file": "market-price-daily.csv",
+   "snippet": "2014-05-30 00:00:00,569.01",
+   "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv&sampled=false"
+  },
+  {
+   "key": "px_h2_18",
+   "label": "第2次减半后 18 个月当日价格（2018-01-08）",
+   "value": 16192.91,
+   "unit": "美元",
+   "raw_file": "market-price-daily.csv",
+   "snippet": "2018-01-08 00:00:00,16192.91",
+   "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv&sampled=false"
+  },
+  {
+   "key": "px_h3_18",
+   "label": "第3次减半后 18 个月当日价格（2021-11-10）",
+   "value": 66954.11,
+   "unit": "美元",
+   "raw_file": "market-price-daily.csv",
+   "snippet": "2021-11-10 00:00:00,66954.11",
+   "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv&sampled=false"
+  },
+  {
+   "key": "px_h4_18",
+   "label": "第4次减半后 18 个月当日价格（2025-10-20）",
+   "value": 108688.24,
+   "unit": "美元",
+   "raw_file": "market-price-daily.csv",
+   "snippet": "2025-10-20 00:00:00,108688.24",
+   "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv&sampled=false"
+  },
+  {
+   "key": "px_h1_24",
+   "label": "第1次减半后 24 个月当日价格（2014-11-28）",
+   "value": 369.97,
+   "unit": "美元",
+   "raw_file": "market-price-daily.csv",
+   "snippet": "2014-11-28 00:00:00,369.97",
+   "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv&sampled=false"
+  },
+  {
+   "key": "px_h2_24",
+   "label": "第2次减半后 24 个月当日价格（2018-07-09）",
+   "value": 6724.04,
+   "unit": "美元",
+   "raw_file": "market-price-daily.csv",
+   "snippet": "2018-07-09 00:00:00,6724.04",
+   "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv&sampled=false"
+  },
+  {
+   "key": "px_h3_24",
+   "label": "第3次减半后 24 个月当日价格（2022-05-11）",
+   "value": 31003.93,
+   "unit": "美元",
+   "raw_file": "market-price-daily.csv",
+   "snippet": "2022-05-11 00:00:00,31003.93",
+   "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv&sampled=false"
+  },
+  {
+   "key": "px_h4_24",
+   "label": "第4次减半后 24 个月当日价格（2026-04-20）",
+   "value": 73857.03,
+   "unit": "美元",
+   "raw_file": "market-price-daily.csv",
+   "snippet": "2026-04-20 00:00:00,73857.03",
+   "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv&sampled=false"
+  },
+  {
+   "key": "px_p1",
+   "label": "周期一峰值（2013-12-05）",
+   "value": 1136.9,
+   "unit": "美元",
+   "raw_file": "market-price-daily.csv",
+   "snippet": "2013-12-05 00:00:00,1136.9",
+   "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv&sampled=false"
+  },
+  {
+   "key": "px_p2",
+   "label": "周期二峰值（2017-12-17）",
+   "value": 19279.9,
+   "unit": "美元",
+   "raw_file": "market-price-daily.csv",
+   "snippet": "2017-12-17 00:00:00,19279.9",
+   "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv&sampled=false"
+  },
+  {
+   "key": "px_p3",
+   "label": "周期三峰值（2021-11-09）",
+   "value": 67562.17,
+   "unit": "美元",
+   "raw_file": "market-price-daily.csv",
+   "snippet": "2021-11-09 00:00:00,67562.17",
+   "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv&sampled=false"
+  },
+  {
+   "key": "px_t1",
+   "label": "周期一谷底（2015-01-15）",
+   "value": 172.0,
+   "unit": "美元",
+   "raw_file": "market-price-daily.csv",
+   "snippet": "2015-01-15 00:00:00,172.0",
+   "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv&sampled=false"
+  },
+  {
+   "key": "px_t2",
+   "label": "周期二谷底（2018-12-16）",
+   "value": 3231.91,
+   "unit": "美元",
+   "raw_file": "market-price-daily.csv",
+   "snippet": "2018-12-16 00:00:00,3231.91",
+   "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv&sampled=false"
+  },
+  {
+   "key": "px_t3",
+   "label": "周期三谷底（2022-11-22）",
+   "value": 15759.61,
+   "unit": "美元",
+   "raw_file": "market-price-daily.csv",
+   "snippet": "2022-11-22 00:00:00,15759.61",
+   "source_url": "https://api.blockchain.info/charts/market-price?timespan=all&format=csv&sampled=false"
+  },
+  {
+   "key": "cm_price",
+   "label": "CoinMetrics 收盘价（2026-10-25）",
+   "value": 80038.9058032613,
+   "unit": "美元",
+   "raw_file": "coinmetrics-daily.json",
+   "snippet": "\"PriceUSD\":\"80038.9058032613\"",
+   "source_url": "https://community-api.coinmetrics.io/v4/timeseries/asset-metrics?assets=btc&metrics=PriceUSD,CapMrktCurUSD,SplyCur&frequency=1d"
+  },
+  {
+   "key": "cm_mcap",
+   "label": "CoinMetrics 市值（2026-10-24）",
+   "value": 1622297877709.603,
+   "unit": "美元",
+   "raw_file": "coinmetrics-daily.json",
+   "snippet": "\"CapMrktCurUSD\":\"1622297877709.603069642301599076\"",
+   "source_url": "https://community-api.coinmetrics.io/v4/timeseries/asset-metrics?assets=btc&metrics=PriceUSD,CapMrktCurUSD,SplyCur&frequency=1d"
+  },
+  {
+   "key": "cm_supply",
+   "label": "CoinMetrics 流通量（2026-10-24）",
+   "value": 20102994.86876702,
+   "unit": "BTC",
+   "raw_file": "coinmetrics-daily.json",
+   "snippet": "\"SplyCur\":\"20102994.86876702\"",
+   "source_url": "https://community-api.coinmetrics.io/v4/timeseries/asset-metrics?assets=btc&metrics=PriceUSD,CapMrktCurUSD,SplyCur&frequency=1d"
+  },
+  {
+   "key": "mp_price",
+   "label": "mempool.space 单点价格（2026-10-23）",
+   "value": 79651.0,
+   "unit": "美元",
+   "raw_file": "mempool-histprice-1793000000.json",
+   "snippet": "{\"prices\":[{\"time\":1792980000,\"USD\":79651}],\"exchangeRates\":{\"USDEUR\":0.89,\"USDGBP\":0.75,\"USDCAD\":1.4,\"USDCHF\":0.82,\"USD",
+   "source_url": "https://mempool.space/api/v1/historical-price?currency=USD&timestamp=1793000000"
+  },
+  {
+   "key": "height",
+   "label": "当前区块高度",
+   "value": 973167.0,
+   "unit": "块",
+   "raw_file": "mempool-blocks.json",
+   "snippet": "\"height\":973167,\"version",
+   "source_url": "https://mempool.space/api/v1/blocks"
+  },
+  {
+   "key": "total_sat",
+   "label": "已发行总量（聪）",
+   "value": 2010359600000000.0,
+   "unit": "聪",
+   "raw_file": "q-totalbc.txt",
+   "snippet": "2010359600000000",
+   "source_url": "https://api.blockchain.info/q/totalbc"
+  },
+  {
+   "key": "addr_day",
+   "label": "单日活跃地址（2026-10-25）",
+   "value": 396581.0,
+   "unit": "个",
+   "raw_file": "n-unique-addresses-2y.csv",
+   "snippet": "2026-10-25 00:00:00,396581.0",
+   "source_url": "https://api.blockchain.info/charts/n-unique-addresses?timespan=2years&format=csv"
+  },
+  {
+   "key": "ntx_day",
+   "label": "单日交易笔数（2026-10-25）",
+   "value": 799372.0,
+   "unit": "笔",
+   "raw_file": "n-transactions-2y.csv",
+   "snippet": "2026-10-25 00:00:00,799372.0",
+   "source_url": "https://api.blockchain.info/charts/n-transactions?timespan=2years&format=csv"
+  },
+  {
+   "key": "addr_30d",
+   "label": "30 日日均活跃地址",
+   "value": 477622.0,
+   "unit": "个",
+   "estimated": true,
+   "note": "由 n-unique-addresses-2y.csv 最近 30 个日度值取均值（窗口 2026-09-26~2026-10-25）",
+   "range": [
+    438708,
+    516536
+   ]
+  },
+  {
+   "key": "addr_30d_y1",
+   "label": "一年前同窗口 30 日日均活跃地址",
+   "value": 513836.0,
+   "unit": "个",
+   "estimated": true,
+   "note": "同一文件取 2025-10-26~2025-11-24 的日均值，与 addr_30d 对齐口径",
+   "range": [
+    468856,
+    558816
+   ]
+  },
+  {
+   "key": "ntx_30d",
+   "label": "30 日日均交易笔数",
+   "value": 721501.0,
+   "unit": "笔",
+   "estimated": true,
+   "note": "由 n-transactions-2y.csv 最近 30 个日度值取均值（窗口 2026-09-26~2026-10-25）",
+   "range": [
+    629490,
+    813513
+   ]
+  },
+  {
+   "key": "ntx_30d_y1",
+   "label": "一年前同窗口 30 日日均交易笔数",
+   "value": 433807.0,
+   "unit": "笔",
+   "estimated": true,
+   "note": "同一文件取 2025-10-26~2025-11-24 的日均值",
+   "range": [
+    365500,
+    502114
+   ]
+  },
+  {
+   "key": "hash_hs",
+   "label": "全网算力（mempool 3 日均值口径）",
+   "value": 1.082476713706586e+21,
+   "unit": "H/s",
+   "raw_file": "mempool-hashrate-3d.json",
+   "snippet": "\"currentHashrate\":1.082476713706586e+21",
+   "source_url": "https://mempool.space/api/v1/mining/hashrate/3d"
+  },
+  {
+   "key": "dgs10",
+   "label": "美国 10 年期国债名义收益率",
+   "value": 4.96,
+   "unit": "%",
+   "raw_file": "fred-DGS10.csv",
+   "snippet": "2026-10-22,4.96",
+   "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10"
+  },
+  {
+   "key": "dfii10",
+   "label": "美国 10 年期 TIPS 实际利率",
+   "value": 2.64,
+   "unit": "%",
+   "raw_file": "fred-DFII10.csv",
+   "snippet": "2026-10-22,2.64",
+   "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DFII10"
+  },
+  {
+   "key": "t10yie",
+   "label": "10 年期盈亏平衡通胀率",
+   "value": 2.34,
+   "unit": "%",
+   "raw_file": "fred-T10YIE.csv",
+   "snippet": "2026-10-23,2.34",
+   "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=T10YIE"
+  },
+  {
+   "key": "dtwex",
+   "label": "广义美元指数（DTWEXBGS）",
+   "value": 121.4048,
+   "unit": "指数",
+   "raw_file": "fred-DTWEXBGS.csv",
+   "snippet": "2026-10-16,121.4048",
+   "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DTWEXBGS"
+  },
+  {
+   "key": "nasdaq",
+   "label": "纳斯达克综合指数",
+   "value": 25955.34,
+   "unit": "点",
+   "raw_file": "fred-NASDAQCOM.csv",
+   "snippet": "2026-10-23,25955.340",
+   "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=NASDAQCOM"
+  },
+  {
+   "key": "m2_now",
+   "label": "美国 M2（2026-08）",
+   "value": 23342.8,
+   "unit": "十亿美元",
+   "raw_file": "fred-M2SL.csv",
+   "snippet": "2026-08-01,23342.8",
+   "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=M2SL"
+  },
+  {
+   "key": "m2_y1",
+   "label": "美国 M2（2025-08）",
+   "value": 22092.6,
+   "unit": "十亿美元",
+   "raw_file": "fred-M2SL.csv",
+   "snippet": "2025-08-01,22092.6",
+   "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=M2SL"
+  },
+  {
+   "key": "stbl_now",
+   "label": "全稳定币总量（2026-10-26）",
+   "value": 182276700579.41,
+   "unit": "美元",
+   "raw_file": "defillama-stablecoins-all.json",
+   "snippet": "{\"date\": \"1792972800\", \"totalCirculatingUSD\": {\"peggedUSD\": 182276700579.41}}",
+   "source_url": "https://stablecoins.llama.fi/stablecoincharts/all?stablecoin=1"
+  },
+  {
+   "key": "stbl_y1",
+   "label": "全稳定币总量（2025-10-25）",
+   "value": 183101507882,
+   "unit": "美元",
+   "raw_file": "defillama-stablecoins-all.json",
+   "snippet": "{\"date\": \"1761350400\", \"totalCirculatingUSD\": {\"peggedUSD\": 183101507882}}",
+   "source_url": "https://stablecoins.llama.fi/stablecoincharts/all?stablecoin=1"
+  },
+  {
+   "key": "stbl_peak",
+   "label": "全稳定币总量峰值（2026-05-20）",
+   "value": 190240489246,
+   "unit": "美元",
+   "raw_file": "defillama-stablecoins-all.json",
+   "snippet": "{\"date\": \"1779235200\", \"totalCirculatingUSD\": {\"peggedUSD\": 190240489246}}",
+   "source_url": "https://stablecoins.llama.fi/stablecoincharts/all?stablecoin=1"
+  },
+  {
+   "key": "vol_1y",
+   "label": "近 365 日实现波动率（年化）",
+   "value": 44.2,
+   "unit": "%",
+   "estimated": true,
+   "note": "由 market-price-daily.csv 最近 365 个日对数收益求标准差 ×√365；区间给 ±1.5pp 覆盖窗口起止日选择",
+   "range": [
+    42.7,
+    45.7
+   ]
+  },
+  {
+   "key": "mdd90_med",
+   "label": "任取 90 日窗口的最大回撤中位数",
+   "value": -26.49,
+   "unit": "%",
+   "estimated": true,
+   "note": "market-price-daily.csv 全部滑动 90 日窗口（5823 个）各自最大回撤的中位数",
+   "range": [
+    -27.99,
+    -24.99
+   ]
+  },
+  {
+   "key": "share33",
+   "label": "90 日窗口内出现 ≥33% 回撤的比例",
+   "value": 34.05,
+   "unit": "%",
+   "estimated": true,
+   "note": "同上窗口集合，最大回撤 ≤-33% 的窗口占比（3 倍杠杆在现货口径下会被强平）",
+   "range": [
+    32.95,
+    35.15
+   ]
+  },
+  {
+   "key": "share50",
+   "label": "90 日窗口内出现 ≥50% 回撤的比例",
+   "value": 14.29,
+   "unit": "%",
+   "estimated": true,
+   "note": "同上窗口集合，最大回撤 ≤-50% 的窗口占比（2 倍杠杆同样会被强平）",
+   "range": [
+    13.39,
+    15.19
+   ]
+  },
+  {
+   "key": "corr_365",
+   "label": "BTC 与纳指日对数收益 365 日相关系数",
+   "value": 0.064,
+   "unit": "",
+   "estimated": true,
+   "note": "market-price-daily.csv 与 fred-NASDAQCOM.csv 同日对齐，最近 365 个交易日；换 90/180 日窗口仅 0.03 上下",
+   "range": [
+    0.034,
+    0.094
+   ]
+  },
+  {
+   "key": "days_p2t_1",
+   "label": "周期一峰值到谷底的自然日数",
+   "value": 406,
+   "unit": "天",
+   "estimated": true,
+   "note": "两个交易日日期相减（2013-12-05 → 2015-01-15），日期本身在 market-price-daily.csv 里，不是取数",
+   "range": [
+    405,
+    407
+   ]
+  },
+  {
+   "key": "days_p2t_2",
+   "label": "周期二峰值到谷底的自然日数",
+   "value": 364,
+   "unit": "天",
+   "estimated": true,
+   "note": "两个交易日日期相减（2017-12-17 → 2018-12-16），日期本身在 market-price-daily.csv 里，不是取数",
+   "range": [
+    363,
+    365
+   ]
+  },
+  {
+   "key": "days_p2t_3",
+   "label": "周期三峰值到谷底的自然日数",
+   "value": 378,
+   "unit": "天",
+   "estimated": true,
+   "note": "两个交易日日期相减（2021-11-09 → 2022-11-22），日期本身在 market-price-daily.csv 里，不是取数",
+   "range": [
+    377,
+    379
+   ]
+  },
+  {
+   "key": "days_p2t_4",
+   "label": "周期四峰值到谷底的自然日数",
+   "value": 267,
+   "unit": "天",
+   "estimated": true,
+   "note": "两个交易日日期相减（2025-10-07 → 2026-07-01），日期本身在 market-price-daily.csv 里，不是取数",
+   "range": [
+    266,
+    268
+   ]
+  },
+  {
+   "key": "days_h2p_1",
+   "label": "第一次减半到峰值的自然日数",
+   "value": 372,
+   "unit": "天",
+   "estimated": true,
+   "note": "两个交易日日期相减（2012-11-28 → 2013-12-05），日期本身在 market-price-daily.csv 里，不是取数",
+   "range": [
+    371,
+    373
+   ]
+  },
+  {
+   "key": "days_h2p_2",
+   "label": "第二次减半到峰值的自然日数",
+   "value": 526,
+   "unit": "天",
+   "estimated": true,
+   "note": "两个交易日日期相减（2016-07-09 → 2017-12-17），日期本身在 market-price-daily.csv 里，不是取数",
+   "range": [
+    525,
+    527
+   ]
+  },
+  {
+   "key": "days_h2p_3",
+   "label": "第三次减半到峰值的自然日数",
+   "value": 547,
+   "unit": "天",
+   "estimated": true,
+   "note": "两个交易日日期相减（2020-05-11 → 2021-11-09），日期本身在 market-price-daily.csv 里，不是取数",
+   "range": [
+    546,
+    548
+   ]
+  },
+  {
+   "key": "days_h2p_4",
+   "label": "第四次减半到峰值的自然日数",
+   "value": 535,
+   "unit": "天",
+   "estimated": true,
+   "note": "两个交易日日期相减（2024-04-20 → 2025-10-07），日期本身在 market-price-daily.csv 里，不是取数",
+   "range": [
+    534,
+    536
+   ]
+  },
+  {
+   "key": "days_since_peak4",
+   "label": "本轮峰值至今的自然日数",
+   "value": 384,
+   "unit": "天",
+   "estimated": true,
+   "note": "输入里的两个日期相减（2025-10-07 峰值 → 2026-10-26），不是取数，故给 ±1 天覆盖收盘口径",
+   "range": [
+    383,
+    385
+   ]
+  }
+ ],
+ "derived": [
+  {
+   "key": "block_reward",
+   "label": "当前区块奖励（第四次减半后）",
+   "expr": "50 / 2 ** 4",
+   "value": 3.125,
+   "unit": "BTC/块"
+  },
+  {
+   "key": "blocks_per_day",
+   "label": "每日出块数（10 分钟一块）",
+   "expr": "24 * 60 / 10",
+   "value": 144,
+   "unit": "块"
+  },
+  {
+   "key": "daily_issue",
+   "label": "日新增供给",
+   "expr": "block_reward * blocks_per_day",
+   "value": 450.0,
+   "unit": "BTC/日"
+  },
+  {
+   "key": "annual_issue",
+   "label": "年新增供给",
+   "expr": "daily_issue * 365",
+   "value": 164250.0,
+   "unit": "BTC/年"
+  },
+  {
+   "key": "supply_btc",
+   "label": "流通量（聪→枚）",
+   "expr": "total_sat / 100000000",
+   "value": 20103596.0,
+   "unit": "BTC"
+  },
+  {
+   "key": "issuance_pct",
+   "label": "年新增供给 / 流通量",
+   "expr": "annual_issue / supply_btc * 100",
+   "value": 0.817018,
+   "unit": "%"
+  },
+  {
+   "key": "pct_mined",
+   "label": "已挖出占 2100 万上限",
+   "expr": "supply_btc / 21000000 * 100",
+   "value": 95.73141,
+   "unit": "%"
+  },
+  {
+   "key": "halving_height",
+   "label": "第五次减半区块高度",
+   "expr": "210000 * 5",
+   "value": 1050000.0,
+   "unit": "块"
+  },
+  {
+   "key": "blocks_left",
+   "label": "距下次减半剩余区块",
+   "expr": "halving_height - height",
+   "value": 76833.0,
+   "unit": "块"
+  },
+  {
+   "key": "days_to_halving",
+   "label": "距下次减半的自然日（按 144 块/日）",
+   "expr": "blocks_left / blocks_per_day",
+   "value": 533.5625,
+   "unit": "天"
+  },
+  {
+   "key": "annual_issue_usd",
+   "label": "年新增供给按现价的市值",
+   "expr": "annual_issue * px_now / 100000000",
+   "value": 132.667846,
+   "unit": "亿美元"
+  },
+  {
+   "key": "post_halving_pct",
+   "label": "减半后年新增 / 流通量",
+   "expr": "annual_issue / 2 / supply_btc * 100",
+   "value": 0.408509,
+   "unit": "%"
+  },
+  {
+   "key": "hash_eh",
+   "label": "全网算力（EH/s）",
+   "expr": "hash_hs / 1000000000000000000",
+   "value": 1082.476714,
+   "unit": "EH/s"
+  },
+  {
+   "key": "dd_from_ath",
+   "label": "现价相对本轮峰值回撤",
+   "expr": "(px_now / px_ath - 1) * 100",
+   "value": -35.26683,
+   "unit": "%"
+  },
+  {
+   "key": "dd_low_from_ath",
+   "label": "本轮低点相对峰值回撤",
+   "expr": "(px_low4 / px_ath - 1) * 100",
+   "value": -53.088766,
+   "unit": "%"
+  },
+  {
+   "key": "up_to_ath",
+   "label": "现价回前高的空间",
+   "expr": "(px_ath / px_now - 1) * 100",
+   "value": 54.480308,
+   "unit": "%"
+  },
+  {
+   "key": "down_to_low",
+   "label": "现价回本轮低点的空间",
+   "expr": "(px_low4 / px_now - 1) * 100",
+   "value": -27.531382,
+   "unit": "%"
+  },
+  {
+   "key": "odds",
+   "label": "赔率（上行 ÷ 下行）",
+   "expr": "up_to_ath / (down_to_low * -1)",
+   "value": 1.978844,
+   "unit": "倍"
+  },
+  {
+   "key": "position_pct_2",
+   "label": "可承受亏损 2% ÷ 止损距离 27.53% = 仓位上限（放宽情形）",
+   "expr": "2 / (down_to_low * -1) * 100",
+   "value": 7.264437,
+   "unit": "%"
+  },
+  {
+   "key": "up_from_low",
+   "label": "现价距本轮低点的涨幅",
+   "expr": "(px_now / px_low4 - 1) * 100",
+   "value": 37.990764,
+   "unit": "%"
+  },
+  {
+   "key": "days_since_halving4",
+   "label": "第四次减半至今的自然日数",
+   "expr": "days_h2p_4 + days_since_peak4",
+   "value": 919.0,
+   "unit": "天"
+  },
+  {
+   "key": "ret_1y",
+   "label": "一年涨跌幅",
+   "expr": "(px_now / px_1y - 1) * 100",
+   "value": -27.245979,
+   "unit": "%"
+  },
+  {
+   "key": "ret_2y",
+   "label": "两年涨跌幅",
+   "expr": "(px_now / px_2y - 1) * 100",
+   "value": 18.49915,
+   "unit": "%"
+  },
+  {
+   "key": "mult_12_h1",
+   "label": "第1次减半后 12 个月价格倍数",
+   "expr": "px_h1_12 / px_h1",
+   "value": 77.2,
+   "unit": "倍"
+  },
+  {
+   "key": "mult_18_h1",
+   "label": "第1次减半后 18 个月价格倍数",
+   "expr": "px_h1_18 / px_h1",
+   "value": 45.5208,
+   "unit": "倍"
+  },
+  {
+   "key": "mult_24_h1",
+   "label": "第1次减半后 24 个月价格倍数",
+   "expr": "px_h1_24 / px_h1",
+   "value": 29.5976,
+   "unit": "倍"
+  },
+  {
+   "key": "mult_12_h2",
+   "label": "第2次减半后 12 个月价格倍数",
+   "expr": "px_h2_12 / px_h2",
+   "value": 3.853906,
+   "unit": "倍"
+  },
+  {
+   "key": "mult_18_h2",
+   "label": "第2次减半后 18 个月价格倍数",
+   "expr": "px_h2_18 / px_h2",
+   "value": 24.423695,
+   "unit": "倍"
+  },
+  {
+   "key": "mult_24_h2",
+   "label": "第2次减半后 24 个月价格倍数",
+   "expr": "px_h2_24 / px_h2",
+   "value": 10.14184,
+   "unit": "倍"
+  },
+  {
+   "key": "mult_12_h3",
+   "label": "第3次减半后 12 个月价格倍数",
+   "expr": "px_h3_12 / px_h3",
+   "value": 6.383432,
+   "unit": "倍"
+  },
+  {
+   "key": "mult_18_h3",
+   "label": "第3次减半后 18 个月价格倍数",
+   "expr": "px_h3_18 / px_h3",
+   "value": 7.648,
+   "unit": "倍"
+  },
+  {
+   "key": "mult_24_h3",
+   "label": "第3次减半后 24 个月价格倍数",
+   "expr": "px_h3_24 / px_h3",
+   "value": 3.541501,
+   "unit": "倍"
+  },
+  {
+   "key": "mult_12_h4",
+   "label": "第4次减半后 12 个月价格倍数",
+   "expr": "px_h4_12 / px_h4",
+   "value": 1.333217,
+   "unit": "倍"
+  },
+  {
+   "key": "mult_18_h4",
+   "label": "第4次减半后 18 个月价格倍数",
+   "expr": "px_h4_18 / px_h4",
+   "value": 1.702949,
+   "unit": "倍"
+  },
+  {
+   "key": "mult_24_h4",
+   "label": "第4次减半后 24 个月价格倍数",
+   "expr": "px_h4_24 / px_h4",
+   "value": 1.157207,
+   "unit": "倍"
+  },
+  {
+   "key": "dd_c1",
+   "label": "周期1峰值到谷底回撤",
+   "expr": "(px_t1 / px_p1 - 1) * 100",
+   "value": -84.871141,
+   "unit": "%"
+  },
+  {
+   "key": "dd_c2",
+   "label": "周期2峰值到谷底回撤",
+   "expr": "(px_t2 / px_p2 - 1) * 100",
+   "value": -83.236894,
+   "unit": "%"
+  },
+  {
+   "key": "dd_c3",
+   "label": "周期3峰值到谷底回撤",
+   "expr": "(px_t3 / px_p3 - 1) * 100",
+   "value": -76.673914,
+   "unit": "%"
+  },
+  {
+   "key": "dd_c4",
+   "label": "本轮峰值到谷底回撤",
+   "expr": "dd_low_from_ath",
+   "value": -53.088766,
+   "unit": "%"
+  },
+  {
+   "key": "px_down_c2",
+   "label": "以第二轮回撤 -83.24% 推演的下行终点",
+   "expr": "px_ath * (1 + dd_c2 / 100)",
+   "value": 20916.447132,
+   "unit": "美元"
+  },
+  {
+   "key": "down_c2",
+   "label": "该终点相对现价的空间",
+   "expr": "(px_down_c2 / px_now - 1) * 100",
+   "value": -74.104302,
+   "unit": "%"
+  },
+  {
+   "key": "odds_c2",
+   "label": "按该终点的赔率",
+   "expr": "up_to_ath / (down_c2 * -1)",
+   "value": 0.735184,
+   "unit": "倍"
+  },
+  {
+   "key": "addr_yoy",
+   "label": "活跃地址 30 日均值同比",
+   "expr": "(addr_30d / addr_30d_y1 - 1) * 100",
+   "value": -7.047728,
+   "unit": "%"
+  },
+  {
+   "key": "ntx_yoy",
+   "label": "交易笔数 30 日均值同比",
+   "expr": "(ntx_30d / ntx_30d_y1 - 1) * 100",
+   "value": 66.318582,
+   "unit": "%"
+  },
+  {
+   "key": "stbl_yoy",
+   "label": "稳定币总量同比",
+   "expr": "(stbl_now / stbl_y1 - 1) * 100",
+   "value": -0.450465,
+   "unit": "%"
+  },
+  {
+   "key": "stbl_off_peak",
+   "label": "稳定币总量距峰值",
+   "expr": "(stbl_now / stbl_peak - 1) * 100",
+   "value": -4.186169,
+   "unit": "%"
+  },
+  {
+   "key": "m2_yoy",
+   "label": "美国 M2 同比",
+   "expr": "(m2_now / m2_y1 - 1) * 100",
+   "value": 5.658908,
+   "unit": "%"
+  },
+  {
+   "key": "implied_real",
+   "label": "名义利率 − 盈亏平衡（实际利率交叉核对）",
+   "expr": "dgs10 - t10yie",
+   "value": 2.62,
+   "unit": "%"
+  },
+  {
+   "key": "cm_implied_px",
+   "label": "市值 ÷ 流通量（价格交叉核对）",
+   "expr": "cm_mcap / cm_supply",
+   "value": 80699.313127,
+   "unit": "美元"
+  },
+  {
+   "key": "position_pct",
+   "label": "可承受亏损 1.5% ÷ 止损距离 27.53% = 仓位上限",
+   "expr": "1.5 / (down_to_low * -1) * 100",
+   "value": 5.448328,
+   "unit": "%"
+  }
+ ]
+}

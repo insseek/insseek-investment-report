@@ -1,0 +1,1716 @@
+{
+  "meta": {
+    "company": "标普500指数",
+    "code": "SPX",
+    "as_of": "2026-10-26",
+    "currency": "USD",
+    "fetched_at": "2026-10-26T10:32+08:00",
+    "note": "点位与历史序列来自东方财富 K 线（100.SPX，月线与日线），原文 kline-SPX-*.json；PE/PB/股息率来自 multpl，原样页面 multpl-*.html，逐行解析结果 pe-monthly.csv 等同目录；美债来自 FRED（us10y.csv）；前十成分价格与市盈率来自腾讯行情（quote-us-top25.txt，2026-10-23 收盘）；权重来自 SPY 持仓表（spy-holdings.xlsx，2026-10-22 持仓）；分位与分位点在 pe-quantile-stats.txt 中给出算法与观测数。前瞻市盈率无免费可得的一致预期来源，列为数据缺口。"
+  },
+  "inputs": [
+    {
+      "key": "lvl_now",
+      "label": "标普500 2026-10-23 收盘",
+      "value": 7623.68,
+      "unit": "点",
+      "raw_file": "kline-SPX-monthly-ohlc.json",
+      "snippet": "4,7782.19,7507.77\",\"2026-10-23,7666.47,7623.68,7844.52,7612.07\"]}}",
+      "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=100.SPX&klt=103&fqt=1"
+    },
+    {
+      "key": "prev_close",
+      "label": "前一交易日收盘 2026-10-22",
+      "value": 7663.43,
+      "unit": "点",
+      "raw_file": "kline-SPX-daily.json",
+      "snippet": "7,7770.40,7709.34\",\"2026-10-22,7694.62,7663.43,7702.94,7637.36\",\"2026-10-23,7637.18,7623.68,7660.15,7612.07",
+      "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=100.SPX&klt=101&fqt=1"
+    },
+    {
+      "key": "hi52",
+      "label": "52 周最高（2026-10-06 盘中）",
+      "value": 7844.52,
+      "unit": "点",
+      "raw_file": "kline-SPX-daily.json",
+      "snippet": "5,7794.35,7727.59\",\"2026-10-06,7805.96,7818.93,7844.52,7805.96\",\"2026-10-07,7792.98,7801.77,7807.02,7763.34",
+      "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=100.SPX&klt=101&fqt=1"
+    },
+    {
+      "key": "lo52",
+      "label": "52 周最低（2026-03-30 盘中）",
+      "value": 6316.91,
+      "unit": "点",
+      "raw_file": "kline-SPX-daily.json",
+      "snippet": "5,6453.89,6356.08\",\"2026-03-30,6403.37,6343.72,6427.31,6316.91\",\"2026-03-31,6395.88,6528.52,6539.05,6395.88",
+      "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=100.SPX&klt=101&fqt=1"
+    },
+    {
+      "key": "hi2000",
+      "label": "2000-03 盘中最高",
+      "value": 1553.11,
+      "unit": "点",
+      "raw_file": "kline-SPX-monthly-ohlc.json",
+      "snippet": "2,1444.12,1324.98\",\"2000-03-31,1366.42,1498.58,1553.11,1346.92\",\"2000-04-28,1498.58,1452.43,1526.97,1339.51",
+      "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=100.SPX&klt=103&fqt=1"
+    },
+    {
+      "key": "cl2000",
+      "label": "2000-03 月末收盘",
+      "value": 1498.58,
+      "unit": "点",
+      "raw_file": "kline-SPX-monthly-ohlc.json",
+      "snippet": "2,1444.12,1324.98\",\"2000-03-31,1366.42,1498.58,1553.11,1346.92\",\"2000-04-28,1498.58,1452.43,1526.97,1339.51",
+      "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=100.SPX&klt=103&fqt=1"
+    },
+    {
+      "key": "hi2007",
+      "label": "2007-10 盘中最高",
+      "value": 1576.09,
+      "unit": "点",
+      "raw_file": "kline-SPX-monthly-ohlc.json",
+      "snippet": "5,1538.74,1439.29\",\"2007-10-31,1527.29,1549.38,1576.09,1489.56\",\"2007-11-30,1545.79,1481.14,1545.79,1406.36",
+      "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=100.SPX&klt=103&fqt=1"
+    },
+    {
+      "key": "lo2002",
+      "label": "2002-10 盘中最低",
+      "value": 768.67,
+      "unit": "点",
+      "raw_file": "kline-SPX-monthly-ohlc.json",
+      "snippet": ".28,923.98,800.26\",\"2002-10-31,815.28,885.76,907.51,768.67\",\"2002-11-29,885.76,936.31,941.76,872.16\",\"2",
+      "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=100.SPX&klt=103&fqt=1"
+    },
+    {
+      "key": "lo2009",
+      "label": "2009-03 盘中最低",
+      "value": 666.79,
+      "unit": "点",
+      "raw_file": "kline-SPX-monthly-ohlc.json",
+      "snippet": ".09,875.01,734.52\",\"2009-03-31,729.57,797.87,832.98,666.79\",\"2009-04-30,793.59,872.81,888.70,783.32\",\"2",
+      "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=100.SPX&klt=103&fqt=1"
+    },
+    {
+      "key": "hi2020",
+      "label": "2020-02 盘中最高",
+      "value": 3393.52,
+      "unit": "点",
+      "raw_file": "kline-SPX-monthly-ohlc.json",
+      "snippet": "2,3337.77,3214.64\",\"2020-02-28,3235.66,2954.22,3393.52,2855.84\",\"2020-03-31,2974.28,2584.59,3136.72,2191.86",
+      "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=100.SPX&klt=103&fqt=1"
+    },
+    {
+      "key": "lo2020",
+      "label": "2020-03 盘中最低",
+      "value": 2191.86,
+      "unit": "点",
+      "raw_file": "kline-SPX-monthly-ohlc.json",
+      "snippet": "2,3393.52,2855.84\",\"2020-03-31,2974.28,2584.59,3136.72,2191.86\",\"2020-04-30,2498.08,2912.43,2954.86,2447.49",
+      "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=100.SPX&klt=103&fqt=1"
+    },
+    {
+      "key": "lvl1986",
+      "label": "序列首月收盘 1986-03-31",
+      "value": 238.9,
+      "unit": "点",
+      "raw_file": "kline-SPX-monthly-ohlc.json",
+      "snippet": "ket\":100,\"klines\":[\"1986-03-31,236.55,238.90,240.11,232.92\",\"1986-04-30,238.90,235.52,245.47,226.30\",\"1",
+      "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=100.SPX&klt=103&fqt=1"
+    },
+    {
+      "key": "lvl1996",
+      "label": "1996-10-31 收盘",
+      "value": 705.27,
+      "unit": "点",
+      "raw_file": "kline-SPX-monthly-ohlc.json",
+      "snippet": ".31,690.88,643.97\",\"1996-10-31,687.31,705.27,714.10,684.44\",\"1996-11-29,705.27,757.02,762.12,701.30\",\"1",
+      "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=100.SPX&klt=103&fqt=1"
+    },
+    {
+      "key": "lvl2006",
+      "label": "2006-10-31 收盘",
+      "value": 1377.94,
+      "unit": "点",
+      "raw_file": "kline-SPX-monthly-ohlc.json",
+      "snippet": "5,1340.09,1290.92\",\"2006-10-31,1335.82,1377.94,1389.41,1327.09\",\"2006-11-30,1377.76,1400.63,1407.79,1361.02",
+      "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=100.SPX&klt=103&fqt=1"
+    },
+    {
+      "key": "lvl2011",
+      "label": "2011-10-31 收盘",
+      "value": 1253.3,
+      "unit": "点",
+      "raw_file": "kline-SPX-monthly-ohlc.json",
+      "snippet": "2,1229.29,1114.22\",\"2011-10-31,1131.21,1253.30,1292.53,1074.77\",\"2011-11-30,1251.00,1246.96,1277.55,1158.66",
+      "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=100.SPX&klt=103&fqt=1"
+    },
+    {
+      "key": "lvl2016",
+      "label": "2016-10-31 收盘",
+      "value": 2126.15,
+      "unit": "点",
+      "raw_file": "kline-SPX-monthly-ohlc.json",
+      "snippet": "7,2187.87,2119.10\",\"2016-10-31,2161.10,2126.15,2170.10,2114.20\",\"2016-11-30,2128.68,2198.81,2214.08,2083.79",
+      "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=100.SPX&klt=103&fqt=1"
+    },
+    {
+      "key": "lvl2022",
+      "label": "2022-10-31 收盘（上一轮底部）",
+      "value": 3871.98,
+      "unit": "点",
+      "raw_file": "kline-SPX-monthly-ohlc.json",
+      "snippet": "2,4119.28,3584.13\",\"2022-10-31,3609.78,3871.98,3905.42,3491.58\",\"2022-11-30,3901.79,4080.11,4080.11,3698.15",
+      "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=100.SPX&klt=103&fqt=1"
+    },
+    {
+      "key": "lvl2024",
+      "label": "2024-01-31 收盘",
+      "value": 4845.65,
+      "unit": "点",
+      "raw_file": "kline-SPX-monthly-ohlc.json",
+      "snippet": "3,4793.30,4546.50\",\"2024-01-31,4745.20,4845.65,4931.09,4682.11\",\"2024-02-29,4861.11,5096.27,5111.06,4853.52",
+      "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=100.SPX&klt=103&fqt=1"
+    },
+    {
+      "key": "pe_now",
+      "label": "2026-10-23 滚动市盈率（multpl 官方口径）",
+      "value": 26.01,
+      "unit": "倍",
+      "raw_file": "pe-monthly.csv",
+      "snippet": "96 2026-10-01,26.29 2026-10-23,26.01",
+      "source_url": "https://www.multpl.com/s-p-500-pe-ratio/table/by-month"
+    },
+    {
+      "key": "pe_2000",
+      "label": "2000-03 市盈率",
+      "value": 28.31,
+      "unit": "倍",
+      "raw_file": "pe-monthly.csv",
+      "snippet": "04 2000-02-01,27.76 2000-03-01,28.31 2000-04-01,28.5 2000-05-01,27.49 2000-06-01,",
+      "source_url": "https://www.multpl.com/s-p-500-pe-ratio/table/by-month"
+    },
+    {
+      "key": "pe_2007",
+      "label": "2007-10 市盈率",
+      "value": 20.68,
+      "unit": "倍",
+      "raw_file": "pe-monthly.csv",
+      "snippet": "02 2007-09-01,19.05 2007-10-01,20.68 2007-11-01,20.81 2007-12-01,22.35 2008-01-01",
+      "source_url": "https://www.multpl.com/s-p-500-pe-ratio/table/by-month"
+    },
+    {
+      "key": "pe_2011",
+      "label": "2011-10 市盈率",
+      "value": 13.88,
+      "unit": "倍",
+      "raw_file": "pe-monthly.csv",
+      "snippet": ".79 2011-09-01,13.5 2011-10-01,13.88 2011-11-01,14.1 2011-12-01,14.3 2012-01-01,1",
+      "source_url": "https://www.multpl.com/s-p-500-pe-ratio/table/by-month"
+    },
+    {
+      "key": "pe_2016",
+      "label": "2016-10 市盈率",
+      "value": 23.57,
+      "unit": "倍",
+      "raw_file": "pe-monthly.csv",
+      "snippet": "57 2016-09-01,24.22 2016-10-01,23.57 2016-11-01,23.35 2016-12-01,23.76 2017-01-01",
+      "source_url": "https://www.multpl.com/s-p-500-pe-ratio/table/by-month"
+    },
+    {
+      "key": "pe_2020",
+      "label": "2020-03 市盈率",
+      "value": 22.8,
+      "unit": "倍",
+      "raw_file": "pe-monthly.csv",
+      "snippet": "88 2020-02-01,26.42 2020-03-01,22.8 2020-04-01,24.97 2020-05-01,27.82 2020-06-01",
+      "source_url": "https://www.multpl.com/s-p-500-pe-ratio/table/by-month"
+    },
+    {
+      "key": "pe_2022",
+      "label": "2022-10 市盈率",
+      "value": 20.44,
+      "unit": "倍",
+      "raw_file": "pe-monthly.csv",
+      "snippet": "03 2022-09-01,20.58 2022-10-01,20.44 2022-11-01,22.07 2022-12-01,22.65 2023-01-01",
+      "source_url": "https://www.multpl.com/s-p-500-pe-ratio/table/by-month"
+    },
+    {
+      "key": "pe_2024",
+      "label": "2024-01 市盈率",
+      "value": 25.01,
+      "unit": "倍",
+      "raw_file": "pe-monthly.csv",
+      "snippet": "51 2023-12-01,24.35 2024-01-01,25.01 2024-02-01,26.14 2024-03-01,27.02 2024-04-01",
+      "source_url": "https://www.multpl.com/s-p-500-pe-ratio/table/by-month"
+    },
+    {
+      "key": "dy_now",
+      "label": "标普500 股息率（2026-10-23）",
+      "value": 1.06,
+      "unit": "%",
+      "raw_file": "div-monthly.csv",
+      "snippet": ".06 2026-09-30,1.07 2026-10-23,1.06 2026-10-31,1.05",
+      "source_url": "https://www.multpl.com/s-p-500-dividend-yield/table/by-month"
+    },
+    {
+      "key": "pb_now",
+      "label": "标普500 市净率",
+      "value": 6.05,
+      "unit": "倍",
+      "raw_file": "pb-by-year.csv",
+      "snippet": "date,pb Oct 23, 2026,6.05 Dec 31, 2025,5.39 Dec 31, 2024,4.99 Dec 31,",
+      "source_url": "https://www.multpl.com/s-p-500-price-to-book/table/by-year"
+    },
+    {
+      "key": "us10y",
+      "label": "美国十年期国债收益率（2026-10-22）",
+      "value": 4.96,
+      "unit": "%",
+      "raw_file": "us10y.csv",
+      "snippet": ".12 2026-10-21,5.13 2026-10-22,4.96",
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10"
+    },
+    {
+      "key": "us10y_2000",
+      "label": "2000-03-31 十年期美债",
+      "value": 6.03,
+      "unit": "%",
+      "raw_file": "us10y-full.csv",
+      "snippet": ".18 2000-03-30,6.06 2000-03-31,6.03 2000-04-03,6.00 2000-04-04,5.90 2000-04-05,5",
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10&cosd=1990-01-01"
+    },
+    {
+      "key": "us10y_2007",
+      "label": "2007-10-31 十年期美债",
+      "value": 4.48,
+      "unit": "%",
+      "raw_file": "us10y-full.csv",
+      "snippet": ".39 2007-10-30,4.40 2007-10-31,4.48 2007-11-01,4.36 2007-11-02,4.31 2007-11-05,4",
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10&cosd=1990-01-01"
+    },
+    {
+      "key": "us10y_2020",
+      "label": "2020-03-31 十年期美债",
+      "value": 0.7,
+      "unit": "%",
+      "raw_file": "us10y-full.csv",
+      "snippet": ".72 2020-03-30,0.70 2020-03-31,0.70 2020-04-01,0.62 2020-04-02,0.63 2020-04-03,0",
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10&cosd=1990-01-01"
+    },
+    {
+      "key": "us10y_2022",
+      "label": "2022-10-31 十年期美债",
+      "value": 4.1,
+      "unit": "%",
+      "raw_file": "us10y-full.csv",
+      "snippet": ".96 2022-10-28,4.02 2022-10-31,4.10 2022-11-01,4.07 2022-11-02,4.10 2022-11-03,4",
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10&cosd=1990-01-01"
+    },
+    {
+      "key": "us10y_2024",
+      "label": "2024-01-31 十年期美债",
+      "value": 3.99,
+      "unit": "%",
+      "raw_file": "us10y-full.csv",
+      "snippet": ".08 2024-01-30,4.06 2024-01-31,3.99 2024-02-01,3.87 2024-02-02,4.03 2024-02-05,4",
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10&cosd=1990-01-01"
+    },
+    {
+      "key": "pct_full",
+      "label": "PE 全历史（1871 起）分位",
+      "value": 93.05,
+      "unit": "%",
+      "raw_file": "pe-quantile-stats.txt",
+      "snippet": "份数 ÷ 窗口月份数；分位点用线性插值 全历史（1871 起）：93.05%（1871 个观测） 1990 起：71.11%（443 个观测） 1996 起：65.5",
+      "source_url": "https://www.multpl.com/s-p-500-pe-ratio/table/by-month",
+      "note": "由 multpl 月度表计算，方法与观测数见该文件"
+    },
+    {
+      "key": "pct_1990",
+      "label": "PE 1990 年以来分位",
+      "value": 71.11,
+      "unit": "%",
+      "raw_file": "pe-quantile-stats.txt",
+      "snippet": "起）：93.05%（1871 个观测） 1990 起：71.11%（443 个观测） 1996 起：65.50%（371 个观测） 2016 起：66.41",
+      "source_url": "https://www.multpl.com/s-p-500-pe-ratio/table/by-month",
+      "note": "由 multpl 月度表计算，方法与观测数见该文件"
+    },
+    {
+      "key": "pct_2016",
+      "label": "PE 2016 年以来分位",
+      "value": 66.41,
+      "unit": "%",
+      "raw_file": "pe-quantile-stats.txt",
+      "snippet": "6 起：65.50%（371 个观测） 2016 起：66.41%（131 个观测） 分位点（全历史）：p10 9.21 / p50 15.08 / p90",
+      "source_url": "https://www.multpl.com/s-p-500-pe-ratio/table/by-month",
+      "note": "由 multpl 月度表计算，方法与观测数见该文件"
+    },
+    {
+      "key": "pct_pb",
+      "label": "PB 分位（1999 年以来年度序列）",
+      "value": 100.0,
+      "unit": "%",
+      "raw_file": "pe-quantile-stats.txt",
+      "snippet": "观测，最高 6.05、最低 2.00），分位 100%",
+      "source_url": "https://www.multpl.com/s-p-500-pe-ratio/table/by-month",
+      "note": "由 multpl 月度表计算，方法与观测数见该文件"
+    },
+    {
+      "key": "p10_1990",
+      "label": "PE 1990 年以来 10% 分位",
+      "value": 16.16,
+      "unit": "倍",
+      "raw_file": "pe-quantile-stats.txt",
+      "snippet": "0 23.73 分位点（1990 起）：p10 16.16 / p50 22.53 / p90 31.55 股息率当前 1.06%（2026-10-",
+      "source_url": "https://www.multpl.com/s-p-500-pe-ratio/table/by-month",
+      "note": "由 multpl 月度表计算，方法与观测数见该文件"
+    },
+    {
+      "key": "dy_med",
+      "label": "1990 年以来股息率中位数",
+      "value": 1.88,
+      "unit": "%",
+      "raw_file": "pe-quantile-stats.txt",
+      "snippet": "2026-10-23），1990 年以来中位数 1.88%，全历史最低 1.05% 2016 起平均股息率：1.60% 2011 起平均股息率：1.",
+      "source_url": "https://www.multpl.com/s-p-500-pe-ratio/table/by-month",
+      "note": "由 multpl 月度表计算，方法与观测数见该文件"
+    },
+    {
+      "key": "dy_avg_10y",
+      "label": "2016-10 以来平均股息率",
+      "value": 1.6,
+      "unit": "%",
+      "raw_file": "pe-quantile-stats.txt",
+      "snippet": "数 1.88%，全历史最低 1.05% 2016 起平均股息率：1.60% 2011 起平均股息率：1.75% 2006 起平均股息率：1.85% 1996 起平均",
+      "source_url": "https://www.multpl.com/s-p-500-pe-ratio/table/by-month",
+      "note": "由 multpl 月度表计算，方法与观测数见该文件"
+    },
+    {
+      "key": "dy_avg_15y",
+      "label": "2011-10 以来平均股息率",
+      "value": 1.75,
+      "unit": "%",
+      "raw_file": "pe-quantile-stats.txt",
+      "snippet": "% 2016 起平均股息率：1.60% 2011 起平均股息率：1.75% 2006 起平均股息率：1.85% 1996 起平均股息率：1.75% 1986 起平均",
+      "source_url": "https://www.multpl.com/s-p-500-pe-ratio/table/by-month",
+      "note": "由 multpl 月度表计算，方法与观测数见该文件"
+    },
+    {
+      "key": "dy_avg_20y",
+      "label": "2006-10 以来平均股息率",
+      "value": 1.85,
+      "unit": "%",
+      "raw_file": "pe-quantile-stats.txt",
+      "snippet": "% 2011 起平均股息率：1.75% 2006 起平均股息率：1.85% 1996 起平均股息率：1.75% 1986 起平均股息率：2.08% PB 当前 6.",
+      "source_url": "https://www.multpl.com/s-p-500-pe-ratio/table/by-month",
+      "note": "由 multpl 月度表计算，方法与观测数见该文件"
+    },
+    {
+      "key": "dy_avg_30y",
+      "label": "1996-10 以来平均股息率",
+      "value": 1.75,
+      "unit": "%",
+      "raw_file": "pe-quantile-stats.txt",
+      "snippet": "% 2006 起平均股息率：1.85% 1996 起平均股息率：1.75% 1986 起平均股息率：2.08% PB 当前 6.05（1999-2026 年度表 2",
+      "source_url": "https://www.multpl.com/s-p-500-pe-ratio/table/by-month",
+      "note": "由 multpl 月度表计算，方法与观测数见该文件"
+    },
+    {
+      "key": "dy_avg_base",
+      "label": "1986-03 以来平均股息率",
+      "value": 2.08,
+      "unit": "%",
+      "raw_file": "pe-quantile-stats.txt",
+      "snippet": "% 1996 起平均股息率：1.75% 1986 起平均股息率：2.08% PB 当前 6.05（1999-2026 年度表 28 个观测，最高 6.05、最低 2",
+      "source_url": "https://www.multpl.com/s-p-500-pe-ratio/table/by-month",
+      "note": "由 multpl 月度表计算，方法与观测数见该文件"
+    },
+    {
+      "key": "w_NVDA",
+      "label": "NVDA 在 SPY 中的权重（2026-10-22）",
+      "value": 7.776316,
+      "unit": "%",
+      "raw_file": "sp500-weights.csv",
+      "snippet": "ticker,weight_pct NVDA,7.776316 AAPL,7.695329 MSFT,5.858633 AMZN,3.721222 GO",
+      "source_url": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-spy.xlsx"
+    },
+    {
+      "key": "pe_NVDA",
+      "label": "NVDA 行情市盈率 TTM",
+      "value": 26.67,
+      "unit": "倍",
+      "raw_file": "quote-us-top25.txt",
+      "snippet": ".85~210.18~USD~80189765~16993214883~0.33~26.67~~43.05~~1.73~48920.97590~50940.51120~N",
+      "source_url": "https://qt.gtimg.cn/q=usNVDA"
+    },
+    {
+      "key": "w_AAPL",
+      "label": "AAPL 在 SPY 中的权重（2026-10-22）",
+      "value": 7.695329,
+      "unit": "%",
+      "raw_file": "sp500-weights.csv",
+      "snippet": "t_pct NVDA,7.776316 AAPL,7.695329 MSFT,5.858633 AMZN,3.721222 GOOGL,2.880753 A",
+      "source_url": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-spy.xlsx"
+    },
+    {
+      "key": "pe_AAPL",
+      "label": "AAPL 行情市盈率 TTM",
+      "value": 39.88,
+      "unit": "倍",
+      "raw_file": "quote-us-top25.txt",
+      "snippet": ".73~345.75~USD~39539690~13760827472~0.27~39.88~~46.61~~1.72~50716.06985~50747.61240~A",
+      "source_url": "https://qt.gtimg.cn/q=usAAPL"
+    },
+    {
+      "key": "w_MSFT",
+      "label": "MSFT 在 SPY 中的权重（2026-10-22）",
+      "value": 5.858633,
+      "unit": "%",
+      "raw_file": "sp500-weights.csv",
+      "snippet": "76316 AAPL,7.695329 MSFT,5.858633 AMZN,3.721222 GOOGL,2.880753 AVGO,2.328592 G",
+      "source_url": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-spy.xlsx"
+    },
+    {
+      "key": "pe_MSFT",
+      "label": "MSFT 行情市盈率 TTM",
+      "value": 29.22,
+      "unit": "倍",
+      "raw_file": "quote-us-top25.txt",
+      "snippet": "5.77~515.70~USD~13681067~7159584524~0.18~29.22~~29.22~~1.93~38935.77182~38947.72865~M",
+      "source_url": "https://qt.gtimg.cn/q=usMSFT"
+    },
+    {
+      "key": "w_AMZN",
+      "label": "AMZN 在 SPY 中的权重（2026-10-22）",
+      "value": 3.721222,
+      "unit": "%",
+      "raw_file": "sp500-weights.csv",
+      "snippet": "95329 MSFT,5.858633 AMZN,3.721222 GOOGL,2.880753 AVGO,2.328592 GOOG,2.308623 M",
+      "source_url": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-spy.xlsx"
+    },
+    {
+      "key": "pe_AMZN",
+      "label": "AMZN 行情市盈率 TTM",
+      "value": 19.95,
+      "unit": "倍",
+      "raw_file": "quote-us-top25.txt",
+      "snippet": "0.01~246.45~USD~25569043~6352528891~0.24~19.95~~34.59~~1.42~24384.47660~26750.05766~A",
+      "source_url": "https://qt.gtimg.cn/q=usAMZN"
+    },
+    {
+      "key": "w_GOOGL",
+      "label": "GOOGL 在 SPY 中的权重（2026-10-22）",
+      "value": 2.880753,
+      "unit": "%",
+      "raw_file": "sp500-weights.csv",
+      "snippet": "58633 AMZN,3.721222 GOOGL,2.880753 AVGO,2.328592 GOOG,2.308623 META,2.166513 TS",
+      "source_url": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-spy.xlsx"
+    },
+    {
+      "key": "pe_GOOGL",
+      "label": "GOOGL 行情市盈率 TTM",
+      "value": 16.07,
+      "unit": "倍",
+      "raw_file": "quote-us-top25.txt",
+      "snippet": "4.53~320.18~USD~17569640~5655473342~0.14~16.07~~29.62~~1.34~18778.90375~39161.47432~A",
+      "source_url": "https://qt.gtimg.cn/q=usGOOGL"
+    },
+    {
+      "key": "w_AVGO",
+      "label": "AVGO 在 SPY 中的权重（2026-10-22）",
+      "value": 2.328592,
+      "unit": "%",
+      "raw_file": "sp500-weights.csv",
+      "snippet": "1222 GOOGL,2.880753 AVGO,2.328592 GOOG,2.308623 META,2.166513 TSLA,1.598563 LL",
+      "source_url": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-spy.xlsx"
+    },
+    {
+      "key": "pe_AVGO",
+      "label": "AVGO 行情市盈率 TTM",
+      "value": 41.03,
+      "unit": "倍",
+      "raw_file": "quote-us-top25.txt",
+      "snippet": "7.70~320.23~USD~15917005~5152172808~0.33~41.03~~67.44~~2.31~15068.19652~15355.81255~B",
+      "source_url": "https://qt.gtimg.cn/q=usAVGO"
+    },
+    {
+      "key": "w_META",
+      "label": "META 在 SPY 中的权重（2026-10-22）",
+      "value": 2.166513,
+      "unit": "%",
+      "raw_file": "sp500-weights.csv",
+      "snippet": "28592 GOOG,2.308623 META,2.166513 TSLA,1.598563 LLY,1.583300 BRK.B,1.542595 MU",
+      "source_url": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-spy.xlsx"
+    },
+    {
+      "key": "pe_META",
+      "label": "META 行情市盈率 TTM",
+      "value": 21.92,
+      "unit": "倍",
+      "raw_file": "quote-us-top25.txt",
+      "snippet": "8.04~633.27~USD~14791603~9514633995~0.58~21.92~~27.36~~2.28~14161.19556~16370.78450~M",
+      "source_url": "https://qt.gtimg.cn/q=usMETA"
+    },
+    {
+      "key": "w_TSLA",
+      "label": "TSLA 在 SPY 中的权重（2026-10-22）",
+      "value": 1.598563,
+      "unit": "%",
+      "raw_file": "sp500-weights.csv",
+      "snippet": "08623 META,2.166513 TSLA,1.598563 LLY,1.583300 BRK.B,1.542595 MU,1.464746 JPM,",
+      "source_url": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-spy.xlsx"
+    },
+    {
+      "key": "pe_TSLA",
+      "label": "TSLA 行情市盈率 TTM",
+      "value": 409.03,
+      "unit": "倍",
+      "raw_file": "quote-us-top25.txt",
+      "snippet": ".32~365.27~USD~34762967~12926869070~0.88~409.03~~344.65~~3.22~13162.76013~14712.85218~",
+      "source_url": "https://qt.gtimg.cn/q=usTSLA"
+    },
+    {
+      "key": "w_LLY",
+      "label": "LLY 在 SPY 中的权重（2026-10-22）",
+      "value": 1.5833,
+      "unit": "%",
+      "raw_file": "sp500-weights.csv",
+      "snippet": "66513 TSLA,1.598563 LLY,1.583300 BRK.B,1.542595 MU,1.464746 JPM,1.354677 AMD,",
+      "source_url": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-spy.xlsx"
+    },
+    {
+      "key": "pe_LLY",
+      "label": "LLY 行情市盈率 TTM",
+      "value": 42.75,
+      "unit": "倍",
+      "raw_file": "quote-us-top25.txt",
+      "snippet": "7.92~1257.62~USD~2277425~2904349840~0.26~42.75~~55.49~~3.85~11333.73019~11351.07568~E",
+      "source_url": "https://qt.gtimg.cn/q=usLLY"
+    },
+    {
+      "key": "w_BRK_B",
+      "label": "BRK.B 在 SPY 中的权重（2026-10-22）",
+      "value": 1.542595,
+      "unit": "%",
+      "raw_file": "sp500-weights.csv",
+      "snippet": "598563 LLY,1.583300 BRK.B,1.542595 MU,1.464746 JPM,1.354677 AMD,1.255604 XOM,1.",
+      "source_url": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-spy.xlsx"
+    },
+    {
+      "key": "pe_BRK_B",
+      "label": "BRK.B 行情市盈率 TTM",
+      "value": 13.63,
+      "unit": "倍",
+      "raw_file": "quote-us-top25.txt",
+      "snippet": "48.31~540.97~USD~4309847~2342346815~0.20~13.63~~17.47~~1.34~6764.43408~11606.71443~Be",
+      "source_url": "https://qt.gtimg.cn/q=usBRK.B"
+    },
+    {
+      "key": "w_MU",
+      "label": "MU 在 SPY 中的权重（2026-10-22）",
+      "value": 1.464746,
+      "unit": "%",
+      "raw_file": "sp500-weights.csv",
+      "snippet": "3300 BRK.B,1.542595 MU,1.464746 JPM,1.354677 AMD,1.255604 XOM,1.109835 V,1.0",
+      "source_url": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-spy.xlsx"
+    },
+    {
+      "key": "pe_MU",
+      "label": "MU 行情市盈率 TTM",
+      "value": 11.81,
+      "unit": "倍",
+      "raw_file": "quote-us-top25.txt",
+      "snippet": ".89~858.34~USD~21249884~18718665703~1.88~11.81~~11.81~~3.92~9905.32757~9928.80440~Mic",
+      "source_url": "https://qt.gtimg.cn/q=usMU"
+    },
+    {
+      "key": "w_JPM",
+      "label": "JPM 在 SPY 中的权重（2026-10-22）",
+      "value": 1.354677,
+      "unit": "%",
+      "raw_file": "sp500-weights.csv",
+      "snippet": ".542595 MU,1.464746 JPM,1.354677 AMD,1.255604 XOM,1.109835 V,1.069286 JNJ,0.9",
+      "source_url": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-spy.xlsx"
+    },
+    {
+      "key": "pe_JPM",
+      "label": "JPM 行情市盈率 TTM",
+      "value": 13.91,
+      "unit": "倍",
+      "raw_file": "quote-us-top25.txt",
+      "snippet": "35.14~330.40~USD~4781112~1586367224~0.18~13.91~~16.56~~1.41~8777.01185~8805.43848~Jp ",
+      "source_url": "https://qt.gtimg.cn/q=usJPM"
+    },
+    {
+      "key": "w_AMD",
+      "label": "AMD 在 SPY 中的权重（2026-10-22）",
+      "value": 1.255604,
+      "unit": "%",
+      "raw_file": "sp500-weights.csv",
+      "snippet": "464746 JPM,1.354677 AMD,1.255604 XOM,1.109835 V,1.069286 JNJ,0.976661 WMT,0.8",
+      "source_url": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-spy.xlsx"
+    },
+    {
+      "key": "pe_AMD",
+      "label": "AMD 行情市盈率 TTM",
+      "value": 132.51,
+      "unit": "倍",
+      "raw_file": "quote-us-top25.txt",
+      "snippet": "3.92~508.36~USD~15177935~7848865181~0.93~132.51~~195.02~~3.06~8400.70452~8436.46777~Ad",
+      "source_url": "https://qt.gtimg.cn/q=usAMD"
+    },
+    {
+      "key": "w_XOM",
+      "label": "XOM 在 SPY 中的权重（2026-10-22）",
+      "value": 1.109835,
+      "unit": "%",
+      "raw_file": "sp500-weights.csv",
+      "snippet": "354677 AMD,1.255604 XOM,1.109835 V,1.069286 JNJ,0.976661 WMT,0.817493 MA,0.77",
+      "source_url": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-spy.xlsx"
+    },
+    {
+      "key": "pe_XOM",
+      "label": "XOM 行情市盈率 TTM",
+      "value": 23.58,
+      "unit": "倍",
+      "raw_file": "quote-us-top25.txt",
+      "snippet": "3.75~179.00~USD~11522157~2103068334~0.28~23.58~~27.34~~2.67~6731.25305~7533.43390~Exx",
+      "source_url": "https://qt.gtimg.cn/q=usXOM"
+    },
+    {
+      "key": "w_V",
+      "label": "V 在 SPY 中的权重（2026-10-22）",
+      "value": 1.069286,
+      "unit": "%",
+      "raw_file": "sp500-weights.csv",
+      "snippet": "255604 XOM,1.109835 V,1.069286 JNJ,0.976661 WMT,0.817493 MA,0.775469 ABBV,0",
+      "source_url": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-spy.xlsx"
+    },
+    {
+      "key": "pe_V",
+      "label": "V 行情市盈率 TTM",
+      "value": 34.72,
+      "unit": "倍",
+      "raw_file": "quote-us-top25.txt",
+      "snippet": "12.58~406.80~USD~5072215~2073090071~0.27~34.72~~39.99~~1.40~6948.45697~7658.10757~Vis",
+      "source_url": "https://qt.gtimg.cn/q=usV"
+    },
+    {
+      "key": "w_JNJ",
+      "label": "JNJ 在 SPY 中的权重（2026-10-22）",
+      "value": 0.976661,
+      "unit": "%",
+      "raw_file": "sp500-weights.csv",
+      "snippet": "1.109835 V,1.069286 JNJ,0.976661 WMT,0.817493 MA,0.775469 ABBV,0.763261 COST,",
+      "source_url": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-spy.xlsx"
+    },
+    {
+      "key": "pe_JNJ",
+      "label": "JNJ 行情市盈率 TTM",
+      "value": 40.09,
+      "unit": "倍",
+      "raw_file": "quote-us-top25.txt",
+      "snippet": "66.03~262.40~USD~5309148~1400062985~0.22~40.09~~23.92~~1.35~5706.11648~6350.72521~Joh",
+      "source_url": "https://qt.gtimg.cn/q=usJNJ"
+    },
+    {
+      "key": "w_WMT",
+      "label": "WMT 在 SPY 中的权重（2026-10-22）",
+      "value": 0.817493,
+      "unit": "%",
+      "raw_file": "sp500-weights.csv",
+      "snippet": "069286 JNJ,0.976661 WMT,0.817493 MA,0.775469 ABBV,0.763261 COST,0.683903 PLTR",
+      "source_url": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-spy.xlsx"
+    },
+    {
+      "key": "pe_WMT",
+      "label": "WMT 行情市盈率 TTM",
+      "value": 43.44,
+      "unit": "倍",
+      "raw_file": "quote-us-top25.txt",
+      "snippet": "2.40~119.12~USD~18598906~2233137835~0.23~43.44~~43.92~~2.71~5288.55467~9511.76837~Wal",
+      "source_url": "https://qt.gtimg.cn/q=usWMT"
+    },
+    {
+      "key": "w_MA",
+      "label": "MA 在 SPY 中的权重（2026-10-22）",
+      "value": 0.775469,
+      "unit": "%",
+      "raw_file": "sp500-weights.csv",
+      "snippet": "976661 WMT,0.817493 MA,0.775469 ABBV,0.763261 COST,0.683903 PLTR,0.683629 CV",
+      "source_url": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-spy.xlsx"
+    },
+    {
+      "key": "pe_MA",
+      "label": "MA 行情市盈率 TTM",
+      "value": 34.3,
+      "unit": "倍",
+      "raw_file": "quote-us-top25.txt",
+      "snippet": "31.12~619.59~USD~2698362~1681146654~0.31~34.30~~37.75~~1.82~5420.44962~5462.79799~Mas",
+      "source_url": "https://qt.gtimg.cn/q=usMA"
+    },
+    {
+      "key": "w_ABBV",
+      "label": "ABBV 在 SPY 中的权重（2026-10-22）",
+      "value": 0.763261,
+      "unit": "%",
+      "raw_file": "sp500-weights.csv",
+      "snippet": ".817493 MA,0.775469 ABBV,0.763261 COST,0.683903 PLTR,0.683629 CVX,0.678329 INT",
+      "source_url": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-spy.xlsx"
+    },
+    {
+      "key": "pe_ABBV",
+      "label": "ABBV 行情市盈率 TTM",
+      "value": 80.69,
+      "unit": "倍",
+      "raw_file": "quote-us-top25.txt",
+      "snippet": "86.77~282.30~USD~4631883~1320635063~0.26~80.69~~120.52~~1.57~4538.33292~5047.59381~Ab",
+      "source_url": "https://qt.gtimg.cn/q=usABBV"
+    },
+    {
+      "key": "w_COST",
+      "label": "COST 在 SPY 中的权重（2026-10-22）",
+      "value": 0.683903,
+      "unit": "%",
+      "raw_file": "sp500-weights.csv",
+      "snippet": "75469 ABBV,0.763261 COST,0.683903 PLTR,0.683629 CVX,0.678329 INTC,0.643316 CSC",
+      "source_url": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-spy.xlsx"
+    },
+    {
+      "key": "pe_COST",
+      "label": "COST 行情市盈率 TTM",
+      "value": 48.33,
+      "unit": "倍",
+      "raw_file": "quote-us-top25.txt",
+      "snippet": "1.45~1002.68~USD~2408131~2424207260~0.54~48.33~~48.33~~1.84~4441.38740~4446.00538~Cos",
+      "source_url": "https://qt.gtimg.cn/q=usCOST"
+    },
+    {
+      "key": "w_PLTR",
+      "label": "PLTR 在 SPY 中的权重（2026-10-22）",
+      "value": 0.683629,
+      "unit": "%",
+      "raw_file": "sp500-weights.csv",
+      "snippet": "63261 COST,0.683903 PLTR,0.683629 CVX,0.678329 INTC,0.643316 CSCO,0.626133 PG,",
+      "source_url": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-spy.xlsx"
+    },
+    {
+      "key": "pe_PLTR",
+      "label": "PLTR 行情市盈率 TTM",
+      "value": 168.16,
+      "unit": "倍",
+      "raw_file": "quote-us-top25.txt",
+      "snippet": "7.49~190.57~USD~17668386~3450517666~0.74~168.16~~312.30~~3.53~4223.69395~4728.01756~Pa",
+      "source_url": "https://qt.gtimg.cn/q=usPLTR"
+    },
+    {
+      "key": "w_CVX",
+      "label": "CVX 在 SPY 中的权重（2026-10-22）",
+      "value": 0.678329,
+      "unit": "%",
+      "raw_file": "sp500-weights.csv",
+      "snippet": "83903 PLTR,0.683629 CVX,0.678329 INTC,0.643316 CSCO,0.626133 PG,0.579171 UNH,",
+      "source_url": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-spy.xlsx"
+    },
+    {
+      "key": "pe_CVX",
+      "label": "CVX 行情市盈率 TTM",
+      "value": 22.45,
+      "unit": "倍",
+      "raw_file": "quote-us-top25.txt",
+      "snippet": "33.74~227.98~USD~8143041~1891446430~0.42~22.45~~35.17~~2.54~4553.59609~4574.65500~Che",
+      "source_url": "https://qt.gtimg.cn/q=usCVX"
+    },
+    {
+      "key": "w_INTC",
+      "label": "INTC 在 SPY 中的权重（2026-10-22）",
+      "value": 0.643316,
+      "unit": "%",
+      "raw_file": "sp500-weights.csv",
+      "snippet": "683629 CVX,0.678329 INTC,0.643316 CSCO,0.626133 PG,0.579171 UNH,0.577788 KO,0.",
+      "source_url": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-spy.xlsx"
+    },
+    {
+      "key": "pe_INTC",
+      "label": "INTC 行情市盈率 TTM",
+      "value": -41.61,
+      "unit": "倍",
+      "raw_file": "quote-us-top25.txt",
+      "snippet": "87.87~84.74~USD~72093680~6253320394~1.36~-41.61~~-1449.33~~3.66~4595.23353~4596.79714~",
+      "source_url": "https://qt.gtimg.cn/q=usINTC"
+    },
+    {
+      "key": "w_CSCO",
+      "label": "CSCO 在 SPY 中的权重（2026-10-22）",
+      "value": 0.626133,
+      "unit": "%",
+      "raw_file": "sp500-weights.csv",
+      "snippet": "78329 INTC,0.643316 CSCO,0.626133 PG,0.579171 UNH,0.577788 KO,0.559197 MRK,0.5",
+      "source_url": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-spy.xlsx"
+    },
+    {
+      "key": "pe_CSCO",
+      "label": "CSCO 行情市盈率 TTM",
+      "value": 31.98,
+      "unit": "倍",
+      "raw_file": "quote-us-top25.txt",
+      "snippet": "6.96~104.04~USD~13560886~1440791205~0.34~31.98~~31.98~~2.78~4198.51251~4198.85502~Cis",
+      "source_url": "https://qt.gtimg.cn/q=usCSCO"
+    },
+    {
+      "key": "px_NVDA",
+      "label": "NVDA 现价",
+      "value": 210.96,
+      "unit": "美元",
+      "raw_file": "quote-us-top25.txt",
+      "snippet": "v_usNVDA=\"200~Ӣΰ��~NVDA.OQ~210.96~212.21~210.99~80189765~0~0~211.12~100~",
+      "source_url": "https://qt.gtimg.cn/q=usNVDA"
+    },
+    {
+      "key": "hi52_NVDA",
+      "label": "NVDA 52 周最高",
+      "value": 243.37,
+      "unit": "美元",
+      "raw_file": "quote-us-top25.txt",
+      "snippet": "7590~50940.51120~Nvidia Corporation~7.91~243.37~163.89~-400~22.25~0.25~50940.51120~13.",
+      "source_url": "https://qt.gtimg.cn/q=usNVDA"
+    },
+    {
+      "key": "px_AAPL",
+      "label": "AAPL 现价",
+      "value": 347.73,
+      "unit": "美元",
+      "raw_file": "quote-us-top25.txt",
+      "snippet": "v_usAAPL=\"200~ƻ��~AAPL.OQ~347.73~348.22~349.12~39539690~0~0~347.59~240~",
+      "source_url": "https://qt.gtimg.cn/q=usAAPL"
+    },
+    {
+      "key": "hi52_AAPL",
+      "label": "AAPL 52 周最高",
+      "value": 351.73,
+      "unit": "美元",
+      "raw_file": "quote-us-top25.txt",
+      "snippet": "0~0~0~0~~2026-10-23 16:00:01~-0.49~-0.14~351.73~345.75~USD~39539690~13760827472~0.27~3",
+      "source_url": "https://qt.gtimg.cn/q=usAAPL"
+    },
+    {
+      "key": "px_MSFT",
+      "label": "MSFT 现价",
+      "value": 524.51,
+      "unit": "美元",
+      "raw_file": "quote-us-top25.txt",
+      "snippet": "v_usMSFT=\"200~΢��~MSFT.OQ~524.51~521.08~517.75~13681067~0~0~524.35~200~",
+      "source_url": "https://qt.gtimg.cn/q=usMSFT"
+    },
+    {
+      "key": "hi52_MSFT",
+      "label": "MSFT 52 周最高",
+      "value": 551.15,
+      "unit": "美元",
+      "raw_file": "quote-us-top25.txt",
+      "snippet": "~38947.72865~Microsoft Corporation~17.95~551.15~348.54~-400~8.80~0.71~38947.72865~9.15",
+      "source_url": "https://qt.gtimg.cn/q=usMSFT"
+    },
+    {
+      "key": "px_AMZN",
+      "label": "AMZN 现价",
+      "value": 248.0,
+      "unit": "美元",
+      "raw_file": "quote-us-top25.txt",
+      "snippet": "v_usAMZN=\"200~����ѷ~AMZN.OQ~248.00~250.38~248.85~25569043~0~0~248.78~500~",
+      "source_url": "https://qt.gtimg.cn/q=usAMZN"
+    },
+    {
+      "key": "hi52_AMZN",
+      "label": "AMZN 52 周最高",
+      "value": 287.2,
+      "unit": "美元",
+      "raw_file": "quote-us-top25.txt",
+      "snippet": "47660~26750.05766~Amazon.Com, Inc.~12.43~287.20~196.00~400~4.85~~26750.05766~7.44~-0.8",
+      "source_url": "https://qt.gtimg.cn/q=usAMZN"
+    },
+    {
+      "key": "px_GOOGL",
+      "label": "GOOGL 现价",
+      "value": 320.21,
+      "unit": "美元",
+      "raw_file": "quote-us-top25.txt",
+      "snippet": "v_usGOOGL=\"200~�ȸ�-A~GOOGL.OQ~320.21~324.22~321.15~17569640~0~0~321.00~480~",
+      "source_url": "https://qt.gtimg.cn/q=usGOOGL"
+    },
+    {
+      "key": "hi52_GOOGL",
+      "label": "GOOGL 52 周最高",
+      "value": 408.12,
+      "unit": "美元",
+      "raw_file": "quote-us-top25.txt",
+      "snippet": "78.90375~39161.47432~Alphabet Inc.~19.93~408.12~254.66~120~6.29~0.27~39161.47432~2.50~",
+      "source_url": "https://qt.gtimg.cn/q=usGOOGL"
+    },
+    {
+      "key": "px_AVGO",
+      "label": "AVGO 现价",
+      "value": 321.68,
+      "unit": "美元",
+      "raw_file": "quote-us-top25.txt",
+      "snippet": "v_usAVGO=\"200~��ͨ~AVGO.OQ~321.68~323.24~321.50~15917005~0~0~322.20~80~0",
+      "source_url": "https://qt.gtimg.cn/q=usAVGO"
+    },
+    {
+      "key": "hi52_AVGO",
+      "label": "AVGO 52 周最高",
+      "value": 493.32,
+      "unit": "美元",
+      "raw_file": "quote-us-top25.txt",
+      "snippet": "068.19652~15355.81255~Broadcom Inc.~7.84~493.32~288.98~40~15.40~0.81~15355.81255~-6.54",
+      "source_url": "https://qt.gtimg.cn/q=usAVGO"
+    },
+    {
+      "key": "px_META",
+      "label": "META 现价",
+      "value": 642.62,
+      "unit": "美元",
+      "raw_file": "quote-us-top25.txt",
+      "snippet": "v_usMETA=\"200~Meta Platforms~META.OQ~642.62~648.85~638.18~14791603~0~0~640.00~80~0",
+      "source_url": "https://qt.gtimg.cn/q=usMETA"
+    },
+    {
+      "key": "hi52_META",
+      "label": "META 52 周最高",
+      "value": 779.82,
+      "unit": "美元",
+      "raw_file": "quote-us-top25.txt",
+      "snippet": "6~16370.78450~Meta Platforms, Inc.~29.31~779.82~519.38~-800~6.01~0.33~16370.78450~-2.3",
+      "source_url": "https://qt.gtimg.cn/q=usMETA"
+    },
+    {
+      "key": "px_TSLA",
+      "label": "TSLA 现价",
+      "value": 372.22,
+      "unit": "美元",
+      "raw_file": "quote-us-top25.txt",
+      "snippet": "v_usTSLA=\"200~��˹��~TSLA.OQ~372.22~374.58~373.20~34762967~0~0~372.10~40~0",
+      "source_url": "https://qt.gtimg.cn/q=usTSLA"
+    },
+    {
+      "key": "hi52_TSLA",
+      "label": "TSLA 52 周最高",
+      "value": 498.83,
+      "unit": "美元",
+      "raw_file": "quote-us-top25.txt",
+      "snippet": "13162.76013~14712.85218~Tesla, Inc.~0.91~498.83~297.38~-200~16.48~~14712.85218~-17.23~",
+      "source_url": "https://qt.gtimg.cn/q=usTSLA"
+    },
+    {
+      "key": "px_LLY",
+      "label": "LLY 现价",
+      "value": 1273.46,
+      "unit": "美元",
+      "raw_file": "quote-us-top25.txt",
+      "snippet": "v_usLLY=\"200~����~LLY.N~1273.46~1306.69~1304.15~2277425~0~0~1275.86~40",
+      "source_url": "https://qt.gtimg.cn/q=usLLY"
+    },
+    {
+      "key": "hi52_LLY",
+      "label": "LLY 52 周最高",
+      "value": 1321.21,
+      "unit": "美元",
+      "raw_file": "quote-us-top25.txt",
+      "snippet": "~11351.07568~Eli Lilly And Company~29.79~1321.21~804.54~-120~33.50~0.53~11351.07568~19.",
+      "source_url": "https://qt.gtimg.cn/q=usLLY"
+    },
+    {
+      "key": "px_BRK_B",
+      "label": "BRK.B 现价",
+      "value": 542.19,
+      "unit": "美元",
+      "raw_file": "quote-us-top25.txt",
+      "snippet": "v_usBRK.B=\"200~����ϣ��B~BRK.B.N~542.19~546.97~545.37~4309847~0~0~542.22~80~0~",
+      "source_url": "https://qt.gtimg.cn/q=usBRK.B"
+    },
+    {
+      "key": "hi52_BRK_B",
+      "label": "BRK.B 52 周最高",
+      "value": 549.96,
+      "unit": "美元",
+      "raw_file": "quote-us-top25.txt",
+      "snippet": ".71443~Berkshire Hathaway Inc. New~39.77~549.96~464.01~40~1.55~~11606.71443~7.87~1.91~",
+      "source_url": "https://qt.gtimg.cn/q=usBRK.B"
+    },
+    {
+      "key": "w_GOOG",
+      "label": "GOOG（Alphabet C 类）在 SPY 中的权重（2026-10-22）",
+      "value": 2.308623,
+      "unit": "%",
+      "raw_file": "sp500-weights.csv",
+      "snippet": "AVGO,2.328592 GOOG,2.308623 META,2.166513 TSLA,1.598563 LLY,1.58330",
+      "source_url": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-spy.xlsx"
+    },
+    {
+      "key": "p50_full",
+      "label": "PE 全历史中位数",
+      "value": 15.08,
+      "unit": "倍",
+      "raw_file": "pe-quantile-stats.txt",
+      "snippet": "历史）：p10 9.21 / p50 15.08 / p90 23.73 分位点（1990 起）：p10 16.16 / p50",
+      "source_url": "https://www.multpl.com/s-p-500-pe-ratio/table/by-month",
+      "note": "1871 起 1871 个月末观测，算法见该文件"
+    },
+    {
+      "key": "p90_full",
+      "label": "PE 全历史 90% 分位",
+      "value": 23.73,
+      "unit": "倍",
+      "raw_file": "pe-quantile-stats.txt",
+      "snippet": "/ p50 15.08 / p90 23.73 分位点（1990 起）：p10 16.16 / p50 22.53 / p90",
+      "source_url": "https://www.multpl.com/s-p-500-pe-ratio/table/by-month",
+      "note": "1871 起 1871 个月末观测，算法见该文件"
+    },
+    {
+      "key": "p50_1990",
+      "label": "PE 1990 年以来中位数",
+      "value": 22.53,
+      "unit": "倍",
+      "raw_file": "pe-quantile-stats.txt",
+      "snippet": "起）：p10 16.16 / p50 22.53 / p90 31.55 股息率当前 1.06%（2026-10-23），199",
+      "source_url": "https://www.multpl.com/s-p-500-pe-ratio/table/by-month",
+      "note": "1990 起 443 个月末观测，算法见该文件"
+    },
+    {
+      "key": "p90_1990",
+      "label": "PE 1990 年以来 90% 分位",
+      "value": 31.55,
+      "unit": "倍",
+      "raw_file": "pe-quantile-stats.txt",
+      "snippet": "/ p50 22.53 / p90 31.55 股息率当前 1.06%（2026-10-23），1990 年以来中位数 1.8",
+      "source_url": "https://www.multpl.com/s-p-500-pe-ratio/table/by-month",
+      "note": "1990 起 443 个月末观测，算法见该文件"
+    },
+    {
+      "key": "dy_min",
+      "label": "股息率全历史最低",
+      "value": 1.05,
+      "unit": "%",
+      "raw_file": "pe-quantile-stats.txt",
+      "snippet": "以来中位数 1.88%，全历史最低 1.05% 2016 起平均股息率：1.60% 2011 起平均股息率：1.75% 200",
+      "source_url": "https://www.multpl.com/s-p-500-dividend-yield/table/by-month",
+      "note": "1871 起 1871 个月末观测，算法见该文件"
+    },
+    {
+      "key": "pb_2025",
+      "label": "PB 前高（2025-12-31）",
+      "value": 5.39,
+      "unit": "倍",
+      "raw_file": "pb-by-year.csv",
+      "snippet": "23, 2026,6.05 Dec 31, 2025,5.39 Dec 31, 2024,4.99 Dec 31, 2023,4.31 Dec",
+      "source_url": "https://www.multpl.com/s-p-500-price-to-book/table/by-year"
+    },
+    {
+      "key": "pe_min",
+      "label": "PE 历史最低（1917-12）",
+      "value": 5.31,
+      "unit": "倍",
+      "raw_file": "pe-monthly.csv",
+      "snippet": "917-11-01,5.41 1917-12-01,5.31 1918-01-01,5.74 1918-02-01,6.03 1918-03",
+      "source_url": "https://www.multpl.com/s-p-500-pe-ratio/table/by-month"
+    },
+    {
+      "key": "pe_max",
+      "label": "PE 历史最高（2009-05，分母崩塌）",
+      "value": 123.73,
+      "unit": "倍",
+      "raw_file": "pe-monthly.csv",
+      "snippet": "9-04-01,119.85 2009-05-01,123.73 2009-06-01,123.32 2009-07-01,101.87 200",
+      "source_url": "https://www.multpl.com/s-p-500-pe-ratio/table/by-month"
+    }
+  ],
+  "derived": [
+    {
+      "key": "ey",
+      "label": "盈利收益率（1 ÷ PE）",
+      "expr": "100 / pe_now",
+      "value": 3.844675,
+      "unit": "%"
+    },
+    {
+      "key": "spread",
+      "label": "风险补偿（盈利收益率 − 美债 10Y）",
+      "expr": "ey - us10y",
+      "value": -1.115325,
+      "unit": "pct"
+    },
+    {
+      "key": "dd_hi52",
+      "label": "距 52 周高",
+      "expr": "(lvl_now / hi52 - 1) * 100",
+      "value": -2.815214,
+      "unit": "%"
+    },
+    {
+      "key": "dd_ath",
+      "label": "距历史最高（同一高点）",
+      "expr": "(lvl_now / hi52 - 1) * 100",
+      "value": -2.815214,
+      "unit": "%"
+    },
+    {
+      "key": "mult_2000",
+      "label": "相对 2000-03 收盘的倍数",
+      "expr": "lvl_now / cl2000",
+      "value": 5.087269,
+      "unit": "倍"
+    },
+    {
+      "key": "mult_2007",
+      "label": "相对 2007-10 盘中高点的倍数",
+      "expr": "lvl_now / hi2007",
+      "value": 4.837084,
+      "unit": "倍"
+    },
+    {
+      "key": "cagr_since_2000",
+      "label": "2000-03 至今年化（26.57 年）",
+      "expr": "((lvl_now / cl2000) ** (1 / 26.57) - 1) * 100",
+      "value": 6.313781,
+      "unit": "%"
+    },
+    {
+      "key": "mult_10y",
+      "label": "十年累计倍数",
+      "expr": "lvl_now / lvl2016",
+      "value": 3.585674,
+      "unit": "倍"
+    },
+    {
+      "key": "cagr_10y",
+      "label": "十年价格年化（9.993 年）",
+      "expr": "((lvl_now / lvl2016) ** (1 / 9.993) - 1) * 100",
+      "value": 13.630763,
+      "unit": "%"
+    },
+    {
+      "key": "mult_15y",
+      "label": "十五年累计倍数",
+      "expr": "lvl_now / lvl2011",
+      "value": 6.082885,
+      "unit": "倍"
+    },
+    {
+      "key": "cagr_15y",
+      "label": "十五年价格年化（14.978 年）",
+      "expr": "((lvl_now / lvl2011) ** (1 / 14.978) - 1) * 100",
+      "value": 12.81082,
+      "unit": "%"
+    },
+    {
+      "key": "mult_20y",
+      "label": "二十年累计倍数",
+      "expr": "lvl_now / lvl2006",
+      "value": 5.532665,
+      "unit": "倍"
+    },
+    {
+      "key": "cagr_20y",
+      "label": "二十年价格年化（19.978 年）",
+      "expr": "((lvl_now / lvl2006) ** (1 / 19.978) - 1) * 100",
+      "value": 8.940063,
+      "unit": "%"
+    },
+    {
+      "key": "mult_30y",
+      "label": "三十年累计倍数",
+      "expr": "lvl_now / lvl1996",
+      "value": 10.809591,
+      "unit": "倍"
+    },
+    {
+      "key": "cagr_30y",
+      "label": "三十年价格年化（29.978 年）",
+      "expr": "((lvl_now / lvl1996) ** (1 / 29.978) - 1) * 100",
+      "value": 8.264381,
+      "unit": "%"
+    },
+    {
+      "key": "mult_base",
+      "label": "自 1986-03 累计倍数",
+      "expr": "lvl_now / lvl1986",
+      "value": 31.911595,
+      "unit": "倍"
+    },
+    {
+      "key": "cagr_base",
+      "label": "自 1986-03 年化（40.564 年）",
+      "expr": "((lvl_now / lvl1986) ** (1 / 40.564) - 1) * 100",
+      "value": 8.912052,
+      "unit": "%"
+    },
+    {
+      "key": "tr_10y",
+      "label": "全收益年化近似（价格年化 + 区间平均股息率，10y 年）",
+      "expr": "((1 + cagr_10y / 100) * (1 + dy_avg_10y / 100) - 1) * 100",
+      "value": 15.448855,
+      "unit": "%"
+    },
+    {
+      "key": "tr_15y",
+      "label": "全收益年化近似（价格年化 + 区间平均股息率，15y 年）",
+      "expr": "((1 + cagr_15y / 100) * (1 + dy_avg_15y / 100) - 1) * 100",
+      "value": 14.785009,
+      "unit": "%"
+    },
+    {
+      "key": "tr_20y",
+      "label": "全收益年化近似（价格年化 + 区间平均股息率，20y 年）",
+      "expr": "((1 + cagr_20y / 100) * (1 + dy_avg_20y / 100) - 1) * 100",
+      "value": 10.955455,
+      "unit": "%"
+    },
+    {
+      "key": "tr_30y",
+      "label": "全收益年化近似（价格年化 + 区间平均股息率，30y 年）",
+      "expr": "((1 + cagr_30y / 100) * (1 + dy_avg_30y / 100) - 1) * 100",
+      "value": 10.159008,
+      "unit": "%"
+    },
+    {
+      "key": "tr_base",
+      "label": "全收益年化近似（价格年化 + 区间平均股息率，base 年）",
+      "expr": "((1 + cagr_base / 100) * (1 + dy_avg_base / 100) - 1) * 100",
+      "value": 11.177423,
+      "unit": "%"
+    },
+    {
+      "key": "w_alpha",
+      "label": "Alphabet 两类股合计权重",
+      "expr": "w_GOOGL + w_GOOG",
+      "value": 5.189376,
+      "unit": "%"
+    },
+    {
+      "key": "cov",
+      "label": "自建口径覆盖的指数权重",
+      "expr": "w_NVDA + w_AAPL + w_MSFT + w_AMZN + w_alpha + w_AVGO + w_META + w_TSLA + w_LLY + w_BRK_B + w_MU + w_JPM + w_AMD + w_XOM + w_V + w_JNJ + w_WMT + w_MA + w_ABBV + w_COST + w_PLTR + w_CVX + w_INTC + w_CSCO",
+      "value": 52.362781,
+      "unit": "%"
+    },
+    {
+      "key": "cov_x",
+      "label": "自建口径覆盖权重（剔除亏损的 INTC）",
+      "unit": "%",
+      "expr": "w_NVDA + w_AAPL + w_MSFT + w_AMZN + w_alpha + w_AVGO + w_META + w_TSLA + w_LLY + w_BRK_B + w_MU + w_JPM + w_AMD + w_XOM + w_V + w_JNJ + w_WMT + w_MA + w_ABBV + w_COST + w_PLTR + w_CVX + w_CSCO",
+      "value": 51.719465
+    },
+    {
+      "key": "comp_pe_all",
+      "label": "自建合成市盈率（含亏损股，负 PE 按倒数计入，会虚高）",
+      "unit": "倍",
+      "expr": "cov / (w_NVDA / pe_NVDA + w_AAPL / pe_AAPL + w_MSFT / pe_MSFT + w_AMZN / pe_AMZN + w_alpha / pe_GOOGL + w_AVGO / pe_AVGO + w_META / pe_META + w_TSLA / pe_TSLA + w_LLY / pe_LLY + w_BRK_B / pe_BRK_B + w_MU / pe_MU + w_JPM / pe_JPM + w_AMD / pe_AMD + w_XOM / pe_XOM + w_V / pe_V + w_JNJ / pe_JNJ + w_WMT / pe_WMT + w_MA / pe_MA + w_ABBV / pe_ABBV + w_COST / pe_COST + w_PLTR / pe_PLTR + w_CVX / pe_CVX + w_INTC / pe_INTC + w_CSCO / pe_CSCO)",
+      "value": 26.980659
+    },
+    {
+      "key": "comp_pe",
+      "label": "自建合成市盈率（剔除亏损成分）",
+      "unit": "倍",
+      "expr": "cov_x / (w_NVDA / pe_NVDA + w_AAPL / pe_AAPL + w_MSFT / pe_MSFT + w_AMZN / pe_AMZN + w_alpha / pe_GOOGL + w_AVGO / pe_AVGO + w_META / pe_META + w_TSLA / pe_TSLA + w_LLY / pe_LLY + w_BRK_B / pe_BRK_B + w_MU / pe_MU + w_JPM / pe_JPM + w_AMD / pe_AMD + w_XOM / pe_XOM + w_V / pe_V + w_JNJ / pe_JNJ + w_WMT / pe_WMT + w_MA / pe_MA + w_ABBV / pe_ABBV + w_COST / pe_COST + w_PLTR / pe_PLTR + w_CVX / pe_CVX + w_CSCO / pe_CSCO)",
+      "value": 26.438564
+    },
+    {
+      "key": "pe_top10",
+      "label": "前十合计市盈率",
+      "expr": "(w_NVDA + w_AAPL + w_MSFT + w_AMZN + w_alpha + w_AVGO + w_META + w_TSLA + w_LLY + w_BRK_B) / (w_NVDA / pe_NVDA + w_AAPL / pe_AAPL + w_MSFT / pe_MSFT + w_AMZN / pe_AMZN + w_alpha / pe_GOOGL + w_AVGO / pe_AVGO + w_META / pe_META + w_TSLA / pe_TSLA + w_LLY / pe_LLY + w_BRK_B / pe_BRK_B)",
+      "value": 26.233497,
+      "unit": "倍"
+    },
+    {
+      "key": "pe_rest",
+      "label": "未覆盖部分隐含市盈率",
+      "unit": "倍",
+      "expr": "(100 - cov_x) / (100 / pe_now - cov_x / comp_pe)",
+      "value": 25.566061
+    },
+    {
+      "key": "eps_now",
+      "label": "当前隐含每股盈利",
+      "expr": "lvl_now / pe_now",
+      "value": 293.105729,
+      "unit": "点"
+    },
+    {
+      "key": "eps_2000",
+      "label": "2000-03 隐含每股盈利",
+      "expr": "cl2000 / pe_2000",
+      "value": 52.934652,
+      "unit": "点"
+    },
+    {
+      "key": "eps_2011",
+      "label": "2011-10 隐含每股盈利",
+      "expr": "lvl2011 / pe_2011",
+      "value": 90.295389,
+      "unit": "点"
+    },
+    {
+      "key": "eps_2016",
+      "label": "2016-10 隐含每股盈利",
+      "expr": "lvl2016 / pe_2016",
+      "value": 90.20577,
+      "unit": "点"
+    },
+    {
+      "key": "eps_2022",
+      "label": "2022-10 隐含每股盈利",
+      "expr": "lvl2022 / pe_2022",
+      "value": 189.431507,
+      "unit": "点"
+    },
+    {
+      "key": "g_eps_10y",
+      "label": "十年每股盈利增长",
+      "expr": "(eps_now / eps_2016 - 1) * 100",
+      "value": 224.930133,
+      "unit": "%"
+    },
+    {
+      "key": "g_pe_10y",
+      "label": "十年市盈率变化",
+      "expr": "(pe_now / pe_2016 - 1) * 100",
+      "value": 10.352143,
+      "unit": "%"
+    },
+    {
+      "key": "g_eps_15y",
+      "label": "十五年每股盈利增长",
+      "expr": "(eps_now / eps_2011 - 1) * 100",
+      "value": 224.607637,
+      "unit": "%"
+    },
+    {
+      "key": "g_pe_15y",
+      "label": "十五年市盈率变化",
+      "expr": "(pe_now / pe_2011 - 1) * 100",
+      "value": 87.391931,
+      "unit": "%"
+    },
+    {
+      "key": "g_eps_2000",
+      "label": "2000-03 以来每股盈利增长",
+      "expr": "(eps_now / eps_2000 - 1) * 100",
+      "value": 453.712393,
+      "unit": "%"
+    },
+    {
+      "key": "g_pe_2000",
+      "label": "2000-03 以来市盈率变化",
+      "expr": "(pe_now / pe_2000 - 1) * 100",
+      "value": -8.124338,
+      "unit": "%"
+    },
+    {
+      "key": "chg_lvl_2022",
+      "label": "2022-10 以来点位变化",
+      "expr": "(lvl_now / lvl2022 - 1) * 100",
+      "value": 96.893579,
+      "unit": "%"
+    },
+    {
+      "key": "g_eps_2022",
+      "label": "2022-10 以来每股盈利增长",
+      "expr": "(eps_now / eps_2022 - 1) * 100",
+      "value": 54.729133,
+      "unit": "%"
+    },
+    {
+      "key": "g_pe_2022",
+      "label": "2022-10 以来市盈率变化",
+      "expr": "(pe_now / pe_2022 - 1) * 100",
+      "value": 27.250489,
+      "unit": "%"
+    },
+    {
+      "key": "spread_2000",
+      "label": "2000-03 风险补偿",
+      "expr": "100 / pe_2000 - us10y_2000",
+      "value": -2.497679,
+      "unit": "pct"
+    },
+    {
+      "key": "spread_2007",
+      "label": "2007-10 风险补偿",
+      "expr": "100 / pe_2007 - us10y_2007",
+      "value": 0.35559,
+      "unit": "pct"
+    },
+    {
+      "key": "spread_2020",
+      "label": "2020-03 风险补偿",
+      "expr": "100 / pe_2020 - us10y_2020",
+      "value": 3.685965,
+      "unit": "pct"
+    },
+    {
+      "key": "spread_2022",
+      "label": "2022-10 风险补偿",
+      "expr": "100 / pe_2022 - us10y_2022",
+      "value": 0.792368,
+      "unit": "pct"
+    },
+    {
+      "key": "spread_2024",
+      "label": "2024-01 风险补偿",
+      "expr": "100 / pe_2024 - us10y_2024",
+      "value": 0.008401,
+      "unit": "pct"
+    },
+    {
+      "key": "dd_2000_02",
+      "label": "2000-03 至 2002-10 最大回撤",
+      "expr": "(lo2002 / hi2000 - 1) * 100",
+      "value": -50.507691,
+      "unit": "%"
+    },
+    {
+      "key": "dd_2007_09",
+      "label": "2007-10 至 2009-03 最大回撤",
+      "expr": "(lo2009 / hi2007 - 1) * 100",
+      "value": -57.693406,
+      "unit": "%"
+    },
+    {
+      "key": "dd_2020",
+      "label": "2020-02 至 2020-03 回撤",
+      "expr": "(lo2020 / hi2020 - 1) * 100",
+      "value": -35.410429,
+      "unit": "%"
+    },
+    {
+      "key": "lvl_spread0",
+      "label": "补偿 0（PE 20.16）对应点位",
+      "expr": "lvl_now * (100 / us10y) / pe_now",
+      "value": 5909.389689,
+      "unit": "点"
+    },
+    {
+      "key": "lvl_spread05",
+      "label": "补偿 0.5pct 对应点位",
+      "expr": "lvl_now * (100 / (us10y + 0.5)) / pe_now",
+      "value": 5368.236787,
+      "unit": "点"
+    },
+    {
+      "key": "lvl_spread10",
+      "label": "补偿 1.0pct 对应点位",
+      "expr": "lvl_now * (100 / (us10y + 1.0)) / pe_now",
+      "value": 4917.881352,
+      "unit": "点"
+    },
+    {
+      "key": "lvl_spread15",
+      "label": "补偿 1.5pct 对应点位",
+      "expr": "lvl_now * (100 / (us10y + 1.5)) / pe_now",
+      "value": 4537.24038,
+      "unit": "点"
+    },
+    {
+      "key": "lvl_spread20",
+      "label": "补偿 2.0pct 对应点位",
+      "expr": "lvl_now * (100 / (us10y + 2.0)) / pe_now",
+      "value": 4211.289204,
+      "unit": "点"
+    },
+    {
+      "key": "lvl_spread30",
+      "label": "补偿 3.0pct 对应点位",
+      "expr": "lvl_now * (100 / (us10y + 3.0)) / pe_now",
+      "value": 3682.232771,
+      "unit": "点"
+    },
+    {
+      "key": "chg_spread0",
+      "label": "补偿 0 对应点位距现价",
+      "expr": "(lvl_spread0 / lvl_now - 1) * 100",
+      "value": -22.486389,
+      "unit": "%"
+    },
+    {
+      "key": "chg_spread15",
+      "label": "补偿 1.5pct 对应点位距现价",
+      "expr": "(lvl_spread15 / lvl_now - 1) * 100",
+      "value": -40.484905,
+      "unit": "%"
+    },
+    {
+      "key": "chg_spread30",
+      "label": "补偿 3.0pct 对应点位距现价",
+      "expr": "(lvl_spread30 / lvl_now - 1) * 100",
+      "value": -51.700061,
+      "unit": "%"
+    },
+    {
+      "key": "pe_at_s0",
+      "label": "补偿目标 0 对应的市盈率",
+      "unit": "倍",
+      "expr": "100 / (us10y + 0)",
+      "value": 20.16129
+    },
+    {
+      "key": "pe_at_s05",
+      "label": "补偿目标 0.5 对应的市盈率",
+      "unit": "倍",
+      "expr": "100 / (us10y + 0.5)",
+      "value": 18.315018
+    },
+    {
+      "key": "pe_at_s10",
+      "label": "补偿目标 1.0 对应的市盈率",
+      "unit": "倍",
+      "expr": "100 / (us10y + 1.0)",
+      "value": 16.778523
+    },
+    {
+      "key": "pe_at_s15",
+      "label": "补偿目标 1.5 对应的市盈率",
+      "unit": "倍",
+      "expr": "100 / (us10y + 1.5)",
+      "value": 15.479876
+    },
+    {
+      "key": "pe_at_s20",
+      "label": "补偿目标 2.0 对应的市盈率",
+      "unit": "倍",
+      "expr": "100 / (us10y + 2.0)",
+      "value": 14.367816
+    },
+    {
+      "key": "pe_at_s30",
+      "label": "补偿目标 3.0 对应的市盈率",
+      "unit": "倍",
+      "expr": "100 / (us10y + 3.0)",
+      "value": 12.562814
+    },
+    {
+      "key": "chg_s05",
+      "label": "补偿 0.5 对应点位距现价",
+      "unit": "%",
+      "expr": "(lvl_spread05 / lvl_now - 1) * 100",
+      "value": -29.584705
+    },
+    {
+      "key": "chg_s10",
+      "label": "补偿 1.0 对应点位距现价",
+      "unit": "%",
+      "expr": "(lvl_spread10 / lvl_now - 1) * 100",
+      "value": -35.492028
+    },
+    {
+      "key": "chg_s20",
+      "label": "补偿 2.0 对应点位距现价",
+      "unit": "%",
+      "expr": "(lvl_spread20 / lvl_now - 1) * 100",
+      "value": -44.760415
+    },
+    {
+      "key": "worst30",
+      "label": "再跌 30% 的点位",
+      "expr": "lvl_now * 0.7",
+      "value": 5336.576,
+      "unit": "点"
+    },
+    {
+      "key": "worst_hist",
+      "label": "按 2007-2009 幅度（-57.69%）回撤的点位",
+      "expr": "lvl_now * (1 + dd_2007_09 / 100)",
+      "value": 3225.319358,
+      "unit": "点"
+    },
+    {
+      "key": "dd_52_week_base",
+      "label": "52 周低点距现价",
+      "expr": "(lo52 / lvl_now - 1) * 100",
+      "value": -17.140935,
+      "unit": "%"
+    },
+    {
+      "key": "dd52_NVDA",
+      "label": "NVDA 距 52 周高",
+      "expr": "(px_NVDA / hi52_NVDA - 1) * 100",
+      "value": -13.317171,
+      "unit": "%"
+    },
+    {
+      "key": "dd52_AAPL",
+      "label": "AAPL 距 52 周高",
+      "expr": "(px_AAPL / hi52_AAPL - 1) * 100",
+      "value": -1.137236,
+      "unit": "%"
+    },
+    {
+      "key": "dd52_MSFT",
+      "label": "MSFT 距 52 周高",
+      "expr": "(px_MSFT / hi52_MSFT - 1) * 100",
+      "value": -4.83353,
+      "unit": "%"
+    },
+    {
+      "key": "dd52_AMZN",
+      "label": "AMZN 距 52 周高",
+      "expr": "(px_AMZN / hi52_AMZN - 1) * 100",
+      "value": -13.649025,
+      "unit": "%"
+    },
+    {
+      "key": "dd52_GOOGL",
+      "label": "GOOGL 距 52 周高",
+      "expr": "(px_GOOGL / hi52_GOOGL - 1) * 100",
+      "value": -21.540233,
+      "unit": "%"
+    },
+    {
+      "key": "dd52_AVGO",
+      "label": "AVGO 距 52 周高",
+      "expr": "(px_AVGO / hi52_AVGO - 1) * 100",
+      "value": -34.792832,
+      "unit": "%"
+    },
+    {
+      "key": "dd52_META",
+      "label": "META 距 52 周高",
+      "expr": "(px_META / hi52_META - 1) * 100",
+      "value": -17.593804,
+      "unit": "%"
+    },
+    {
+      "key": "dd52_TSLA",
+      "label": "TSLA 距 52 周高",
+      "expr": "(px_TSLA / hi52_TSLA - 1) * 100",
+      "value": -25.381392,
+      "unit": "%"
+    },
+    {
+      "key": "dd52_LLY",
+      "label": "LLY 距 52 周高",
+      "expr": "(px_LLY / hi52_LLY - 1) * 100",
+      "value": -3.614111,
+      "unit": "%"
+    },
+    {
+      "key": "dd52_BRK_B",
+      "label": "BRK_B 距 52 周高",
+      "expr": "(px_BRK_B / hi52_BRK_B - 1) * 100",
+      "value": -1.41283,
+      "unit": "%"
+    },
+    {
+      "key": "mult_lo2002",
+      "label": "相对 2002-10 盘中低点的倍数",
+      "expr": "lvl_now / lo2002",
+      "value": 9.918014,
+      "unit": "倍"
+    },
+    {
+      "key": "mult_lo2009",
+      "label": "相对 2009-03 盘中低点的倍数",
+      "expr": "lvl_now / lo2009",
+      "value": 11.433405,
+      "unit": "倍"
+    }
+  ]
+}

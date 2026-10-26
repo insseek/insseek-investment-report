@@ -1,0 +1,1472 @@
+{
+  "meta": {
+    "company": "小米集团-W",
+    "code": "01810.HK",
+    "as_of": "2026-10-23",
+    "fetched_at": "2026-10-26T07:12+08:00",
+    "raw_note": "原文（网页/回包）仅本地留存，未随报告发布；每个数按 source_url 可回源，snippet 是引用原文的片段。",
+    "report_name": "小米-research-20261026.md"
+  },
+  "inputs": [
+    {
+      "key": "price",
+      "label": "收盘价",
+      "value": 26.8,
+      "unit": "HKD",
+      "period": "2026-10-23",
+      "source_url": "https://qt.gtimg.cn/q=hk01810",
+      "raw_file": "quote-hk01810.txt",
+      "snippet": "下标 3 = 现价 26.800；原文片段：100~小米集团-W~01810~26.800~25.800~26.000~216285102.0"
+    },
+    {
+      "key": "shares",
+      "label": "总股本",
+      "value": 25795871157.0,
+      "unit": "股",
+      "period": "2026-10-23",
+      "source_url": "https://qt.gtimg.cn/q=hk01810",
+      "raw_file": "quote-hk01810.txt",
+      "snippet": "下标 69 = 总股本 25795871157.00；原文片段：~2.37~-15.93~25795871157.00~21366634529.00~21.16"
+    },
+    {
+      "key": "shares_yi",
+      "label": "总股本（亿股）",
+      "value": 257.95871157,
+      "unit": "亿股",
+      "period": "2026-10-23",
+      "source_url": "https://qt.gtimg.cn/q=hk01810",
+      "raw_file": "quote-hk01810.txt",
+      "snippet": "总股本 25795871157 股折算为 257.95871157 亿股；原文片段：25795871157.00~21366634529.00"
+    },
+    {
+      "key": "fx",
+      "label": "汇率",
+      "value": 0.853222,
+      "unit": "CNY/HKD",
+      "period": "2026-10-25",
+      "source_url": "https://open.er-api.com/v6/latest/HKD",
+      "raw_file": "fx-hkd-cny.json",
+      "snippet": "...,\"time_last_update_utc\":\"Sun, 25 Oct 2026 00:02:31 +0000\",\"base_code\":\"HKD\",\"rates\":{...,\"CNY\":0.853222,\"CNH\":0.850652}}"
+    },
+    {
+      "key": "rev2025",
+      "label": "FY2025 营业收入",
+      "value": 4572.87,
+      "unit": "亿元",
+      "period": "FY2025",
+      "source_url": "https://finance.eastmoney.com/a/202604283722715580.html",
+      "raw_file": "fy2025-eastmoney.html",
+      "snippet": "一手掌握市场脉搏 中证智能财讯 小米集团-W （01810）4月28日披露2025年度报告。报告期内，公司实现营业收入4572.87亿元，同比增长24.97%；归母净利润416.43亿元，同比增长76.02%；经营活动产生的现金流量净额为341.42亿元，同比下降13.11%；"
+    },
+    {
+      "key": "np2025",
+      "label": "FY2025 归母净利",
+      "value": 416.43,
+      "unit": "亿元",
+      "period": "FY2025",
+      "source_url": "https://finance.eastmoney.com/a/202604283722715580.html",
+      "raw_file": "fy2025-eastmoney.html",
+      "snippet": "小米集团-W：2025年净利润416.43亿元 同比增长76.02% _ 东方财富网 .em_xuangu{display:block !important;} .hotbox .hotne"
+    },
+    {
+      "key": "ocf2025",
+      "label": "FY2025 经营现金流",
+      "value": 341.42,
+      "unit": "亿元",
+      "period": "FY2025",
+      "source_url": "https://finance.eastmoney.com/a/202604283722715580.html",
+      "raw_file": "fy2025-eastmoney.html",
+      "snippet": "4572.87亿元，同比增长24.97%；归母净利润416.43亿元，同比增长76.02%；经营活动产生的现金流量净额为341.42亿元，同比下降13.11%；据报告显示， 小米集团-W 基本每股收益为1.62元，平均净资产收益率为18.5%。 以4月28日收盘价计算， 小米集团"
+    },
+    {
+      "key": "adj2025",
+      "label": "FY2025 经调整净利",
+      "value": 392,
+      "unit": "亿元",
+      "period": "FY2025",
+      "source_url": "https://stcn.com/article/detail/3695513.html",
+      "raw_file": "fy2025-segments.html",
+      "snippet": "K）发布2025年全年业绩公告，刷新最强年报。具体来看，公司2025年总收入达4573亿元，同比增长25%；经调整净利润392亿元，同比大增43.8%，均创历史新高。 具体来看，手机×AIoT分部收入3512亿元，同比增长5.4%。其中智能手机业务收入1864亿元，出货量连续五年"
+    },
+    {
+      "key": "adj_q1_2026",
+      "label": "2026Q1 经调整净利",
+      "value": 61,
+      "unit": "亿元",
+      "period": "2026Q1",
+      "source_url": "https://www.stcn.com/article/detail/3928115.html",
+      "raw_file": "q1-2026.html",
+      "snippet": "点赞 分享 5月26日，小米集团发布2026年第一季度业绩报告。一季度小米各业务稳健向前，总营收991亿元，经调整净利润61亿元。 责任编辑： 刘巧玲 小米集团 营收 净利润 声明：证券时报力求信息真实、准确，文章提及内容仅供参考，不构成实质性投资建议，据此操作风险自担 下载\"证"
+    },
+    {
+      "key": "adj_q2_2026",
+      "label": "2026Q2 经调整净利",
+      "value": 62,
+      "unit": "亿元",
+      "period": "2026Q2",
+      "source_url": "https://wap.stockstar.com/detail/RB2026081900006937",
+      "raw_file": "q2-2026-mdna.html",
+      "snippet": "40亿元;我们的‘智能电动汽车及AI等创新业务’分部收入为人民币249亿元。2026年第二季度,集团经调整净利润为人民币62亿元。 2026年第二季度,我们的智能手机出货量为31.2百万台。根据Omdia数据,我们全球智能手机出货量已连续24个季度排名全球前三。截至2026年6月"
+    },
+    {
+      "key": "gm_q2_2026",
+      "label": "2026Q2 手机毛利率",
+      "value": 8.5,
+      "unit": "%",
+      "period": "2026Q2",
+      "source_url": "https://wap.stockstar.com/detail/RB2026081900006937",
+      "raw_file": "q2-2026-mdna.html",
+      "snippet": "策略,并主动调整出货节奏。本季度,我们的全球智能手机出货量为31.2百万台,智能手机业务收入为人民币421亿元,毛利率为8.5%。 我们持续推进高端化战略,同时积极优化产品结构。2026年第二季度,我们的智能手机平均售价(‘ASP’)同比增长25.9%,达到人民币1,351元,创"
+    },
+    {
+      "key": "adj_2026e",
+      "label": "2026E 经调整净利",
+      "value": 250,
+      "unit": "亿元",
+      "period": "2026E",
+      "estimated": true,
+      "note": "H1 实际 123 亿，按下半年持平估算全年 250 亿；区间 230–270 为手机毛利率 8.5%–11% 的摆动",
+      "range": [
+        230,
+        270
+      ]
+    },
+    {
+      "key": "np_2028e",
+      "label": "2028E 中性净利",
+      "value": 450,
+      "unit": "亿元",
+      "period": "2028E",
+      "estimated": true,
+      "note": "汽车盈亏平衡 + 手机毛利率回到 12%；区间 380–520 为汽车盈亏平衡时点的早晚",
+      "range": [
+        380,
+        520
+      ]
+    },
+    {
+      "key": "seg_phone_aiot",
+      "label": "FY2025 手机×AIoT 收入",
+      "value": 3512,
+      "unit": "亿元",
+      "period": "FY2025",
+      "source_url": "https://stcn.com/article/detail/3695513.html",
+      "raw_file": "fy2025-segments.html",
+      "snippet": "长25%；经调整净利润392亿元，同比大增43.8%，均创历史新高。 具体来看，手机×AIoT分部收入3512亿元，同比增长5.4%。其中智能手机业务收入1864亿元，出货量连续五年稳居全球前三；IoT与生活消费产品业务收入1232亿元，同比增长18.3%，且境内与境外收入均创历史新高；互联网服务收入374亿元，同比增"
+    },
+    {
+      "key": "seg_smartphone",
+      "label": "FY2025 智能手机收入",
+      "value": 1864,
+      "unit": "亿元",
+      "period": "FY2025",
+      "source_url": "https://stcn.com/article/detail/3695513.html",
+      "raw_file": "fy2025-segments.html",
+      "snippet": "历史新高。 具体来看，手机×AIoT分部收入3512亿元，同比增长5.4%。其中智能手机业务收入1864亿元，出货量连续五年稳居全球前三；IoT与生活消费产品业务收入1232亿元，同比增长18.3%，且境内与境外收入均创历史新高；互联网服务收入374亿元，同比增长9.7%，创历史新高。 小米集团去年智能电动汽车及AI等"
+    },
+    {
+      "key": "seg_iot",
+      "label": "FY2025 IoT 收入",
+      "value": 1232,
+      "unit": "亿元",
+      "period": "FY2025",
+      "source_url": "https://stcn.com/article/detail/3695513.html",
+      "raw_file": "fy2025-segments.html",
+      "snippet": "同比增长5.4%。其中智能手机业务收入1864亿元，出货量连续五年稳居全球前三；IoT与生活消费产品业务收入1232亿元，同比增长18.3%，且境内与境外收入均创历史新高；互联网服务收入374亿元，同比增长9.7%，创历史新高。 小米集团去年智能电动汽车及AI等创新业务分部收入首次突破千亿元，同比增长223.8%，达1"
+    },
+    {
+      "key": "seg_internet",
+      "label": "FY2025 互联网服务收入",
+      "value": 374,
+      "unit": "亿元",
+      "period": "FY2025",
+      "source_url": "https://stcn.com/article/detail/3695513.html",
+      "raw_file": "fy2025-segments.html",
+      "snippet": "消费产品业务收入1232亿元，同比增长18.3%，且境内与境外收入均创历史新高；互联网服务收入374亿元，同比增长9.7%，创历史新高。 小米集团去年智能电动汽车及AI等创新业务分部收入首次突破千亿元，同比增长223.8%，达1061亿元。其中，去年第四季度营收占比超三成，逐渐趋近手机。同时，汽车业务首次年度扭亏为盈，"
+    },
+    {
+      "key": "seg_ev",
+      "label": "FY2025 汽车及AI 收入",
+      "value": 1061,
+      "unit": "亿元",
+      "period": "FY2025",
+      "source_url": "https://stcn.com/article/detail/3695513.html",
+      "raw_file": "fy2025-segments.html",
+      "snippet": "去年智能电动汽车及AI等创新业务分部收入首次突破千亿元，同比增长223.8%，达1061亿元。其中，去年第四季度营收占比超三成，逐渐趋近手机。同时，汽车业务首次年度扭亏为盈，年度经营收益首次转正至9亿元。 高端化是小米战略的关键词。从去年来看，多款高端业务线已经显现。 例如，小米智能手机加速向高价位段渗透。据第三方数据"
+    },
+    {
+      "key": "q2_rev",
+      "label": "2026Q2 总收入",
+      "value": 1089,
+      "unit": "亿元",
+      "period": "2026Q2",
+      "source_url": "https://wap.stockstar.com/detail/RB2026081900006937",
+      "raw_file": "q2-2026-mdna.html",
+      "snippet": "力建设,赋能集团‘人车家全生态’战略。2026年第二季度,小米集团总收入为人民币1,089亿元。业务分部来看,2026年第二季度,我们的‘手机×AIoT’分部收入为人民币840亿元;我们的‘智能电动汽车及AI等创新业务’分部收入为人民币249亿元。2026年第二季度,集团经调整净利润为人民币62亿元。 2026年第二季"
+    },
+    {
+      "key": "q2_phone_aiot",
+      "label": "2026Q2 手机×AIoT 收入",
+      "value": 840,
+      "unit": "亿元",
+      "period": "2026Q2",
+      "source_url": "https://wap.stockstar.com/detail/RB2026081900006937",
+      "raw_file": "q2-2026-mdna.html",
+      "snippet": "亿元。业务分部来看,2026年第二季度,我们的‘手机×AIoT’分部收入为人民币840亿元;我们的‘智能电动汽车及AI等创新业务’分部收入为人民币249亿元。2026年第二季度,集团经调整净利润为人民币62亿元。 2026年第二季度,我们的智能手机出货量为31.2百万台。根据Omdia数据,我们全球智能手机出货量已连续"
+    },
+    {
+      "key": "q2_smartphone",
+      "label": "2026Q2 智能手机收入",
+      "value": 421,
+      "unit": "亿元",
+      "period": "2026Q2",
+      "source_url": "https://wap.stockstar.com/detail/RB2026081900006937",
+      "raw_file": "q2-2026-mdna.html",
+      "snippet": "节奏。本季度,我们的全球智能手机出货量为31.2百万台,智能手机业务收入为人民币421亿元,毛利率为8.5%。 我们持续推进高端化战略,同时积极优化产品结构。2026年第二季度,我们的智能手机平均售价(‘ASP’)同比增长25.9%,达到人民币1,351元,创历史新高。根据第三方数据,2026年第二季度,我们在中国大陆"
+    },
+    {
+      "key": "q2_iot",
+      "label": "2026Q2 IoT 收入",
+      "value": 313,
+      "unit": "亿元",
+      "period": "2026Q2",
+      "source_url": "https://wap.stockstar.com/detail/RB2026081900006937",
+      "raw_file": "q2-2026-mdna.html",
+      "snippet": "T与生活消费产品 2026年第二季度,我们的IoT与生活消费产品业务收入为人民币313亿元,毛利率为20.1%。 截至2026年6月30日,我们AIoT平台已连接的IoT设备数(不包括智能手机和平板)达到1,160.8百万,同比增长17.4%;拥有五件及以上连接至我们AIoT平台的设备(不包括智能手机和平板)用户数达到"
+    },
+    {
+      "key": "q2_internet",
+      "label": "2026Q2 互联网服务收入",
+      "value": 90,
+      "unit": "亿元",
+      "period": "2026Q2",
+      "source_url": "https://wap.stockstar.com/detail/RB2026081900006937",
+      "raw_file": "q2-2026-mdna.html",
+      "snippet": "均创历史新高。 互联网服务 2026年第二季度,我们的互联网服务业务收入为人民币90亿元。毛利率为76.8%,同比增长1.4个百分点。 我们的互联网用户规模持续扩大,全球及中国大陆的月活跃用户数创历史新高。2026年6月,我们的全球月活跃用户数达到766.5百万,同比增长4.8%。其中,中国大陆月活跃用户数达到197."
+    },
+    {
+      "key": "q2_ev",
+      "label": "2026Q2 汽车及AI 收入",
+      "value": 249,
+      "unit": "亿元",
+      "period": "2026Q2",
+      "source_url": "https://wap.stockstar.com/detail/RB2026081900006937",
+      "raw_file": "q2-2026-mdna.html",
+      "snippet": "部收入为人民币840亿元;我们的‘智能电动汽车及AI等创新业务’分部收入为人民币249亿元。2026年第二季度,集团经调整净利润为人民币62亿元。 2026年第二季度,我们的智能手机出货量为31.2百万台。根据Omdia数据,我们全球智能手机出货量已连续24个季度排名全球前三。截至2026年6月30日,我们AIoT平台"
+    },
+    {
+      "key": "q2_ev_loss",
+      "label": "2026Q2 汽车经营亏损",
+      "value": 26,
+      "unit": "亿元",
+      "period": "2026Q2",
+      "source_url": "https://wap.stockstar.com/detail/RB2026081900006937",
+      "raw_file": "q2-2026-mdna.html",
+      "snippet": "%。2026年第二季度,我们的智能电动汽车及AI等创新业务分部经营亏损9为人民币26亿元。 2026年第二季度,中国大陆地区的乘用车大盘不景气,零售量同比下滑22%10。我们本季度共交付104,199辆新车,同比增长28.2%。2026年上半年,在中国大陆地区销售价人民币20万元以上纯电轿车中,XiaomiSU7系列销"
+    },
+    {
+      "key": "q2_deliveries",
+      "label": "2026Q2 汽车交付量",
+      "value": 104199,
+      "unit": "辆",
+      "period": "2026Q2",
+      "source_url": "https://wap.stockstar.com/detail/RB2026081900006937",
+      "raw_file": "q2-2026-mdna.html",
+      "snippet": ".5百万,同比增长4.8%,创历史新高。2026年第二季度,我们的新车交付量达到104,199辆,同比增长28.2%。 我们稳步执行集团‘新十年目标’:大规模投入底层核心技术,致力成为全球新一代硬核科技引领者。2026年第二季度,我们的研发开支为人民币92亿元,同比增长18.9%。截至2026年6月30日,我们的研发人"
+    },
+    {
+      "key": "q2_iot_gm",
+      "label": "2026Q2 IoT 毛利率",
+      "value": 20.1,
+      "unit": "%",
+      "period": "2026Q2",
+      "source_url": "https://wap.stockstar.com/detail/RB2026081900006937",
+      "raw_file": "q2-2026-mdna.html",
+      "snippet": "026年第二季度,我们的IoT与生活消费产品业务收入为人民币313亿元,毛利率为20.1%。 截至2026年6月30日,我们AIoT平台已连接的IoT设备数(不包括智能手机和平板)达到1,160.8百万,同比增长17.4%;拥有五件及以上连接至我们AIoT平台的设备(不包括智能手机和平板)用户数达到24.6百万,同比增"
+    },
+    {
+      "key": "q2_net_gm",
+      "label": "2026Q2 互联网毛利率",
+      "value": 76.8,
+      "unit": "%",
+      "period": "2026Q2",
+      "source_url": "https://wap.stockstar.com/detail/RB2026081900006937",
+      "raw_file": "q2-2026-mdna.html",
+      "snippet": "联网服务 2026年第二季度,我们的互联网服务业务收入为人民币90亿元。毛利率为76.8%,同比增长1.4个百分点。 我们的互联网用户规模持续扩大,全球及中国大陆的月活跃用户数创历史新高。2026年6月,我们的全球月活跃用户数达到766.5百万,同比增长4.8%。其中,中国大陆月活跃用户数达到197.7百万,同比增长7"
+    },
+    {
+      "key": "q2_ev_gm",
+      "label": "2026Q2 汽车毛利率",
+      "value": 19.2,
+      "unit": "%",
+      "period": "2026Q2",
+      "source_url": "https://wap.stockstar.com/detail/RB2026081900006937",
+      "raw_file": "q2-2026-mdna.html",
+      "snippet": "大模型系列带来的AI业务收入)。本季度,智能电动汽车及AI等创新业务分部毛利率为19.2%。2026年第二季度,我们的智能电动汽车及AI等创新业务分部经营亏损9为人民币26亿元。 2026年第二季度,中国大陆地区的乘用车大盘不景气,零售量同比下滑22%10。我们本季度共交付104,199辆新车,同比增长28.2%。20"
+    },
+    {
+      "key": "roe2025",
+      "label": "FY2025 平均 ROE",
+      "value": 18.5,
+      "unit": "%",
+      "period": "FY2025",
+      "source_url": "https://finance.eastmoney.com/a/202604283722715580.html",
+      "raw_file": "fy2025-eastmoney.html",
+      "snippet": "11%；据报告显示， 小米集团-W 基本每股收益为1.62元，平均净资产收益率为18.5%。 以4月28日收盘价计算， 小米集团-W 目前市盈率（TTM）约16.82倍，市净率（TTM）约2.63倍，市销率（TTM）约1.53倍。 公司主要从事智能手机、 物联网 (IoT)和生活消费产品研发和销售业务，主要通过四个分部"
+    },
+    {
+      "key": "deliveries2025",
+      "label": "FY2025 汽车交付量",
+      "value": 411082,
+      "unit": "辆",
+      "period": "FY2025",
+      "source_url": "https://stcn.com/article/detail/3695513.html",
+      "raw_file": "fy2025-segments.html",
+      "snippet": "量占比超55%。 汽车方面，首款超跑概念车也正式亮相。2025年小米汽车全年交付411082辆，同比大增200.4%，汽车均价25万元，同比保持增长。 新一代小米SU7在今年3月19日发布，开售34分钟锁单突破1.5万辆，开售3天锁单突破3万辆。去年小米SU7累计售出24.6万辆新车，成功跻身2025年国内20万元以上"
+    },
+    {
+      "key": "iot_conn",
+      "label": "IoT 连接数",
+      "value": 1160.8,
+      "unit": "百万台",
+      "period": "2026Q2",
+      "source_url": "https://wap.stockstar.com/detail/RB2026081900006937",
+      "raw_file": "q2-2026-mdna.html",
+      "snippet": "6年6月30日,我们AIoT平台已连接的IoT设备数(不包括智能手机和平板)达到1,160.8百万,同比增长17.4%,创历史新高。2026年6月,我们全球月活跃用户数2达到766.5百万,同比增长4.8%,创历史新高。2026年第二季度,我们的新车交付量达到104,199辆,同比增长28.2%。 我们稳步执行集团‘新"
+    },
+    {
+      "key": "rd2025",
+      "label": "FY2025 研发投入",
+      "value": 331,
+      "unit": "亿元",
+      "period": "FY2025",
+      "source_url": "https://stcn.com/article/detail/3695513.html",
+      "raw_file": "fy2025-segments.html",
+      "snippet": "小米YU7已连续7个月稳居国内中大型SUV销量第一。 小米2025年全年研发投入331亿元，接近全年利润，同比增长37.8%。研发人员总数达25457人，同比增长20.1%。据财报最新披露，过去五年（2021—2025年），小米已累计投入研发1055亿元。 小米AI大模型实力取得关键突破。近期，小米一举发布三款面向Ag"
+    },
+    {
+      "key": "q2_shipments",
+      "label": "2026Q2 智能手机出货量",
+      "value": 31.2,
+      "unit": "百万台",
+      "period": "2026Q2",
+      "source_url": "https://wap.stockstar.com/detail/RB2026081900006937",
+      "raw_file": "q2-2026-mdna.html",
+      "snippet": "年第二季度,集团经调整净利润为人民币62亿元。 2026年第二季度,我们的智能手机出货量为31.2百万台。根据Omdia数据,我们全球智能手机出货量已连续24个季度排名全球前三。截至2026年6月30日,我们AIoT平台已连接的IoT设备数(不包括智能手机和平板)达到1,160."
+    },
+    {
+      "key": "q2_ads",
+      "label": "2026Q2 互联网广告收入",
+      "value": 72,
+      "unit": "亿元",
+      "period": "2026Q2",
+      "source_url": "https://wap.stockstar.com/detail/RB2026081900006937",
+      "raw_file": "q2-2026-mdna.html",
+      "snippet": ".9百万,同比增长4.3%。 2026年第二季度,我们的广告业务延续增长态势,收入为人民币72亿元,同比增长4.8%。我们的境外互联网服务收入为人民币29亿元。境外互联网服务收入在整体互联网服务收入中的占比为32.1%。 3.智能电动汽车及AI等创新业务 2026年第二季度,我们"
+    },
+    {
+      "key": "roe8",
+      "label": "近 8 年平均 ROE",
+      "value": 11,
+      "unit": "%",
+      "period": "2018–2025",
+      "estimated": true,
+      "range": [
+        9,
+        13
+      ],
+      "note": "由年报序列估算：2022 年 2.5% 拉低均值"
+    },
+    {
+      "key": "roic8",
+      "label": "近 8 年平均 ROIC",
+      "value": 10,
+      "unit": "%",
+      "period": "2018–2025",
+      "estimated": true,
+      "range": [
+        8,
+        12
+      ],
+      "note": "资本成本口径按 8% WACC 粗算，未做逐年税后调整"
+    },
+    {
+      "key": "fcf2025",
+      "label": "FY2025 自由现金流",
+      "value": 140,
+      "unit": "亿元",
+      "period": "FY2025",
+      "estimated": true,
+      "range": [
+        100,
+        180
+      ],
+      "note": "= 经营现金流 341.42 − 资本开支（估计）"
+    },
+    {
+      "key": "gm_avg",
+      "label": "近 10 年平均毛利率",
+      "value": 22,
+      "unit": "%",
+      "period": "2016–2025",
+      "estimated": true,
+      "range": [
+        20,
+        24
+      ],
+      "note": "手机为主的历史结构决定，汽车放量后会抬升"
+    },
+    {
+      "key": "pe_bull",
+      "label": "乐观情景目标 PE",
+      "value": 20,
+      "unit": "倍",
+      "period": "2028E",
+      "estimated": true,
+      "range": [
+        18,
+        22
+      ],
+      "note": "接近全球科技硬件龙头的上限"
+    },
+    {
+      "key": "pe_base",
+      "label": "中性情景目标 PE",
+      "value": 15,
+      "unit": "倍",
+      "period": "2028E",
+      "estimated": true,
+      "range": [
+        13,
+        17
+      ],
+      "note": "成熟硬件+互联网结构"
+    },
+    {
+      "key": "pe_bear",
+      "label": "悲观情景目标 PE",
+      "value": 10,
+      "unit": "倍",
+      "period": "2028E",
+      "estimated": true,
+      "range": [
+        8,
+        12
+      ],
+      "note": "价格战+亏损延续"
+    },
+    {
+      "key": "np_bull_2028",
+      "label": "2028E 乐观净利",
+      "value": 600,
+      "unit": "亿元",
+      "period": "2028E",
+      "estimated": true,
+      "range": [
+        520,
+        700
+      ],
+      "note": "交付百万辆级、存储成本回落"
+    },
+    {
+      "key": "np_bear_2028",
+      "label": "2028E 悲观净利",
+      "value": 250,
+      "unit": "亿元",
+      "period": "2028E",
+      "estimated": true,
+      "range": [
+        200,
+        300
+      ],
+      "note": "价格战延续、汽车继续亏损"
+    },
+    {
+      "key": "rnd_q2",
+      "label": "研发开支（2026 Q2）",
+      "value": 92,
+      "unit": "亿元",
+      "period": "2026Q2",
+      "source_url": "https://wap.stockstar.com/detail/RB2026081900006937",
+      "raw_file": "q2-2026-mdna.html",
+      "snippet": "研发开支 92 亿元，同比增长 18.9%，占收入 8.4%；上半年 182 亿元"
+    },
+    {
+      "key": "asp_q2",
+      "label": "2026Q2 手机平均售价",
+      "value": 1351,
+      "unit": "元",
+      "period": "2026Q2",
+      "source_url": "https://wap.stockstar.com/detail/RB2026081900006937",
+      "raw_file": "q2-2026-mdna.html",
+      "snippet": "我们持续推进高端化战略,同时积极优化产品结构。2026年第二季度,我们的智能手机平均售价(‘ASP’)同比增长25.9%,达到人民币1,351元,创历史新高。根据第三方数据,2026年第二季度,我们在中国大陆地区,零售价人民币3,000元及以上的智能手机销量在整体智能手机销量中的占比"
+    },
+    {
+      "key": "ev_growth_2025",
+      "label": "FY2025 汽车收入增速",
+      "value": 223.8,
+      "unit": "%",
+      "period": "FY2025",
+      "source_url": "https://stcn.com/article/detail/3695513.html",
+      "raw_file": "fy2025-segments.html",
+      "snippet": "联网服务收入374亿元，同比增长9.7%，创历史新高。</p><p>小米集团去年智能电动汽车及AI等创新业务分部收入首次突破千亿元，同比增长223.8%，达1061亿元。其中，去年第四季度营收占比超三成，逐渐趋近手机。同时，汽车业务首次年度扭亏为盈，年度经营收益首次转正至9亿元。</p><p"
+    },
+    {
+      "key": "ev_op_2025",
+      "label": "FY2025 汽车经营收益",
+      "value": 9,
+      "unit": "亿元",
+      "period": "FY2025",
+      "source_url": "https://stcn.com/article/detail/3695513.html",
+      "raw_file": "fy2025-segments.html",
+      "snippet": "入首次突破千亿元，同比增长223.8%，达1061亿元。其中，去年第四季度营收占比超三成，逐渐趋近手机。同时，汽车业务首次年度扭亏为盈，年度经营收益首次转正至9亿元。</p><p>高端化是小米战略的关键词。从去年来看，多款高端业务线已经显现。</p><p>例如，小米智能手机加速向高价位段渗透。据第三方"
+    },
+    {
+      "key": "q2_ev_growth",
+      "label": "2026Q2 汽车交付增速",
+      "value": 28.2,
+      "unit": "%",
+      "period": "2026Q2",
+      "source_url": "https://wap.stockstar.com/detail/RB2026081900006937",
+      "raw_file": "q2-2026-mdna.html",
+      "snippet": ",我们全球月活跃用户数2达到766.5百万,同比增长4.8%,创历史新高。2026年第二季度,我们的新车交付量达到104,199辆,同比增长28.2%。<br/> 我们稳步执行集团‘新十年目标’:大规模投入底层核心技术,致力成为全球新一代硬核科技引领者。2026年第二季度,我们的"
+    },
+    {
+      "key": "iot_conn_growth",
+      "label": "IoT 连接增速",
+      "value": 17.4,
+      "unit": "%",
+      "period": "2026Q2",
+      "source_url": "https://wap.stockstar.com/detail/RB2026081900006937",
+      "raw_file": "q2-2026-mdna.html",
+      "snippet": "4个季度排名全球前三。截至2026年6月30日,我们AIoT平台已连接的IoT设备数(不包括智能手机和平板)达到1,160.8百万,同比增长17.4%,创历史新高。2026年6月,我们全球月活跃用户数2达到766.5百万,同比增长4.8%,创历史新高。2026年第二季度,我们的新车交付量达"
+    },
+    {
+      "key": "ads_growth_q2",
+      "label": "Q2 广告增速",
+      "value": 4.8,
+      "unit": "%",
+      "period": "2026Q2",
+      "source_url": "https://wap.stockstar.com/detail/RB2026081900006937",
+      "raw_file": "q2-2026-mdna.html",
+      "snippet": "括智能手机和平板)达到1,160.8百万,同比增长17.4%,创历史新高。2026年6月,我们全球月活跃用户数2达到766.5百万,同比增长4.8%,创历史新高。2026年第二季度,我们的新车交付量达到104,199辆,同比增长28.2%。<br/> 我们稳步执行集团‘新十年目"
+    },
+    {
+      "key": "overseas_net",
+      "label": "Q2 境外互联网收入",
+      "value": 29,
+      "unit": "亿元",
+      "period": "2026Q2",
+      "source_url": "https://wap.stockstar.com/detail/RB2026081900006937",
+      "raw_file": "q2-2026-mdna.html",
+      "snippet": "br/> 2026年第二季度,我们的广告业务延续增长态势,收入为人民币72亿元,同比增长4.8%。我们的境外互联网服务收入为人民币29亿元。境外互联网服务收入在整体互联网服务收入中的占比为32.1%。<br/> 3.智能电动汽车及AI等创新业务<br/>"
+    },
+    {
+      "key": "overseas_pct",
+      "label": "Q2 境外互联网占比",
+      "value": 32.1,
+      "unit": "%",
+      "period": "2026Q2",
+      "source_url": "https://wap.stockstar.com/detail/RB2026081900006937",
+      "raw_file": "q2-2026-mdna.html",
+      "snippet": "历史新高。根据第三方数据,2026年第二季度,我们在中国大陆地区,零售价人民币3,000元及以上的智能手机销量在整体智能手机销量中的占比达到32.1%,创历史新高,同比提升4.5个百分点。其中,我们在中国大陆地区人民币3,000–4,000元价位段的智能手机销量市占率达到16.2%,同比提"
+    },
+    {
+      "key": "rd_staff",
+      "label": "FY2025 研发人员",
+      "value": 25457,
+      "unit": "人",
+      "period": "FY2025",
+      "source_url": "https://stcn.com/article/detail/3695513.html",
+      "raw_file": "fy2025-segments.html",
+      "snippet": "连续7个月稳居国内中大型SUV销量第一。</p><p>小米2025年全年研发投入331亿元，接近全年利润，同比增长37.8%。研发人员总数达25457人，同比增长20.1%。据财报最新披露，过去五年（2021—2025年），小米已累计投入研发1055亿元。</p><p>小米AI大模型实力取"
+    },
+    {
+      "key": "net_cash_assumed",
+      "label": "假设净现金（敏感性用）",
+      "value": 1200,
+      "unit": "亿元",
+      "period": "假设",
+      "estimated": true,
+      "range": [
+        900,
+        1400
+      ],
+      "note": "敏感性分析假设，不是财报数；等年报披露资产负债表后替换",
+      "source_url": "本报告假设",
+      "raw_file": "",
+      "snippet": "本报告自设的敏感性假设，非披露数据"
+    },
+    {
+      "key": "gm_assumed_base",
+      "label": "中性档假设手机毛利率",
+      "value": 12,
+      "unit": "%",
+      "period": "2028E",
+      "estimated": true,
+      "range": [
+        10,
+        14
+      ],
+      "note": "假设：2028 年手机毛利率回到 12%",
+      "source_url": "本报告假设",
+      "raw_file": "",
+      "snippet": "本报告自设的情景假设，非披露数据"
+    },
+    {
+      "key": "ocf_growth_2025",
+      "label": "FY2025 经营现金流增速",
+      "value": -13.11,
+      "unit": "%",
+      "period": "FY2025",
+      "source_url": "https://finance.eastmoney.com/a/202604283722715580.html",
+      "raw_file": "fy2025-eastmoney.html",
+      "snippet": "度报告。报告期内，公司实现营业收入4572.87亿元，同比增长24.97%；归母净利润416.43亿元，同比增长76.02%；经营活动产生的现金流量净额为341.42亿元，同比下降13.11%；据报告显示，小米集团-W基本每股收益为1.62元，平均净资产收益率为18.5%"
+    },
+    {
+      "key": "mau_global",
+      "label": "全球月活（2026-06）",
+      "value": 766.5,
+      "unit": "百万",
+      "period": "2026Q2",
+      "source_url": "https://wap.stockstar.com/detail/RB2026081900006937",
+      "raw_file": "q2-2026-mdna.html",
+      "snippet": "2026年6月,我们的全球月活跃用户数达到766.5百万,同比增长4.8%。其中,中国大陆月活跃用户数达到197.7百万,同比增长7.0%。"
+    },
+    {
+      "key": "mau_cn",
+      "label": "中国大陆月活（2026-06）",
+      "value": 197.7,
+      "unit": "百万",
+      "period": "2026Q2",
+      "source_url": "https://wap.stockstar.com/detail/RB2026081900006937",
+      "raw_file": "q2-2026-mdna.html",
+      "snippet": "2026年6月,我们的全球月活跃用户数达到766.5百万,同比增长4.8%。其中,中国大陆月活跃用户数达到197.7百万,同比增长7.0%。"
+    },
+    {
+      "key": "mau_tv",
+      "label": "智能电视全球月活（2026-06）",
+      "value": 76.9,
+      "unit": "百万",
+      "period": "2026Q2",
+      "source_url": "https://wap.stockstar.com/detail/RB2026081900006937",
+      "raw_file": "q2-2026-mdna.html",
+      "snippet": "2026年6月,我们的智能电视全球月活跃用户数达到76.9百万,同比增长4.3%。"
+    },
+    {
+      "key": "mau_miapp",
+      "label": "米家 APP 月活（2026-06）",
+      "value": 124.1,
+      "unit": "百万",
+      "period": "2026Q2",
+      "source_url": "https://wap.stockstar.com/detail/RB2026081900006937",
+      "raw_file": "q2-2026-mdna.html",
+      "snippet": "2026年6月,米家APP的月活跃用户数同比增长9.7%至124.1百万,小爱同学的月活跃用户数同比增长14.2%至174.9百万。"
+    },
+    {
+      "key": "industry_phone_ship_drop",
+      "label": "全球智能手机出货同比降幅（Omdia）",
+      "value": 6,
+      "unit": "%",
+      "period": "2026Q2",
+      "source_url": "https://wap.stockstar.com/detail/RB2026081900006937",
+      "raw_file": "q2-2026-mdna.html",
+      "snippet": "根据Omdia数据,2026年第二季度,全球智能手机出货量同比下滑6%。"
+    },
+    {
+      "key": "internet_growth_2025",
+      "label": "FY2025 互联网服务收入增速",
+      "value": 9.7,
+      "unit": "%",
+      "period": "FY2025",
+      "source_url": "https://wap.stockstar.com/detail/RB2026081900006937",
+      "raw_file": "fy2025-segments.html",
+      "snippet": "互联网服务收入374亿元，同比增长9.7%，创历史新高。"
+    },
+    {
+      "key": "net_gm_growth_pp",
+      "label": "互联网毛利率同比提升",
+      "value": 1.4,
+      "unit": "个百分点",
+      "period": "2026Q2",
+      "source_url": "https://wap.stockstar.com/detail/RB2026081900006937",
+      "raw_file": "q2-2026-mdna.html",
+      "snippet": "2026年第二季度,我们的互联网服务业务收入为人民币90亿元。毛利率为76.8%,同比增长1.4个百分点。"
+    }
+  ],
+  "derived": [
+    {
+      "key": "mcap",
+      "label": "总市值",
+      "expr": "price*shares",
+      "value": 691329347007.6,
+      "unit": "",
+      "note": "与行情市值 6,913.29 亿一致"
+    },
+    {
+      "key": "mcap_cny",
+      "label": "折算市值",
+      "expr": "price*shares*fx",
+      "value": 589857408112.52,
+      "unit": "",
+      "note": ""
+    },
+    {
+      "key": "eps2026",
+      "label": "EPS2026",
+      "expr": "adj_2026e/shares_yi",
+      "value": 0.97,
+      "unit": "",
+      "note": ""
+    },
+    {
+      "key": "price_cny",
+      "label": "现价（人民币）",
+      "expr": "price*fx",
+      "value": 22.87,
+      "unit": "",
+      "note": ""
+    },
+    {
+      "key": "pe2026",
+      "label": "现价 PE2026",
+      "expr": "price*fx/eps2026",
+      "value": 23.59,
+      "unit": "",
+      "note": ""
+    },
+    {
+      "key": "fair_rbm",
+      "label": "中性 2028 每股（人民币）",
+      "expr": "np_2028e/shares_yi*15",
+      "value": 26.17,
+      "unit": "",
+      "note": ""
+    },
+    {
+      "key": "fair_hkd",
+      "label": "中性 2028 每股（港元）",
+      "expr": "np_2028e/shares_yi*15/fx",
+      "value": 30.67,
+      "unit": "",
+      "note": ""
+    },
+    {
+      "key": "buy_low",
+      "label": "买入价下限",
+      "expr": "np_2028e/shares_yi*15/fx*(1-0.40)",
+      "value": 18.4,
+      "unit": "",
+      "note": ""
+    },
+    {
+      "key": "buy_high",
+      "label": "买入价上限",
+      "expr": "np_2028e/shares_yi*15/fx*(1-0.35)",
+      "value": 19.93,
+      "unit": "",
+      "note": ""
+    },
+    {
+      "key": "exp_ret",
+      "label": "期望年化回报",
+      "expr": "((np_2028e/adj_2026e)*(15/pe2026))**0.5-1",
+      "value": 0.0697,
+      "unit": "",
+      "note": "盈利 250→450 亿、PE 23.6→15，两年复合"
+    },
+    {
+      "key": "h1_2026",
+      "label": "2026 上半年经调整净利",
+      "expr": "adj_q1_2026+adj_q2_2026",
+      "value": 123,
+      "unit": "亿元",
+      "note": "Q1 61 + Q2 62"
+    },
+    {
+      "key": "bull_rbm",
+      "label": "乐观 2028 每股（人民币）",
+      "expr": "np_bull_2028/shares_yi*pe_bull",
+      "value": 46.52,
+      "unit": "元/股",
+      "note": ""
+    },
+    {
+      "key": "bull_hkd",
+      "label": "乐观 2028 每股（港元）",
+      "expr": "np_bull_2028/shares_yi*pe_bull/fx",
+      "value": 54.52,
+      "unit": "HKD",
+      "note": ""
+    },
+    {
+      "key": "bear_rbm",
+      "label": "悲观 2028 每股（人民币）",
+      "expr": "np_bear_2028/shares_yi*pe_bear",
+      "value": 9.69,
+      "unit": "元/股",
+      "note": ""
+    },
+    {
+      "key": "bear_hkd",
+      "label": "悲观 2028 每股（港元）",
+      "expr": "np_bear_2028/shares_yi*pe_bear/fx",
+      "value": 11.36,
+      "unit": "HKD",
+      "note": ""
+    },
+    {
+      "key": "base_ret",
+      "label": "中性情景较现价",
+      "expr": "np_2028e/shares_yi*pe_base/fx/price-1",
+      "value": 0.1443,
+      "unit": "小数",
+      "note": ""
+    },
+    {
+      "key": "bull_ret_pct",
+      "label": "乐观情景较现价（%）",
+      "expr": "(np_bull_2028/shares_yi*pe_bull/fx/price-1)*100",
+      "value": 103.6,
+      "unit": "%",
+      "note": ""
+    },
+    {
+      "key": "base_ret_pct",
+      "label": "中性情景较现价（%）",
+      "expr": "(np_2028e/shares_yi*pe_base/fx/price-1)*100",
+      "value": 14.4,
+      "unit": "%",
+      "note": ""
+    },
+    {
+      "key": "bear_ret_pct",
+      "label": "悲观情景较现价（%）",
+      "expr": "(np_bear_2028/shares_yi*pe_bear/fx/price-1)*100",
+      "value": -57.6,
+      "unit": "%",
+      "note": ""
+    },
+    {
+      "key": "eps_base_2028",
+      "label": "中性 2028 每股收益",
+      "expr": "np_2028e/shares_yi",
+      "value": 1.74,
+      "unit": "元/股",
+      "note": "财务视角新增：三情景表的 EPS 列"
+    },
+    {
+      "key": "eps_bull_2028",
+      "label": "乐观 2028 每股收益",
+      "expr": "np_bull_2028/shares_yi",
+      "value": 2.33,
+      "unit": "元/股",
+      "note": "财务视角新增：三情景表的 EPS 列"
+    },
+    {
+      "key": "disc_base_hkd",
+      "label": "中性 2028 每股折现到 2026-10-23",
+      "expr": "np_2028e/shares_yi*pe_base/1.08**2.1917808/fx",
+      "value": 25.91,
+      "unit": "HKD",
+      "note": "财务视角新增：r=8%，(2028-12-31-2026-10-23)/365=2.1918 年"
+    },
+    {
+      "key": "disc_bull_hkd",
+      "label": "乐观 2028 每股折现到 2026-10-23",
+      "expr": "np_bull_2028/shares_yi*pe_bull/1.08**2.1917808/fx",
+      "value": 46.06,
+      "unit": "HKD",
+      "note": "财务视角新增：同上折现口径"
+    },
+    {
+      "key": "disc_bear_hkd",
+      "label": "悲观 2028 每股折现到 2026-10-23",
+      "expr": "np_bear_2028/shares_yi*pe_bear/1.08**2.1917808/fx",
+      "value": 9.6,
+      "unit": "HKD",
+      "note": "财务视角新增：同上折现口径"
+    },
+    {
+      "key": "irr_base_pct",
+      "label": "中性情景年化（折现到现价）",
+      "expr": "(np_2028e/shares_yi*pe_base/fx/price)**(1/2.1917808)*100-100",
+      "value": 6.34,
+      "unit": "%",
+      "note": "财务视角新增：与 disc_base_hkd 同一口径"
+    },
+    {
+      "key": "irr_bull_pct",
+      "label": "乐观情景年化（折现到现价）",
+      "expr": "(np_bull_2028/shares_yi*pe_bull/fx/price)**(1/2.1917808)*100-100",
+      "value": 38.27,
+      "unit": "%",
+      "note": "财务视角新增：同上"
+    },
+    {
+      "key": "irr_bear_pct",
+      "label": "悲观情景年化（折现到现价）",
+      "expr": "(np_bear_2028/shares_yi*pe_bear/fx/price)**(1/2.1917808)*100-100",
+      "value": -32.41,
+      "unit": "%",
+      "note": "财务视角新增：同上"
+    },
+    {
+      "key": "mos_disc_pct",
+      "label": "安全边际（折现口径，%）",
+      "expr": "(np_2028e/shares_yi*pe_base/1.08**2.1917808/fx-price)/(np_2028e/shares_yi*pe_base/1.08**2.1917808/fx)*100",
+      "value": -3.43,
+      "unit": "%",
+      "note": "财务视角新增：(折现后中性价值-现价)/折现后中性价值"
+    },
+    {
+      "key": "gm_phone_amount",
+      "label": "智能手机毛利额（亿元）",
+      "expr": "q2_smartphone*0.085",
+      "value": 35.79,
+      "unit": "亿元",
+      "note": "分部收入×分部毛利率"
+    },
+    {
+      "key": "gm_iot_amount",
+      "label": "IoT 毛利额（亿元）",
+      "expr": "q2_iot*0.201",
+      "value": 62.91,
+      "unit": "亿元",
+      "note": "分部收入×分部毛利率"
+    },
+    {
+      "key": "gm_internet_amount",
+      "label": "互联网毛利额（亿元）",
+      "expr": "q2_internet*0.768",
+      "value": 69.12,
+      "unit": "亿元",
+      "note": "分部收入×分部毛利率"
+    },
+    {
+      "key": "gm_ev_amount",
+      "label": "汽车与 AI 毛利额（亿元）",
+      "expr": "q2_ev*0.192",
+      "value": 47.81,
+      "unit": "亿元",
+      "note": "分部收入×分部毛利率"
+    },
+    {
+      "key": "pe_now",
+      "label": "当前 PE（人民币口径）",
+      "expr": "price_cny/eps2026",
+      "value": 23.58,
+      "unit": "倍",
+      "note": "现价人民币/2026E EPS"
+    },
+    {
+      "key": "growth_pct",
+      "label": "每股盈利年化增速（中性档，%）",
+      "expr": "((np_2028e/adj_2026e)**(1/2.1917808)-1)*100",
+      "value": 30.76,
+      "unit": "%",
+      "note": "2026E 250 亿 → 2028E 450 亿"
+    },
+    {
+      "key": "pe_change_pct",
+      "label": "估值变化年化贡献（中性档，%）",
+      "expr": "((pe_base/pe_now)**(1/2.1917808)-1)*100",
+      "value": -18.65,
+      "unit": "%",
+      "note": "PE 23.6 → 15"
+    },
+    {
+      "key": "buy_price",
+      "label": "买入价",
+      "expr": "disc_bear_hkd",
+      "unit": "HKD",
+      "note": "买入价 = min(中性折现×60%=15.55, 悲观折现 9.60)；本轮悲观档更低，取悲观折现",
+      "value": 9.6
+    },
+    {
+      "key": "sum_ret_pct",
+      "label": "三项回报相加（未计复合）",
+      "expr": "growth_pct+pe_change_pct",
+      "unit": "%",
+      "note": "股息为零；近似算法，精确年化看 irr_base_pct",
+      "value": 12.11
+    },
+    {
+      "key": "years_disc",
+      "label": "折现期（年）",
+      "expr": "2.1917808",
+      "value": 2.1917808,
+      "unit": "年",
+      "note": "2026-10-23 至 2028-12-31 的日历天数 / 365"
+    },
+    {
+      "key": "r_pct",
+      "label": "要求回报率",
+      "expr": "8",
+      "value": 8,
+      "unit": "%",
+      "note": "框架人民币口径 6%–9%，主用 8%；terminal_value.py audit 允许区间"
+    },
+    {
+      "key": "gm_per_phone",
+      "label": "单台手机毛利",
+      "expr": "gm_phone_amount*1e8/(q2_shipments*1e6)",
+      "unit": "元/台",
+      "value": 114.71153846153847
+    },
+    {
+      "key": "np_adj_diff",
+      "label": "归母与经调整差额",
+      "expr": "np2025-adj2025",
+      "unit": "亿元",
+      "value": 24.430000000000007
+    },
+    {
+      "key": "net_cash_ps_hkd",
+      "label": "假设净现金每股（1,200 亿）",
+      "expr": "1200/shares_yi/fx",
+      "unit": "HKD",
+      "value": 5.452165143251928
+    },
+    {
+      "key": "disc_base_cash",
+      "label": "含净现金的中性折现",
+      "expr": "disc_base_hkd+net_cash_ps_hkd",
+      "unit": "HKD",
+      "value": 31.36216514325193
+    },
+    {
+      "key": "buy_cash_high",
+      "label": "含净现金买入价（四成折）",
+      "expr": "disc_base_cash*0.6",
+      "unit": "HKD",
+      "value": 18.817299085951156
+    },
+    {
+      "key": "disc_bear_cash",
+      "label": "含净现金的悲观折现",
+      "expr": "disc_bear_hkd+net_cash_ps_hkd",
+      "unit": "HKD",
+      "value": 15.052165143251926
+    },
+    {
+      "key": "np_annualized_h1",
+      "label": "上半年年化（乘 2）",
+      "expr": "adj_q1_2026*2",
+      "unit": "亿元",
+      "value": 122
+    },
+    {
+      "key": "gm_ratio",
+      "label": "互联网毛利是手机的倍数",
+      "expr": "gm_internet_amount/gm_phone_amount",
+      "value": 1.9312657166806373,
+      "unit": "倍"
+    },
+    {
+      "key": "ocf_np",
+      "label": "经营现金流/归母净利",
+      "expr": "ocf2025/np2025",
+      "value": 0.8198736882549288,
+      "unit": "倍"
+    },
+    {
+      "key": "buy_discount",
+      "label": "买入价距现价",
+      "expr": "(price-buy_price)/price*100",
+      "value": 64.17910447761194,
+      "unit": "%"
+    },
+    {
+      "key": "mcap_bull_2028",
+      "label": "乐观 2028 市值",
+      "expr": "np_bull_2028*pe_bull",
+      "value": 12000,
+      "unit": "亿元"
+    },
+    {
+      "key": "mcap_base_2028",
+      "label": "中性 2028 市值",
+      "expr": "np_2028e*pe_base",
+      "value": 6750,
+      "unit": "亿元"
+    },
+    {
+      "key": "mcap_bear_2028",
+      "label": "悲观 2028 市值",
+      "expr": "np_bear_2028*pe_bear",
+      "value": 2500,
+      "unit": "亿元"
+    },
+    {
+      "key": "premium_cash",
+      "label": "现价高于含净现金的悲观折现",
+      "expr": "(price-disc_bear_cash)/disc_bear_cash*100",
+      "value": 78.04747519671464,
+      "unit": "%"
+    },
+    {
+      "key": "ev_loss_share",
+      "label": "汽车亏损占互联网毛利",
+      "expr": "q2_ev_loss/gm_internet_amount*100",
+      "value": 37.61574074074074,
+      "unit": "%"
+    },
+    {
+      "key": "ev_rev_per_unit",
+      "label": "单辆汽车分部收入",
+      "expr": "q2_ev*100000000/q2_deliveries",
+      "value": 238965.82500791753,
+      "unit": "元",
+      "note": "2026Q2 分部收入 ÷ 交付量；分部含 AI 等创新业务，是上限口径"
+    },
+    {
+      "key": "ev_gp_per_unit",
+      "label": "单辆汽车毛利",
+      "expr": "gm_ev_amount*100000000/q2_deliveries",
+      "value": 45883.3578057371,
+      "unit": "元",
+      "note": "单辆收入 × 19.2%"
+    },
+    {
+      "key": "ev_loss_per_unit",
+      "label": "单辆汽车经营亏损",
+      "expr": "q2_ev_loss*100000000/q2_deliveries",
+      "value": 24952.25482010384,
+      "unit": "元"
+    },
+    {
+      "key": "ev_opex_q2",
+      "label": "汽车分部单季期间费用",
+      "expr": "gm_ev_amount+q2_ev_loss",
+      "value": 73.81,
+      "unit": "亿元",
+      "note": "毛利 + 经营亏损：分部费用总额（研发+销售+管理+产能相关）"
+    },
+    {
+      "key": "ev_opex_per_unit",
+      "label": "单辆分摊期间费用",
+      "expr": "ev_opex_q2*100000000/q2_deliveries",
+      "value": 70835.61262584093,
+      "unit": "元"
+    },
+    {
+      "key": "ev_cost_per_unit",
+      "label": "单辆真实成本",
+      "expr": "ev_rev_per_unit+ev_loss_per_unit",
+      "value": 263918.07982802135,
+      "unit": "元",
+      "note": "物料与制造 + 期间费用"
+    },
+    {
+      "key": "ev_be_vol_q",
+      "label": "单季盈亏平衡交付量",
+      "expr": "ev_opex_q2*100000000/(ev_rev_per_unit*q2_ev_gm/100)",
+      "value": 160871.15524598394,
+      "unit": "辆",
+      "note": "假设期间费用总额与单辆毛利不变"
+    },
+    {
+      "key": "ev_be_vol_y",
+      "label": "年化盈亏平衡交付量",
+      "expr": "ev_be_vol_q*4",
+      "value": 643484.6209839358,
+      "unit": "辆"
+    },
+    {
+      "key": "ev_be_vs_2025",
+      "label": "盈亏线相对 FY2025 交付量",
+      "expr": "ev_be_vol_y/deliveries2025",
+      "value": 1.5653437051097732,
+      "unit": "倍"
+    },
+    {
+      "key": "ev_be_multiple",
+      "label": "盈亏线相对 2026Q2 交付量",
+      "expr": "ev_be_vol_q/q2_deliveries",
+      "value": 1.5438838688085676,
+      "unit": "倍"
+    },
+    {
+      "key": "ev_gm_be",
+      "label": "现交付量下的盈亏平衡毛利率",
+      "expr": "ev_opex_per_unit/ev_rev_per_unit*100",
+      "value": 29.6425702811245,
+      "unit": "%"
+    },
+    {
+      "key": "ev_deliv_q_2025",
+      "label": "FY2025 单季平均交付",
+      "expr": "deliveries2025/4",
+      "value": 102770.5,
+      "unit": "辆",
+      "note": "季均口径"
+    },
+    {
+      "key": "ev_gp_vs_rd",
+      "label": "汽车毛利相当于集团研发",
+      "expr": "gm_ev_amount/rnd_q2*100",
+      "value": 51.967391304347835,
+      "unit": "%"
+    },
+    {
+      "key": "auto_rd_low",
+      "label": "假设汽车研发占集团研发一成",
+      "expr": "rnd_q2*0.1",
+      "value": 9.200000000000001,
+      "unit": "亿元",
+      "note": "假设值：公司不披露分部研发，用于给亏损定界"
+    },
+    {
+      "key": "auto_rd_high",
+      "label": "假设汽车研发占集团研发三成",
+      "expr": "rnd_q2*0.3",
+      "value": 27.599999999999998,
+      "unit": "亿元",
+      "note": "假设值：同上"
+    },
+    {
+      "key": "ev_gp_2025_gm192",
+      "label": "假设 FY2025 汽车毛利率 19.2% 的毛利",
+      "expr": "seg_ev*q2_ev_gm/100",
+      "value": 203.71200000000002,
+      "unit": "亿元",
+      "note": "假设值：分部未披露 FY2025 毛利率"
+    },
+    {
+      "key": "ev_opex_2025_gm192",
+      "label": "假设口径的 FY2025 分部费用",
+      "expr": "ev_gp_2025_gm192-ev_op_2025",
+      "value": 194.71200000000002,
+      "unit": "亿元",
+      "note": "毛利 − 经营收益"
+    },
+    {
+      "key": "ev_opex_per_unit_2025",
+      "label": "假设口径的 FY2025 单辆期间费用",
+      "expr": "ev_opex_2025_gm192*100000000/deliveries2025",
+      "value": 47365.73238429316,
+      "unit": "元"
+    },
+    {
+      "key": "ev_opex_per_unit_lift",
+      "label": "单辆期间费用同比抬升",
+      "expr": "ev_opex_per_unit/ev_opex_per_unit_2025*100-100",
+      "value": 49.55033746998615,
+      "unit": "%",
+      "note": "在毛利率不变的假设下"
+    },
+    {
+      "key": "ev_be_vol_gm22",
+      "label": "毛利率 22%（集团十年均值）时的单季盈亏平衡交付量",
+      "expr": "ev_opex_q2*100000000/(ev_rev_per_unit*0.22)",
+      "value": 140396.64457831325,
+      "unit": "辆",
+      "note": "假设情景"
+    },
+    {
+      "key": "q2_total_gp",
+      "label": "四块分部毛利合计",
+      "expr": "gm_phone_amount+gm_iot_amount+gm_internet_amount+gm_ev_amount",
+      "value": 215.63,
+      "unit": "亿元"
+    },
+    {
+      "key": "net_rev_share_pct",
+      "label": "互联网收入占集团收入",
+      "expr": "q2_internet/q2_rev*100",
+      "value": 8.26,
+      "unit": "%"
+    },
+    {
+      "key": "net_gp_share_pct",
+      "label": "互联网毛利占四块毛利",
+      "expr": "gm_internet_amount/q2_total_gp*100",
+      "value": 32.05,
+      "unit": "%"
+    },
+    {
+      "key": "net_gp_over_np_pct",
+      "label": "互联网毛利相当于经调整净利",
+      "expr": "gm_internet_amount/adj_q2_2026*100",
+      "value": 111.48,
+      "unit": "%"
+    },
+    {
+      "key": "non_net_gp",
+      "label": "非互联网三块毛利合计",
+      "expr": "q2_total_gp-gm_internet_amount",
+      "value": 146.51,
+      "unit": "亿元"
+    },
+    {
+      "key": "non_net_gp_after_rd",
+      "label": "非互联网毛利减研发",
+      "expr": "non_net_gp-rnd_q2",
+      "value": 54.51,
+      "unit": "亿元",
+      "note": "剩下还要覆盖销售、行政费用与所得税"
+    },
+    {
+      "key": "mau_os",
+      "label": "境外月活（全球减中国大陆）",
+      "expr": "mau_global-mau_cn",
+      "value": 568.8,
+      "unit": "百万"
+    },
+    {
+      "key": "arpu_global_q",
+      "label": "全球每用户每季互联网收入",
+      "expr": "q2_internet*100000000/(mau_global*1000000)",
+      "value": 11.74,
+      "unit": "元"
+    },
+    {
+      "key": "arpu_cn_q",
+      "label": "中国大陆每用户每季互联网收入",
+      "expr": "(q2_internet-overseas_net)*100000000/(mau_cn*1000000)",
+      "value": 30.86,
+      "unit": "元"
+    },
+    {
+      "key": "arpu_os_q",
+      "label": "境外每用户每季互联网收入",
+      "expr": "overseas_net*100000000/(mau_os*1000000)",
+      "value": 5.1,
+      "unit": "元"
+    },
+    {
+      "key": "arpu_gap_x",
+      "label": "境内每用户收入是境外的倍数",
+      "expr": "arpu_cn_q/arpu_os_q",
+      "value": 6.05,
+      "unit": "倍"
+    },
+    {
+      "key": "ads_share_net_pct",
+      "label": "广告占互联网收入",
+      "expr": "q2_ads/q2_internet*100",
+      "value": 80,
+      "unit": "%"
+    },
+    {
+      "key": "net_annual_gp",
+      "label": "互联网毛利年化",
+      "expr": "gm_internet_amount*4",
+      "value": 276.48,
+      "unit": "亿元"
+    },
+    {
+      "key": "ads_down20_rev",
+      "label": "广告收入降两成少收",
+      "expr": "q2_ads*0.2",
+      "value": 14.4,
+      "unit": "亿元"
+    },
+    {
+      "key": "ads_down20_gp",
+      "label": "广告收入降两成少赚毛利",
+      "expr": "ads_down20_rev*q2_net_gm/100",
+      "value": 11.06,
+      "unit": "亿元"
+    },
+    {
+      "key": "ads_down20_np_pct",
+      "label": "上述毛利相当于经调整净利",
+      "expr": "ads_down20_gp/adj_q2_2026*100",
+      "value": 17.84,
+      "unit": "%"
+    },
+    {
+      "key": "net_gm_vs_avg_x",
+      "label": "互联网毛利率是十年均值倍数",
+      "expr": "q2_net_gm/gm_avg",
+      "value": 3.49,
+      "unit": "倍"
+    },
+    {
+      "key": "pe25_case",
+      "label": "算例假设：25 倍 PE",
+      "expr": "25",
+      "value": 25,
+      "unit": "倍",
+      "note": "本文的提问口径，不是披露数，也不是框架假设"
+    },
+    {
+      "key": "growth_need_pe25_pct",
+      "label": "25 倍买入五年后 15 倍卖出要求的净利复合增速",
+      "expr": "((25/pe_base)*1.08**5)**(1/5)*100-100",
+      "value": 19.62,
+      "unit": "%",
+      "note": "算例：要求 8% 年化回报，五年后按 15 倍退出"
+    },
+    {
+      "key": "pe25_price",
+      "label": "25 倍 PE 对应股价",
+      "expr": "adj_2026e/shares_yi*25/fx",
+      "value": 28.4,
+      "unit": "港元",
+      "note": "按 2026E 经调整净利 250 亿元"
+    },
+    {
+      "key": "pe25_implied_np",
+      "label": "现市值按 25 倍对应的净利",
+      "expr": "mcap_cny/100000000/25",
+      "value": 235.94,
+      "unit": "亿元"
+    },
+    {
+      "key": "os_arpu8_gp_year",
+      "label": "境外 ARPU 提到 8 元每年多赚毛利",
+      "expr": "(8-arpu_os_q)*mau_os*1000000*4*q2_net_gm/100/100000000",
+      "value": 50.7,
+      "unit": "亿元",
+      "note": "算例：境外 ARPU 由 5.10 元提到 8 元，仍只有境内的四分之一"
+    },
+    {
+      "key": "os_arpu8_share_2026e",
+      "label": "上述算例相当于 2026E 净利",
+      "expr": "os_arpu8_gp_year/adj_2026e*100",
+      "value": 20.28,
+      "unit": "%"
+    },
+    {
+      "key": "fy_net_rev_share_pct",
+      "label": "FY2025 互联网收入占比",
+      "expr": "seg_internet/rev2025*100",
+      "value": 8.18,
+      "unit": "%"
+    },
+    {
+      "key": "os_arpu_target",
+      "label": "跟踪阈值：境外每用户每季收入",
+      "expr": "8",
+      "value": 8,
+      "unit": "元",
+      "note": "作者设定的跟踪阈值，对应境外 ARPU 算例，仍只有境内的四分之一"
+    },
+    {
+      "key": "adv_share_target",
+      "label": "跟踪阈值：广告占互联网收入上限",
+      "expr": "70",
+      "value": 70,
+      "unit": "%",
+      "note": "作者设定的跟踪阈值，用于观察收入结构是否从单一广告转出"
+    },
+    {
+      "key": "growth_gap_x",
+      "label": "25 倍要求的增速是现实的倍数",
+      "expr": "growth_need_pe25_pct/ads_growth_q2",
+      "value": 4.09,
+      "unit": "倍"
+    },
+    {
+      "key": "mos_pe25_pct",
+      "label": "以 15 倍为锚、25 倍买入的安全边际",
+      "expr": "(pe_base-25)/pe_base*100",
+      "value": -66.67,
+      "unit": "%",
+      "note": "格2 口径：(内在价值 − 价格) / 内在价值，倍数代入"
+    }
+  ]
+}

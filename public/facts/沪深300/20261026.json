@@ -1,0 +1,1145 @@
+{
+  "meta": {
+    "company": "沪深300",
+    "code": "000300.SH",
+    "as_of": "2026-10-23",
+    "currency": "CNY",
+    "fetched_at": "2026-10-26T10:50:00+08:00",
+    "note": "点位与 PE 来自中证指数官网 index-perf（000300 价格指数、H00300 全收益）；现价取 2026-10-26 盘中东财月线；利率来自中国金融信息网 2026-10-26 债市观察（数据截至 10-23）；PB/股息率/ROE 与分位来自蛋卷；成分权重为东财 300 只成分总市值近似（非中证自由流通加权）。序列统计量（分位、隐含 EPS、权重合计、自建 PE）序列统计量由取数脚本从原样响应重算（脚本名 derive.py，输出 derived-stats.txt）。"
+  },
+  "inputs": [
+    {
+      "key": "idx_level",
+      "label": "沪深300 现价（2026-10-26 盘中）",
+      "value": 4062.69,
+      "unit": "点",
+      "raw_file": "kline-CSI300-monthly.json",
+      "snippet": "\"2026-10-26,4062.69\"",
+      "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=1.000300&klt=103&fqt=1&beg=0&end=20500101&fields1=f1,f2&fields2=f51,f53"
+    },
+    {
+      "key": "px_now_official",
+      "label": "沪深300 收盘（2026-10-23，中证官方）",
+      "value": 4105.33,
+      "unit": "点",
+      "raw_file": "csindex-000300-perf.json",
+      "snippet": "\"low\":3958.14,\"close\":4105.33",
+      "source_url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=000300&startDate=20050101&endDate=20261026"
+    },
+    {
+      "key": "pe_now",
+      "label": "沪深300 市盈率（2026-10-23，中证 index-perf 的 peg 字段）",
+      "value": 12.74,
+      "unit": "倍",
+      "raw_file": "csindex-000300-perf.json",
+      "snippet": "\"consNumber\":300.0,\"peg\":12.74",
+      "source_url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=000300&startDate=20050101&endDate=20261026"
+    },
+    {
+      "key": "px_2005",
+      "label": "沪深300 2005-12-30 收盘",
+      "value": 923.45,
+      "unit": "点",
+      "raw_file": "csindex-000300-perf.json",
+      "snippet": "\"close\":923.45,\"change\":-8.58",
+      "source_url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=000300&startDate=20050101&endDate=20261026"
+    },
+    {
+      "key": "px_2011",
+      "label": "沪深300 2011-10-31 收盘",
+      "value": 2695.31,
+      "unit": "点",
+      "raw_file": "csindex-000300-perf.json",
+      "snippet": "\"close\":2695.31",
+      "source_url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=000300&startDate=20050101&endDate=20261026"
+    },
+    {
+      "key": "px_2016",
+      "label": "沪深300 2016-10-31 收盘",
+      "value": 3336.28,
+      "unit": "点",
+      "raw_file": "csindex-000300-perf.json",
+      "snippet": "\"close\":3336.28",
+      "source_url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=000300&startDate=20050101&endDate=20261026"
+    },
+    {
+      "key": "px_2020",
+      "label": "沪深300 2020-07-31 收盘",
+      "value": 4695.05,
+      "unit": "点",
+      "raw_file": "csindex-000300-perf.json",
+      "snippet": "\"close\":4695.05",
+      "source_url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=000300&startDate=20050101&endDate=20261026"
+    },
+    {
+      "key": "px_2007hi",
+      "label": "沪深300 历史最高收盘（2007-10-16）",
+      "value": 5877.2,
+      "unit": "点",
+      "raw_file": "csindex-000300-perf.json",
+      "snippet": "\"close\":5877.2",
+      "source_url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=000300&startDate=20050101&endDate=20261026"
+    },
+    {
+      "key": "px_2015hi",
+      "label": "沪深300 2015 年高点收盘（2015-06-08）",
+      "value": 5353.75,
+      "unit": "点",
+      "raw_file": "csindex-000300-perf.json",
+      "snippet": "\"close\":5353.75",
+      "source_url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=000300&startDate=20050101&endDate=20261026"
+    },
+    {
+      "key": "px_2021hi",
+      "label": "沪深300 2021 年高点收盘（2021-02-10）",
+      "value": 5807.72,
+      "unit": "点",
+      "raw_file": "csindex-000300-perf.json",
+      "snippet": "\"close\":5807.72",
+      "source_url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=000300&startDate=20050101&endDate=20261026"
+    },
+    {
+      "key": "px_52w_hi",
+      "label": "近 52 周最高收盘（2026-06-22）",
+      "value": 5059.66,
+      "unit": "点",
+      "raw_file": "csindex-000300-perf.json",
+      "snippet": "\"close\":5059.66",
+      "source_url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=000300&startDate=20050101&endDate=20261026"
+    },
+    {
+      "key": "px_52w_lo",
+      "label": "近 52 周最低收盘（2026-10-22）",
+      "value": 4036.3,
+      "unit": "点",
+      "raw_file": "csindex-000300-perf.json",
+      "snippet": "\"close\":4036.3",
+      "source_url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=000300&startDate=20050101&endDate=20261026"
+    },
+    {
+      "key": "pe_2016",
+      "label": "沪深300 PE 2016-10-31",
+      "value": 13.66,
+      "unit": "倍",
+      "raw_file": "csindex-000300-perf.json",
+      "snippet": "\"peg\":13.66",
+      "source_url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=000300&startDate=20050101&endDate=20261026"
+    },
+    {
+      "key": "pe_2024",
+      "label": "沪深300 PE 2024-01-31（上一个底部）",
+      "value": 10.29,
+      "unit": "倍",
+      "raw_file": "csindex-000300-perf.json",
+      "snippet": "\"peg\":10.29",
+      "source_url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=000300&startDate=20050101&endDate=20261026"
+    },
+    {
+      "key": "pe_2021hi",
+      "label": "沪深300 PE 2021-02-10（抱团高点）",
+      "value": 19.09,
+      "unit": "倍",
+      "raw_file": "csindex-000300-perf.json",
+      "snippet": "\"peg\":19.09",
+      "source_url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=000300&startDate=20050101&endDate=20261026"
+    },
+    {
+      "key": "pe_52whi",
+      "label": "沪深300 PE 2026-06-22（52 周高点）",
+      "value": 15.15,
+      "unit": "倍",
+      "raw_file": "csindex-000300-perf.json",
+      "snippet": "\"peg\":15.15",
+      "source_url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=000300&startDate=20050101&endDate=20261026"
+    },
+    {
+      "key": "tr_end",
+      "label": "沪深300 全收益指数 2026-10-23 收盘",
+      "value": 6179.38,
+      "unit": "点",
+      "raw_file": "csindex-H00300-perf.json",
+      "snippet": "\"close\":6179.38",
+      "source_url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=H00300&startDate=20050101&endDate=20261026"
+    },
+    {
+      "key": "tr_2005",
+      "label": "沪深300 全收益指数 2005-12-30 收盘",
+      "value": 923.45,
+      "unit": "点",
+      "raw_file": "csindex-H00300-perf.json",
+      "snippet": "\"close\":923.45,\"change\":null",
+      "source_url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=H00300&startDate=20050101&endDate=20261026"
+    },
+    {
+      "key": "tr_2011",
+      "label": "沪深300 全收益指数 2011-10-31 收盘",
+      "value": 2885.58,
+      "unit": "点",
+      "raw_file": "csindex-H00300-perf.json",
+      "snippet": "\"close\":2885.58",
+      "source_url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=H00300&startDate=20050101&endDate=20261026"
+    },
+    {
+      "key": "tr_2016",
+      "label": "沪深300 全收益指数 2016-10-31 收盘",
+      "value": 3989.45,
+      "unit": "点",
+      "raw_file": "csindex-H00300-perf.json",
+      "snippet": "\"close\":3989.45",
+      "source_url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=H00300&startDate=20050101&endDate=20261026"
+    },
+    {
+      "key": "tr_2020",
+      "label": "沪深300 全收益指数 2020-07-31 收盘",
+      "value": 6098.73,
+      "unit": "点",
+      "raw_file": "csindex-H00300-perf.json",
+      "snippet": "\"close\":6098.73",
+      "source_url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=H00300&startDate=20050101&endDate=20261026"
+    },
+    {
+      "key": "tr_2021",
+      "label": "沪深300 全收益指数 2021-02-10 收盘",
+      "value": 7567.55,
+      "unit": "点",
+      "raw_file": "csindex-H00300-perf.json",
+      "snippet": "\"close\":7567.55",
+      "source_url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=H00300&startDate=20050101&endDate=20261026"
+    },
+    {
+      "key": "tr_2007hi",
+      "label": "沪深300 全收益指数 2007-10-16 收盘",
+      "value": 6028.42,
+      "unit": "点",
+      "raw_file": "csindex-H00300-perf.json",
+      "snippet": "\"close\":6028.42",
+      "source_url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=H00300&startDate=20050101&endDate=20261026"
+    },
+    {
+      "key": "tr_2015hi",
+      "label": "沪深300 全收益指数 2015-06-08 收盘",
+      "value": 6186.02,
+      "unit": "点",
+      "raw_file": "csindex-H00300-perf.json",
+      "snippet": "\"close\":6186.02",
+      "source_url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=H00300&startDate=20050101&endDate=20261026"
+    },
+    {
+      "key": "cn10y",
+      "label": "中国 10 年期国债收益率（2026-10-23）",
+      "value": 1.64,
+      "unit": "%",
+      "raw_file": "cnfin-bond-20261026.html",
+      "snippet": "10年、30年国债收益率分别收于1.18%、1.26%、1.35%、1.46%、1.64%、2.07%",
+      "source_url": "https://m.cnfin.com/zs-lb//zixun/20261026/4486135_1.html"
+    },
+    {
+      "key": "us10y",
+      "label": "美国 10 年期国债收益率（2026-10-23）",
+      "value": 5.09,
+      "unit": "%",
+      "raw_file": "cnfin-bond-20261026.html",
+      "snippet": "10年期美债收益率大幅下行15BPs至5.09%",
+      "source_url": "https://m.cnfin.com/zs-lb//zixun/20261026/4486135_1.html"
+    },
+    {
+      "key": "pe_dj",
+      "label": "蛋卷口径 PE（2026-10-23）",
+      "value": 12.8222,
+      "unit": "倍",
+      "raw_file": "danjuan-000300-detail.json",
+      "snippet": "\"pe\":12.8222",
+      "source_url": "https://danjuanfunds.com/djapi/index_eva/detail/SH000300"
+    },
+    {
+      "key": "pb_dj",
+      "label": "蛋卷口径 PB（2026-10-23）",
+      "value": 1.3621,
+      "unit": "倍",
+      "raw_file": "danjuan-000300-detail.json",
+      "snippet": "\"pb\":1.3621",
+      "source_url": "https://danjuanfunds.com/djapi/index_eva/detail/SH000300"
+    },
+    {
+      "key": "pe_pct_dj",
+      "label": "蛋卷 PE 历史分位（2016-07 起）",
+      "value": 0.5164,
+      "unit": "比例",
+      "raw_file": "danjuan-000300-detail.json",
+      "snippet": "\"pe_percentile\":0.5164",
+      "source_url": "https://danjuanfunds.com/djapi/index_eva/detail/SH000300"
+    },
+    {
+      "key": "pb_pct_dj",
+      "label": "蛋卷 PB 历史分位（2016-07 起）",
+      "value": 0.2676,
+      "unit": "比例",
+      "raw_file": "danjuan-000300-detail.json",
+      "snippet": "\"pb_percentile\":0.2676",
+      "source_url": "https://danjuanfunds.com/djapi/index_eva/detail/SH000300"
+    },
+    {
+      "key": "dy_dj",
+      "label": "沪深300 股息率（蛋卷，2026-10-23）",
+      "value": 0.0303,
+      "unit": "比例",
+      "raw_file": "danjuan-000300-detail.json",
+      "snippet": "\"yeild\":0.0303",
+      "source_url": "https://danjuanfunds.com/djapi/index_eva/detail/SH000300"
+    },
+    {
+      "key": "roe_dj",
+      "label": "沪深300 净资产收益率（蛋卷 PB/PE）",
+      "value": 0.1062,
+      "unit": "比例",
+      "raw_file": "danjuan-000300-detail.json",
+      "snippet": "\"roe\":0.1062",
+      "source_url": "https://danjuanfunds.com/djapi/index_eva/detail/SH000300"
+    },
+    {
+      "key": "pe_obs",
+      "label": "有 PE 的交易日数（2011-06-28 起）",
+      "value": 3655.0,
+      "unit": "个",
+      "raw_file": "derived-stats.txt",
+      "snippet": "pe_obs = 3655",
+      "source_url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=000300&startDate=20050101&endDate=20261026"
+    },
+    {
+      "key": "pe_pct_now",
+      "label": "PE 12.74 的历史分位",
+      "value": 48.56,
+      "unit": "%",
+      "raw_file": "derived-stats.txt",
+      "snippet": "pe_pct_1274 = 48.56",
+      "source_url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=000300&startDate=20050101&endDate=20261026"
+    },
+    {
+      "key": "pe_pct_adj",
+      "label": "PE 12.61 的历史分位",
+      "value": 46.24,
+      "unit": "%",
+      "raw_file": "derived-stats.txt",
+      "snippet": "pe_pct_1261 = 46.24",
+      "source_url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=000300&startDate=20050101&endDate=20261026"
+    },
+    {
+      "key": "pe_median",
+      "label": "PE 历史中位数",
+      "value": 12.81,
+      "unit": "倍",
+      "raw_file": "derived-stats.txt",
+      "snippet": "pe_median = 12.81",
+      "source_url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=000300&startDate=20050101&endDate=20261026"
+    },
+    {
+      "key": "pe_q10",
+      "label": "PE 10% 分位",
+      "value": 10.06,
+      "unit": "倍",
+      "raw_file": "derived-stats.txt",
+      "snippet": "pe_q10 = 10.06",
+      "source_url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=000300&startDate=20050101&endDate=20261026"
+    },
+    {
+      "key": "pe_q33",
+      "label": "PE 33% 分位",
+      "value": 12.02,
+      "unit": "倍",
+      "raw_file": "derived-stats.txt",
+      "snippet": "pe_q33 = 12.02",
+      "source_url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=000300&startDate=20050101&endDate=20261026"
+    },
+    {
+      "key": "pe_q80",
+      "label": "PE 80% 分位",
+      "value": 14.52,
+      "unit": "倍",
+      "raw_file": "derived-stats.txt",
+      "snippet": "pe_q80 = 14.52",
+      "source_url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=000300&startDate=20050101&endDate=20261026"
+    },
+    {
+      "key": "pe_min",
+      "label": "PE 历史最低（2014-05-19）",
+      "value": 8.55,
+      "unit": "倍",
+      "raw_file": "derived-stats.txt",
+      "snippet": "pe_min = 8.55",
+      "source_url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=000300&startDate=20050101&endDate=20261026"
+    },
+    {
+      "key": "pe_max",
+      "label": "PE 历史最高（2015-06-08）",
+      "value": 20.38,
+      "unit": "倍",
+      "raw_file": "derived-stats.txt",
+      "snippet": "pe_max = 20.38",
+      "source_url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=000300&startDate=20050101&endDate=20261026"
+    },
+    {
+      "key": "eps_2011",
+      "label": "隐含 EPS 2011-06-28",
+      "value": 212.41,
+      "unit": "点",
+      "raw_file": "derived-stats.txt",
+      "snippet": "eps_20110628 = 212.41",
+      "source_url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=000300&startDate=20050101&endDate=20261026"
+    },
+    {
+      "key": "eps_2016",
+      "label": "隐含 EPS 2016-10-31",
+      "value": 244.24,
+      "unit": "点",
+      "raw_file": "derived-stats.txt",
+      "snippet": "eps_20161031 = 244.24",
+      "source_url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=000300&startDate=20050101&endDate=20261026"
+    },
+    {
+      "key": "eps_2021",
+      "label": "隐含 EPS 2021-02-10",
+      "value": 304.23,
+      "unit": "点",
+      "raw_file": "derived-stats.txt",
+      "snippet": "eps_20210210 = 304.23",
+      "source_url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=000300&startDate=20050101&endDate=20261026"
+    },
+    {
+      "key": "eps_2022",
+      "label": "隐含 EPS 2022-10-31（峰值）",
+      "value": 333.53,
+      "unit": "点",
+      "raw_file": "derived-stats.txt",
+      "snippet": "eps_20221031 = 333.53",
+      "source_url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=000300&startDate=20050101&endDate=20261026"
+    },
+    {
+      "key": "eps_2024",
+      "label": "隐含 EPS 2024-01-31",
+      "value": 312.47,
+      "unit": "点",
+      "raw_file": "derived-stats.txt",
+      "snippet": "eps_20240131 = 312.47",
+      "source_url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=000300&startDate=20050101&endDate=20261026"
+    },
+    {
+      "key": "eps_2026",
+      "label": "隐含 EPS 2026-10-23",
+      "value": 322.24,
+      "unit": "点",
+      "raw_file": "derived-stats.txt",
+      "snippet": "eps_20261023 = 322.24",
+      "source_url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=000300&startDate=20050101&endDate=20261026"
+    },
+    {
+      "key": "yrs_base",
+      "label": "2005-12-30 至 2026-10-26（年）",
+      "value": 20.82,
+      "unit": "年",
+      "raw_file": "derived-stats.txt",
+      "snippet": "yrs_20051230 = 20.82",
+      "source_url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=000300&startDate=20050101&endDate=20261026"
+    },
+    {
+      "key": "yrs_15",
+      "label": "2011-10-31 至 2026-10-26（年）",
+      "value": 14.99,
+      "unit": "年",
+      "raw_file": "derived-stats.txt",
+      "snippet": "yrs_20111031 = 14.99",
+      "source_url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=000300&startDate=20050101&endDate=20261026"
+    },
+    {
+      "key": "yrs_10",
+      "label": "2016-10-31 至 2026-10-26（年）",
+      "value": 9.98,
+      "unit": "年",
+      "raw_file": "derived-stats.txt",
+      "snippet": "yrs_20161031 = 9.98",
+      "source_url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=000300&startDate=20050101&endDate=20261026"
+    },
+    {
+      "key": "yrs_2020",
+      "label": "2020-07-31 至 2026-10-26（年）",
+      "value": 6.24,
+      "unit": "年",
+      "raw_file": "derived-stats.txt",
+      "snippet": "yrs_20200731 = 6.24",
+      "source_url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=000300&startDate=20050101&endDate=20261026"
+    },
+    {
+      "key": "yrs_2007",
+      "label": "2007-10-16 至 2026-10-26（年）",
+      "value": 19.03,
+      "unit": "年",
+      "raw_file": "derived-stats.txt",
+      "snippet": "yrs_20071016 = 19.03",
+      "source_url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=000300&startDate=20050101&endDate=20261026"
+    },
+    {
+      "key": "yrs_2015",
+      "label": "2015-06-08 至 2026-10-26（年）",
+      "value": 11.38,
+      "unit": "年",
+      "raw_file": "derived-stats.txt",
+      "snippet": "yrs_20150608 = 11.38",
+      "source_url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=000300&startDate=20050101&endDate=20261026"
+    },
+    {
+      "key": "yrs_2021",
+      "label": "2021-02-10 至 2026-10-26（年）",
+      "value": 5.71,
+      "unit": "年",
+      "raw_file": "derived-stats.txt",
+      "snippet": "yrs_20210210 = 5.71",
+      "source_url": "https://www.csindex.com.cn/csindex-home/perf/index-perf?indexCode=000300&startDate=20050101&endDate=20261026"
+    },
+    {
+      "key": "mcap_total_yi",
+      "label": "沪深300 成分总市值合计",
+      "value": 643450.0,
+      "unit": "亿元",
+      "raw_file": "derived-stats.txt",
+      "snippet": "mcap_total_yi = 643450.0",
+      "source_url": "https://push2.eastmoney.com/api/qt/clist/get?fs=b:BK0500&fields=f12,f14,f9,f20,f100"
+    },
+    {
+      "key": "mcap_icbc",
+      "label": "工商银行总市值",
+      "value": 3025889122686,
+      "unit": "元",
+      "raw_file": "em-csi300-cons-p1.json",
+      "snippet": "\"f12\":\"601398\",\"f14\":\"工商银行\",\"f20\":3025889122686",
+      "source_url": "https://push2.eastmoney.com/api/qt/clist/get?fs=b:BK0500&fields=f12,f14,f9,f20,f100"
+    },
+    {
+      "key": "mcap_moutai",
+      "label": "贵州茅台总市值",
+      "value": 1672609182138,
+      "unit": "元",
+      "raw_file": "em-csi300-cons-p1.json",
+      "snippet": "\"f12\":\"600519\",\"f14\":\"贵州茅台\",\"f20\":1672609182138",
+      "source_url": "https://push2.eastmoney.com/api/qt/clist/get?fs=b:BK0500&fields=f12,f14,f9,f20,f100"
+    },
+    {
+      "key": "bank_w",
+      "label": "银行（Ⅱ）合计权重",
+      "value": 25.53,
+      "unit": "%",
+      "raw_file": "derived-stats.txt",
+      "snippet": "bank_w = 25.53",
+      "source_url": "https://push2.eastmoney.com/api/qt/clist/get?fs=b:BK0500&fields=f12,f14,f9,f20,f100"
+    },
+    {
+      "key": "baijiu_w",
+      "label": "白酒（Ⅱ）合计权重",
+      "value": 3.65,
+      "unit": "%",
+      "raw_file": "derived-stats.txt",
+      "snippet": "baijiu_w = 3.65",
+      "source_url": "https://push2.eastmoney.com/api/qt/clist/get?fs=b:BK0500&fields=f12,f14,f9,f20,f100"
+    },
+    {
+      "key": "fin_w",
+      "label": "银行+保险+证券合计权重",
+      "value": 33.76,
+      "unit": "%",
+      "raw_file": "derived-stats.txt",
+      "snippet": "fin_w = 33.76",
+      "source_url": "https://push2.eastmoney.com/api/qt/clist/get?fs=b:BK0500&fields=f12,f14,f9,f20,f100"
+    },
+    {
+      "key": "top10_w",
+      "label": "前十大成分合计权重",
+      "value": 32.52,
+      "unit": "%",
+      "raw_file": "derived-stats.txt",
+      "snippet": "top10_w = 32.52",
+      "source_url": "https://push2.eastmoney.com/api/qt/clist/get?fs=b:BK0500&fields=f12,f14,f9,f20,f100"
+    },
+    {
+      "key": "semi_w",
+      "label": "半导体合计权重",
+      "value": 6.17,
+      "unit": "%",
+      "raw_file": "derived-stats.txt",
+      "snippet": "semi_w = 6.17",
+      "source_url": "https://push2.eastmoney.com/api/qt/clist/get?fs=b:BK0500&fields=f12,f14,f9,f20,f100"
+    },
+    {
+      "key": "w_ccb",
+      "label": "建设银行权重",
+      "value": 4.7,
+      "unit": "%",
+      "raw_file": "derived-stats.txt",
+      "snippet": "w_ccb = 4.7",
+      "source_url": "https://push2.eastmoney.com/api/qt/clist/get?fs=b:BK0500&fields=f12,f14,f9,f20,f100"
+    },
+    {
+      "key": "w_abc",
+      "label": "农业银行权重",
+      "value": 3.96,
+      "unit": "%",
+      "raw_file": "derived-stats.txt",
+      "snippet": "w_abc = 3.96",
+      "source_url": "https://push2.eastmoney.com/api/qt/clist/get?fs=b:BK0500&fields=f12,f14,f9,f20,f100"
+    },
+    {
+      "key": "w_petrochina",
+      "label": "中国石油权重",
+      "value": 3.73,
+      "unit": "%",
+      "raw_file": "derived-stats.txt",
+      "snippet": "w_petrochina = 3.73",
+      "source_url": "https://push2.eastmoney.com/api/qt/clist/get?fs=b:BK0500&fields=f12,f14,f9,f20,f100"
+    },
+    {
+      "key": "w_boc",
+      "label": "中国银行权重",
+      "value": 3.5,
+      "unit": "%",
+      "raw_file": "derived-stats.txt",
+      "snippet": "w_boc = 3.5",
+      "source_url": "https://push2.eastmoney.com/api/qt/clist/get?fs=b:BK0500&fields=f12,f14,f9,f20,f100"
+    },
+    {
+      "key": "w_cmcc",
+      "label": "中国移动权重",
+      "value": 3.41,
+      "unit": "%",
+      "raw_file": "derived-stats.txt",
+      "snippet": "w_cmcc = 3.41",
+      "source_url": "https://push2.eastmoney.com/api/qt/clist/get?fs=b:BK0500&fields=f12,f14,f9,f20,f100"
+    },
+    {
+      "key": "w_cnooc",
+      "label": "中国海油权重",
+      "value": 2.58,
+      "unit": "%",
+      "raw_file": "derived-stats.txt",
+      "snippet": "w_cnooc = 2.58",
+      "source_url": "https://push2.eastmoney.com/api/qt/clist/get?fs=b:BK0500&fields=f12,f14,f9,f20,f100"
+    },
+    {
+      "key": "w_catl",
+      "label": "宁德时代权重",
+      "value": 1.7,
+      "unit": "%",
+      "raw_file": "derived-stats.txt",
+      "snippet": "w_catl = 1.7",
+      "source_url": "https://push2.eastmoney.com/api/qt/clist/get?fs=b:BK0500&fields=f12,f14,f9,f20,f100"
+    },
+    {
+      "key": "w_shenhua",
+      "label": "中国神华权重",
+      "value": 1.65,
+      "unit": "%",
+      "raw_file": "derived-stats.txt",
+      "snippet": "w_shenhua = 1.65",
+      "source_url": "https://push2.eastmoney.com/api/qt/clist/get?fs=b:BK0500&fields=f12,f14,f9,f20,f100"
+    },
+    {
+      "key": "pe_selfbuilt",
+      "label": "自建合成 PE（东财动态 PE 市值加权调和）",
+      "value": 11.37,
+      "unit": "倍",
+      "raw_file": "derived-stats.txt",
+      "snippet": "pe_selfbuilt = 11.37",
+      "source_url": "https://push2.eastmoney.com/api/qt/clist/get?fs=b:BK0500&fields=f12,f14,f9,f20,f100"
+    },
+    {
+      "key": "pe_selfbuilt_cov",
+      "label": "自建合成口径的市值覆盖率",
+      "value": 97.73,
+      "unit": "%",
+      "raw_file": "derived-stats.txt",
+      "snippet": "pe_selfbuilt_cov = 97.73",
+      "source_url": "https://push2.eastmoney.com/api/qt/clist/get?fs=b:BK0500&fields=f12,f14,f9,f20,f100"
+    }
+  ],
+  "derived": [
+    {
+      "key": "mult_base",
+      "label": "自 2005-12-30 累计倍数（价格）",
+      "expr": "idx_level/px_2005",
+      "value": 4.3995,
+      "unit": "倍"
+    },
+    {
+      "key": "cagr_base",
+      "label": "自 2005-12-30 年化（价格）",
+      "expr": "(idx_level/px_2005)**(1/yrs_base)-1",
+      "value": 0.0737,
+      "unit": ""
+    },
+    {
+      "key": "mult_15",
+      "label": "自 2011-10-31 累计倍数（价格）",
+      "expr": "idx_level/px_2011",
+      "value": 1.5073,
+      "unit": "倍"
+    },
+    {
+      "key": "cagr_15",
+      "label": "自 2011-10-31 年化（价格）",
+      "expr": "(idx_level/px_2011)**(1/yrs_15)-1",
+      "value": 0.0278,
+      "unit": ""
+    },
+    {
+      "key": "mult_10",
+      "label": "自 2016-10-31 累计倍数（价格）",
+      "expr": "idx_level/px_2016",
+      "value": 1.2177,
+      "unit": "倍"
+    },
+    {
+      "key": "cagr_10",
+      "label": "自 2016-10-31 年化（价格）",
+      "expr": "(idx_level/px_2016)**(1/yrs_10)-1",
+      "value": 0.0199,
+      "unit": ""
+    },
+    {
+      "key": "mult_2020",
+      "label": "自 2020-07-31 累计倍数（价格）",
+      "expr": "idx_level/px_2020",
+      "value": 0.8653,
+      "unit": "倍"
+    },
+    {
+      "key": "cagr_2020",
+      "label": "自 2020-07-31 年化（价格）",
+      "expr": "(idx_level/px_2020)**(1/yrs_2020)-1",
+      "value": -0.0229,
+      "unit": ""
+    },
+    {
+      "key": "mult_2007",
+      "label": "自 2007-10-16 高点累计倍数（价格）",
+      "expr": "idx_level/px_2007hi",
+      "value": 0.6913,
+      "unit": "倍"
+    },
+    {
+      "key": "cagr_2007",
+      "label": "自 2007-10-16 高点年化（价格）",
+      "expr": "(idx_level/px_2007hi)**(1/yrs_2007)-1",
+      "value": -0.0192,
+      "unit": ""
+    },
+    {
+      "key": "mult_2015",
+      "label": "自 2015-06-08 高点累计倍数（价格）",
+      "expr": "idx_level/px_2015hi",
+      "value": 0.7588,
+      "unit": "倍"
+    },
+    {
+      "key": "cagr_2015",
+      "label": "自 2015-06-08 高点年化（价格）",
+      "expr": "(idx_level/px_2015hi)**(1/yrs_2015)-1",
+      "value": -0.024,
+      "unit": ""
+    },
+    {
+      "key": "mult_2021",
+      "label": "自 2021-02-10 高点累计倍数（价格）",
+      "expr": "idx_level/px_2021hi",
+      "value": 0.6995,
+      "unit": "倍"
+    },
+    {
+      "key": "cagr_2021",
+      "label": "自 2021-02-10 高点年化（价格）",
+      "expr": "(idx_level/px_2021hi)**(1/yrs_2021)-1",
+      "value": -0.0607,
+      "unit": ""
+    },
+    {
+      "key": "trmult_base",
+      "label": "自 2005-12-30 累计倍数（全收益）",
+      "expr": "tr_end/tr_2005",
+      "value": 6.6916,
+      "unit": "倍"
+    },
+    {
+      "key": "trcagr_base",
+      "label": "自 2005-12-30 年化（全收益）",
+      "expr": "(tr_end/tr_2005)**(1/yrs_base)-1",
+      "value": 0.0956,
+      "unit": ""
+    },
+    {
+      "key": "trmult_15",
+      "label": "自 2011-10-31 累计倍数（全收益）",
+      "expr": "tr_end/tr_2011",
+      "value": 2.1415,
+      "unit": "倍"
+    },
+    {
+      "key": "trcagr_15",
+      "label": "自 2011-10-31 年化（全收益）",
+      "expr": "(tr_end/tr_2011)**(1/yrs_15)-1",
+      "value": 0.0521,
+      "unit": ""
+    },
+    {
+      "key": "trmult_10",
+      "label": "自 2016-10-31 累计倍数（全收益）",
+      "expr": "tr_end/tr_2016",
+      "value": 1.5489,
+      "unit": "倍"
+    },
+    {
+      "key": "trcagr_10",
+      "label": "自 2016-10-31 年化（全收益）",
+      "expr": "(tr_end/tr_2016)**(1/yrs_10)-1",
+      "value": 0.0448,
+      "unit": ""
+    },
+    {
+      "key": "trmult_2007",
+      "label": "自 2007-10-16 高点累计倍数（全收益）",
+      "expr": "tr_end/tr_2007hi",
+      "value": 1.025,
+      "unit": "倍"
+    },
+    {
+      "key": "trcagr_2007",
+      "label": "自 2007-10-16 高点年化（全收益）",
+      "expr": "(tr_end/tr_2007hi)**(1/yrs_2007)-1",
+      "value": 0.0013,
+      "unit": ""
+    },
+    {
+      "key": "trmult_2015",
+      "label": "自 2015-06-08 高点累计倍数（全收益）",
+      "expr": "tr_end/tr_2015hi",
+      "value": 0.9989,
+      "unit": "倍"
+    },
+    {
+      "key": "trcagr_2015",
+      "label": "自 2015-06-08 高点年化（全收益）",
+      "expr": "(tr_end/tr_2015hi)**(1/yrs_2015)-1",
+      "value": -0.0001,
+      "unit": ""
+    },
+    {
+      "key": "trmult_2020",
+      "label": "自 2020-07-31 累计倍数（全收益）",
+      "expr": "tr_end/tr_2020",
+      "value": 1.0132,
+      "unit": "倍"
+    },
+    {
+      "key": "trcagr_2020",
+      "label": "自 2020-07-31 年化（全收益）",
+      "expr": "(tr_end/tr_2020)**(1/yrs_2020)-1",
+      "value": 0.0021,
+      "unit": ""
+    },
+    {
+      "key": "trmult_2021",
+      "label": "自 2021-02-10 高点累计倍数（全收益）",
+      "expr": "tr_end/tr_2021",
+      "value": 0.8166,
+      "unit": "倍"
+    },
+    {
+      "key": "trcagr_2021",
+      "label": "自 2021-02-10 高点年化（全收益）",
+      "expr": "(tr_end/tr_2021)**(1/yrs_2021)-1",
+      "value": -0.0349,
+      "unit": ""
+    },
+    {
+      "key": "div_gap_base",
+      "label": "分红对年化的贡献（自 2005-12-30）",
+      "expr": "(trcagr_base-cagr_base)*100",
+      "value": 2.1848,
+      "unit": "个百分点"
+    },
+    {
+      "key": "div_gap_10",
+      "label": "分红对年化的贡献（近 10 年）",
+      "expr": "(trcagr_10-cagr_10)*100",
+      "value": 2.4885,
+      "unit": "个百分点"
+    },
+    {
+      "key": "dd_52w",
+      "label": "距 52 周高点",
+      "expr": "idx_level/px_52w_hi-1",
+      "value": -0.197,
+      "unit": ""
+    },
+    {
+      "key": "dd_2007",
+      "label": "距 2007-10-16 高点",
+      "expr": "idx_level/px_2007hi-1",
+      "value": -0.3087,
+      "unit": ""
+    },
+    {
+      "key": "dd_2015",
+      "label": "距 2015-06-08 高点",
+      "expr": "idx_level/px_2015hi-1",
+      "value": -0.2412,
+      "unit": ""
+    },
+    {
+      "key": "dd_2021",
+      "label": "距 2021-02-10 高点",
+      "expr": "idx_level/px_2021hi-1",
+      "value": -0.3005,
+      "unit": ""
+    },
+    {
+      "key": "up_52w",
+      "label": "距 52 周低点",
+      "expr": "idx_level/px_52w_lo-1",
+      "value": 0.0065,
+      "unit": ""
+    },
+    {
+      "key": "pe_adj",
+      "label": "现价对应 PE（按 10-23 的 PE 与点位折算）",
+      "expr": "pe_now*idx_level/px_now_official",
+      "value": 12.6077,
+      "unit": "倍"
+    },
+    {
+      "key": "ey",
+      "label": "盈利收益率（100 ÷ PE）",
+      "expr": "100/pe_adj",
+      "value": 7.9317,
+      "unit": "%"
+    },
+    {
+      "key": "spread_cn",
+      "label": "风险补偿（盈利收益率 − 10 年期国债）",
+      "expr": "ey-cn10y",
+      "value": 6.2917,
+      "unit": "个百分点"
+    },
+    {
+      "key": "spread_us",
+      "label": "风险补偿（盈利收益率 − 10 年期美债）",
+      "expr": "ey-us10y",
+      "value": 2.8417,
+      "unit": "个百分点"
+    },
+    {
+      "key": "dy_vs_cn",
+      "label": "股息率 − 国债收益率",
+      "expr": "dy_dj*100-cn10y",
+      "value": 1.39,
+      "unit": "个百分点"
+    },
+    {
+      "key": "dy_over_cn",
+      "label": "股息率 ÷ 国债收益率",
+      "expr": "dy_dj*100/cn10y",
+      "value": 1.8476,
+      "unit": "倍"
+    },
+    {
+      "key": "roe_check",
+      "label": "PB ÷ PE = ROE",
+      "expr": "pb_dj/pe_dj*100",
+      "value": 10.623,
+      "unit": "%"
+    },
+    {
+      "key": "pct_gap",
+      "label": "PE 分位 − PB 分位",
+      "expr": "(pe_pct_dj-pb_pct_dj)*100",
+      "value": 24.88,
+      "unit": "个百分点"
+    },
+    {
+      "key": "eps_now",
+      "label": "现价隐含的 TTM 每股盈利（指数点）",
+      "expr": "idx_level/pe_adj",
+      "value": 322.2394,
+      "unit": "点"
+    },
+    {
+      "key": "px_x_10",
+      "label": "近 10 年价格倍数",
+      "expr": "idx_level/px_2016",
+      "value": 1.2177,
+      "unit": "倍"
+    },
+    {
+      "key": "eps_x_10",
+      "label": "近 10 年隐含盈利倍数",
+      "expr": "eps_now/eps_2016",
+      "value": 1.3194,
+      "unit": "倍"
+    },
+    {
+      "key": "pe_x_10",
+      "label": "近 10 年 PE 倍数",
+      "expr": "pe_adj/pe_2016",
+      "value": 0.923,
+      "unit": "倍"
+    },
+    {
+      "key": "eps_vs_2022",
+      "label": "隐含盈利相对 2022-10 峰值",
+      "expr": "eps_now/eps_2022-1",
+      "value": -0.0339,
+      "unit": ""
+    },
+    {
+      "key": "eps_x_since_2011",
+      "label": "隐含盈利相对 2011-06 的倍数",
+      "expr": "eps_now/eps_2011",
+      "value": 1.5171,
+      "unit": "倍"
+    },
+    {
+      "key": "eps_x_since_2021",
+      "label": "隐含盈利相对 2021-02 的倍数",
+      "expr": "eps_now/eps_2021",
+      "value": 1.0592,
+      "unit": "倍"
+    },
+    {
+      "key": "pe_x_since_2021",
+      "label": "PE 相对 2021-02 高点",
+      "expr": "pe_adj/pe_2021hi",
+      "value": 0.6604,
+      "unit": "倍"
+    },
+    {
+      "key": "eps_vs_52whi",
+      "label": "隐含盈利相对 2026-06-22（52 周高点）",
+      "expr": "eps_now/(px_52w_hi/pe_52whi)-1",
+      "value": -0.0351,
+      "unit": ""
+    },
+    {
+      "key": "pe_vs_52whi",
+      "label": "PE 相对 2026-06-22（52 周高点）",
+      "expr": "pe_adj/pe_52whi",
+      "value": 0.8322,
+      "unit": "倍"
+    },
+    {
+      "key": "lvl_pe_855",
+      "label": "PE 8.55 倍（2014 极值）对应点位",
+      "expr": "eps_now*pe_min",
+      "value": 2755.1469,
+      "unit": "点"
+    },
+    {
+      "key": "lvl_pe_1006",
+      "label": "PE 10.06 倍（10% 分位）对应点位",
+      "expr": "eps_now*pe_q10",
+      "value": 3241.7284,
+      "unit": "点"
+    },
+    {
+      "key": "lvl_pe_1202",
+      "label": "PE 12.02 倍（33% 分位）对应点位",
+      "expr": "eps_now*pe_q33",
+      "value": 3873.3176,
+      "unit": "点"
+    },
+    {
+      "key": "lvl_pe_1452",
+      "label": "PE 14.52 倍（80% 分位）对应点位",
+      "expr": "eps_now*pe_q80",
+      "value": 4678.9161,
+      "unit": "点"
+    },
+    {
+      "key": "lvl_worst",
+      "label": "PE 8.55 倍 + 盈利再降 15% 对应点位",
+      "expr": "eps_now*0.85*pe_min",
+      "value": 2341.8749,
+      "unit": "点"
+    },
+    {
+      "key": "dist_dingtou",
+      "label": "距可定投线",
+      "expr": "lvl_pe_1202/idx_level-1",
+      "value": -0.0466,
+      "unit": ""
+    },
+    {
+      "key": "dist_jiacang",
+      "label": "距加仓线",
+      "expr": "lvl_pe_1006/idx_level-1",
+      "value": -0.2021,
+      "unit": ""
+    },
+    {
+      "key": "dist_zanting",
+      "label": "距暂停线",
+      "expr": "lvl_pe_1452/idx_level-1",
+      "value": 0.1517,
+      "unit": ""
+    },
+    {
+      "key": "dist_worst",
+      "label": "距最坏情况线",
+      "expr": "lvl_pe_855/idx_level-1",
+      "value": -0.3218,
+      "unit": ""
+    },
+    {
+      "key": "dist_worst2",
+      "label": "距「盈利再降 15%」的最坏线",
+      "expr": "lvl_worst/idx_level-1",
+      "value": -0.4236,
+      "unit": ""
+    },
+    {
+      "key": "spread_at_2024",
+      "label": "用今天的国债利率套 2024-01 的 PE 得到的补偿",
+      "expr": "100/pe_2024-cn10y",
+      "value": 8.0782,
+      "unit": "个百分点"
+    },
+    {
+      "key": "pe_uplift_since_2024",
+      "label": "PE 相对 2024-01 底部的抬升",
+      "expr": "pe_adj/pe_2024-1",
+      "value": 0.2252,
+      "unit": ""
+    },
+    {
+      "key": "spread_if_3pct",
+      "label": "情景：国债回到 3% 时的风险补偿",
+      "expr": "ey-3",
+      "value": 4.9317,
+      "unit": "个百分点"
+    },
+    {
+      "key": "w_icbc",
+      "label": "工商银行权重（总市值口径）",
+      "expr": "mcap_icbc/(mcap_total_yi*100000000)*100",
+      "value": 4.7026,
+      "unit": "%"
+    },
+    {
+      "key": "w_moutai_calc",
+      "label": "贵州茅台权重（总市值口径）",
+      "expr": "mcap_moutai/(mcap_total_yi*100000000)*100",
+      "value": 2.5994,
+      "unit": "%"
+    },
+    {
+      "key": "top5_w",
+      "label": "前五大成分合计",
+      "expr": "w_icbc+w_ccb+w_abc+w_petrochina+w_boc",
+      "value": 20.5926,
+      "unit": "%"
+    }
+  ]
+}

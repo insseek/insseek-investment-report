@@ -1,0 +1,1387 @@
+{
+ "meta": {
+  "company": "恒生科技指数",
+  "code": "HSTECH",
+  "as_of": "2026-10-26",
+  "currency": "HKD",
+  "fetched_at": "2026-10-26T10:25+08:00",
+  "note": "成分归母/权益/收入取自上游 2026-10-21 报告（港交所与 SEC 原件整理），价格与市值为 2026-10-26 实时；十家覆盖指数约 55% 权重"
+ },
+ "inputs": [
+  {
+   "key": "idx_level",
+   "label": "恒生科技最新点位",
+   "value": 3813.33,
+   "unit": "点",
+   "raw_file": "kline-HSTECH.json",
+   "snippet": "2026-10-26,3813.33",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=124.HSTECH"
+  },
+  {
+   "key": "idx_prev",
+   "label": "前一交易日收盘",
+   "value": 3871.66,
+   "unit": "点",
+   "raw_file": "quote-20261026.txt",
+   "snippet": "HSTECH~3842.100~3871.660",
+   "source_url": "https://qt.gtimg.cn/q=hkHSTECH"
+  },
+  {
+   "key": "idx_hi52",
+   "label": "52 周最高",
+   "value": 6198.68,
+   "unit": "点",
+   "raw_file": "quote-20261026.txt",
+   "snippet": "6198.680~3781.150",
+   "source_url": "https://qt.gtimg.cn/q=hkHSTECH"
+  },
+  {
+   "key": "idx_lo52",
+   "label": "52 周最低",
+   "value": 3781.15,
+   "unit": "点",
+   "raw_file": "quote-20261026.txt",
+   "snippet": "6198.680~3781.150",
+   "source_url": "https://qt.gtimg.cn/q=hkHSTECH"
+  },
+  {
+   "key": "idx_peak",
+   "label": "历史最高 2021-01-29",
+   "value": 9358.11,
+   "unit": "点",
+   "raw_file": "kline-HSTECH.json",
+   "snippet": "2021-01-29,9358.11",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=124.HSTECH"
+  },
+  {
+   "key": "idx_base",
+   "label": "基日 2014-12-31 基点",
+   "value": 3000.0,
+   "unit": "点",
+   "raw_file": "kline-HSTECH.json",
+   "snippet": "2014-12-31,3000.00",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=124.HSTECH"
+  },
+  {
+   "key": "fx",
+   "label": "港元兑人民币",
+   "value": 0.851274,
+   "unit": "CNY/HKD",
+   "raw_file": "fx.json",
+   "snippet": "\"CNY\": 0.851274",
+   "source_url": "https://open.er-api.com/v6/latest/HKD"
+  },
+  {
+   "key": "us10y",
+   "label": "美国十年期国债收益率",
+   "value": 4.96,
+   "unit": "%",
+   "raw_file": "us10y.csv",
+   "snippet": "2026-10-22,4.96",
+   "source_url": "https://fred.stlouisfed.org/series/DGS10"
+  },
+  {
+   "key": "official_pe",
+   "label": "恒生官方静态市盈率（9-30）",
+   "value": 28.23,
+   "unit": "倍",
+   "raw_file": "upstream-估值全景.md",
+   "snippet": "恒生官方市盈率（静态） | 28.23（9-30）",
+   "source_url": "https://github.com/xbtlin/ai-berkshire/blob/main/reports/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80%E4%BC%B0%E5%80%BC%E5%85%A8%E6%99%AF-20261023.md"
+  },
+  {
+   "key": "fwd_pe",
+   "label": "前瞻市盈率（5 月后未更新）",
+   "value": 16.9,
+   "unit": "倍",
+   "raw_file": "upstream-估值全景.md",
+   "snippet": "前瞻市盈率（推算） | 约 16.9",
+   "source_url": "https://github.com/xbtlin/ai-berkshire/blob/main/reports/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80%E4%BC%B0%E5%80%BC%E5%85%A8%E6%99%AF-20261023.md"
+  },
+  {
+   "key": "pct_pe",
+   "label": "十家合成 PE 分位",
+   "value": 14,
+   "unit": "%",
+   "raw_file": "upstream-估值全景.md",
+   "snippet": "市盈率 14% 分位、市净率 3% 分位",
+   "source_url": "https://github.com/xbtlin/ai-berkshire/blob/main/reports/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80%E4%BC%B0%E5%80%BC%E5%85%A8%E6%99%AF-20261023.md"
+  },
+  {
+   "key": "pct_pb",
+   "label": "十家合成 PB 分位",
+   "value": 3,
+   "unit": "%",
+   "raw_file": "upstream-估值全景.md",
+   "snippet": "市盈率 14% 分位、市净率 3% 分位",
+   "source_url": "https://github.com/xbtlin/ai-berkshire/blob/main/reports/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80%E4%BC%B0%E5%80%BC%E5%85%A8%E6%99%AF-20261023.md"
+  },
+  {
+   "key": "weight_cov",
+   "label": "十家成分覆盖指数权重",
+   "value": 55,
+   "unit": "%",
+   "raw_file": "upstream-估值全景.md",
+   "snippet": "覆盖指数约 55% 权重",
+   "source_url": "https://github.com/xbtlin/ai-berkshire/blob/main/reports/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80%E4%BC%B0%E5%80%BC%E5%85%A8%E6%99%AF-20261023.md"
+  },
+  {
+   "key": "n_const_new",
+   "label": "扩样后成分股数量",
+   "value": 50,
+   "unit": "只",
+   "raw_file": "upstream-估值全景.md",
+   "snippet": "12 月 7 日起恒生科技扩到 50 只",
+   "source_url": "https://github.com/xbtlin/ai-berkshire/blob/main/reports/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80%E4%BC%B0%E5%80%BC%E5%85%A8%E6%99%AF-20261023.md"
+  },
+  {
+   "key": "px_00700",
+   "label": "腾讯 价格",
+   "value": 385.4,
+   "unit": "HKD",
+   "raw_file": "quote-20261026.txt",
+   "snippet": "腾讯腾讯控股~385.400",
+   "source_url": "https://qt.gtimg.cn/q=hk00700"
+  },
+  {
+   "key": "mc_00700",
+   "label": "腾讯 总市值",
+   "value": 35043.0532,
+   "unit": "亿港元",
+   "raw_file": "quote-20261026.txt",
+   "snippet": "385.400~35043.0532",
+   "source_url": "https://qt.gtimg.cn/q=hk00700"
+  },
+  {
+   "key": "pe_00700",
+   "label": "腾讯 行情市盈率 TTM",
+   "value": 14.08,
+   "unit": "倍",
+   "raw_file": "quote-20261026.txt",
+   "snippet": "35043.0532~14.08",
+   "source_url": "https://qt.gtimg.cn/q=hk00700"
+  },
+  {
+   "key": "ni_00700",
+   "label": "腾讯 近四季归母净利",
+   "value": 2355.08,
+   "unit": "亿元",
+   "raw_file": "upstream-计算.py",
+   "snippet": "'腾讯':   (393.8, 90.93, 7884.83, 2355.08, 2715.65, 11358.53, 581.91, 732.1+376.65),",
+   "source_url": "https://github.com/xbtlin/ai-berkshire/blob/main/reports/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80%E4%BC%B0%E5%80%BC%E8%AE%A1%E7%AE%97-20261023.py"
+  },
+  {
+   "key": "eq_00700",
+   "label": "腾讯 归母权益",
+   "value": 11358.53,
+   "unit": "亿元",
+   "raw_file": "upstream-计算.py",
+   "snippet": "'腾讯':   (393.8, 90.93, 7884.83, 2355.08, 2715.65, 11358.53, 581.91, 732.1+376.65),",
+   "source_url": "https://github.com/xbtlin/ai-berkshire/blob/main/reports/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80%E4%BC%B0%E5%80%BC%E8%AE%A1%E7%AE%97-20261023.py"
+  },
+  {
+   "key": "rev_00700",
+   "label": "腾讯 近四季营业收入",
+   "value": 7884.83,
+   "unit": "亿元",
+   "raw_file": "upstream-计算.py",
+   "snippet": "'腾讯':   (393.8, 90.93, 7884.83, 2355.08, 2715.65, 11358.53, 581.91, 732.1+376.65),",
+   "source_url": "https://github.com/xbtlin/ai-berkshire/blob/main/reports/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80%E4%BC%B0%E5%80%BC%E8%AE%A1%E7%AE%97-20261023.py"
+  },
+  {
+   "key": "px_09988",
+   "label": "阿里 价格",
+   "value": 97.05,
+   "unit": "HKD",
+   "raw_file": "quote-20261026.txt",
+   "snippet": "阿里阿里巴巴-W~97.050",
+   "source_url": "https://qt.gtimg.cn/q=hk09988"
+  },
+  {
+   "key": "mc_09988",
+   "label": "阿里 总市值",
+   "value": 19314.8517,
+   "unit": "亿港元",
+   "raw_file": "quote-20261026.txt",
+   "snippet": "97.050~19314.8517",
+   "source_url": "https://qt.gtimg.cn/q=hk09988"
+  },
+  {
+   "key": "pe_09988",
+   "label": "阿里 行情市盈率 TTM",
+   "value": 16.46,
+   "unit": "倍",
+   "raw_file": "quote-20261026.txt",
+   "snippet": "19314.8517~16.46",
+   "source_url": "https://qt.gtimg.cn/q=hk09988"
+  },
+  {
+   "key": "ni_09988",
+   "label": "阿里 近四季归母净利",
+   "value": 733.25,
+   "unit": "亿元",
+   "raw_file": "upstream-计算.py",
+   "snippet": "'阿里':   (103.7, 199.02, 10449.71, 733.25, 496.51, 10490.38+692, 2080+692, 67.9+337.32),",
+   "source_url": "https://github.com/xbtlin/ai-berkshire/blob/main/reports/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80%E4%BC%B0%E5%80%BC%E8%AE%A1%E7%AE%97-20261023.py"
+  },
+  {
+   "key": "eq_09988",
+   "label": "阿里 归母权益",
+   "value": 10490.38,
+   "unit": "亿元",
+   "raw_file": "upstream-计算.py",
+   "snippet": "'阿里':   (103.7, 199.02, 10449.71, 733.25, 496.51, 10490.38+692, 2080+692, 67.9+337.32),",
+   "source_url": "https://github.com/xbtlin/ai-berkshire/blob/main/reports/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80%E4%BC%B0%E5%80%BC%E8%AE%A1%E7%AE%97-20261023.py"
+  },
+  {
+   "key": "rev_09988",
+   "label": "阿里 近四季营业收入",
+   "value": 10449.71,
+   "unit": "亿元",
+   "raw_file": "upstream-计算.py",
+   "snippet": "'阿里':   (103.7, 199.02, 10449.71, 733.25, 496.51, 10490.38+692, 2080+692, 67.9+337.32),",
+   "source_url": "https://github.com/xbtlin/ai-berkshire/blob/main/reports/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80%E4%BC%B0%E5%80%BC%E8%AE%A1%E7%AE%97-20261023.py"
+  },
+  {
+   "key": "px_03690",
+   "label": "美团 价格",
+   "value": 72.45,
+   "unit": "HKD",
+   "raw_file": "quote-20261026.txt",
+   "snippet": "美团美团-W~72.450",
+   "source_url": "https://qt.gtimg.cn/q=hk03690"
+  },
+  {
+   "key": "mc_03690",
+   "label": "美团 总市值",
+   "value": 4474.1557,
+   "unit": "亿港元",
+   "raw_file": "quote-20261026.txt",
+   "snippet": "72.450~4474.1557",
+   "source_url": "https://qt.gtimg.cn/q=hk03690"
+  },
+  {
+   "key": "pe_03690",
+   "label": "美团 行情市盈率 TTM",
+   "value": -17.3,
+   "unit": "倍",
+   "raw_file": "quote-20261026.txt",
+   "snippet": "4474.1557~-17.30",
+   "source_url": "https://qt.gtimg.cn/q=hk03690"
+  },
+  {
+   "key": "ni_03690",
+   "label": "美团 近四季归母净利",
+   "value": -384.5,
+   "unit": "亿元",
+   "raw_file": "upstream-计算.py",
+   "snippet": "'美团':   (74.7, 61.76, 3828.4, -384.5, -335.3, 1692.1, 797.4, 3.65),",
+   "source_url": "https://github.com/xbtlin/ai-berkshire/blob/main/reports/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80%E4%BC%B0%E5%80%BC%E8%AE%A1%E7%AE%97-20261023.py"
+  },
+  {
+   "key": "eq_03690",
+   "label": "美团 归母权益",
+   "value": 1692.1,
+   "unit": "亿元",
+   "raw_file": "upstream-计算.py",
+   "snippet": "'美团':   (74.7, 61.76, 3828.4, -384.5, -335.3, 1692.1, 797.4, 3.65),",
+   "source_url": "https://github.com/xbtlin/ai-berkshire/blob/main/reports/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80%E4%BC%B0%E5%80%BC%E8%AE%A1%E7%AE%97-20261023.py"
+  },
+  {
+   "key": "rev_03690",
+   "label": "美团 近四季营业收入",
+   "value": 3828.4,
+   "unit": "亿元",
+   "raw_file": "upstream-计算.py",
+   "snippet": "'美团':   (74.7, 61.76, 3828.4, -384.5, -335.3, 1692.1, 797.4, 3.65),",
+   "source_url": "https://github.com/xbtlin/ai-berkshire/blob/main/reports/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80%E4%BC%B0%E5%80%BC%E8%AE%A1%E7%AE%97-20261023.py"
+  },
+  {
+   "key": "px_01024",
+   "label": "快手 价格",
+   "value": 27.52,
+   "unit": "HKD",
+   "raw_file": "quote-20261026.txt",
+   "snippet": "快手快手-W~27.520",
+   "source_url": "https://qt.gtimg.cn/q=hk01024"
+  },
+  {
+   "key": "mc_01024",
+   "label": "快手 总市值",
+   "value": 1184.5025,
+   "unit": "亿港元",
+   "raw_file": "quote-20261026.txt",
+   "snippet": "27.520~1184.5025",
+   "source_url": "https://qt.gtimg.cn/q=hk01024"
+  },
+  {
+   "key": "pe_01024",
+   "label": "快手 行情市盈率 TTM",
+   "value": 5.75,
+   "unit": "倍",
+   "raw_file": "quote-20261026.txt",
+   "snippet": "1184.5025~5.75",
+   "source_url": "https://qt.gtimg.cn/q=hk01024"
+  },
+  {
+   "key": "ni_01024",
+   "label": "快手 近四季归母净利",
+   "value": 157.7,
+   "unit": "亿元",
+   "raw_file": "upstream-计算.py",
+   "snippet": "'快手':   (28.04, 43.04, 1443.7, 157.7, 177.4, 822.4, 666.2, 31.18*0.92+20*0.92),",
+   "source_url": "https://github.com/xbtlin/ai-berkshire/blob/main/reports/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80%E4%BC%B0%E5%80%BC%E8%AE%A1%E7%AE%97-20261023.py"
+  },
+  {
+   "key": "eq_01024",
+   "label": "快手 归母权益",
+   "value": 822.4,
+   "unit": "亿元",
+   "raw_file": "upstream-计算.py",
+   "snippet": "'快手':   (28.04, 43.04, 1443.7, 157.7, 177.4, 822.4, 666.2, 31.18*0.92+20*0.92),",
+   "source_url": "https://github.com/xbtlin/ai-berkshire/blob/main/reports/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80%E4%BC%B0%E5%80%BC%E8%AE%A1%E7%AE%97-20261023.py"
+  },
+  {
+   "key": "rev_01024",
+   "label": "快手 近四季营业收入",
+   "value": 1443.7,
+   "unit": "亿元",
+   "raw_file": "upstream-计算.py",
+   "snippet": "'快手':   (28.04, 43.04, 1443.7, 157.7, 177.4, 822.4, 666.2, 31.18*0.92+20*0.92),",
+   "source_url": "https://github.com/xbtlin/ai-berkshire/blob/main/reports/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80%E4%BC%B0%E5%80%BC%E8%AE%A1%E7%AE%97-20261023.py"
+  },
+  {
+   "key": "px_09992",
+   "label": "泡泡玛特 价格",
+   "value": 130.6,
+   "unit": "HKD",
+   "raw_file": "quote-20261026.txt",
+   "snippet": "泡泡玛特泡泡玛特~130.600",
+   "source_url": "https://qt.gtimg.cn/q=hk09992"
+  },
+  {
+   "key": "mc_09992",
+   "label": "泡泡玛特 总市值",
+   "value": 1739.3036,
+   "unit": "亿港元",
+   "raw_file": "quote-20261026.txt",
+   "snippet": "130.600~1739.3036",
+   "source_url": "https://qt.gtimg.cn/q=hk09992"
+  },
+  {
+   "key": "pe_09992",
+   "label": "泡泡玛特 行情市盈率 TTM",
+   "value": 12.3,
+   "unit": "倍",
+   "raw_file": "quote-20261026.txt",
+   "snippet": "1739.3036~12.30",
+   "source_url": "https://qt.gtimg.cn/q=hk09992"
+  },
+  {
+   "key": "ni_09992",
+   "label": "泡泡玛特 近四季归母净利",
+   "value": 132.4,
+   "unit": "亿元",
+   "raw_file": "upstream-计算.py",
+   "snippet": "'泡泡玛特':(129.8, 13.32, 404.17, 132.40, 135.30, 230.59, 144.01, 0+10.83),",
+   "source_url": "https://github.com/xbtlin/ai-berkshire/blob/main/reports/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80%E4%BC%B0%E5%80%BC%E8%AE%A1%E7%AE%97-20261023.py"
+  },
+  {
+   "key": "eq_09992",
+   "label": "泡泡玛特 归母权益",
+   "value": 230.59,
+   "unit": "亿元",
+   "raw_file": "upstream-计算.py",
+   "snippet": "'泡泡玛特':(129.8, 13.32, 404.17, 132.40, 135.30, 230.59, 144.01, 0+10.83),",
+   "source_url": "https://github.com/xbtlin/ai-berkshire/blob/main/reports/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80%E4%BC%B0%E5%80%BC%E8%AE%A1%E7%AE%97-20261023.py"
+  },
+  {
+   "key": "rev_09992",
+   "label": "泡泡玛特 近四季营业收入",
+   "value": 404.17,
+   "unit": "亿元",
+   "raw_file": "upstream-计算.py",
+   "snippet": "'泡泡玛特':(129.8, 13.32, 404.17, 132.40, 135.30, 230.59, 144.01, 0+10.83),",
+   "source_url": "https://github.com/xbtlin/ai-berkshire/blob/main/reports/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80%E4%BC%B0%E5%80%BC%E8%AE%A1%E7%AE%97-20261023.py"
+  },
+  {
+   "key": "px_01810",
+   "label": "小米 价格",
+   "value": 26.52,
+   "unit": "HKD",
+   "raw_file": "quote-20261026.txt",
+   "snippet": "小米小米集团-W~26.520",
+   "source_url": "https://qt.gtimg.cn/q=hk01810"
+  },
+  {
+   "key": "mc_01810",
+   "label": "小米 总市值",
+   "value": 6841.065,
+   "unit": "亿港元",
+   "raw_file": "quote-20261026.txt",
+   "snippet": "26.520~6841.0650",
+   "source_url": "https://qt.gtimg.cn/q=hk01810"
+  },
+  {
+   "key": "pe_01810",
+   "label": "小米 行情市盈率 TTM",
+   "value": 14.84,
+   "unit": "倍",
+   "raw_file": "quote-20261026.txt",
+   "snippet": "6841.0650~14.84",
+   "source_url": "https://qt.gtimg.cn/q=hk01810"
+  },
+  {
+   "key": "ni_01810",
+   "label": "小米 近四季归母净利",
+   "value": 330.0,
+   "unit": "亿元",
+   "raw_file": "upstream-计算.py",
+   "snippet": "'小米':   (26.8, 257.96, 4381.01, 330.00, 299.51, 2696.99, 1683, 53.8),",
+   "source_url": "https://github.com/xbtlin/ai-berkshire/blob/main/reports/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80%E4%BC%B0%E5%80%BC%E8%AE%A1%E7%AE%97-20261023.py"
+  },
+  {
+   "key": "eq_01810",
+   "label": "小米 归母权益",
+   "value": 2696.99,
+   "unit": "亿元",
+   "raw_file": "upstream-计算.py",
+   "snippet": "'小米':   (26.8, 257.96, 4381.01, 330.00, 299.51, 2696.99, 1683, 53.8),",
+   "source_url": "https://github.com/xbtlin/ai-berkshire/blob/main/reports/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80%E4%BC%B0%E5%80%BC%E8%AE%A1%E7%AE%97-20261023.py"
+  },
+  {
+   "key": "rev_01810",
+   "label": "小米 近四季营业收入",
+   "value": 4381.01,
+   "unit": "亿元",
+   "raw_file": "upstream-计算.py",
+   "snippet": "'小米':   (26.8, 257.96, 4381.01, 330.00, 299.51, 2696.99, 1683, 53.8),",
+   "source_url": "https://github.com/xbtlin/ai-berkshire/blob/main/reports/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80%E4%BC%B0%E5%80%BC%E8%AE%A1%E7%AE%97-20261023.py"
+  },
+  {
+   "key": "px_09618",
+   "label": "京东 价格",
+   "value": 99.3,
+   "unit": "HKD",
+   "raw_file": "quote-20261026.txt",
+   "snippet": "京东京东集团-SW~99.300",
+   "source_url": "https://qt.gtimg.cn/q=hk09618"
+  },
+  {
+   "key": "mc_09618",
+   "label": "京东 总市值",
+   "value": 2669.184,
+   "unit": "亿港元",
+   "raw_file": "quote-20261026.txt",
+   "snippet": "99.300~2669.1840",
+   "source_url": "https://qt.gtimg.cn/q=hk09618"
+  },
+  {
+   "key": "pe_09618",
+   "label": "京东 行情市盈率 TTM",
+   "value": 12.28,
+   "unit": "倍",
+   "raw_file": "quote-20261026.txt",
+   "snippet": "2669.1840~12.28",
+   "source_url": "https://qt.gtimg.cn/q=hk09618"
+  },
+  {
+   "key": "ni_09618",
+   "label": "京东 近四季归母净利",
+   "value": 147.94,
+   "unit": "亿元",
+   "raw_file": "upstream-计算.py",
+   "snippet": "'京东':   (102.7, 26.88, 13134.38, 147.94, 231.89, 2191.18, 1651.7, 203.6+97.7),",
+   "source_url": "https://github.com/xbtlin/ai-berkshire/blob/main/reports/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80%E4%BC%B0%E5%80%BC%E8%AE%A1%E7%AE%97-20261023.py"
+  },
+  {
+   "key": "eq_09618",
+   "label": "京东 归母权益",
+   "value": 2191.18,
+   "unit": "亿元",
+   "raw_file": "upstream-计算.py",
+   "snippet": "'京东':   (102.7, 26.88, 13134.38, 147.94, 231.89, 2191.18, 1651.7, 203.6+97.7),",
+   "source_url": "https://github.com/xbtlin/ai-berkshire/blob/main/reports/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80%E4%BC%B0%E5%80%BC%E8%AE%A1%E7%AE%97-20261023.py"
+  },
+  {
+   "key": "rev_09618",
+   "label": "京东 近四季营业收入",
+   "value": 13134.38,
+   "unit": "亿元",
+   "raw_file": "upstream-计算.py",
+   "snippet": "'京东':   (102.7, 26.88, 13134.38, 147.94, 231.89, 2191.18, 1651.7, 203.6+97.7),",
+   "source_url": "https://github.com/xbtlin/ai-berkshire/blob/main/reports/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80%E4%BC%B0%E5%80%BC%E8%AE%A1%E7%AE%97-20261023.py"
+  },
+  {
+   "key": "px_09888",
+   "label": "百度 价格",
+   "value": 74.95,
+   "unit": "HKD",
+   "raw_file": "quote-20261026.txt",
+   "snippet": "百度百度集团-W~74.950",
+   "source_url": "https://qt.gtimg.cn/q=hk09888"
+  },
+  {
+   "key": "mc_09888",
+   "label": "百度 总市值",
+   "value": 2038.5964,
+   "unit": "亿港元",
+   "raw_file": "quote-20261026.txt",
+   "snippet": "74.950~2038.5964",
+   "source_url": "https://qt.gtimg.cn/q=hk09888"
+  },
+  {
+   "key": "pe_09888",
+   "label": "百度 行情市盈率 TTM",
+   "value": 32.95,
+   "unit": "倍",
+   "raw_file": "quote-20261026.txt",
+   "snippet": "2038.5964~32.95",
+   "source_url": "https://qt.gtimg.cn/q=hk09888"
+  },
+  {
+   "key": "ni_09888",
+   "label": "百度 近四季归母净利",
+   "value": -36.86,
+   "unit": "亿元",
+   "raw_file": "upstream-计算.py",
+   "snippet": "'百度':   (77.7, 27.23, 1273.14, -36.86, 145.82, 2717.52, 1368.7, 52.3),",
+   "source_url": "https://github.com/xbtlin/ai-berkshire/blob/main/reports/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80%E4%BC%B0%E5%80%BC%E8%AE%A1%E7%AE%97-20261023.py"
+  },
+  {
+   "key": "eq_09888",
+   "label": "百度 归母权益",
+   "value": 2717.52,
+   "unit": "亿元",
+   "raw_file": "upstream-计算.py",
+   "snippet": "'百度':   (77.7, 27.23, 1273.14, -36.86, 145.82, 2717.52, 1368.7, 52.3),",
+   "source_url": "https://github.com/xbtlin/ai-berkshire/blob/main/reports/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80%E4%BC%B0%E5%80%BC%E8%AE%A1%E7%AE%97-20261023.py"
+  },
+  {
+   "key": "rev_09888",
+   "label": "百度 近四季营业收入",
+   "value": 1273.14,
+   "unit": "亿元",
+   "raw_file": "upstream-计算.py",
+   "snippet": "'百度':   (77.7, 27.23, 1273.14, -36.86, 145.82, 2717.52, 1368.7, 52.3),",
+   "source_url": "https://github.com/xbtlin/ai-berkshire/blob/main/reports/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80%E4%BC%B0%E5%80%BC%E8%AE%A1%E7%AE%97-20261023.py"
+  },
+  {
+   "key": "px_09999",
+   "label": "网易 价格",
+   "value": 188.2,
+   "unit": "HKD",
+   "raw_file": "quote-20261026.txt",
+   "snippet": "网易网易~188.200",
+   "source_url": "https://qt.gtimg.cn/q=hk09999"
+  },
+  {
+   "key": "mc_09999",
+   "label": "网易 总市值",
+   "value": 6025.5093,
+   "unit": "亿港元",
+   "raw_file": "quote-20261026.txt",
+   "snippet": "188.200~6025.5093",
+   "source_url": "https://qt.gtimg.cn/q=hk09999"
+  },
+  {
+   "key": "pe_09999",
+   "label": "网易 行情市盈率 TTM",
+   "value": 16.12,
+   "unit": "倍",
+   "raw_file": "quote-20261026.txt",
+   "snippet": "6025.5093~16.12",
+   "source_url": "https://qt.gtimg.cn/q=hk09999"
+  },
+  {
+   "key": "ni_09999",
+   "label": "网易 近四季归母净利",
+   "value": 325.12,
+   "unit": "亿元",
+   "raw_file": "upstream-计算.py",
+   "snippet": "'网易':   (194.5, 32.02, 1166.03, 325.12, 355.97, 1670.91, 1675, 6.52+138.26),",
+   "source_url": "https://github.com/xbtlin/ai-berkshire/blob/main/reports/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80%E4%BC%B0%E5%80%BC%E8%AE%A1%E7%AE%97-20261023.py"
+  },
+  {
+   "key": "eq_09999",
+   "label": "网易 归母权益",
+   "value": 1670.91,
+   "unit": "亿元",
+   "raw_file": "upstream-计算.py",
+   "snippet": "'网易':   (194.5, 32.02, 1166.03, 325.12, 355.97, 1670.91, 1675, 6.52+138.26),",
+   "source_url": "https://github.com/xbtlin/ai-berkshire/blob/main/reports/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80%E4%BC%B0%E5%80%BC%E8%AE%A1%E7%AE%97-20261023.py"
+  },
+  {
+   "key": "rev_09999",
+   "label": "网易 近四季营业收入",
+   "value": 1166.03,
+   "unit": "亿元",
+   "raw_file": "upstream-计算.py",
+   "snippet": "'网易':   (194.5, 32.02, 1166.03, 325.12, 355.97, 1670.91, 1675, 6.52+138.26),",
+   "source_url": "https://github.com/xbtlin/ai-berkshire/blob/main/reports/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80%E4%BC%B0%E5%80%BC%E8%AE%A1%E7%AE%97-20261023.py"
+  },
+  {
+   "key": "px_09961",
+   "label": "携程 价格",
+   "value": 312.2,
+   "unit": "HKD",
+   "raw_file": "quote-20261026.txt",
+   "snippet": "携程携程集团-S~312.200",
+   "source_url": "https://qt.gtimg.cn/q=hk09961"
+  },
+  {
+   "key": "mc_09961",
+   "label": "携程 总市值",
+   "value": 1965.9397,
+   "unit": "亿港元",
+   "raw_file": "quote-20261026.txt",
+   "snippet": "312.200~1965.9397",
+   "source_url": "https://qt.gtimg.cn/q=hk09961"
+  },
+  {
+   "key": "pe_09961",
+   "label": "携程 行情市盈率 TTM",
+   "value": 5.33,
+   "unit": "倍",
+   "raw_file": "quote-20261026.txt",
+   "snippet": "1965.9397~5.33",
+   "source_url": "https://qt.gtimg.cn/q=hk09961"
+  },
+  {
+   "key": "ni_09961",
+   "label": "携程 近四季归母净利",
+   "value": 242.12,
+   "unit": "亿元",
+   "raw_file": "upstream-计算.py",
+   "snippet": "'携程':   (312.8, 6.30, 656.07, 242.12, 313.43, 1590.49, 741.19, 43.96+14.23),",
+   "source_url": "https://github.com/xbtlin/ai-berkshire/blob/main/reports/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80%E4%BC%B0%E5%80%BC%E8%AE%A1%E7%AE%97-20261023.py"
+  },
+  {
+   "key": "eq_09961",
+   "label": "携程 归母权益",
+   "value": 1590.49,
+   "unit": "亿元",
+   "raw_file": "upstream-计算.py",
+   "snippet": "'携程':   (312.8, 6.30, 656.07, 242.12, 313.43, 1590.49, 741.19, 43.96+14.23),",
+   "source_url": "https://github.com/xbtlin/ai-berkshire/blob/main/reports/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80%E4%BC%B0%E5%80%BC%E8%AE%A1%E7%AE%97-20261023.py"
+  },
+  {
+   "key": "rev_09961",
+   "label": "携程 近四季营业收入",
+   "value": 656.07,
+   "unit": "亿元",
+   "raw_file": "upstream-计算.py",
+   "snippet": "'携程':   (312.8, 6.30, 656.07, 242.12, 313.43, 1590.49, 741.19, 43.96+14.23),",
+   "source_url": "https://github.com/xbtlin/ai-berkshire/blob/main/reports/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80/%E6%81%92%E7%94%9F%E7%A7%91%E6%8A%80%E4%BC%B0%E5%80%BC%E8%AE%A1%E7%AE%97-20261023.py"
+  },
+  {
+   "key": "lvl_HSTECH_now",
+   "label": "HSTECH 最新收盘",
+   "value": 3813.33,
+   "unit": "点",
+   "raw_file": "kline-HSTECH.json",
+   "snippet": "2026-10-26,3813.33",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=124.HSTECH"
+  },
+  {
+   "key": "lvl_HSI_now",
+   "label": "HSI 最新收盘",
+   "value": 23074.97,
+   "unit": "点",
+   "raw_file": "kline-HSI.json",
+   "snippet": "2026-10-26,23074.97",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=124.HSTECH"
+  },
+  {
+   "key": "lvl_CSI300_now",
+   "label": "CSI300 最新收盘",
+   "value": 4062.66,
+   "unit": "点",
+   "raw_file": "kline-CSI300.json",
+   "snippet": "2026-10-26,4062.66",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=124.HSTECH"
+  },
+  {
+   "key": "lvl_NDX_now",
+   "label": "NDX 最新收盘",
+   "value": 25955.34,
+   "unit": "点",
+   "raw_file": "kline-NDX.json",
+   "snippet": "2026-10-23,25955.34",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=124.HSTECH"
+  },
+  {
+   "key": "lvl_SPX_now",
+   "label": "SPX 最新收盘",
+   "value": 7623.68,
+   "unit": "点",
+   "raw_file": "kline-SPX.json",
+   "snippet": "2026-10-23,7623.68",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=124.HSTECH"
+  },
+  {
+   "key": "lvl_HSI_m2005",
+   "label": "HSI 在 2005-12-30 收盘",
+   "value": 14876.43,
+   "unit": "点",
+   "raw_file": "kline-HSI.json",
+   "snippet": "2005-12-30,14876.43",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=124.HSTECH"
+  },
+  {
+   "key": "lvl_CSI300_m2005",
+   "label": "CSI300 在 2005-12-30 收盘",
+   "value": 923.45,
+   "unit": "点",
+   "raw_file": "kline-CSI300.json",
+   "snippet": "2005-12-30,923.45",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=124.HSTECH"
+  },
+  {
+   "key": "lvl_NDX_m2005",
+   "label": "NDX 在 2005-12-30 收盘",
+   "value": 2205.32,
+   "unit": "点",
+   "raw_file": "kline-NDX.json",
+   "snippet": "2005-12-30,2205.32",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=124.HSTECH"
+  },
+  {
+   "key": "lvl_SPX_m2005",
+   "label": "SPX 在 2005-12-30 收盘",
+   "value": 1248.29,
+   "unit": "点",
+   "raw_file": "kline-SPX.json",
+   "snippet": "2005-12-30,1248.29",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=124.HSTECH"
+  },
+  {
+   "key": "lvl_HSI_m2011",
+   "label": "HSI 在 2011-10-31 收盘",
+   "value": 19864.87,
+   "unit": "点",
+   "raw_file": "kline-HSI.json",
+   "snippet": "2011-10-31,19864.87",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=124.HSTECH"
+  },
+  {
+   "key": "lvl_CSI300_m2011",
+   "label": "CSI300 在 2011-10-31 收盘",
+   "value": 2695.31,
+   "unit": "点",
+   "raw_file": "kline-CSI300.json",
+   "snippet": "2011-10-31,2695.31",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=124.HSTECH"
+  },
+  {
+   "key": "lvl_NDX_m2011",
+   "label": "NDX 在 2011-10-31 收盘",
+   "value": 2684.41,
+   "unit": "点",
+   "raw_file": "kline-NDX.json",
+   "snippet": "2011-10-31,2684.41",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=124.HSTECH"
+  },
+  {
+   "key": "lvl_SPX_m2011",
+   "label": "SPX 在 2011-10-31 收盘",
+   "value": 1253.3,
+   "unit": "点",
+   "raw_file": "kline-SPX.json",
+   "snippet": "2011-10-31,1253.3",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=124.HSTECH"
+  },
+  {
+   "key": "lvl_HSTECH_m2016",
+   "label": "HSTECH 在 2016-10-31 收盘",
+   "value": 3713.24,
+   "unit": "点",
+   "raw_file": "kline-HSTECH.json",
+   "snippet": "2016-10-31,3713.24",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=124.HSTECH"
+  },
+  {
+   "key": "lvl_HSI_m2016",
+   "label": "HSI 在 2016-10-31 收盘",
+   "value": 22934.54,
+   "unit": "点",
+   "raw_file": "kline-HSI.json",
+   "snippet": "2016-10-31,22934.54",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=124.HSTECH"
+  },
+  {
+   "key": "lvl_CSI300_m2016",
+   "label": "CSI300 在 2016-10-31 收盘",
+   "value": 3336.28,
+   "unit": "点",
+   "raw_file": "kline-CSI300.json",
+   "snippet": "2016-10-31,3336.28",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=124.HSTECH"
+  },
+  {
+   "key": "lvl_NDX_m2016",
+   "label": "NDX 在 2016-10-31 收盘",
+   "value": 5189.14,
+   "unit": "点",
+   "raw_file": "kline-NDX.json",
+   "snippet": "2016-10-31,5189.14",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=124.HSTECH"
+  },
+  {
+   "key": "lvl_SPX_m2016",
+   "label": "SPX 在 2016-10-31 收盘",
+   "value": 2126.15,
+   "unit": "点",
+   "raw_file": "kline-SPX.json",
+   "snippet": "2016-10-31,2126.15",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=124.HSTECH"
+  },
+  {
+   "key": "lvl_HSTECH_m2014",
+   "label": "HSTECH 在 2014-12-31 收盘",
+   "value": 3000.0,
+   "unit": "点",
+   "raw_file": "kline-HSTECH.json",
+   "snippet": "2014-12-31,3000.0",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=124.HSTECH"
+  },
+  {
+   "key": "lvl_HSI_m2014",
+   "label": "HSI 在 2014-12-31 收盘",
+   "value": 23605.04,
+   "unit": "点",
+   "raw_file": "kline-HSI.json",
+   "snippet": "2014-12-31,23605.04",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=124.HSTECH"
+  },
+  {
+   "key": "lvl_CSI300_m2014",
+   "label": "CSI300 在 2014-12-31 收盘",
+   "value": 3533.71,
+   "unit": "点",
+   "raw_file": "kline-CSI300.json",
+   "snippet": "2014-12-31,3533.71",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=124.HSTECH"
+  },
+  {
+   "key": "lvl_NDX_m2014",
+   "label": "NDX 在 2014-12-31 收盘",
+   "value": 4736.05,
+   "unit": "点",
+   "raw_file": "kline-NDX.json",
+   "snippet": "2014-12-31,4736.05",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=124.HSTECH"
+  },
+  {
+   "key": "lvl_SPX_m2014",
+   "label": "SPX 在 2014-12-31 收盘",
+   "value": 2058.9,
+   "unit": "点",
+   "raw_file": "kline-SPX.json",
+   "snippet": "2014-12-31,2058.9",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=124.HSTECH"
+  },
+  {
+   "key": "lvl_HSTECH_m2020",
+   "label": "HSTECH 在 2020-07-31 收盘",
+   "value": 7155.03,
+   "unit": "点",
+   "raw_file": "kline-HSTECH.json",
+   "snippet": "2020-07-31,7155.03",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=124.HSTECH"
+  },
+  {
+   "key": "lvl_HSI_m2020",
+   "label": "HSI 在 2020-07-31 收盘",
+   "value": 24595.35,
+   "unit": "点",
+   "raw_file": "kline-HSI.json",
+   "snippet": "2020-07-31,24595.35",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=124.HSTECH"
+  },
+  {
+   "key": "lvl_CSI300_m2020",
+   "label": "CSI300 在 2020-07-31 收盘",
+   "value": 4695.05,
+   "unit": "点",
+   "raw_file": "kline-CSI300.json",
+   "snippet": "2020-07-31,4695.05",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=124.HSTECH"
+  },
+  {
+   "key": "lvl_NDX_m2020",
+   "label": "NDX 在 2020-07-31 收盘",
+   "value": 10745.27,
+   "unit": "点",
+   "raw_file": "kline-NDX.json",
+   "snippet": "2020-07-31,10745.27",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=124.HSTECH"
+  },
+  {
+   "key": "lvl_SPX_m2020",
+   "label": "SPX 在 2020-07-31 收盘",
+   "value": 3271.12,
+   "unit": "点",
+   "raw_file": "kline-SPX.json",
+   "snippet": "2020-07-31,3271.12",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=124.HSTECH"
+  }
+ ],
+ "derived": [
+  {
+   "key": "tot_m",
+   "label": "十家合计市值（人民币）",
+   "expr": "mc_00700*fx + mc_09988*fx + mc_03690*fx + mc_01024*fx + mc_09992*fx + mc_01810*fx + mc_09618*fx + mc_09888*fx + mc_09999*fx + mc_09961*fx",
+   "value": 69205.308244,
+   "unit": "亿元"
+  },
+  {
+   "key": "tot_e",
+   "label": "十家合计归母",
+   "expr": "ni_00700 + ni_09988 + ni_03690 + ni_01024 + ni_09992 + ni_01810 + ni_09618 + ni_09888 + ni_09999 + ni_09961",
+   "value": 4002.25,
+   "unit": "亿元"
+  },
+  {
+   "key": "tot_eq",
+   "label": "十家合计权益",
+   "expr": "eq_00700 + eq_09988 + eq_03690 + eq_01024 + eq_09992 + eq_01810 + eq_09618 + eq_09888 + eq_09999 + eq_09961",
+   "value": 35461.09,
+   "unit": "亿元"
+  },
+  {
+   "key": "tot_rev",
+   "label": "十家合计收入",
+   "expr": "rev_00700 + rev_09988 + rev_03690 + rev_01024 + rev_09992 + rev_01810 + rev_09618 + rev_09888 + rev_09999 + rev_09961",
+   "value": 44621.44,
+   "unit": "亿元"
+  },
+  {
+   "key": "pe",
+   "label": "十家合成市盈率",
+   "expr": "tot_m / tot_e",
+   "value": 17.291601,
+   "unit": "倍"
+  },
+  {
+   "key": "pe_ex",
+   "label": "剔美团亏损",
+   "expr": "tot_m / (tot_e - ni_03690)",
+   "value": 15.775986,
+   "unit": "倍"
+  },
+  {
+   "key": "pb",
+   "label": "十家合成市净率",
+   "expr": "tot_m / tot_eq",
+   "value": 1.951584,
+   "unit": "倍"
+  },
+  {
+   "key": "ps",
+   "label": "十家合成市销率",
+   "expr": "tot_m / tot_rev",
+   "value": 1.550943,
+   "unit": "倍"
+  },
+  {
+   "key": "ey",
+   "label": "盈利收益率",
+   "expr": "100 / pe",
+   "value": 5.783154,
+   "unit": "%"
+  },
+  {
+   "key": "spread",
+   "label": "相对美债风险补偿",
+   "expr": "ey - us10y",
+   "value": 0.823154,
+   "unit": "pct"
+  },
+  {
+   "key": "dd_hi",
+   "label": "距 52 周高点",
+   "expr": "(idx_level / idx_hi52 - 1) * 100",
+   "value": -38.48158,
+   "unit": "%"
+  },
+  {
+   "key": "dd_peak",
+   "label": "距历史最高",
+   "expr": "(idx_level / idx_peak - 1) * 100",
+   "value": -59.251067,
+   "unit": "%"
+  },
+  {
+   "key": "mult_base",
+   "label": "自基日累计倍数",
+   "expr": "idx_level / idx_base",
+   "value": 1.27111,
+   "unit": "倍"
+  },
+  {
+   "key": "lvl_15",
+   "label": "补偿 1.5pct 对应点位",
+   "expr": "idx_level * (1 / ((us10y + 1.5) / 100)) / pe",
+   "value": 3413.788935,
+   "unit": "点"
+  },
+  {
+   "key": "lvl_20",
+   "label": "补偿 2.0pct 对应点位",
+   "expr": "idx_level * (1 / ((us10y + 2.0) / 100)) / pe",
+   "value": 3168.545477,
+   "unit": "点"
+  },
+  {
+   "key": "lvl_30",
+   "label": "补偿 3.0pct 对应点位",
+   "expr": "idx_level * (1 / ((us10y + 3.0) / 100)) / pe",
+   "value": 2770.487,
+   "unit": "点"
+  },
+  {
+   "key": "m2005_HSI_mult",
+   "label": "HSI 自 2005-12-30 累计倍数",
+   "expr": "lvl_HSI_now / lvl_HSI_m2005",
+   "value": 1.551109,
+   "unit": "倍"
+  },
+  {
+   "key": "m2005_HSI_cagr",
+   "label": "HSI 自 2005-12-30 年化",
+   "expr": "((lvl_HSI_now / lvl_HSI_m2005) ** (1/20.82) - 1) * 100",
+   "value": 2.130791,
+   "unit": "%"
+  },
+  {
+   "key": "m2005_CSI300_mult",
+   "label": "CSI300 自 2005-12-30 累计倍数",
+   "expr": "lvl_CSI300_now / lvl_CSI300_m2005",
+   "value": 4.399437,
+   "unit": "倍"
+  },
+  {
+   "key": "m2005_CSI300_cagr",
+   "label": "CSI300 自 2005-12-30 年化",
+   "expr": "((lvl_CSI300_now / lvl_CSI300_m2005) ** (1/20.82) - 1) * 100",
+   "value": 7.374916,
+   "unit": "%"
+  },
+  {
+   "key": "m2005_NDX_mult",
+   "label": "NDX 自 2005-12-30 累计倍数",
+   "expr": "lvl_NDX_now / lvl_NDX_m2005",
+   "value": 11.769421,
+   "unit": "倍"
+  },
+  {
+   "key": "m2005_NDX_cagr",
+   "label": "NDX 自 2005-12-30 年化",
+   "expr": "((lvl_NDX_now / lvl_NDX_m2005) ** (1/20.82) - 1) * 100",
+   "value": 12.571683,
+   "unit": "%"
+  },
+  {
+   "key": "m2005_SPX_mult",
+   "label": "SPX 自 2005-12-30 累计倍数",
+   "expr": "lvl_SPX_now / lvl_SPX_m2005",
+   "value": 6.107299,
+   "unit": "倍"
+  },
+  {
+   "key": "m2005_SPX_cagr",
+   "label": "SPX 自 2005-12-30 年化",
+   "expr": "((lvl_SPX_now / lvl_SPX_m2005) ** (1/20.82) - 1) * 100",
+   "value": 9.079947,
+   "unit": "%"
+  },
+  {
+   "key": "m2011_HSI_mult",
+   "label": "HSI 自 2011-10-31 累计倍数",
+   "expr": "lvl_HSI_now / lvl_HSI_m2011",
+   "value": 1.161597,
+   "unit": "倍"
+  },
+  {
+   "key": "m2011_HSI_cagr",
+   "label": "HSI 自 2011-10-31 年化",
+   "expr": "((lvl_HSI_now / lvl_HSI_m2011) ** (1/15.0) - 1) * 100",
+   "value": 1.003641,
+   "unit": "%"
+  },
+  {
+   "key": "m2011_CSI300_mult",
+   "label": "CSI300 自 2011-10-31 累计倍数",
+   "expr": "lvl_CSI300_now / lvl_CSI300_m2011",
+   "value": 1.507307,
+   "unit": "倍"
+  },
+  {
+   "key": "m2011_CSI300_cagr",
+   "label": "CSI300 自 2011-10-31 年化",
+   "expr": "((lvl_CSI300_now / lvl_CSI300_m2011) ** (1/15.0) - 1) * 100",
+   "value": 2.773256,
+   "unit": "%"
+  },
+  {
+   "key": "m2011_NDX_mult",
+   "label": "NDX 自 2011-10-31 累计倍数",
+   "expr": "lvl_NDX_now / lvl_NDX_m2011",
+   "value": 9.668918,
+   "unit": "倍"
+  },
+  {
+   "key": "m2011_NDX_cagr",
+   "label": "NDX 自 2011-10-31 年化",
+   "expr": "((lvl_NDX_now / lvl_NDX_m2011) ** (1/15.0) - 1) * 100",
+   "value": 16.330035,
+   "unit": "%"
+  },
+  {
+   "key": "m2011_SPX_mult",
+   "label": "SPX 自 2011-10-31 累计倍数",
+   "expr": "lvl_SPX_now / lvl_SPX_m2011",
+   "value": 6.082885,
+   "unit": "倍"
+  },
+  {
+   "key": "m2011_SPX_cagr",
+   "label": "SPX 自 2011-10-31 年化",
+   "expr": "((lvl_SPX_now / lvl_SPX_m2011) ** (1/15.0) - 1) * 100",
+   "value": 12.790877,
+   "unit": "%"
+  },
+  {
+   "key": "m2016_HSTECH_mult",
+   "label": "HSTECH 自 2016-10-31 累计倍数",
+   "expr": "lvl_HSTECH_now / lvl_HSTECH_m2016",
+   "value": 1.026955,
+   "unit": "倍"
+  },
+  {
+   "key": "m2016_HSTECH_cagr",
+   "label": "HSTECH 自 2016-10-31 年化",
+   "expr": "((lvl_HSTECH_now / lvl_HSTECH_m2016) ** (1/10.0) - 1) * 100",
+   "value": 0.266334,
+   "unit": "%"
+  },
+  {
+   "key": "m2016_HSI_mult",
+   "label": "HSI 自 2016-10-31 累计倍数",
+   "expr": "lvl_HSI_now / lvl_HSI_m2016",
+   "value": 1.006123,
+   "unit": "倍"
+  },
+  {
+   "key": "m2016_HSI_cagr",
+   "label": "HSI 自 2016-10-31 年化",
+   "expr": "((lvl_HSI_now / lvl_HSI_m2016) ** (1/10.0) - 1) * 100",
+   "value": 0.061063,
+   "unit": "%"
+  },
+  {
+   "key": "m2016_CSI300_mult",
+   "label": "CSI300 自 2016-10-31 累计倍数",
+   "expr": "lvl_CSI300_now / lvl_CSI300_m2016",
+   "value": 1.217722,
+   "unit": "倍"
+  },
+  {
+   "key": "m2016_CSI300_cagr",
+   "label": "CSI300 自 2016-10-31 年化",
+   "expr": "((lvl_CSI300_now / lvl_CSI300_m2016) ** (1/10.0) - 1) * 100",
+   "value": 1.989344,
+   "unit": "%"
+  },
+  {
+   "key": "m2016_NDX_mult",
+   "label": "NDX 自 2016-10-31 累计倍数",
+   "expr": "lvl_NDX_now / lvl_NDX_m2016",
+   "value": 5.001858,
+   "unit": "倍"
+  },
+  {
+   "key": "m2016_NDX_cagr",
+   "label": "NDX 自 2016-10-31 年化",
+   "expr": "((lvl_NDX_now / lvl_NDX_m2016) ** (1/10.0) - 1) * 100",
+   "value": 17.466258,
+   "unit": "%"
+  },
+  {
+   "key": "m2016_SPX_mult",
+   "label": "SPX 自 2016-10-31 累计倍数",
+   "expr": "lvl_SPX_now / lvl_SPX_m2016",
+   "value": 3.585674,
+   "unit": "倍"
+  },
+  {
+   "key": "m2016_SPX_cagr",
+   "label": "SPX 自 2016-10-31 年化",
+   "expr": "((lvl_SPX_now / lvl_SPX_m2016) ** (1/10.0) - 1) * 100",
+   "value": 13.620599,
+   "unit": "%"
+  },
+  {
+   "key": "m2014_HSTECH_mult",
+   "label": "HSTECH 自 2014-12-31 累计倍数",
+   "expr": "lvl_HSTECH_now / lvl_HSTECH_m2014",
+   "value": 1.27111,
+   "unit": "倍"
+  },
+  {
+   "key": "m2014_HSTECH_cagr",
+   "label": "HSTECH 自 2014-12-31 年化",
+   "expr": "((lvl_HSTECH_now / lvl_HSTECH_m2014) ** (1/11.82) - 1) * 100",
+   "value": 2.050266,
+   "unit": "%"
+  },
+  {
+   "key": "m2014_HSI_mult",
+   "label": "HSI 自 2014-12-31 累计倍数",
+   "expr": "lvl_HSI_now / lvl_HSI_m2014",
+   "value": 0.977544,
+   "unit": "倍"
+  },
+  {
+   "key": "m2014_HSI_cagr",
+   "label": "HSI 自 2014-12-31 年化",
+   "expr": "((lvl_HSI_now / lvl_HSI_m2014) ** (1/11.82) - 1) * 100",
+   "value": -0.191962,
+   "unit": "%"
+  },
+  {
+   "key": "m2014_CSI300_mult",
+   "label": "CSI300 自 2014-12-31 累计倍数",
+   "expr": "lvl_CSI300_now / lvl_CSI300_m2014",
+   "value": 1.149687,
+   "unit": "倍"
+  },
+  {
+   "key": "m2014_CSI300_cagr",
+   "label": "CSI300 自 2014-12-31 年化",
+   "expr": "((lvl_CSI300_now / lvl_CSI300_m2014) ** (1/11.82) - 1) * 100",
+   "value": 1.187106,
+   "unit": "%"
+  },
+  {
+   "key": "m2014_NDX_mult",
+   "label": "NDX 自 2014-12-31 累计倍数",
+   "expr": "lvl_NDX_now / lvl_NDX_m2014",
+   "value": 5.480377,
+   "unit": "倍"
+  },
+  {
+   "key": "m2014_NDX_cagr",
+   "label": "NDX 自 2014-12-31 年化",
+   "expr": "((lvl_NDX_now / lvl_NDX_m2014) ** (1/11.82) - 1) * 100",
+   "value": 15.479558,
+   "unit": "%"
+  },
+  {
+   "key": "m2014_SPX_mult",
+   "label": "SPX 自 2014-12-31 累计倍数",
+   "expr": "lvl_SPX_now / lvl_SPX_m2014",
+   "value": 3.702793,
+   "unit": "倍"
+  },
+  {
+   "key": "m2014_SPX_cagr",
+   "label": "SPX 自 2014-12-31 年化",
+   "expr": "((lvl_SPX_now / lvl_SPX_m2014) ** (1/11.82) - 1) * 100",
+   "value": 11.71177,
+   "unit": "%"
+  },
+  {
+   "key": "m2020_HSTECH_mult",
+   "label": "HSTECH 自 2020-07-31 累计倍数",
+   "expr": "lvl_HSTECH_now / lvl_HSTECH_m2020",
+   "value": 0.532958,
+   "unit": "倍"
+  },
+  {
+   "key": "m2020_HSTECH_cagr",
+   "label": "HSTECH 自 2020-07-31 年化",
+   "expr": "((lvl_HSTECH_now / lvl_HSTECH_m2020) ** (1/6.24) - 1) * 100",
+   "value": -9.593264,
+   "unit": "%"
+  },
+  {
+   "key": "m2020_HSI_mult",
+   "label": "HSI 自 2020-07-31 累计倍数",
+   "expr": "lvl_HSI_now / lvl_HSI_m2020",
+   "value": 0.938184,
+   "unit": "倍"
+  },
+  {
+   "key": "m2020_HSI_cagr",
+   "label": "HSI 自 2020-07-31 年化",
+   "expr": "((lvl_HSI_now / lvl_HSI_m2020) ** (1/6.24) - 1) * 100",
+   "value": -1.017368,
+   "unit": "%"
+  },
+  {
+   "key": "m2020_CSI300_mult",
+   "label": "CSI300 自 2020-07-31 累计倍数",
+   "expr": "lvl_CSI300_now / lvl_CSI300_m2020",
+   "value": 0.865307,
+   "unit": "倍"
+  },
+  {
+   "key": "m2020_CSI300_cagr",
+   "label": "CSI300 自 2020-07-31 年化",
+   "expr": "((lvl_CSI300_now / lvl_CSI300_m2020) ** (1/6.24) - 1) * 100",
+   "value": -2.291773,
+   "unit": "%"
+  },
+  {
+   "key": "m2020_NDX_mult",
+   "label": "NDX 自 2020-07-31 累计倍数",
+   "expr": "lvl_NDX_now / lvl_NDX_m2020",
+   "value": 2.415513,
+   "unit": "倍"
+  },
+  {
+   "key": "m2020_NDX_cagr",
+   "label": "NDX 自 2020-07-31 年化",
+   "expr": "((lvl_NDX_now / lvl_NDX_m2020) ** (1/6.24) - 1) * 100",
+   "value": 15.180699,
+   "unit": "%"
+  },
+  {
+   "key": "m2020_SPX_mult",
+   "label": "SPX 自 2020-07-31 累计倍数",
+   "expr": "lvl_SPX_now / lvl_SPX_m2020",
+   "value": 2.330602,
+   "unit": "倍"
+  },
+  {
+   "key": "m2020_SPX_cagr",
+   "label": "SPX 自 2020-07-31 年化",
+   "expr": "((lvl_SPX_now / lvl_SPX_m2020) ** (1/6.24) - 1) * 100",
+   "value": 14.522055,
+   "unit": "%"
+  },
+  {
+   "key": "lvl_15_pct",
+   "label": "lvl_15 距现价",
+   "expr": "(lvl_15 / idx_level - 1) * 100",
+   "value": -10.477485,
+   "unit": "%"
+  },
+  {
+   "key": "lvl_20_pct",
+   "label": "lvl_20 距现价",
+   "expr": "(lvl_20 / idx_level - 1) * 100",
+   "value": -16.9087,
+   "unit": "%"
+  },
+  {
+   "key": "lvl_30_pct",
+   "label": "lvl_30 距现价",
+   "expr": "(lvl_30 / idx_level - 1) * 100",
+   "value": -27.347305,
+   "unit": "%"
+  }
+ ]
+}

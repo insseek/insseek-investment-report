@@ -1,0 +1,12 @@
+/* 报告里表格多，窄屏时允许横向滚动，不要把数字挤成两行 */
+.sl-markdown-content table {
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+/* 中文字距略放松一点，长文更好读 */
+.sl-markdown-content {
+  letter-spacing: 0.01em;
+  line-height: 1.75;
+}

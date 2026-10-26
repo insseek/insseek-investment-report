@@ -1,0 +1,914 @@
+{
+  "meta": {
+    "company": "美团-W",
+    "code": "03690.HK",
+    "as_of": "2026-10-23",
+    "currency": "HKD",
+    "fetched_at": "2026-10-26T07:52+08:00"
+  },
+  "inputs": [
+    {
+      "key": "price",
+      "label": "收盘价（港元）",
+      "value": 71.65,
+      "unit": "HKD",
+      "raw_file": "quote-hk03690.txt",
+      "snippet": "字段4 = 71.650；v_hk03690=\"100~美团-W~03690~71.650~71.300",
+      "source_url": "https://qt.gtimg.cn/q=hk03690"
+    },
+    {
+      "key": "shares",
+      "label": "总股本",
+      "value": 6175508233,
+      "unit": "股",
+      "raw_file": "quote-hk03690.txt",
+      "snippet": "字段45 = 6175508233.00；4424.75亿 = 71.65 × 61.755亿股",
+      "source_url": "https://qt.gtimg.cn/q=hk03690"
+    },
+    {
+      "key": "fx",
+      "label": "港元兑人民币",
+      "value": 0.853222,
+      "unit": "CNY/HKD",
+      "raw_file": "fx-20261025.txt",
+      "snippet": "open.er-api.com 2026-10-25，rates.CNY = 0.853222",
+      "source_url": "https://open.er-api.com/v6/latest/HKD"
+    },
+    {
+      "key": "rev2025",
+      "label": "2025年收入",
+      "value": 3649,
+      "unit": "亿元",
+      "raw_file": "fy2025-eastmoney.html",
+      "snippet": "美团全年实现收入3649亿元，同比增长8%",
+      "source_url": "https://finance.eastmoney.com/a/202603263685702881.html"
+    },
+    {
+      "key": "np2025",
+      "label": "2025年净亏损",
+      "value": -234,
+      "unit": "亿元",
+      "raw_file": "fy2025-eastmoney.html",
+      "snippet": "全年净亏损234亿元，经营亏损170亿元（数值 -234）",
+      "source_url": "https://finance.eastmoney.com/a/202603263685702881.html"
+    },
+    {
+      "key": "op2025",
+      "label": "2025年经营亏损",
+      "value": -170,
+      "unit": "亿元",
+      "raw_file": "fy2025-eastmoney.html",
+      "snippet": "经营利润由去年的451亿元下降至亏损170亿元（数值 -170）",
+      "source_url": "https://finance.eastmoney.com/a/202603263685702881.html"
+    },
+    {
+      "key": "core_rev2025",
+      "label": "2025核心本地商业收入",
+      "value": 2608,
+      "unit": "亿元",
+      "raw_file": "fy2025-eastmoney.html",
+      "snippet": "核心本地商业板块收入2608亿元",
+      "source_url": "https://finance.eastmoney.com/a/202603263685702881.html"
+    },
+    {
+      "key": "core_op2025",
+      "label": "2025核心经营亏损",
+      "value": -69,
+      "unit": "亿元",
+      "raw_file": "fy2025-eastmoney.html",
+      "snippet": "核心本地商业转为经营亏损69亿元（数值 -69）",
+      "source_url": "https://finance.eastmoney.com/a/202603263685702881.html"
+    },
+    {
+      "key": "new_rev2025",
+      "label": "2025新业务收入",
+      "value": 1040,
+      "unit": "亿元",
+      "raw_file": "fy2025-eastmoney.html",
+      "snippet": "新业务板块收入1040亿元，同比增长19%",
+      "source_url": "https://finance.eastmoney.com/a/202603263685702881.html"
+    },
+    {
+      "key": "new_op2025",
+      "label": "2025新业务经营亏损",
+      "value": -101,
+      "unit": "亿元",
+      "raw_file": "fy2025-eastmoney.html",
+      "snippet": "新业务分部经营亏损同比扩大至101亿元（数值 -101）",
+      "source_url": "https://finance.eastmoney.com/a/202603263685702881.html"
+    },
+    {
+      "key": "adj2025",
+      "label": "2025经调整净亏损",
+      "value": -186,
+      "unit": "亿元",
+      "raw_file": "fy2025-eastmoney.html",
+      "snippet": "经调整溢利净额同比下降至亏损186亿元（数值 -186）",
+      "source_url": "https://finance.eastmoney.com/a/202603263685702881.html"
+    },
+    {
+      "key": "rd2025",
+      "label": "2025研发投入",
+      "value": 260,
+      "unit": "亿元",
+      "raw_file": "fy2025-eastmoney.html",
+      "snippet": "全年研发投入260亿元，同比增长23%",
+      "source_url": "https://finance.eastmoney.com/a/202603263685702881.html"
+    },
+    {
+      "key": "q4_rev2025",
+      "label": "2025Q4收入",
+      "value": 921,
+      "unit": "亿元",
+      "raw_file": "fy2025-eastmoney.html",
+      "snippet": "第四季度营收921亿元，同比增长4.1%",
+      "source_url": "https://finance.eastmoney.com/a/202603263685702881.html"
+    },
+    {
+      "key": "q4_adj2025",
+      "label": "2025Q4经调整净亏损",
+      "value": -150.8,
+      "unit": "亿元",
+      "raw_file": "fy2025-eastmoney.html",
+      "snippet": "第四季度调整后净亏损150.8亿元（数值 -150.8）",
+      "source_url": "https://finance.eastmoney.com/a/202603263685702881.html"
+    },
+    {
+      "key": "np2024",
+      "label": "2024年净利",
+      "value": 358,
+      "unit": "亿元",
+      "raw_file": "fy2025-eastmoney.html",
+      "snippet": "2024年盈利358亿元",
+      "source_url": "https://finance.eastmoney.com/a/202603263685702881.html"
+    },
+    {
+      "key": "op2024",
+      "label": "2024年经营利润",
+      "value": 451,
+      "unit": "亿元",
+      "raw_file": "fy2025-eastmoney.html",
+      "snippet": "经营利润由去年的451亿元",
+      "source_url": "https://finance.eastmoney.com/a/202603263685702881.html"
+    },
+    {
+      "key": "rev2024",
+      "label": "2024年收入",
+      "value": 3376,
+      "unit": "亿元",
+      "raw_file": "fy2025-eastmoney.html",
+      "snippet": "按2025年3649亿元与同比+8%反算（数值 3376）",
+      "source_url": "https://finance.eastmoney.com/a/202603263685702881.html"
+    },
+    {
+      "key": "q1_rev2026",
+      "label": "2026Q1收入",
+      "value": 910.39,
+      "unit": "亿元",
+      "raw_file": "q1-2026-stcn.html",
+      "snippet": "一季度营收910.39亿元，同比增长5.6%",
+      "source_url": "https://www.stcn.com/article/detail/3937083.html"
+    },
+    {
+      "key": "q1_np2026",
+      "label": "2026Q1净亏损",
+      "value": -68.27,
+      "unit": "亿元",
+      "raw_file": "q1-2026-stcn.html",
+      "snippet": "第一季度净亏损68.27亿元（数值 -68.27）",
+      "source_url": "https://www.stcn.com/article/detail/3937083.html"
+    },
+    {
+      "key": "q1_adj2026",
+      "label": "2026Q1经调整净亏损",
+      "value": -49.7,
+      "unit": "亿元",
+      "raw_file": "q1-2026-stcn.html",
+      "snippet": "经调整亏损49.7亿元，收入升5.6%（数值 -49.7）",
+      "source_url": "https://www.stcn.com/article/detail/3937083.html"
+    },
+    {
+      "key": "q2_rev2026",
+      "label": "2026Q2收入",
+      "value": 1046,
+      "unit": "亿元",
+      "raw_file": "q2-2026-10jqka.txt",
+      "snippet": "Q2实现收入1046亿元，同比增长14.4%",
+      "source_url": "http://stock.10jqka.com.cn/hks/20260828/c679407489.shtml"
+    },
+    {
+      "key": "q2_np2026",
+      "label": "2026Q2净利",
+      "value": 22,
+      "unit": "亿元",
+      "raw_file": "q2-2026-10jqka.txt",
+      "snippet": "期内溢利22亿元，去年同期3.65亿元",
+      "source_url": "http://stock.10jqka.com.cn/hks/20260828/c679407489.shtml"
+    },
+    {
+      "key": "q2_adj2026",
+      "label": "2026Q2经调整净利",
+      "value": 25.24,
+      "unit": "亿元",
+      "raw_file": "q2-2026-10jqka.txt",
+      "snippet": "经调整净利润25.24亿元，同比增长69%",
+      "source_url": "http://stock.10jqka.com.cn/hks/20260828/c679407489.shtml"
+    },
+    {
+      "key": "core_rev_q2",
+      "label": "2026Q2核心收入",
+      "value": 715,
+      "unit": "亿元",
+      "raw_file": "q2-2026-10jqka.txt",
+      "snippet": "核心本地商业Q2收入715亿元，同比增长10.1%",
+      "source_url": "http://stock.10jqka.com.cn/hks/20260828/c679407489.shtml"
+    },
+    {
+      "key": "core_op_q2",
+      "label": "2026Q2核心经营溢利",
+      "value": 57,
+      "unit": "亿元",
+      "raw_file": "q2-2026-10jqka.txt",
+      "snippet": "经营溢利从去年同期的37亿元增至57亿元",
+      "source_url": "http://stock.10jqka.com.cn/hks/20260828/c679407489.shtml"
+    },
+    {
+      "key": "core_margin_q2",
+      "label": "2026Q2核心经营利润率",
+      "value": 7.9,
+      "unit": "%",
+      "raw_file": "q2-2026-10jqka.txt",
+      "snippet": "经营利润率从5.7%提升至7.9%",
+      "source_url": "http://stock.10jqka.com.cn/hks/20260828/c679407489.shtml"
+    },
+    {
+      "key": "new_rev_q2",
+      "label": "2026Q2新业务收入",
+      "value": 331,
+      "unit": "亿元",
+      "raw_file": "q2-2026-10jqka.txt",
+      "snippet": "新业务Q2收入331亿元，同比增长25.0%",
+      "source_url": "http://stock.10jqka.com.cn/hks/20260828/c679407489.shtml"
+    },
+    {
+      "key": "new_op_q2",
+      "label": "2026Q2新业务经营亏损",
+      "value": -17,
+      "unit": "亿元",
+      "raw_file": "q2-2026-10jqka.txt",
+      "snippet": "经营亏损从19亿元收窄至17亿元（数值 -17）",
+      "source_url": "http://stock.10jqka.com.cn/hks/20260828/c679407489.shtml"
+    },
+    {
+      "key": "rd_q2",
+      "label": "2026Q2研发开支",
+      "value": 77,
+      "unit": "亿元",
+      "raw_file": "q2-2026-10jqka.txt",
+      "snippet": "研发开支同比增22.5%，Q2达77亿元",
+      "source_url": "http://stock.10jqka.com.cn/hks/20260828/c679407489.shtml"
+    },
+    {
+      "key": "ocf_q2",
+      "label": "2026Q2经营现金净流入",
+      "value": 97,
+      "unit": "亿元",
+      "raw_file": "q2-2026-10jqka.txt",
+      "snippet": "经营现金流入净额达97亿元",
+      "source_url": "http://stock.10jqka.com.cn/hks/20260828/c679407489.shtml"
+    },
+    {
+      "key": "cash",
+      "label": "2026年6月末现金及等价物",
+      "value": 1047,
+      "unit": "亿元",
+      "raw_file": "q2-2026-10jqka.txt",
+      "snippet": "持有现金及现金等价物1047亿元",
+      "source_url": "http://stock.10jqka.com.cn/hks/20260828/c679407489.shtml"
+    },
+    {
+      "key": "st_inv",
+      "label": "2026年6月末短期理财",
+      "value": 636,
+      "unit": "亿元",
+      "raw_file": "q2-2026-10jqka.txt",
+      "snippet": "短期理财投资636亿元",
+      "source_url": "http://stock.10jqka.com.cn/hks/20260828/c679407489.shtml"
+    },
+    {
+      "key": "rev2023",
+      "label": "2023年收入",
+      "value": 2767,
+      "unit": "亿元",
+      "raw_file": "history.md",
+      "snippet": "2023年报：收入2767亿元，净利138.6亿元",
+      "source_url": "https://www.meituan.com/en-US/investor-relations"
+    },
+    {
+      "key": "np2023",
+      "label": "2023年净利",
+      "value": 138.6,
+      "unit": "亿元",
+      "raw_file": "history.md",
+      "snippet": "2023年净利138.6亿元",
+      "source_url": "https://www.meituan.com/en-US/investor-relations"
+    },
+    {
+      "key": "rev2022",
+      "label": "2022年收入",
+      "value": 2197,
+      "unit": "亿元",
+      "raw_file": "history.md",
+      "snippet": "2022年收入2197亿元，净亏66.9亿元",
+      "source_url": "https://www.meituan.com/en-US/investor-relations"
+    },
+    {
+      "key": "np2022",
+      "label": "2022年净亏损",
+      "value": -66.9,
+      "unit": "亿元",
+      "raw_file": "history.md",
+      "snippet": "2022年净亏损66.9亿元（数值 -66.9）",
+      "source_url": "https://www.meituan.com/en-US/investor-relations"
+    },
+    {
+      "key": "rev2021",
+      "label": "2021年收入",
+      "value": 1791,
+      "unit": "亿元",
+      "raw_file": "history.md",
+      "snippet": "2021年收入1791亿元，净亏235.4亿元",
+      "source_url": "https://www.meituan.com/en-US/investor-relations"
+    },
+    {
+      "key": "np2021",
+      "label": "2021年净亏损",
+      "value": -235.4,
+      "unit": "亿元",
+      "raw_file": "history.md",
+      "snippet": "2021年净亏损235.4亿元（数值 -235.4）",
+      "source_url": "https://www.meituan.com/en-US/investor-relations"
+    },
+    {
+      "key": "debt_est",
+      "label": "有息负债（估计）",
+      "value": 250,
+      "unit": "亿元",
+      "raw_file": "assumption.md",
+      "snippet": "含美元可转债与银行借款，中期报告附注未取得（本报告假设）（数值 250）",
+      "source_url": "local",
+      "estimated": true,
+      "note": "含美元可转债与银行借款，中期报告附注未取得",
+      "range": [
+        150,
+        350
+      ]
+    },
+    {
+      "key": "bull_core_rev",
+      "label": "2028E核心收入（乐观）",
+      "value": 3400,
+      "unit": "亿元",
+      "raw_file": "assumption.md",
+      "snippet": "假设份额守住、收入年化9%（本报告假设）（数值 3400）",
+      "source_url": "local",
+      "estimated": true,
+      "note": "假设份额守住、收入年化9%",
+      "range": [
+        3300,
+        3500
+      ]
+    },
+    {
+      "key": "bull_margin",
+      "label": "2028E核心利润率（乐观）",
+      "value": 10.5,
+      "unit": "%",
+      "raw_file": "assumption.md",
+      "snippet": "回到2023年水平（本报告假设）（数值 10.5）",
+      "source_url": "local",
+      "estimated": true,
+      "note": "回到2023年水平",
+      "range": [
+        9,
+        11.5
+      ]
+    },
+    {
+      "key": "bull_new_op",
+      "label": "2028E新业务利润（乐观）",
+      "value": 30,
+      "unit": "亿元",
+      "raw_file": "assumption.md",
+      "snippet": "Keeta与海外盈亏平衡偏上（本报告假设）（数值 30）",
+      "source_url": "local",
+      "estimated": true,
+      "note": "Keeta与海外盈亏平衡偏上",
+      "range": [
+        0,
+        60
+      ]
+    },
+    {
+      "key": "base_core_rev",
+      "label": "2028E核心收入（中性）",
+      "value": 3200,
+      "unit": "亿元",
+      "raw_file": "assumption.md",
+      "snippet": "收入年化7%（本报告假设）（数值 3200）",
+      "source_url": "local",
+      "estimated": true,
+      "note": "收入年化7%",
+      "range": [
+        3000,
+        3400
+      ]
+    },
+    {
+      "key": "base_margin",
+      "label": "2028E核心利润率（中性）",
+      "value": 8.0,
+      "unit": "%",
+      "raw_file": "assumption.md",
+      "snippet": "2026Q2达7.9%，略回升（本报告假设）（数值 8.5）",
+      "source_url": "local",
+      "estimated": true,
+      "note": "中性档用 2023 年核心经营利润率约 8.0% 作上限（2026Q2 已回到 7.9%）；原按 8.5% 算过，超历史峰值，已下调",
+      "range": [
+        7,
+        10
+      ]
+    },
+    {
+      "key": "base_new_op",
+      "label": "2028E新业务利润（中性）",
+      "value": 0,
+      "unit": "亿元",
+      "raw_file": "assumption.md",
+      "snippet": "合计盈亏平衡（本报告假设）（数值 0）",
+      "source_url": "local",
+      "estimated": true,
+      "note": "合计盈亏平衡",
+      "range": [
+        -30,
+        30
+      ]
+    },
+    {
+      "key": "bear_core_rev",
+      "label": "2028E核心收入（悲观）",
+      "value": 3000,
+      "unit": "亿元",
+      "raw_file": "assumption.md",
+      "snippet": "份额被淘宝闪购侵蚀（本报告假设）（数值 3000）",
+      "source_url": "local",
+      "estimated": true,
+      "note": "份额被淘宝闪购侵蚀",
+      "range": [
+        2800,
+        3200
+      ]
+    },
+    {
+      "key": "bear_margin",
+      "label": "2028E核心利润率（悲观）",
+      "value": 5,
+      "unit": "%",
+      "raw_file": "assumption.md",
+      "snippet": "补贴战重启，利润率回落（本报告假设）（数值 5）",
+      "source_url": "local",
+      "estimated": true,
+      "note": "补贴战重启，利润率回落",
+      "range": [
+        3,
+        6
+      ]
+    },
+    {
+      "key": "bear_new_op",
+      "label": "2028E新业务利润（悲观）",
+      "value": -65,
+      "unit": "亿元",
+      "raw_file": "assumption.md",
+      "snippet": "海外继续投入（本报告假设）（数值 -65）",
+      "source_url": "local",
+      "estimated": true,
+      "note": "海外继续投入",
+      "range": [
+        -90,
+        -40
+      ]
+    },
+    {
+      "key": "pe_bull",
+      "label": "乐观档目标PE",
+      "value": 20,
+      "unit": "倍",
+      "raw_file": "assumption.md",
+      "snippet": "平台龙头给20倍（本报告假设）",
+      "source_url": "local",
+      "estimated": true,
+      "note": "平台龙头给20倍",
+      "range": [
+        18,
+        22
+      ]
+    },
+    {
+      "key": "pe_base",
+      "label": "中性档目标PE",
+      "value": 15,
+      "unit": "倍",
+      "raw_file": "assumption.md",
+      "snippet": "竞争格局下调（本报告假设）（数值 15）",
+      "source_url": "local",
+      "estimated": true,
+      "note": "竞争格局下调",
+      "range": [
+        13,
+        18
+      ]
+    },
+    {
+      "key": "pe_bear",
+      "label": "悲观档目标PE",
+      "value": 12,
+      "unit": "倍",
+      "raw_file": "assumption.md",
+      "snippet": "只剩现金与清算价值逻辑（本报告假设）（数值 12）",
+      "source_url": "local",
+      "estimated": true,
+      "note": "只剩现金与清算价值逻辑",
+      "range": [
+        10,
+        14
+      ]
+    },
+    {
+      "key": "tax",
+      "label": "有效税率",
+      "value": 0.15,
+      "unit": "比例",
+      "raw_file": "assumption.md",
+      "snippet": "按15%估算净利（本报告假设）（数值 0.15）",
+      "source_url": "local",
+      "estimated": true,
+      "note": "按15%估算净利",
+      "range": [
+        0.12,
+        0.2
+      ]
+    },
+    {
+      "key": "new_loss_ratio_q2",
+      "label": "2026Q2 新业务亏损率",
+      "value": 5.3,
+      "unit": "%",
+      "raw_file": "q2-2026-10jqka.txt",
+      "snippet": "亏损率从7.1%改善至5.3%",
+      "source_url": "http://stock.10jqka.com.cn/hks/20260828/c679407489.shtml"
+    },
+    {
+      "key": "gm_est",
+      "label": "毛利率（估计）",
+      "value": 33.5,
+      "unit": "%",
+      "estimated": true,
+      "note": "由 2025 年成本率约 66.5% 反推（成本率原文未单独入包），按估计处理，区间 [31.5,35.5]",
+      "range": [
+        31.5,
+        35.5
+      ]
+    }
+  ],
+  "derived": [
+    {
+      "key": "mcap",
+      "label": "总市值（港元）",
+      "expr": "price*shares",
+      "value": 442475164894.45,
+      "unit": "HKD"
+    },
+    {
+      "key": "mcap_cny",
+      "label": "总市值（亿元）",
+      "expr": "mcap*fx/1e8",
+      "value": 3775.2955,
+      "unit": "亿元"
+    },
+    {
+      "key": "net_cash",
+      "label": "净现金（亿元）",
+      "expr": "cash+st_inv-debt_est",
+      "value": 1433,
+      "unit": "亿元"
+    },
+    {
+      "key": "net_cash_ps",
+      "label": "每股净现金（元）",
+      "expr": "net_cash/shares*1e8",
+      "value": 23.2046,
+      "unit": "元"
+    },
+    {
+      "key": "ev",
+      "label": "企业价值（亿元）",
+      "expr": "mcap_cny-net_cash",
+      "value": 2342.2955,
+      "unit": "亿元"
+    },
+    {
+      "key": "ev_sales",
+      "label": "EV/2025收入",
+      "expr": "ev/rev2025",
+      "value": 0.6419,
+      "unit": "倍"
+    },
+    {
+      "key": "op_bull",
+      "label": "2028E经营利润（乐观）",
+      "expr": "bull_core_rev*bull_margin/100+bull_new_op",
+      "value": 387.0,
+      "unit": "亿元"
+    },
+    {
+      "key": "np_bull",
+      "label": "2028E净利（乐观）",
+      "expr": "op_bull*(1-tax)",
+      "value": 328.95,
+      "unit": "亿元"
+    },
+    {
+      "key": "eps_bull",
+      "label": "2028E EPS（乐观）",
+      "expr": "np_bull*1e8/shares",
+      "value": 5.3267,
+      "unit": "元"
+    },
+    {
+      "key": "fair_bull_rmb",
+      "label": "乐观档每股（元）",
+      "expr": "eps_bull*pe_bull+net_cash_ps",
+      "value": 129.7386,
+      "unit": "元"
+    },
+    {
+      "key": "fair_bull_hkd",
+      "label": "乐观档每股（港元）",
+      "expr": "fair_bull_rmb/fx",
+      "value": 152.0573,
+      "unit": "HKD"
+    },
+    {
+      "key": "op_base",
+      "label": "2028E经营利润（中性）",
+      "expr": "base_core_rev*base_margin/100+base_new_op",
+      "value": 256.0,
+      "unit": "亿元"
+    },
+    {
+      "key": "np_base",
+      "label": "2028E净利（中性）",
+      "expr": "op_base*(1-tax)",
+      "value": 217.6,
+      "unit": "亿元"
+    },
+    {
+      "key": "eps_base",
+      "label": "2028E EPS（中性）",
+      "expr": "np_base*1e8/shares",
+      "value": 3.5236,
+      "unit": "元"
+    },
+    {
+      "key": "fair_base_rmb",
+      "label": "中性档每股（元）",
+      "expr": "eps_base*pe_base+net_cash_ps",
+      "value": 76.0586,
+      "unit": "元"
+    },
+    {
+      "key": "fair_base_hkd",
+      "label": "中性档每股（港元）",
+      "expr": "fair_base_rmb/fx",
+      "value": 89.1428,
+      "unit": "HKD"
+    },
+    {
+      "key": "op_bear",
+      "label": "2028E经营利润（悲观）",
+      "expr": "bear_core_rev*bear_margin/100+bear_new_op",
+      "value": 85.0,
+      "unit": "亿元"
+    },
+    {
+      "key": "np_bear",
+      "label": "2028E净利（悲观）",
+      "expr": "op_bear*(1-tax)",
+      "value": 72.25,
+      "unit": "亿元"
+    },
+    {
+      "key": "eps_bear",
+      "label": "2028E EPS（悲观）",
+      "expr": "np_bear*1e8/shares",
+      "value": 1.1699,
+      "unit": "元"
+    },
+    {
+      "key": "fair_bear_rmb",
+      "label": "悲观档每股（元）",
+      "expr": "eps_bear*pe_bear+net_cash_ps",
+      "value": 37.2434,
+      "unit": "元"
+    },
+    {
+      "key": "fair_bear_hkd",
+      "label": "悲观档每股（港元）",
+      "expr": "fair_bear_rmb/fx",
+      "value": 43.6503,
+      "unit": "HKD"
+    },
+    {
+      "key": "base_cagr",
+      "label": "现价到中性档年化",
+      "expr": "(fair_base_hkd/price)**(1/2.1917808)-1",
+      "value": 0.1048,
+      "unit": "比例",
+      "note": "折现期按日历 2.19 年，原按 3 年算过，已改"
+    },
+    {
+      "key": "ret_bull",
+      "label": "乐观档较现价（%）",
+      "expr": "(fair_bull_hkd/price-1)*100",
+      "value": 112.2223,
+      "unit": "%"
+    },
+    {
+      "key": "ret_base",
+      "label": "中性档较现价（%）",
+      "expr": "(fair_base_hkd/price-1)*100",
+      "value": 24.4142,
+      "unit": "%"
+    },
+    {
+      "key": "ret_bear",
+      "label": "悲观档较现价（%）",
+      "expr": "(fair_bear_hkd/price-1)*100",
+      "value": -39.0784,
+      "unit": "%"
+    },
+    {
+      "key": "years_disc",
+      "label": "折现期（年）",
+      "expr": "2.1917808",
+      "value": 2.1918,
+      "unit": "年",
+      "note": "2026-10-23 至 2028-12-31 的日历天数 / 365"
+    },
+    {
+      "key": "r_pct",
+      "label": "要求回报率",
+      "expr": "8",
+      "value": 8,
+      "unit": "%",
+      "note": "框架人民币口径 6%–9%，主用 8%"
+    },
+    {
+      "key": "disc_bull_hkd",
+      "label": "乐观档折现后",
+      "expr": "fair_bull_hkd/1.08**2.1917808",
+      "value": 128.4546,
+      "unit": "HKD",
+      "note": "2028 年名义价值折回 2026-10-23"
+    },
+    {
+      "key": "disc_base_hkd",
+      "label": "中性档折现后",
+      "expr": "fair_base_hkd/1.08**2.1917808",
+      "value": 75.3059,
+      "unit": "HKD",
+      "note": "2028 年名义价值折回 2026-10-23"
+    },
+    {
+      "key": "disc_bear_hkd",
+      "label": "悲观档折现后",
+      "expr": "fair_bear_hkd/1.08**2.1917808",
+      "value": 36.8748,
+      "unit": "HKD",
+      "note": "2028 年名义价值折回 2026-10-23"
+    },
+    {
+      "key": "irr_base_pct",
+      "label": "中性档年化（IRR）",
+      "expr": "(fair_base_hkd/price)**(1/2.1917808)*100-100",
+      "value": 10.4802,
+      "unit": "%",
+      "note": "名义价对现价的复利年化"
+    },
+    {
+      "key": "irr_bull_pct",
+      "label": "乐观档年化",
+      "expr": "(fair_bull_hkd/price)**(1/2.1917808)*100-100",
+      "value": 40.9608,
+      "unit": "%",
+      "note": "同上"
+    },
+    {
+      "key": "irr_bear_pct",
+      "label": "悲观档年化",
+      "expr": "(fair_bear_hkd/price)**(1/2.1917808)*100-100",
+      "value": -20.2369,
+      "unit": "%",
+      "note": "同上"
+    },
+    {
+      "key": "mos_disc_pct",
+      "label": "安全边际（对折现值）",
+      "expr": "(disc_base_hkd-price)/disc_base_hkd*100",
+      "value": 4.8547,
+      "unit": "%",
+      "note": "规则 6：只在折现值上算"
+    },
+    {
+      "key": "buy_price",
+      "label": "买入价",
+      "expr": "disc_bear_hkd",
+      "value": 36.8748,
+      "unit": "HKD",
+      "note": "min(中性折现×60%, 悲观折现)，悲观档更低"
+    },
+    {
+      "key": "pe_buy",
+      "label": "买入倍数（EV/中性档净利）",
+      "expr": "ev/np_base",
+      "value": 10.7642,
+      "unit": "倍",
+      "note": "扣净现金后的企业价值对 2028E 中性净利"
+    },
+    {
+      "key": "op_swing",
+      "label": "经营利润一年摆动",
+      "expr": "op2024-op2025",
+      "value": 621,
+      "unit": "亿元",
+      "note": "2024 年 +451 亿到 2025 年 −170 亿"
+    },
+    {
+      "key": "np5y_sum",
+      "label": "五年净利合计",
+      "expr": "np2021+np2022+np2023+np2024+np2025",
+      "value": -39.7,
+      "unit": "亿元",
+      "note": "2021–2025 加总"
+    },
+    {
+      "key": "net_cash_pct",
+      "label": "净现金占市值",
+      "expr": "net_cash/mcap_cny*100",
+      "value": 37.9573,
+      "unit": "%",
+      "note": "净现金/折算市值"
+    },
+    {
+      "key": "runway_years",
+      "label": "净现金续航（年）",
+      "expr": "net_cash/(-op2025)",
+      "value": 8.4294,
+      "unit": "年",
+      "note": "净现金/2025 年经营亏损，静态"
+    },
+    {
+      "key": "rev_cagr_4y",
+      "label": "收入四年年化",
+      "expr": "(rev2025/rev2021)**0.25-1",
+      "value": 0.1947,
+      "unit": "比例",
+      "note": "2021→2025"
+    },
+    {
+      "key": "adj_h1_2026",
+      "label": "2026 上半年经调整净利",
+      "expr": "q1_adj2026+q2_adj2026",
+      "value": -24.46,
+      "unit": "亿元",
+      "note": "两季加总"
+    },
+    {
+      "key": "val_contrib",
+      "label": "估值变化年化贡献",
+      "expr": "((pe_base/pe_buy)**(1/2.1917808)-1)*100",
+      "value": 16.3456,
+      "unit": "%",
+      "note": "10.7642 倍 → 15 倍，折现期 2.19 年"
+    },
+    {
+      "key": "cash_drag",
+      "label": "净现金拖累",
+      "expr": "((1+irr_base_pct/100)/(1+((pe_base/pe_buy)**(1/2.1917808)-1))-1)*100",
+      "value": -5.0414,
+      "unit": "%",
+      "note": "现金不增长，摊薄年化"
+    }
+  ]
+}

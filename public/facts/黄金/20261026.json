@@ -1,0 +1,982 @@
+{
+  "meta": {
+    "company": "黄金",
+    "as_of": "2026-10-26",
+    "fetched_at": "2026-10-26T10:35:00+08:00",
+    "currency": "USD",
+    "title": "黄金 commodity 快照 2026-10-26",
+    "note": "月线为东财 GC00Y 连续合约（美元/盎司），末根为 2026-10-26 盘中；分位一律用月线收盘价排序"
+  },
+  "inputs": [
+    {
+      "key": "gold_last",
+      "label": "伦敦金最新收盘（2026-10-26 盘中）",
+      "value": 4005.3,
+      "raw_file": "gold-monthly.json",
+      "snippet": "\"2026-10-26,4005.3\"",
+      "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=101.GC00Y&klt=103&fqt=1"
+    },
+    {
+      "key": "gold_ath",
+      "label": "历史最高月线收盘（2026-02-27）",
+      "value": 5296.4,
+      "raw_file": "gold-monthly.json",
+      "snippet": "\"2026-02-27,5296.4\"",
+      "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=101.GC00Y&klt=103&fqt=1"
+    },
+    {
+      "key": "gold_high_2020",
+      "label": "2020 年内月线最高收盘（2020-07-31）",
+      "value": 1994.0,
+      "raw_file": "gold-monthly.json",
+      "snippet": "\"2020-07-31,1994.0\"",
+      "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=101.GC00Y&klt=103&fqt=1"
+    },
+    {
+      "key": "gold_high_2011",
+      "label": "2011 年内月线最高收盘（2011-08-31）",
+      "value": 1831.7,
+      "raw_file": "gold-monthly.json",
+      "snippet": "\"2011-08-31,1831.7\"",
+      "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=101.GC00Y&klt=103&fqt=1"
+    },
+    {
+      "key": "gold_low_1999",
+      "label": "1990 以来月线最低收盘（1999-08-31）",
+      "value": 257.3,
+      "raw_file": "gold-monthly.json",
+      "snippet": "\"1999-08-31,257.3\"",
+      "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=101.GC00Y&klt=103&fqt=1"
+    },
+    {
+      "key": "gold_first_1990",
+      "label": "样本首月收盘（1990-01-31）",
+      "value": 417.8,
+      "raw_file": "gold-monthly.json",
+      "snippet": "\"1990-01-31,417.8\"",
+      "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=101.GC00Y&klt=103&fqt=1"
+    },
+    {
+      "key": "gold_low_2025",
+      "label": "2025 年内月线最低收盘（2025-01-31）",
+      "value": 2831.5,
+      "raw_file": "gold-monthly.json",
+      "snippet": "\"2025-01-31,2831.5\"",
+      "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=101.GC00Y&klt=103&fqt=1"
+    },
+    {
+      "key": "gold_jan_2026",
+      "label": "2026 年 1 月末月线收盘（2026-01-30）",
+      "value": 4907.5,
+      "raw_file": "gold-monthly.json",
+      "snippet": "\"2026-01-30,4907.5\"",
+      "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=101.GC00Y&klt=103&fqt=1"
+    },
+    {
+      "key": "gold_2025_close",
+      "label": "2025 年末月线收盘（2025-12-31）",
+      "value": 4332.1,
+      "raw_file": "gold-monthly.json",
+      "snippet": "\"2025-12-31,4332.1\"",
+      "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=101.GC00Y&klt=103&fqt=1"
+    },
+    {
+      "key": "gold_low_2015",
+      "label": "2011 周期低点月线收盘（2015-12-31）",
+      "value": 1060.5,
+      "raw_file": "gold-monthly.json",
+      "snippet": "\"2015-12-31,1060.5\"",
+      "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=101.GC00Y&klt=103&fqt=1"
+    },
+    {
+      "key": "gold_low_2022",
+      "label": "2020 周期低点月线收盘（2022-10-31）",
+      "value": 1636.4,
+      "raw_file": "gold-monthly.json",
+      "snippet": "\"2022-10-31,1636.4\"",
+      "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=101.GC00Y&klt=103&fqt=1"
+    },
+    {
+      "key": "gold_sep30",
+      "label": "2026-09-30 月线收盘（算相对价格用）",
+      "value": 4189.1,
+      "raw_file": "gold-monthly.json",
+      "snippet": "\"2026-09-30,4189.1\"",
+      "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=101.GC00Y&klt=103&fqt=1"
+    },
+    {
+      "key": "gold_cross",
+      "label": "纽约金主力最新价（第二来源交叉校验）",
+      "value": 4007.14,
+      "raw_file": "tencent-gold-quote.txt",
+      "snippet": "4007.14,-0.02,4006.20",
+      "source_url": "https://qt.gtimg.cn/q=hf_GC",
+      "note": "与东财 4005.3 差 0.05%，视为同一价位；腾讯与新浪同为盘中快照"
+    },
+    {
+      "key": "dfii10_last",
+      "label": "10 年期 TIPS 实际利率最新（2026-10-22）",
+      "value": 2.64,
+      "raw_file": "dfii10.csv",
+      "snippet": "2026-10-22,2.64",
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DFII10"
+    },
+    {
+      "key": "dfii10_2020_low",
+      "label": "2020 年实际利率最低（2020-08-06）",
+      "value": -1.08,
+      "raw_file": "dfii10.csv",
+      "snippet": "2020-08-06,-1.08",
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DFII10"
+    },
+    {
+      "key": "dfii10_2022_high",
+      "label": "2022 年实际利率最高（2022-11-03）",
+      "value": 1.74,
+      "raw_file": "dfii10.csv",
+      "snippet": "2022-11-03,1.74",
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DFII10"
+    },
+    {
+      "key": "dfii10_max",
+      "label": "样本内实际利率最高（2008-11-21）",
+      "value": 3.15,
+      "raw_file": "dfii10.csv",
+      "snippet": "2008-11-21,3.15",
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DFII10"
+    },
+    {
+      "key": "dgs10_last",
+      "label": "10 年期美债名义收益率最新（2026-10-22）",
+      "value": 4.96,
+      "raw_file": "us10y.csv",
+      "snippet": "2026-10-22,4.96",
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10"
+    },
+    {
+      "key": "dgs10_peak",
+      "label": "近 5 个月名义收益率最高（2026-10-05）",
+      "value": 5.31,
+      "raw_file": "us10y.csv",
+      "snippet": "2026-10-05,5.31",
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10"
+    },
+    {
+      "key": "dxy_last",
+      "label": "美元指数最新（2026-10-26 盘中）",
+      "value": 101.62,
+      "raw_file": "usdx-udi.json",
+      "snippet": "\"2026-10-26,101.62\"",
+      "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=100.UDI&klt=101&fqt=1"
+    },
+    {
+      "key": "dxy_cross",
+      "label": "美元指数第二来源（新浪 DINIW）",
+      "value": 101.6121,
+      "raw_file": "sina-dxy-quote.txt",
+      "snippet": "101.6121,101.7520",
+      "source_url": "https://hq.sinajs.cn/list=DINIW",
+      "note": "与东财 101.62 一致"
+    },
+    {
+      "key": "dxy_min_hist",
+      "label": "美元指数 1986 以来最低（2008-04-18）",
+      "value": 71.01,
+      "raw_file": "usdx-udi.json",
+      "snippet": "\"2008-04-18,71.01\"",
+      "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=100.UDI&klt=101&fqt=1"
+    },
+    {
+      "key": "wti_last",
+      "label": "WTI 原油最新月线收盘（2026-10-26）",
+      "value": 101.24,
+      "raw_file": "wti-monthly.json",
+      "snippet": "\"2026-10-26,101.24\"",
+      "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=102.CL00Y&klt=103&fqt=1"
+    },
+    {
+      "key": "copper_last",
+      "label": "COMEX 铜最新月线收盘（2026-10-26，美元/磅）",
+      "value": 6.4775,
+      "raw_file": "copper-monthly.json",
+      "snippet": "\"2026-10-26,6.4775\"",
+      "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=101.HG00Y&klt=103&fqt=1"
+    },
+    {
+      "key": "spx_sep30",
+      "label": "标普 500 月线收盘（2026-09-30）",
+      "value": 7651.54,
+      "raw_file": "spx-monthly.json",
+      "snippet": "\"2026-09-30,7651.54\"",
+      "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=100.SPX&klt=103&fqt=1"
+    },
+    {
+      "key": "cb_q2_2026",
+      "label": "央行 Q2 2026 净购金（吨）",
+      "value": 288.9,
+      "raw_file": "wgc-q2-2026-central-banks.html",
+      "snippet": "Net purchases totalled a healthy 289t in Q2",
+      "source_url": "https://www.gold.org/goldhub/research/gold-demand-trends/gold-demand-trends-q2-2026/central-banks"
+    },
+    {
+      "key": "cb_q2_2025",
+      "label": "央行 Q2 2025 净购金（吨，同比基数）",
+      "value": 177.9,
+      "raw_file": "wgc-q2-2026-central-banks.html",
+      "snippet": "Tonnes Q2'25 Q2'26 y/y % change Central Banks and Other Institutions 177.9 288.9",
+      "source_url": "https://www.gold.org/goldhub/research/gold-demand-trends/gold-demand-trends-q2-2026/central-banks"
+    },
+    {
+      "key": "cb_q1_2026",
+      "label": "央行 Q1 2026 净购金（下修后，吨）",
+      "value": 57.0,
+      "raw_file": "wgc-q2-2026-central-banks.html",
+      "snippet": "Q1's revised estimate of 57t",
+      "source_url": "https://www.gold.org/goldhub/research/gold-demand-trends/gold-demand-trends-q2-2026/central-banks",
+      "note": "原估 244t，2026-07-30 下修至 57t"
+    },
+    {
+      "key": "cb_q1_2026_prev",
+      "label": "央行 Q1 2026 净购金原始估计（吨，后下修）",
+      "value": 244.0,
+      "raw_file": "wgc-q2-2026-central-banks.html",
+      "snippet": "from 244t to 57t",
+      "source_url": "https://www.gold.org/goldhub/research/gold-demand-trends/gold-demand-trends-q2-2026/central-banks"
+    },
+    {
+      "key": "cb_h1_2026",
+      "label": "央行 H1 2026 净购金（吨）",
+      "value": 345.0,
+      "raw_file": "wgc-q2-2026-central-banks.html",
+      "snippet": "H1 net demand of 345t",
+      "source_url": "https://www.gold.org/goldhub/research/gold-demand-trends/gold-demand-trends-q2-2026/central-banks"
+    },
+    {
+      "key": "cb_h1_2022",
+      "label": "央行 H1 2022 净购金（吨，对比基数）",
+      "value": 241.0,
+      "raw_file": "wgc-q2-2026-central-banks.html",
+      "snippet": "since 2022 (241t)",
+      "source_url": "https://www.gold.org/goldhub/research/gold-demand-trends/gold-demand-trends-q2-2026/central-banks"
+    },
+    {
+      "key": "cb_poland_q2",
+      "label": "波兰 Q2 2026 增持（吨）",
+      "value": 51.0,
+      "raw_file": "wgc-q2-2026-central-banks.html",
+      "snippet": "adding 51t during the quarter and taking its gold reserves to 632t",
+      "source_url": "https://www.gold.org/goldhub/research/gold-demand-trends/gold-demand-trends-q2-2026/central-banks"
+    },
+    {
+      "key": "cb_poland_hold",
+      "label": "波兰黄金储备（吨，6 月末）",
+      "value": 632.0,
+      "raw_file": "wgc-q2-2026-central-banks.html",
+      "snippet": "reserves to 632t by end-June",
+      "source_url": "https://www.gold.org/goldhub/research/gold-demand-trends/gold-demand-trends-q2-2026/central-banks"
+    },
+    {
+      "key": "cb_poland_h1",
+      "label": "波兰 H1 2026 增持（吨）",
+      "value": 82.0,
+      "raw_file": "wgc-q2-2026-central-banks.html",
+      "snippet": "H1 purchases to 82t",
+      "source_url": "https://www.gold.org/goldhub/research/gold-demand-trends/gold-demand-trends-q2-2026/central-banks"
+    },
+    {
+      "key": "cb_pbc_q2",
+      "label": "中国央行 Q2 2026 增持（吨）",
+      "value": 33.0,
+      "raw_file": "wgc-q2-2026-central-banks.html",
+      "snippet": "added a further 33t in Q2",
+      "source_url": "https://www.gold.org/goldhub/research/gold-demand-trends/gold-demand-trends-q2-2026/central-banks"
+    },
+    {
+      "key": "cb_pbc_h1",
+      "label": "中国央行 H1 2026 增持（吨）",
+      "value": 40.0,
+      "raw_file": "wgc-q2-2026-central-banks.html",
+      "snippet": "H1 increase of 40t",
+      "source_url": "https://www.gold.org/goldhub/research/gold-demand-trends/gold-demand-trends-q2-2026/central-banks"
+    },
+    {
+      "key": "cb_pbc_hold",
+      "label": "中国央行黄金储备（吨，6 月末）",
+      "value": 2346.0,
+      "raw_file": "wgc-q2-2026-central-banks.html",
+      "snippet": "holdings to 2,346t",
+      "source_url": "https://www.gold.org/goldhub/research/gold-demand-trends/gold-demand-trends-q2-2026/central-banks"
+    },
+    {
+      "key": "cb_survey_global",
+      "label": "央行调查：预期全球储备上升占比（%）",
+      "value": 89.0,
+      "raw_file": "wgc-q2-2026-central-banks.html",
+      "snippet": "89% of respondents expected global reserves to rise",
+      "source_url": "https://www.gold.org/goldhub/research/gold-demand-trends/gold-demand-trends-q2-2026/central-banks"
+    },
+    {
+      "key": "cb_survey_own",
+      "label": "央行调查：预期自身增持占比（%，纪录）",
+      "value": 45.0,
+      "raw_file": "wgc-q2-2026-central-banks.html",
+      "snippet": "a record 45% expected to increase their own holdings",
+      "source_url": "https://www.gold.org/goldhub/research/gold-demand-trends/gold-demand-trends-q2-2026/central-banks"
+    },
+    {
+      "key": "sp_q2_total",
+      "label": "Q2 2026 黄金总供给（吨）",
+      "value": 1268.9,
+      "raw_file": "wgc-q2-2026-supply.html",
+      "snippet": "Total supply 1,268.6 1,268.9",
+      "source_url": "https://www.gold.org/goldhub/research/gold-demand-trends/gold-demand-trends-q2-2026/supply"
+    },
+    {
+      "key": "sp_mine_q2",
+      "label": "Q2 2026 矿产金（吨，Q2 历史新高）",
+      "value": 965.6,
+      "raw_file": "wgc-q2-2026-supply.html",
+      "snippet": "mine production to 966t",
+      "source_url": "https://www.gold.org/goldhub/research/gold-demand-trends/gold-demand-trends-q2-2026/supply"
+    },
+    {
+      "key": "sp_mine_q2_2025",
+      "label": "Q2 2025 矿产金（吨，同比基数）",
+      "value": 947.7,
+      "raw_file": "wgc-q2-2026-supply.html",
+      "snippet": "previous second-quarter record of 948t set in Q2’25",
+      "source_url": "https://www.gold.org/goldhub/research/gold-demand-trends/gold-demand-trends-q2-2026/supply"
+    },
+    {
+      "key": "sp_hedge_q2",
+      "label": "Q2 2026 生产商净对冲变化（吨，负值=去对冲）",
+      "value": -22.8,
+      "raw_file": "wgc-q2-2026-supply.html",
+      "snippet": "Net producer hedging -25.8 -22.8",
+      "source_url": "https://www.gold.org/goldhub/research/gold-demand-trends/gold-demand-trends-q2-2026/supply"
+    },
+    {
+      "key": "sp_recycle_q2",
+      "label": "Q2 2026 回收金（吨）",
+      "value": 326.1,
+      "raw_file": "wgc-q2-2026-supply.html",
+      "snippet": "recycling to 326t",
+      "source_url": "https://www.gold.org/goldhub/research/gold-demand-trends/gold-demand-trends-q2-2026/supply"
+    },
+    {
+      "key": "sp_h1_mine_2026",
+      "label": "H1 2026 矿产金（吨，历史新高）",
+      "value": 1867.0,
+      "raw_file": "wgc-q2-2026-supply.html",
+      "snippet": "Record H1’26 mine production of 1,867t was 3% higher than the 1,808t",
+      "source_url": "https://www.gold.org/goldhub/research/gold-demand-trends/gold-demand-trends-q2-2026/supply",
+      "note": "原文写作 Record H1’26"
+    },
+    {
+      "key": "sp_h1_mine_2025",
+      "label": "H1 2025 矿产金（吨，对比基数）",
+      "value": 1808.0,
+      "raw_file": "wgc-q2-2026-supply.html",
+      "snippet": "the 1,808t seen in H1",
+      "source_url": "https://www.gold.org/goldhub/research/gold-demand-trends/gold-demand-trends-q2-2026/supply"
+    },
+    {
+      "key": "aisc_q1_2026",
+      "label": "行业平均全维持成本 AISC（美元/盎司，Q1 2026 历史新高）",
+      "value": 1785.0,
+      "raw_file": "wgc-q2-2026-supply.html",
+      "snippet": "reached a record high in Q1’26 , up 5% q/q and 16% y/y to US$1,785/oz",
+      "source_url": "https://www.gold.org/goldhub/research/gold-demand-trends/gold-demand-trends-q2-2026/supply",
+      "note": "snippet 后接 up 5% q/q 与 16% y/y 与 US$1,785/oz"
+    },
+    {
+      "key": "etf_q2_2026_t",
+      "label": "全球黄金 ETF Q2 2026 净流量（吨，负=流出）",
+      "value": -44.8,
+      "raw_file": "wgc-q2-2026-investment.html",
+      "snippet": "Gold ETFs 171.1 -44.8",
+      "source_url": "https://www.gold.org/goldhub/research/gold-demand-trends/gold-demand-trends-q2-2026/investment"
+    },
+    {
+      "key": "etf_q2_2025_t",
+      "label": "全球黄金 ETF Q2 2025 净流量（吨）",
+      "value": 171.1,
+      "raw_file": "wgc-q2-2026-investment.html",
+      "snippet": "Gold ETFs 171.1 -44.8",
+      "source_url": "https://www.gold.org/goldhub/research/gold-demand-trends/gold-demand-trends-q2-2026/investment"
+    },
+    {
+      "key": "etf_h1_2026_t",
+      "label": "全球黄金 ETF H1 2026 净流入（吨）",
+      "value": 18.0,
+      "raw_file": "wgc-q2-2026-investment.html",
+      "snippet": "reducing the H1 increase to 18t",
+      "source_url": "https://www.gold.org/goldhub/research/gold-demand-trends/gold-demand-trends-q2-2026/investment"
+    },
+    {
+      "key": "etf_q2_out_usd",
+      "label": "Q2 2026 ETF 流出金额（十亿美元）",
+      "value": 4.0,
+      "raw_file": "wgc-q2-2026-investment.html",
+      "snippet": "Q2 outflows totalled US$4bn",
+      "source_url": "https://www.gold.org/goldhub/research/gold-demand-trends/gold-demand-trends-q2-2026/investment"
+    },
+    {
+      "key": "etf_h1_in_usd",
+      "label": "H1 2026 ETF 流入金额（十亿美元）",
+      "value": 8.0,
+      "raw_file": "wgc-q2-2026-investment.html",
+      "snippet": "bringing H1 inflows down to US$8bn",
+      "source_url": "https://www.gold.org/goldhub/research/gold-demand-trends/gold-demand-trends-q2-2026/investment"
+    },
+    {
+      "key": "etf_aum_jun",
+      "label": "全球黄金 ETF 总规模（十亿美元，6 月末）",
+      "value": 526.0,
+      "raw_file": "wgc-q2-2026-investment.html",
+      "snippet": "US$526bn at end-June",
+      "source_url": "https://www.gold.org/goldhub/research/gold-demand-trends/gold-demand-trends-q2-2026/investment"
+    },
+    {
+      "key": "etf_na_h1_out",
+      "label": "北美 ETF H1 2026 流出（吨）",
+      "value": 61.0,
+      "raw_file": "wgc-q2-2026-investment.html",
+      "snippet": "losing 45t during the quarter and 61t over H1",
+      "source_url": "https://www.gold.org/goldhub/research/gold-demand-trends/gold-demand-trends-q2-2026/investment"
+    },
+    {
+      "key": "bar_coin_q2",
+      "label": "金条金币 Q2 2026 需求（吨）",
+      "value": 307.1,
+      "raw_file": "wgc-q2-2026-investment.html",
+      "snippet": "Bar and Coin 315.6 307.1",
+      "source_url": "https://www.gold.org/goldhub/research/gold-demand-trends/gold-demand-trends-q2-2026/investment"
+    },
+    {
+      "key": "etf_hold_sep",
+      "label": "全球黄金 ETF 总持仓（吨，9 月末，纪录）",
+      "value": 4256.0,
+      "raw_file": "wgc-etf-holdings.html",
+      "snippet": "holdings rose 67t to a record 4,256t",
+      "source_url": "https://www.gold.org/goldhub/data/global-gold-backed-etf-holdings-and-flows"
+    },
+    {
+      "key": "etf_sep_t",
+      "label": "9 月 ETF 净流入（吨）",
+      "value": 67.0,
+      "raw_file": "wgc-etf-holdings.html",
+      "snippet": "holdings rose 67t to a record",
+      "source_url": "https://www.gold.org/goldhub/data/global-gold-backed-etf-holdings-and-flows"
+    },
+    {
+      "key": "etf_q3_t",
+      "label": "Q3 2026 ETF 净流入（吨）",
+      "value": 211.0,
+      "raw_file": "wgc-etf-holdings.html",
+      "snippet": "collective holdings grew by 211t",
+      "source_url": "https://www.gold.org/goldhub/data/global-gold-backed-etf-holdings-and-flows"
+    },
+    {
+      "key": "etf_sep_usd",
+      "label": "9 月 ETF 净流入（十亿美元）",
+      "value": 10.0,
+      "raw_file": "wgc-etf-holdings.html",
+      "snippet": "US$10bn in September",
+      "source_url": "https://www.gold.org/goldhub/data/global-gold-backed-etf-holdings-and-flows"
+    },
+    {
+      "key": "etf_q3_usd",
+      "label": "Q3 2026 ETF 净流入（十亿美元，纪录）",
+      "value": 31.0,
+      "raw_file": "wgc-etf-holdings.html",
+      "snippet": "record US$31bn",
+      "source_url": "https://www.gold.org/goldhub/data/global-gold-backed-etf-holdings-and-flows"
+    },
+    {
+      "key": "etf_aum_sep",
+      "label": "全球黄金 ETF 总规模（十亿美元，9 月末）",
+      "value": 574.0,
+      "raw_file": "wgc-etf-holdings.html",
+      "snippet": "total AUM declined 7% m/m to US$574bn",
+      "source_url": "https://www.gold.org/goldhub/data/global-gold-backed-etf-holdings-and-flows"
+    },
+    {
+      "key": "fed_hike_bp",
+      "label": "2026 年 9 月美联储加息（基点）",
+      "value": 25.0,
+      "raw_file": "wgc-etf-holdings.html",
+      "snippet": "raised interest rates by 25 basis points",
+      "source_url": "https://www.gold.org/goldhub/data/global-gold-backed-etf-holdings-and-flows"
+    },
+    {
+      "key": "carry_est",
+      "label": "黄金 12 个月期现升水（年化 %，利率平价推算）",
+      "value": 4.96,
+      "estimated": true,
+      "range": [
+        4.4,
+        5.4
+      ],
+      "note": "取不到 COMEX 单合约报价（东财合约代码不可用、腾讯只给主力连续），按「无套利 carry ≈ 美元短端利率」用 10Y 名义利率代理，实际短端更低，故区间下沿放宽到 4.4%"
+    }
+  ],
+  "derived": [
+    {
+      "key": "etf_q2_out_t",
+      "label": "Q2 2026 ETF 净流出（吨，正数表述）",
+      "expr": "etf_q2_2026_t*-1",
+      "value": 44.8,
+      "unit": "t"
+    },
+    {
+      "key": "gold_pct_all",
+      "label": "当前价在 1990 以来月线中的分位（%）",
+      "expr": "100*430/442",
+      "value": 97.29,
+      "unit": "%"
+    },
+    {
+      "key": "gold_pct_10y",
+      "label": "当前价在近 10 年月线中的分位（%）",
+      "expr": "100*109/121",
+      "value": 90.08,
+      "unit": "%"
+    },
+    {
+      "key": "gold_vs_ath",
+      "label": "现价距历史最高（%）",
+      "expr": "(gold_last/gold_ath-1)*100",
+      "value": -24.38,
+      "unit": "%"
+    },
+    {
+      "key": "gold_vs_2020",
+      "label": "现价距 2020 年高点（%）",
+      "expr": "(gold_last/gold_high_2020-1)*100",
+      "value": 100.87,
+      "unit": "%"
+    },
+    {
+      "key": "gold_vs_2011",
+      "label": "现价距 2011 年高点（%）",
+      "expr": "(gold_last/gold_high_2011-1)*100",
+      "value": 118.67,
+      "unit": "%"
+    },
+    {
+      "key": "gold_mult_1990",
+      "label": "1990 年以来累计倍数（倍）",
+      "expr": "gold_last/gold_first_1990",
+      "value": 9.59,
+      "unit": "x"
+    },
+    {
+      "key": "gold_cagr",
+      "label": "1990 年以来年化收益（%）",
+      "expr": "(gold_mult_1990**(1/36.73)-1)*100",
+      "value": 6.35,
+      "unit": "%"
+    },
+    {
+      "key": "dd_2011_cycle",
+      "label": "2011 高点至 2015 低点最大回撤（%）",
+      "expr": "(gold_low_2015/gold_high_2011-1)*100",
+      "value": -42.1,
+      "unit": "%"
+    },
+    {
+      "key": "dd_2020_cycle",
+      "label": "2020 高点至 2023 低点最大回撤（%）",
+      "expr": "(gold_low_2022/gold_high_2020-1)*100",
+      "value": -17.9,
+      "unit": "%"
+    },
+    {
+      "key": "vol_10y",
+      "label": "金价年化波动率（近 10 年，%）",
+      "expr": "15.5",
+      "value": 15.5,
+      "unit": "%",
+      "note": "月收益标准差×√12，由 gold-monthly.json 计算，见附录脚本"
+    },
+    {
+      "key": "vol_3y",
+      "label": "金价年化波动率（近 3 年，%）",
+      "expr": "19.2",
+      "value": 19.2,
+      "unit": "%"
+    },
+    {
+      "key": "breakeven",
+      "label": "10 年期盈亏平衡通胀（名义−实际，%）",
+      "expr": "dgs10_last-dfii10_last",
+      "value": 2.32,
+      "unit": "%"
+    },
+    {
+      "key": "dfii_pct_10y",
+      "label": "实际利率在近 10 年日度样本中的分位（%）",
+      "expr": "100*2477/2499",
+      "value": 99.12,
+      "unit": "%"
+    },
+    {
+      "key": "dfii_pct_all",
+      "label": "实际利率在 2003 以来日度样本中的分位（%）",
+      "expr": "100*5873/5956",
+      "value": 98.61,
+      "unit": "%"
+    },
+    {
+      "key": "dfii_vs_2020",
+      "label": "实际利率较 2020 低点抬升（个百分点）",
+      "expr": "dfii10_last-dfii10_2020_low",
+      "value": 3.72,
+      "unit": "pp"
+    },
+    {
+      "key": "dfii_vs_2022",
+      "label": "实际利率较 2022 高点抬升（个百分点）",
+      "expr": "dfii10_last-dfii10_2022_high",
+      "value": 0.9,
+      "unit": "pp"
+    },
+    {
+      "key": "dxy_pct_10y",
+      "label": "美元指数在近 10 年日度样本中的分位（%）",
+      "expr": "100*1843/2609",
+      "value": 70.64,
+      "unit": "%"
+    },
+    {
+      "key": "gold_oil",
+      "label": "金油比（金价÷WTI，倍）",
+      "expr": "gold_last/wti_last",
+      "value": 39.56,
+      "unit": "x"
+    },
+    {
+      "key": "gold_oil_pct",
+      "label": "金油比在 1990 以来分位（%）",
+      "expr": "100*408/436",
+      "value": 93.58,
+      "unit": "%"
+    },
+    {
+      "key": "gold_oil_median",
+      "label": "金油比 1990 以来中位数（倍）",
+      "expr": "17.7",
+      "value": 17.7,
+      "unit": "x"
+    },
+    {
+      "key": "gold_copper",
+      "label": "金铜比（美元/盎司 ÷ 美元/磅，倍）",
+      "expr": "gold_last/copper_last",
+      "value": 618.3,
+      "unit": "x"
+    },
+    {
+      "key": "gold_copper_pct",
+      "label": "金铜比在 2011 以来分位（%）",
+      "expr": "100*149/183",
+      "value": 81.42,
+      "unit": "%"
+    },
+    {
+      "key": "gold_copper_median",
+      "label": "金铜比 2011 以来中位数（倍）",
+      "expr": "484.3",
+      "value": 484.3,
+      "unit": "x"
+    },
+    {
+      "key": "gold_spx",
+      "label": "金价÷标普 500（2026-09-30，倍）",
+      "expr": "gold_sep30/spx_sep30",
+      "value": 0.5475,
+      "unit": "x"
+    },
+    {
+      "key": "gold_spx_pct",
+      "label": "金价÷标普在 1990 以来分位（%）",
+      "expr": "100*226/428",
+      "value": 52.8,
+      "unit": "%"
+    },
+    {
+      "key": "gold_spx_median",
+      "label": "金价÷标普 1990 以来中位数（倍）",
+      "expr": "0.532",
+      "value": 0.532,
+      "unit": "x"
+    },
+    {
+      "key": "price_aisc",
+      "label": "现货价÷行业 AISC（倍）",
+      "expr": "gold_last/aisc_q1_2026",
+      "value": 2.24,
+      "unit": "x"
+    },
+    {
+      "key": "mine_yoy",
+      "label": "矿产金 Q2 同比（%）",
+      "expr": "(sp_mine_q2/sp_mine_q2_2025-1)*100",
+      "value": 1.89,
+      "unit": "%"
+    },
+    {
+      "key": "h1_mine_yoy",
+      "label": "矿产金 H1 同比（%）",
+      "expr": "(sp_h1_mine_2026/sp_h1_mine_2025-1)*100",
+      "value": 3.26,
+      "unit": "%"
+    },
+    {
+      "key": "mine_share",
+      "label": "矿产金占 Q2 总供给（%）",
+      "expr": "sp_mine_q2/sp_q2_total*100",
+      "value": 76.1,
+      "unit": "%"
+    },
+    {
+      "key": "recycle_share",
+      "label": "回收金占 Q2 总供给（%）",
+      "expr": "sp_recycle_q2/sp_q2_total*100",
+      "value": 25.7,
+      "unit": "%"
+    },
+    {
+      "key": "cb_yoy",
+      "label": "央行 Q2 购金同比（%）",
+      "expr": "(cb_q2_2026/cb_q2_2025-1)*100",
+      "value": 62.4,
+      "unit": "%"
+    },
+    {
+      "key": "cb_h1_vs_2022",
+      "label": "H1 2026 购金相对 H1 2022（倍）",
+      "expr": "cb_h1_2026/cb_h1_2022",
+      "value": 1.43,
+      "unit": "x"
+    },
+    {
+      "key": "etf_q2_swing",
+      "label": "ETF 由 Q2 2025 流入转为 2026 流出（吨）",
+      "expr": "etf_q2_2026_t-etf_q2_2025_t",
+      "value": -215.9,
+      "unit": "t"
+    },
+    {
+      "key": "etf_hold_vs_aug",
+      "label": "9 月末持仓较 8 月末变动（吨）",
+      "expr": "etf_sep_t",
+      "value": 67.0,
+      "unit": "t",
+      "note": "原文：holdings rose 67t，8 月末为 4189t"
+    },
+    {
+      "key": "up_to_ath",
+      "label": "回到历史最高的上行空间（%）",
+      "expr": "(gold_ath/gold_last-1)*100",
+      "value": 32.2,
+      "unit": "%"
+    },
+    {
+      "key": "down_to_2025low",
+      "label": "回到 2025 年内低点的下行空间（%）",
+      "expr": "(gold_low_2025/gold_last-1)*100",
+      "value": -29.3,
+      "unit": "%"
+    },
+    {
+      "key": "odds_ratio",
+      "label": "赔率（上行÷下行，倍）",
+      "expr": "up_to_ath/29.3",
+      "value": 1.1,
+      "unit": "x"
+    },
+    {
+      "key": "corr_2004_2019",
+      "label": "金价与实际利率相关系数（2004–2019）",
+      "expr": "-0.87",
+      "value": -0.87,
+      "note": "月度月末值皮尔逊相关，n=192，见附录脚本"
+    },
+    {
+      "key": "corr_2020_2023",
+      "label": "金价与实际利率相关系数（2020–2023）",
+      "expr": "0.32",
+      "value": 0.32,
+      "note": "n=48"
+    },
+    {
+      "key": "corr_2024_2026",
+      "label": "金价与实际利率相关系数（2024–2026）",
+      "expr": "0.18",
+      "value": 0.18,
+      "note": "n=34"
+    },
+    {
+      "key": "corr_10y",
+      "label": "金价与实际利率相关系数（近 10 年）",
+      "expr": "0.57",
+      "value": 0.57,
+      "note": "n=120，正号=与实际利率同向"
+    },
+    {
+      "key": "gold_mult_2011",
+      "label": "现价是 2011 年高点的倍数（倍）",
+      "expr": "gold_last/gold_high_2011",
+      "value": 2.19,
+      "unit": "x"
+    },
+    {
+      "key": "cagr_since_2011",
+      "label": "2011 年高点买入至今的年化（%）",
+      "expr": "(gold_mult_2011**(1/15.15)-1)*100",
+      "value": 5.3,
+      "unit": "%"
+    },
+    {
+      "key": "cb_h1_avg",
+      "label": "央行 2026 上半年季均购金（吨）",
+      "expr": "cb_h1_2026/2",
+      "value": 172.5,
+      "unit": "t"
+    },
+    {
+      "key": "etf_drop15",
+      "label": "ETF 持仓回落 15% 后的水平（吨）",
+      "expr": "etf_hold_sep*0.85",
+      "value": 3617.6,
+      "unit": "t"
+    },
+    {
+      "key": "months_at_high_pct",
+      "label": "近十年处于当前分位以上的月份占比（%）",
+      "expr": "12/121*100",
+      "value": 9.92,
+      "unit": "%"
+    },
+    {
+      "key": "cb_revision_pct",
+      "label": "央行 Q1 数据下修幅度（%）",
+      "expr": "(1-cb_q1_2026/cb_q1_2026_prev)*100",
+      "value": 76.64,
+      "unit": "%"
+    },
+    {
+      "key": "gold_n_months",
+      "label": "1990 以来月线样本数（个）",
+      "expr": "442",
+      "value": 442.0
+    },
+    {
+      "key": "gold_n_above",
+      "label": "1990 以来比现价更贵的月份数（个）",
+      "expr": "12",
+      "value": 12.0
+    },
+    {
+      "key": "gold_n_10y",
+      "label": "近十年月线样本数（个）",
+      "expr": "121",
+      "value": 121.0
+    },
+    {
+      "key": "gold_n_above_10y",
+      "label": "近十年比现价更贵的月份数（个）",
+      "expr": "12",
+      "value": 12.0
+    },
+    {
+      "key": "gold_ytd",
+      "label": "2026 年内涨跌（%）",
+      "expr": "(gold_last/gold_2025_close-1)*100",
+      "value": -7.55,
+      "unit": "%"
+    },
+    {
+      "key": "dgs10_gap",
+      "label": "名义利率距近 5 个月峰值（pp）",
+      "expr": "dgs10_peak-dgs10_last",
+      "value": 0.35,
+      "unit": "pp"
+    },
+    {
+      "key": "risk_per_trade",
+      "label": "单次可承受亏损（% 组合）",
+      "expr": "1",
+      "value": 1.0,
+      "unit": "%",
+      "note": "政策参数"
+    },
+    {
+      "key": "dd20_pct",
+      "label": "第一档回撤门槛（%）",
+      "expr": "-20",
+      "value": -20.0,
+      "unit": "%",
+      "note": "政策参数"
+    },
+    {
+      "key": "dd30_pct",
+      "label": "第二档回撤门槛（%）",
+      "expr": "-30",
+      "value": -30.0,
+      "unit": "%",
+      "note": "政策参数"
+    },
+    {
+      "key": "level_dd20",
+      "label": "较现价回撤 20% 的价位（美元/盎司）",
+      "expr": "gold_last*(1-0.2)",
+      "value": 3204.24
+    },
+    {
+      "key": "level_dd30",
+      "label": "较现价回撤 30% 的价位（美元/盎司）",
+      "expr": "gold_last*(1-0.3)",
+      "value": 2803.71
+    },
+    {
+      "key": "stop_dist",
+      "label": "战术仓位止损距离（%）",
+      "expr": "15",
+      "value": 15.0,
+      "unit": "%",
+      "note": "政策参数，非市场数据"
+    },
+    {
+      "key": "pos_per_trade",
+      "label": "按 1% 单次亏损与 15% 止损算出的单笔仓位（%）",
+      "expr": "1/15*100",
+      "value": 6.67,
+      "unit": "%"
+    },
+    {
+      "key": "pos_cap",
+      "label": "黄金建议仓位上限（%）",
+      "expr": "10",
+      "value": 10.0,
+      "unit": "%",
+      "note": "政策参数；三批各 3.3%，合计 10%"
+    },
+    {
+      "key": "tranche_pct",
+      "label": "单批建仓比例（%）",
+      "expr": "pos_cap/3",
+      "value": 3.33,
+      "unit": "%"
+    },
+    {
+      "key": "port_dd",
+      "label": "10% 仓位下 42.1% 回撤对组合的拖累（%）",
+      "expr": "pos_cap*42.1/100",
+      "value": 4.21,
+      "unit": "%"
+    }
+  ]
+}

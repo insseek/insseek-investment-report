@@ -1,0 +1,1041 @@
+{
+ "meta": {
+  "company": "原油",
+  "code": "WTI/CL",
+  "as_of": "2026-10-26",
+  "currency": "USD",
+  "fetched_at": "2026-10-26T10:45:00+08:00",
+  "note": "WTI 主口径，布伦特用新浪 hf_OIL 对照。缺口：EIA v2 API 无 key 返回 403 API_KEY_MISSING，改用 dnav 周度页面；库欣库存、OECD 商业库存绝对量、浮仓无来源；OPEC+ 分国别闲置产能无来源，用 EIA STEO 的 OPEC 合计闲置产能代替；日线原文只有收盘价（f51,f53），52 周高低点为收盘口径。recount-output.txt 由 recount.py 从原文重算，xlsx 已抽成 csv（extract_xlsx.py）。"
+ },
+ "inputs": [
+  {
+   "key": "wti_close",
+   "label": "WTI 月收盘（2026-10-26）",
+   "value": 101.25,
+   "unit": "美元/桶",
+   "raw_file": "wti-monthly.json",
+   "snippet": "2026-10-26,101.25",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get"
+  },
+  {
+   "key": "wti_spot",
+   "label": "WTI 即期报价（新浪 hf_CL，10:32）",
+   "value": 101.087,
+   "unit": "美元/桶",
+   "raw_file": "sina-futures.txt",
+   "snippet": "hq_str_hf_CL=\"101.087,,101.080,101.100,102.630",
+   "source_url": "https://hq.sinajs.cn/list=hf_CL,hf_OIL"
+  },
+  {
+   "key": "brent_spot",
+   "label": "布伦特即期报价（新浪 hf_OIL，10:32）",
+   "value": 109.672,
+   "unit": "美元/桶",
+   "raw_file": "sina-futures.txt",
+   "snippet": "hq_str_hf_OIL=\"109.672,,109.670,109.690,110.980",
+   "source_url": "https://hq.sinajs.cn/list=hf_CL,hf_OIL"
+  },
+  {
+   "key": "wti_52w_high",
+   "label": "WTI 52 周最高收盘（2026-04-06）",
+   "value": 112.61,
+   "unit": "美元/桶",
+   "raw_file": "wti-daily.json",
+   "snippet": "2026-04-06,112.61",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get"
+  },
+  {
+   "key": "wti_52w_low",
+   "label": "WTI 52 周最低收盘（2025-12-16）",
+   "value": 55.17,
+   "unit": "美元/桶",
+   "raw_file": "wti-daily.json",
+   "snippet": "2025-12-16,55.17",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get"
+  },
+  {
+   "key": "wti_hist_close_high",
+   "label": "WTI 1986 以最高月收盘（2008-06）",
+   "value": 140.0,
+   "unit": "美元/桶",
+   "raw_file": "wti-monthly.json",
+   "snippet": "2008-06-30,140.00",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get"
+  },
+  {
+   "key": "wti_hist_close_low",
+   "label": "WTI 1986 以来最低月收盘（1998-11）",
+   "value": 11.22,
+   "unit": "美元/桶",
+   "raw_file": "wti-monthly.json",
+   "snippet": "1998-11-30,11.22",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get"
+  },
+  {
+   "key": "wti_intraday_high_2008",
+   "label": "WTI 历史盘中最高（2008-07-11）",
+   "value": 147.27,
+   "unit": "美元/桶",
+   "raw_file": "wti-2008jul-daily.json",
+   "snippet": "2008-07-11,145.08,147.27,141.44",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get"
+  },
+  {
+   "key": "wti_2020_low",
+   "label": "WTI 2020-04-21 盘中低点",
+   "value": 6.5,
+   "unit": "美元/桶",
+   "raw_file": "wti-2020apr-daily.json",
+   "snippet": "2020-04-21,13.12,22.58,6.50",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get"
+  },
+  {
+   "key": "wti_2020_close",
+   "label": "WTI 2020-04-21 收盘",
+   "value": 13.12,
+   "unit": "美元/桶",
+   "raw_file": "wti-2020apr-daily.json",
+   "snippet": "2020-04-21,13.12",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get"
+  },
+  {
+   "key": "wti_12m_ago",
+   "label": "WTI 12 个月前收盘（2025-10-31）",
+   "value": 60.88,
+   "unit": "美元/桶",
+   "raw_file": "wti-monthly.json",
+   "snippet": "2025-10-31,60.88",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get"
+  },
+  {
+   "key": "wti_pct_all",
+   "label": "WTI 现价在 1986 以来月收盘中的分位",
+   "value": 94.81,
+   "unit": "%",
+   "raw_file": "recount-output.txt",
+   "snippet": "wti_pct_all: 94.81% (457/482",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get"
+  },
+  {
+   "key": "wti_pct_10y",
+   "label": "WTI 现价在近 10 年（120 个月）分位",
+   "value": 95.83,
+   "unit": "%",
+   "raw_file": "recount-output.txt",
+   "snippet": "wti_pct_10y: 95.83% (115/120",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get"
+  },
+  {
+   "key": "wti_pct_5y",
+   "label": "WTI 现价在近 5 年（60 个月）分位",
+   "value": 91.67,
+   "unit": "%",
+   "raw_file": "recount-output.txt",
+   "snippet": "wti_pct_5y: 91.67% (55/60",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get"
+  },
+  {
+   "key": "wti_10y_high",
+   "label": "WTI 近 10 年最高月收盘",
+   "value": 115.26,
+   "unit": "美元/桶",
+   "raw_file": "recount-output.txt",
+   "snippet": "wti_10y_high: 115.26",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get"
+  },
+  {
+   "key": "wti_10y_low",
+   "label": "WTI 近 10 年最低月收盘",
+   "value": 19.09,
+   "unit": "美元/桶",
+   "raw_file": "recount-output.txt",
+   "snippet": "wti_10y_low: 19.09",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get"
+  },
+  {
+   "key": "wti_12m_return",
+   "label": "WTI 近 12 个月涨幅",
+   "value": 66.31,
+   "unit": "%",
+   "raw_file": "recount-output.txt",
+   "snippet": "wti_12m_return: 66.31%",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get"
+  },
+  {
+   "key": "wti_52w_pos",
+   "label": "WTI 在 52 周收盘区间中的位置",
+   "value": 80.14,
+   "unit": "%",
+   "raw_file": "recount-output.txt",
+   "snippet": "wti_52w_pos: 80.14%",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get"
+  },
+  {
+   "key": "wti_vol20",
+   "label": "WTI 已实现波动率（20 日，年化）",
+   "value": 33.79,
+   "unit": "%",
+   "raw_file": "recount-output.txt",
+   "snippet": "wti_vol20: 33.79%",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get"
+  },
+  {
+   "key": "wti_vol60",
+   "label": "WTI 已实现波动率（60 日，年化）",
+   "value": 43.93,
+   "unit": "%",
+   "raw_file": "recount-output.txt",
+   "snippet": "wti_vol60: 43.93%",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get"
+  },
+  {
+   "key": "wti_vol250",
+   "label": "WTI 已实现波动率（250 日，年化）",
+   "value": 54.35,
+   "unit": "%",
+   "raw_file": "recount-output.txt",
+   "snippet": "wti_vol250: 54.35%",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get"
+  },
+  {
+   "key": "wti_atr20",
+   "label": "WTI 20 日平均日波动（收盘对收盘）",
+   "value": 1.646,
+   "unit": "美元/桶",
+   "raw_file": "recount-output.txt",
+   "snippet": "wti_atr20: 1.646",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get"
+  },
+  {
+   "key": "wti_atr_pct",
+   "label": "WTI ATR20 占价格比",
+   "value": 1.63,
+   "unit": "%",
+   "raw_file": "recount-output.txt",
+   "snippet": "wti_atr20: 1.646 美元 = 1.63%",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get"
+  },
+  {
+   "key": "curve_front",
+   "label": "近月合约 CL26Z（2026-12）收盘",
+   "value": 101.13,
+   "unit": "美元/桶",
+   "raw_file": "wti-curve-daily.json",
+   "snippet": "2026-10-26,101.13",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get"
+  },
+  {
+   "key": "curve_next",
+   "label": "次近月合约 CL27F（2027-01）收盘",
+   "value": 99.06,
+   "unit": "美元/桶",
+   "raw_file": "wti-curve-daily.json",
+   "snippet": "CL27F 2026-10-26,99.06",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get"
+  },
+  {
+   "key": "curve_12m",
+   "label": "12 个月后合约 CL27Z（2027-12）收盘",
+   "value": 80.29,
+   "unit": "美元/桶",
+   "raw_file": "wti-curve-daily.json",
+   "snippet": "CL27Z 2026-10-26,80.29",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get"
+  },
+  {
+   "key": "curve_spread",
+   "label": "近月-次近月价差",
+   "value": -2.07,
+   "unit": "美元/桶",
+   "raw_file": "recount-output.txt",
+   "snippet": "curve_spread_m1: -2.07",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get"
+  },
+  {
+   "key": "curve_spread_pct",
+   "label": "近月-次近月价差（月）",
+   "value": -2.05,
+   "unit": "%",
+   "raw_file": "recount-output.txt",
+   "snippet": "curve_spread_m1: -2.07 美元 = -2.05%/月",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get"
+  },
+  {
+   "key": "curve_annual",
+   "label": "近月-次近月价差年化（按月复利）",
+   "value": -21.98,
+   "unit": "%",
+   "raw_file": "recount-output.txt",
+   "snippet": "curve_annual: -21.98%",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get"
+  },
+  {
+   "key": "curve_12m_change",
+   "label": "CL26Z 到 CL27Z 的 12 个月跌幅",
+   "value": -20.61,
+   "unit": "%",
+   "raw_file": "recount-output.txt",
+   "snippet": "curve_12m_change: -20.61%",
+   "source_url": "https://push2his.eastmoney.com/api/qt/stock/kline/get"
+  },
+  {
+   "key": "spare_2026",
+   "label": "OPEC 闲置产能 2026 预测",
+   "value": 0.4385,
+   "unit": "百万桶/日",
+   "raw_file": "steo-oct2026-extract.csv",
+   "snippet": "opec_spare_capacity_2026,,,,0.4385",
+   "source_url": "https://www.eia.gov/outlooks/steo/xls/Fig6.xlsx"
+  },
+  {
+   "key": "spare_2025",
+   "label": "OPEC 闲置产能 2025",
+   "value": 3.427,
+   "unit": "百万桶/日",
+   "raw_file": "steo-oct2026-extract.csv",
+   "snippet": "opec_spare_capacity_2025,,,3.4269",
+   "source_url": "https://www.eia.gov/outlooks/steo/xls/Fig6.xlsx"
+  },
+  {
+   "key": "spare_2027",
+   "label": "OPEC 闲置产能 2027 预测",
+   "value": 1.6526,
+   "unit": "百万桶/日",
+   "raw_file": "steo-oct2026-extract.csv",
+   "snippet": "opec_spare_capacity_2027,,,,,1.6526",
+   "source_url": "https://www.eia.gov/outlooks/steo/xls/Fig6.xlsx"
+  },
+  {
+   "key": "spare_avg",
+   "label": "OPEC 闲置产能 2016-2025 均值",
+   "value": 2.559,
+   "unit": "百万桶/日",
+   "raw_file": "steo-oct2026-extract.csv",
+   "snippet": "opec_spare_capacity_avg_2016_2025,,,,2.559",
+   "source_url": "https://www.eia.gov/outlooks/steo/xls/Fig6.xlsx"
+  },
+  {
+   "key": "world_prod_2026",
+   "label": "全球液体燃料产量 2026 预测",
+   "value": 101.1,
+   "unit": "百万桶/日",
+   "raw_file": "eia-steo-global-oil.html",
+   "snippet": "Global liquid fuels production (million barrels per day) 103.2 106.3 101.1 109.6",
+   "source_url": "https://www.eia.gov/outlooks/steo/report/global_oil.php"
+  },
+  {
+   "key": "world_prod_2025",
+   "label": "全球液体燃料产量 2025",
+   "value": 106.3,
+   "unit": "百万桶/日",
+   "raw_file": "eia-steo-global-oil.html",
+   "snippet": "Global liquid fuels production (million barrels per day) 103.2 106.3 101.1 109.6",
+   "source_url": "https://www.eia.gov/outlooks/steo/report/global_oil.php"
+  },
+  {
+   "key": "world_prod_2027",
+   "label": "全球液体燃料产量 2027 预测",
+   "value": 109.6,
+   "unit": "百万桶/日",
+   "raw_file": "eia-steo-global-oil.html",
+   "snippet": "Global liquid fuels production (million barrels per day) 103.2 106.3 101.1 109.6",
+   "source_url": "https://www.eia.gov/outlooks/steo/report/global_oil.php"
+  },
+  {
+   "key": "opec_prod_2026",
+   "label": "OPEC 液体燃料产量 2026 预测",
+   "value": 23.9,
+   "unit": "百万桶/日",
+   "raw_file": "eia-steo-global-oil.html",
+   "snippet": "OPEC liquid fuels production (million barrels per day) 28.4 29.3 23.9 29.2",
+   "source_url": "https://www.eia.gov/outlooks/steo/report/global_oil.php"
+  },
+  {
+   "key": "opec_prod_2025",
+   "label": "OPEC 液体燃料产量 2025",
+   "value": 29.3,
+   "unit": "百万桶/日",
+   "raw_file": "eia-steo-global-oil.html",
+   "snippet": "OPEC liquid fuels production (million barrels per day) 28.4 29.3 23.9 29.2",
+   "source_url": "https://www.eia.gov/outlooks/steo/report/global_oil.php"
+  },
+  {
+   "key": "opec_prod_2027",
+   "label": "OPEC 液体燃料产量 2027 预测",
+   "value": 29.2,
+   "unit": "百万桶/日",
+   "raw_file": "eia-steo-global-oil.html",
+   "snippet": "OPEC liquid fuels production (million barrels per day) 28.4 29.3 23.9 29.2",
+   "source_url": "https://www.eia.gov/outlooks/steo/report/global_oil.php"
+  },
+  {
+   "key": "world_demand_2026",
+   "label": "全球液体燃料消费 2026 预测",
+   "value": 102.4,
+   "unit": "百万桶/日",
+   "raw_file": "eia-steo-global-oil.html",
+   "snippet": "Global liquid fuels consumption (million barrels per day) 103.1 104.4 102.4 104.6",
+   "source_url": "https://www.eia.gov/outlooks/steo/report/global_oil.php"
+  },
+  {
+   "key": "world_demand_2025",
+   "label": "全球液体燃料消费 2025",
+   "value": 104.4,
+   "unit": "百万桶/日",
+   "raw_file": "eia-steo-global-oil.html",
+   "snippet": "Global liquid fuels consumption (million barrels per day) 103.1 104.4 102.4 104.6",
+   "source_url": "https://www.eia.gov/outlooks/steo/report/global_oil.php"
+  },
+  {
+   "key": "world_demand_2027",
+   "label": "全球液体燃料消费 2027 预测",
+   "value": 104.6,
+   "unit": "百万桶/日",
+   "raw_file": "eia-steo-global-oil.html",
+   "snippet": "Global liquid fuels consumption (million barrels per day) 103.1 104.4 102.4 104.6",
+   "source_url": "https://www.eia.gov/outlooks/steo/report/global_oil.php"
+  },
+  {
+   "key": "dem_china_2026",
+   "label": "中国油品消费 2026 预测",
+   "value": 16.022,
+   "unit": "百万桶/日",
+   "raw_file": "steo-oct2026-extract.csv",
+   "snippet": "consumption_China,15.9808,16.370861334000001,16.578598134,16.022344515",
+   "source_url": "https://www.eia.gov/outlooks/steo/xls/Fig8.xlsx"
+  },
+  {
+   "key": "dem_us_2026",
+   "label": "美国油品消费 2026 预测",
+   "value": 20.597,
+   "unit": "百万桶/日",
+   "raw_file": "steo-oct2026-extract.csv",
+   "snippet": "consumption_United States,20.275014545000001,20.463721332999999,20.736135106999999,20.596951570000002",
+   "source_url": "https://www.eia.gov/outlooks/steo/xls/Fig8.xlsx"
+  },
+  {
+   "key": "dem_india_2026",
+   "label": "印度油品消费 2026 预测",
+   "value": 5.636,
+   "unit": "百万桶/日",
+   "raw_file": "steo-oct2026-extract.csv",
+   "snippet": "consumption_India,5.3837999999999999,5.5987999999999998,5.6655178512999997,5.6359237047999997",
+   "source_url": "https://www.eia.gov/outlooks/steo/xls/Fig8.xlsx"
+  },
+  {
+   "key": "dem_me_2026",
+   "label": "中东油品消费 2026 预测",
+   "value": 8.63,
+   "unit": "百万桶/日",
+   "raw_file": "steo-oct2026-extract.csv",
+   "snippet": "consumption_Middle East,9.2905983562000003,9.3494375071999993,9.5487480203999997,8.6298847471000002",
+   "source_url": "https://www.eia.gov/outlooks/steo/xls/Fig8.xlsx"
+  },
+  {
+   "key": "dem_oecd_2026",
+   "label": "OECD 油品消费 2026 预测",
+   "value": 45.681,
+   "unit": "百万桶/日",
+   "raw_file": "steo-oct2026-extract.csv",
+   "snippet": "consumption_OECD,45.766898286999997,46.218091186000002,46.325201548000003,45.680812232999997",
+   "source_url": "https://www.eia.gov/outlooks/steo/xls/Fig8.xlsx"
+  },
+  {
+   "key": "dem_nonoecd_2026",
+   "label": "非 OECD 油品消费 2026 预测",
+   "value": 56.746,
+   "unit": "百万桶/日",
+   "raw_file": "steo-oct2026-extract.csv",
+   "snippet": "consumption_Non-OECD,55.7254,56.884428333999999,58.079347777999999,56.746227580000003",
+   "source_url": "https://www.eia.gov/outlooks/steo/xls/Fig8.xlsx"
+  },
+  {
+   "key": "us_prod",
+   "label": "美国原油产量（2026-10-16 周）",
+   "value": 13.27,
+   "unit": "百万桶/日",
+   "raw_file": "recount-output.txt",
+   "snippet": "prod_last: 13.27 mb/d",
+   "source_url": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&s=WCRFPUS2&f=W"
+  },
+  {
+   "key": "us_prod_yoy",
+   "label": "美国原油产量同比",
+   "value": -2.64,
+   "unit": "%",
+   "raw_file": "recount-output.txt",
+   "snippet": "prod_yoy: -2.64%",
+   "source_url": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&s=WCRFPUS2&f=W"
+  },
+  {
+   "key": "us_prod_52w_high",
+   "label": "美国原油产量 52 周高点",
+   "value": 13.98,
+   "unit": "百万桶/日",
+   "raw_file": "recount-output.txt",
+   "snippet": "prod_52w_high: 13.98",
+   "source_url": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&s=WCRFPUS2&f=W"
+  },
+  {
+   "key": "us_prod_vs_high",
+   "label": "美国原油产量距 52 周高点",
+   "value": -5.08,
+   "unit": "%",
+   "raw_file": "recount-output.txt",
+   "snippet": "prod_vs_high: -5.08%",
+   "source_url": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&s=WCRFPUS2&f=W"
+  },
+  {
+   "key": "us_refin",
+   "label": "美国炼厂净投入（2026-10-16 周）",
+   "value": 16.65,
+   "unit": "百万桶/日",
+   "raw_file": "recount-output.txt",
+   "snippet": "refin_last: 16.65 mb/d",
+   "source_url": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&s=WCRRIUS2&f=W"
+  },
+  {
+   "key": "us_refin_yoy",
+   "label": "美国炼厂净投入同比",
+   "value": 5.84,
+   "unit": "%",
+   "raw_file": "recount-output.txt",
+   "snippet": "refin_yoy: 5.84%",
+   "source_url": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&s=WCRRIUS2&f=W"
+  },
+  {
+   "key": "us_stocks",
+   "label": "美国商业原油库存（2026-10-16）",
+   "value": 412.5,
+   "unit": "百万桶",
+   "raw_file": "recount-output.txt",
+   "snippet": "stocks_last: 412.5 百万桶",
+   "source_url": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&s=WCESTUS1&f=W"
+  },
+  {
+   "key": "us_stocks_mean5y",
+   "label": "美国商业原油库存 5 年均值",
+   "value": 433.0,
+   "unit": "百万桶",
+   "raw_file": "recount-output.txt",
+   "snippet": "stocks_mean_261w: 433.0",
+   "source_url": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&s=WCESTUS1&f=W"
+  },
+  {
+   "key": "us_stocks_vs_mean",
+   "label": "美国库存对 5 年均值偏离",
+   "value": -4.72,
+   "unit": "%",
+   "raw_file": "recount-output.txt",
+   "snippet": "stocks_vs_mean_261w: -4.72%",
+   "source_url": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&s=WCESTUS1&f=W"
+  },
+  {
+   "key": "us_stocks_pct",
+   "label": "美国库存 5 年分位",
+   "value": 5.4,
+   "unit": "%",
+   "raw_file": "recount-output.txt",
+   "snippet": "stocks_pct_261w: 5.4%",
+   "source_url": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&s=WCESTUS1&f=W"
+  },
+  {
+   "key": "us_stocks_yoy",
+   "label": "美国库存同比",
+   "value": -2.44,
+   "unit": "%",
+   "raw_file": "recount-output.txt",
+   "snippet": "stocks_yoy: -2.44%",
+   "source_url": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&s=WCESTUS1&f=W"
+  },
+  {
+   "key": "us_stocks_peak",
+   "label": "美国库存 2026-04-17 高点",
+   "value": 465.7,
+   "unit": "百万桶",
+   "raw_file": "recount-output.txt",
+   "snippet": "stocks_peak_apr: 465.7",
+   "source_url": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&s=WCESTUS1&f=W"
+  },
+  {
+   "key": "us_stocks_5y_min",
+   "label": "美国库存 5 年最低",
+   "value": 404.5,
+   "unit": "百万桶",
+   "raw_file": "recount-output.txt",
+   "snippet": "stocks_5y_min: 404.5",
+   "source_url": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&s=WCESTUS1&f=W"
+  },
+  {
+   "key": "oecd_days_oct",
+   "label": "OECD 商业库存可用天数（2026-10）",
+   "value": 58.137004601,
+   "unit": "天",
+   "raw_file": "steo-oct2026-extract.csv",
+   "snippet": "oecd_days_2026-10-01,,,,58.137004601",
+   "source_url": "https://www.eia.gov/outlooks/steo/xls/Fig9.xlsx"
+  },
+  {
+   "key": "oecd_days_band_low",
+   "label": "OECD 可用天数 2021-2025 同月下沿",
+   "value": 58.998776271,
+   "unit": "天",
+   "raw_file": "steo-oct2026-extract.csv",
+   "snippet": "oecd_days_2026-10-01,,,,58.137004601,,2021-2025 同月区间 58.998776271",
+   "source_url": "https://www.eia.gov/outlooks/steo/xls/Fig9.xlsx"
+  },
+  {
+   "key": "oecd_days_nov",
+   "label": "OECD 商业库存可用天数（2026-11 预测）",
+   "value": 57.696714463,
+   "unit": "天",
+   "raw_file": "steo-oct2026-extract.csv",
+   "snippet": "oecd_days_2026-11-01,,,,57.696714463",
+   "source_url": "https://www.eia.gov/outlooks/steo/xls/Fig9.xlsx"
+  },
+  {
+   "key": "be_all",
+   "label": "页岩新井盈亏平衡（全体样本，2026Q1）",
+   "value": 66,
+   "unit": "美元/桶",
+   "raw_file": "breakeven-2026q1.csv",
+   "snippet": "All Responses,66,43",
+   "source_url": "https://www.dallasfed.org/-/media/documents/research/surveys/des/documents/breakeven.xlsx"
+  },
+  {
+   "key": "be_permid",
+   "label": "Permian 新井盈亏平衡（2026Q1）",
+   "value": 67,
+   "unit": "美元/桶",
+   "raw_file": "breakeven-2026q1.csv",
+   "snippet": "Permian (all responses),67,39",
+   "source_url": "https://www.dallasfed.org/-/media/documents/research/surveys/des/documents/breakeven.xlsx"
+  },
+  {
+   "key": "be_midland",
+   "label": "Permian Midland 新井盈亏平衡（2026Q1）",
+   "value": 68.57,
+   "unit": "美元/桶",
+   "raw_file": "breakeven-2026q1.csv",
+   "snippet": "Permian Basin – Midland,68.569999999999993,41.54",
+   "source_url": "https://www.dallasfed.org/-/media/documents/research/surveys/des/documents/breakeven.xlsx"
+  },
+  {
+   "key": "be_delaware",
+   "label": "Permian Delaware 新井盈亏平衡（2026Q1）",
+   "value": 63.21,
+   "unit": "美元/桶",
+   "raw_file": "breakeven-2026q1.csv",
+   "snippet": "Permian Basin – Delaware,63.21,33.82",
+   "source_url": "https://www.dallasfed.org/-/media/documents/research/surveys/des/documents/breakeven.xlsx"
+  },
+  {
+   "key": "be_eagleford",
+   "label": "Eagle Ford 新井盈亏平衡（2026Q1）",
+   "value": 63,
+   "unit": "美元/桶",
+   "raw_file": "breakeven-2026q1.csv",
+   "snippet": "Eagle Ford,63,40",
+   "source_url": "https://www.dallasfed.org/-/media/documents/research/surveys/des/documents/breakeven.xlsx"
+  },
+  {
+   "key": "be_othershale",
+   "label": "其他美国页岩新井盈亏平衡（2026Q1）",
+   "value": 62.38,
+   "unit": "美元/桶",
+   "raw_file": "breakeven-2026q1.csv",
+   "snippet": "Other U.S. (Shale),62.38,44.12",
+   "source_url": "https://www.dallasfed.org/-/media/documents/research/surveys/des/documents/breakeven.xlsx"
+  },
+  {
+   "key": "be_nonshale",
+   "label": "其他美国非页岩新井盈亏平衡（2026Q1）",
+   "value": 67.82,
+   "unit": "美元/桶",
+   "raw_file": "breakeven-2026q1.csv",
+   "snippet": "Other U.S. (Nonshale),67.819999999999993,47",
+   "source_url": "https://www.dallasfed.org/-/media/documents/research/surveys/des/documents/breakeven.xlsx"
+  },
+  {
+   "key": "be_permian_other",
+   "label": "Permian 其他区块新井盈亏平衡（2026Q1）",
+   "value": 70,
+   "unit": "美元/桶",
+   "raw_file": "breakeven-2026q1.csv",
+   "snippet": "Permian Basin – Other,70,43.63",
+   "source_url": "https://www.dallasfed.org/-/media/documents/research/surveys/des/documents/breakeven.xlsx"
+  },
+  {
+   "key": "be_small",
+   "label": "小公司新井盈亏平衡（2026Q1）",
+   "value": 68,
+   "unit": "美元/桶",
+   "raw_file": "breakeven-2026q1.csv",
+   "snippet": "Small firms (<10,000 b/d),68,46",
+   "source_url": "https://www.dallasfed.org/-/media/documents/research/surveys/des/documents/breakeven.xlsx"
+  },
+  {
+   "key": "be_large",
+   "label": "大公司新井盈亏平衡（2026Q1）",
+   "value": 59,
+   "unit": "美元/桶",
+   "raw_file": "breakeven-2026q1.csv",
+   "snippet": "Large firms (>=10,000 b/d),59,32",
+   "source_url": "https://www.dallasfed.org/-/media/documents/research/surveys/des/documents/breakeven.xlsx"
+  },
+  {
+   "key": "opex_all",
+   "label": "现有井操作成本（全体，2026Q1）",
+   "value": 43,
+   "unit": "美元/桶",
+   "raw_file": "breakeven-2026q1.csv",
+   "snippet": "All Responses,66,43",
+   "source_url": "https://www.dallasfed.org/-/media/documents/research/surveys/des/documents/breakeven.xlsx"
+  },
+  {
+   "key": "opex_midland",
+   "label": "Permian Midland 现有井操作成本（2026Q1）",
+   "value": 41.54,
+   "unit": "美元/桶",
+   "raw_file": "breakeven-2026q1.csv",
+   "snippet": "Permian Basin – Midland,68.569999999999993,41.54",
+   "source_url": "https://www.dallasfed.org/-/media/documents/research/surveys/des/documents/breakeven.xlsx"
+  },
+  {
+   "key": "dfed_fc_2026",
+   "label": "达拉斯联储受访者 2026 年底 WTI 预期均值",
+   "value": 88.38,
+   "unit": "美元/桶",
+   "raw_file": "dallasfed-des-20262603.html",
+   "snippet": "Current quarter | $88.38 | $70.00 | $126.00 | $98.70",
+   "source_url": "https://www.dallasfed.org/research/surveys/des/2026/2603"
+  },
+  {
+   "key": "dfed_fc_low",
+   "label": "上述预期区间下限",
+   "value": 70.0,
+   "unit": "美元/桶",
+   "raw_file": "dallasfed-des-20262603.html",
+   "snippet": "Current quarter | $88.38 | $70.00 | $126.00 | $98.70",
+   "source_url": "https://www.dallasfed.org/research/surveys/des/2026/2603"
+  },
+  {
+   "key": "dfed_fc_high",
+   "label": "上述预期区间上限",
+   "value": 126.0,
+   "unit": "美元/桶",
+   "raw_file": "dallasfed-des-20262603.html",
+   "snippet": "Current quarter | $88.38 | $70.00 | $126.00 | $98.70",
+   "source_url": "https://www.dallasfed.org/research/surveys/des/2026/2603"
+  },
+  {
+   "key": "dfed_survey_spot",
+   "label": "调查期 WTI 现货均价",
+   "value": 98.7,
+   "unit": "美元/桶",
+   "raw_file": "dallasfed-des-20262603.html",
+   "snippet": "WTI spot prices averaged $98.70 per barrel during the survey collection period",
+   "source_url": "https://www.dallasfed.org/research/surveys/des/2026/2603"
+  },
+  {
+   "key": "dfed_fc_2y",
+   "label": "受访者两年后 WTI 预期",
+   "value": 79,
+   "unit": "美元/桶",
+   "raw_file": "dallasfed-des-20262603.html",
+   "snippet": "they expect a WTI oil price of $79 per barrel two years from now and $82 per barrel five years",
+   "source_url": "https://www.dallasfed.org/research/surveys/des/2026/2603"
+  },
+  {
+   "key": "dfed_fc_5y",
+   "label": "受访者五年后 WTI 预期",
+   "value": 82,
+   "unit": "美元/桶",
+   "raw_file": "dallasfed-des-20262603.html",
+   "snippet": "they expect a WTI oil price of $79 per barrel two years from now and $82 per barrel five years",
+   "source_url": "https://www.dallasfed.org/research/surveys/des/2026/2603"
+  },
+  {
+   "key": "spr",
+   "label": "美国 SPR 库存（2026-09-18）",
+   "value": 285,
+   "unit": "百万桶",
+   "raw_file": "dallasfed-des-20262603.html",
+   "snippet": "current SPR inventory level of 285 mb as of Sept. 18",
+   "source_url": "https://www.dallasfed.org/research/surveys/des/2026/2603"
+  },
+  {
+   "key": "dxy",
+   "label": "广义美元指数（2026-10-16）",
+   "value": 121.4048,
+   "unit": "指数",
+   "raw_file": "dxy.csv",
+   "snippet": "2026-10-16,121.4048",
+   "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DTWEXBGS"
+  },
+  {
+   "key": "dgs10",
+   "label": "美债 10Y 收益率（2026-10-22）",
+   "value": 4.96,
+   "unit": "%",
+   "raw_file": "dgs10.csv",
+   "snippet": "2026-10-22,4.96",
+   "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10"
+  },
+  {
+   "key": "wti_neg_settle",
+   "label": "2020-04-20 WTI 5 月合约结算价（负值）",
+   "value": -37.63,
+   "unit": "美元/桶",
+   "raw_file": "recount-output.txt",
+   "snippet": "",
+   "source_url": "https://www.cmegroup.com/",
+   "estimated": true,
+   "range": [
+    -40.0,
+    -35.0
+   ],
+   "note": "东财连续合约 102.CL00Y 不含负值（当日收 21.22），本数据源无法复核；取自公开报道的 CME 结算价，作为事件记录，不参与任何计算"
+  }
+ ],
+ "derived": [
+  {
+   "key": "supply_rebound_2027",
+   "label": "2027 相对 2026 的产量回升",
+   "expr": "109.6-101.1",
+   "value": 8.5,
+   "unit": "百万桶/日"
+  },
+  {
+   "key": "supply_gap_2025",
+   "label": "2025 全球产量-消费缺口",
+   "expr": "106.3-104.4",
+   "value": 1.9,
+   "unit": "百万桶/日"
+  },
+  {
+   "key": "band_lo",
+   "label": "区间下沿（只做区间的买入位）",
+   "expr": "80",
+   "value": 80,
+   "unit": "美元/桶"
+  },
+  {
+   "key": "band_hi",
+   "label": "区间上沿（只做区间的减仓位）",
+   "expr": "100",
+   "value": 100,
+   "unit": "美元/桶"
+  },
+  {
+   "key": "brent_premium",
+   "label": "布伦特对 WTI 溢价",
+   "expr": "109.672-101.087",
+   "value": 8.585,
+   "unit": "美元/桶"
+  },
+  {
+   "key": "brent_premium_pct",
+   "label": "布伦特溢价率",
+   "expr": "8.585/101.087*100",
+   "value": 8.49,
+   "unit": "%"
+  },
+  {
+   "key": "wti_10y_range",
+   "label": "近 10 年价格区间宽度",
+   "expr": "115.26-19.09",
+   "value": 96.17,
+   "unit": "美元/桶"
+  },
+  {
+   "key": "opec_prod_change",
+   "label": "OPEC 产量 2026 对 2025 变化",
+   "expr": "23.9-29.3",
+   "value": -5.4,
+   "unit": "百万桶/日"
+  },
+  {
+   "key": "supply_gap_2026",
+   "label": "2026 全球产量-消费缺口",
+   "expr": "101.1-102.4",
+   "value": -1.3,
+   "unit": "百万桶/日"
+  },
+  {
+   "key": "supply_gap_2027",
+   "label": "2027 全球产量-消费过剩",
+   "expr": "109.6-104.6",
+   "value": 5.0,
+   "unit": "百万桶/日"
+  },
+  {
+   "key": "demand_growth_2026",
+   "label": "2026 全球需求增速",
+   "expr": "102.4-104.4",
+   "value": -2.0,
+   "unit": "百万桶/日"
+  },
+  {
+   "key": "demand_growth_2027",
+   "label": "2027 全球需求增速",
+   "expr": "104.6-102.4",
+   "value": 2.2,
+   "unit": "百万桶/日"
+  },
+  {
+   "key": "stocks_draw",
+   "label": "美国库存自 4 月高点去库量",
+   "expr": "412.5-465.7",
+   "value": -53.2,
+   "unit": "百万桶"
+  },
+  {
+   "key": "stocks_5y_gap",
+   "label": "库存距 5 年最低的余量",
+   "expr": "412.5-404.5",
+   "value": 8.0,
+   "unit": "百万桶"
+  },
+  {
+   "key": "spare_gap",
+   "label": "闲置产能相对 2016-25 均值的缺口",
+   "expr": "2.559-0.4385",
+   "value": 2.1205,
+   "unit": "百万桶/日"
+  },
+  {
+   "key": "cost_band_low",
+   "label": "成本曲线区间下限（最低区块）",
+   "expr": "62.38",
+   "value": 62.38,
+   "unit": "美元/桶"
+  },
+  {
+   "key": "cost_band_high",
+   "label": "成本曲线区间上限（Permian 其他区块）",
+   "expr": "70",
+   "value": 70,
+   "unit": "美元/桶"
+  },
+  {
+   "key": "cost_band_width",
+   "label": "成本曲线宽度",
+   "expr": "70-62.38",
+   "value": 7.62,
+   "unit": "美元/桶"
+  },
+  {
+   "key": "stop_distance",
+   "label": "3 倍 ATR 止损距离",
+   "expr": "3*1.63",
+   "value": 4.89,
+   "unit": "%"
+  },
+  {
+   "key": "risk_at_cap",
+   "label": "5% 仓位在 3ATR 止损下的组合损失",
+   "expr": "5*4.89/100",
+   "value": 0.2445,
+   "unit": "%"
+  },
+  {
+   "key": "price_vs_cost",
+   "label": "现价对 Permian 盈亏平衡的溢价",
+   "expr": "101.25-67",
+   "value": 34.25,
+   "unit": "美元/桶"
+  },
+  {
+   "key": "price_vs_cost_pct",
+   "label": "现价对 Permian 盈亏平衡的溢价率",
+   "expr": "(101.25/67-1)*100",
+   "value": 51.12,
+   "unit": "%"
+  },
+  {
+   "key": "up_room",
+   "label": "现价到 52 周高点的空间",
+   "expr": "(112.61/101.25-1)*100",
+   "value": 11.22,
+   "unit": "%"
+  },
+  {
+   "key": "down_room",
+   "label": "现价到 12 月后合约的空间",
+   "expr": "(80.29/101.25-1)*100",
+   "value": -20.7,
+   "unit": "%"
+  },
+  {
+   "key": "range_mid",
+   "label": "区间中枢（80 与 100 的中点）",
+   "expr": "(80+100)/2",
+   "value": 90.0,
+   "unit": "美元/桶"
+  },
+  {
+   "key": "roll_cost_abs",
+   "label": "多头 12 个月展期成本（绝对值）",
+   "expr": "(1-80.29/101.13)*100",
+   "value": 20.61,
+   "unit": "%"
+  },
+  {
+   "key": "stocks_draw_abs",
+   "label": "自 4 月高点去库量（绝对值）",
+   "expr": "465.7-412.5",
+   "value": 53.2,
+   "unit": "百万桶"
+  },
+  {
+   "key": "opec_prod_drop_abs",
+   "label": "OPEC 产量降幅（绝对值）",
+   "expr": "29.3-23.9",
+   "value": 5.4,
+   "unit": "百万桶/日"
+  },
+  {
+   "key": "deficit_abs",
+   "label": "2026 缺口（绝对值）",
+   "expr": "102.4-101.1",
+   "value": 1.3,
+   "unit": "百万桶/日"
+  },
+  {
+   "key": "demand_drop_abs",
+   "label": "2026 需求降幅（绝对值）",
+   "expr": "104.4-102.4",
+   "value": 2.0,
+   "unit": "百万桶/日"
+  },
+  {
+   "key": "prod_drop_abs",
+   "label": "美国产量同比降幅（绝对值）",
+   "expr": "-1*(-2.64)",
+   "value": 2.64,
+   "unit": "%"
+  },
+  {
+   "key": "stocks_gap_abs",
+   "label": "库存低于 5 年均值幅度（绝对值）",
+   "expr": "-1*(-4.72)",
+   "value": 4.72,
+   "unit": "%"
+  },
+  {
+   "key": "prod_vs_high_abs",
+   "label": "产量距 52 周高点（绝对值）",
+   "expr": "-1*(-5.08)",
+   "value": 5.08,
+   "unit": "%"
+  },
+  {
+   "key": "roll_cost_2027",
+   "label": "持有多头 12 个月的展期成本（按当前曲线）",
+   "expr": "(80.29/101.13-1)*100",
+   "value": -20.61,
+   "unit": "%"
+  }
+ ]
+}
