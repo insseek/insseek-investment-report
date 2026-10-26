@@ -4,7 +4,9 @@ import starlight from '@astrojs/starlight';
 import sidebar from './src/sidebar.generated.mjs';
 
 // 站点地址与部署路径的唯一真源，sync_reports.py 也读它
-const { site, base } = JSON.parse(readFileSync(new URL('./site.config.json', import.meta.url)));
+const cfg = JSON.parse(readFileSync(new URL('./site.config.json', import.meta.url)));
+const site = process.env.SITE ?? cfg.site;
+const base = process.env.BASE ?? cfg.base;
 
 export default defineConfig({
   site,

@@ -26,7 +26,6 @@ SOURCE = ROOT.parent / "insseek-ai-investment-framework" / "output"
 DOCS = ROOT / "src" / "content" / "docs"
 PUBLIC_FACTS = ROOT / "public" / "facts"
 SIDEBAR = ROOT / "src" / "sidebar.generated.mjs"
-BASE = json.loads((ROOT / "site.config.json").read_text())["base"].rstrip("/")
 
 SKIP_DIRS = {".archive", "data", "__pycache__"}
 DATA_REF = re.compile(r"data/(\d{8})/facts\.json")
@@ -62,8 +61,13 @@ def description_of(body: str) -> str:
     return ""
 
 
-def rewrite_links(body: str, asset: str) -> str:
-    return DATA_REF.sub(lambda m: f"{BASE}/facts/{asset}/{m.group(1)}.json", body)
+def rewrite_links(body: str, asset: str, depth: int) -> str:
+    """facts 用相对路径：页面在 /{slug}/ 下，回退 depth 层就到站点根。
+
+    这样站点挂在根（Netlify）还是子路径（GitHub Pages 项目页）都能点开。
+    """
+    prefix = "../" * depth
+    return DATA_REF.sub(lambda m: f"{prefix}facts/{asset}/{m.group(1)}.json", body)
 
 
 def target_of(path: Path, source_root: Path) -> Path:
@@ -71,17 +75,15 @@ def target_of(path: Path, source_root: Path) -> Path:
     return DOCS / rel
 
 
-def build_page(path: Path, asset: str) -> str:
+def build_page(path: Path, asset: str, depth: int) -> str:
     text = path.read_text(encoding="utf-8")
     title, body = split_title(text, path.stem)
-    body = rewrite_links(body, asset)
-    # 把反引号里的数据包路径变成可点链接
-    body = re.sub(r"`(" + re.escape(BASE) + r"/facts/[^`]+)`",
-                  lambda m: f"[{m.group(1)}]({m.group(1)})", body)
-    m = re.search(re.escape(BASE) + r"/facts/[^\s)\]]+\.json", body)
+    body = rewrite_links(body, asset, depth)
+    # 反引号里的数据包路径变成可点链接，并在页首给一行下载入口
+    body = re.sub(r"`((?:\.\./)+facts/[^`]+)`", lambda m: f"[{m.group(1)}]({m.group(1)})", body)
+    m = re.search(r"(?:\.\./)+facts/[^\s)\]]+\.json", body)
     if m:
-        lead = f"> 数据包：[{m.group(0)}]({m.group(0)})——报告里每个数都能在里面找到出处。\n"
-        body = lead + "\n" + body
+        body = f"> 数据包：[{m.group(0)}]({m.group(0)})——报告里每个数都能在里面找到出处。\n\n" + body
     front = ["---", f"title: {json.dumps(title, ensure_ascii=False)}"]
     desc = description_of(body)
     if desc:
@@ -107,7 +109,9 @@ def sync() -> int:
                 continue
             dest = target_of(md, SOURCE)
             dest.parent.mkdir(parents=True, exist_ok=True)
-            text = build_page(md, asset.name)
+            # 页面 URL 是 /{资产}/.../{文件名}/，深度按相对 output/ 的路径算
+            rel = md.relative_to(SOURCE).with_suffix("")
+            text = build_page(md, asset.name, len(rel.parts))
             dest.write_text(text, encoding="utf-8")
             pages.append((dest, page_title(text, dest.stem)))
             changed += 1

@@ -3,9 +3,9 @@ title: "黄金：状态型论点"
 description: "1. 实际利率是黄金的机会成本，且它已经在天花板附近。 10 年期 TIPS 2.64%，近十年 99.1% 分位、2003 年以来 98.6% 分位。这意味着"
 ---
 
-> 数据包：[/insseek-investment-report/facts/黄金/20261026.json](/insseek-investment-report/facts/黄金/20261026.json)——报告里每个数都能在里面找到出处。
+> 数据包：[../../facts/黄金/20261026.json](../../facts/黄金/20261026.json)——报告里每个数都能在里面找到出处。
 
-> 状态型文档，就地更新，不带日期后缀 | 快照数字见 [/insseek-investment-report/facts/黄金/20261026.json](/insseek-investment-report/facts/黄金/20261026.json)
+> 状态型文档，就地更新，不带日期后缀 | 快照数字见 [../../facts/黄金/20261026.json](../../facts/黄金/20261026.json)
 > 用途：记住「为什么现在不买」，以及「什么条件下必须改口」。不构成投资建议。
 
 ## 更新记录
