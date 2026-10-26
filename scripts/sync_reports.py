@@ -26,6 +26,7 @@ SOURCE = ROOT.parent / "insseek-ai-investment-framework" / "output"
 DOCS = ROOT / "src" / "content" / "docs"
 PUBLIC_FACTS = ROOT / "public" / "facts"
 SIDEBAR = ROOT / "src" / "sidebar.generated.mjs"
+BASE = json.loads((ROOT / "site.config.json").read_text())["base"].rstrip("/")
 
 SKIP_DIRS = {".archive", "data", "__pycache__"}
 DATA_REF = re.compile(r"data/(\d{8})/facts\.json")
@@ -62,7 +63,7 @@ def description_of(body: str) -> str:
 
 
 def rewrite_links(body: str, asset: str) -> str:
-    return DATA_REF.sub(lambda m: f"/facts/{asset}/{m.group(1)}.json", body)
+    return DATA_REF.sub(lambda m: f"{BASE}/facts/{asset}/{m.group(1)}.json", body)
 
 
 def target_of(path: Path, source_root: Path) -> Path:
@@ -75,8 +76,9 @@ def build_page(path: Path, asset: str) -> str:
     title, body = split_title(text, path.stem)
     body = rewrite_links(body, asset)
     # 把反引号里的数据包路径变成可点链接
-    body = re.sub(r"`(/facts/[^`]+)`", lambda m: f"[{m.group(1)}]({m.group(1)})", body)
-    m = re.search(r"/facts/[^\s)\]]+\.json", body)
+    body = re.sub(r"`(" + re.escape(BASE) + r"/facts/[^`]+)`",
+                  lambda m: f"[{m.group(1)}]({m.group(1)})", body)
+    m = re.search(re.escape(BASE) + r"/facts/[^\s)\]]+\.json", body)
     if m:
         lead = f"> 数据包：[{m.group(0)}]({m.group(0)})——报告里每个数都能在里面找到出处。\n"
         body = lead + "\n" + body

@@ -1,11 +1,11 @@
 ---
 title: "美团 team 模式 · 合成说明"
-description: "数据截止 2026-10-23 ｜ 运行 2026-10-26 ｜ 数据包 ..//facts/美团/20261026.json（54 inputs / 44 "
+description: "数据截止 2026-10-23 ｜ 运行 2026-10-26 ｜ 数据包 ..//insseek-investment-report/facts/美团/202"
 ---
 
-> 数据包：[/facts/美团/20261026.json](/facts/美团/20261026.json)——报告里每个数都能在里面找到出处。
+> 数据包：[/insseek-investment-report/facts/美团/20261026.json](/insseek-investment-report/facts/美团/20261026.json)——报告里每个数都能在里面找到出处。
 
-数据截止 2026-10-23 ｜ 运行 2026-10-26 ｜ 数据包 `..//facts/美团/20261026.json`（54 inputs / 44 derived）
+数据截止 2026-10-23 ｜ 运行 2026-10-26 ｜ 数据包 `..//insseek-investment-report/facts/美团/20261026.json`（54 inputs / 44 derived）
 四个视角由并行子代理独立写，数字只取自数据包；合成由 team-lead 做，分歧不合并、写进下面的仲裁表。
 
 ## 分工
@@ -48,7 +48,7 @@ standard 与 team 两模式在**同一数据包**上跑：结论一致（观察�
 ## 可复现
 
 ```bash
-python3 tools/reproduce.py check --facts output/美团//facts/美团/20261026.json
+python3 tools/reproduce.py check --facts output/美团//insseek-investment-report/facts/美团/20261026.json
 python3 tools/report_audit.py structure --report output/美团/team-20261026/最终报告.md
-python3 tools/coverage.py --report output/美团/team-20261026/最终报告.md --facts output/美团//facts/美团/20261026.json
+python3 tools/coverage.py --report output/美团/team-20261026/最终报告.md --facts output/美团//insseek-investment-report/facts/美团/20261026.json
 ```

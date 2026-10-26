@@ -1,9 +1,14 @@
+import { readFileSync } from 'node:fs';
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import sidebar from './src/sidebar.generated.mjs';
 
+// 站点地址与部署路径的唯一真源，sync_reports.py 也读它
+const { site, base } = JSON.parse(readFileSync(new URL('./site.config.json', import.meta.url)));
+
 export default defineConfig({
-  site: 'https://insseek.github.io',
+  site,
+  base,
   integrations: [
     starlight({
       title: '里探投资报告',

@@ -3,9 +3,9 @@ title: "原油：紧是真的，贵也是真的"
 description: "事实：OPEC 2026 年产量比 2025 年少 5.4 百万桶/日，全球产量少 5.2（106.3→101.1），而闲置产能从 3.43 塌到 0.44——"
 ---
 
-> 数据包：[/facts/原油/20261026.json](/facts/原油/20261026.json)——报告里每个数都能在里面找到出处。
+> 数据包：[/insseek-investment-report/facts/原油/20261026.json](/insseek-investment-report/facts/原油/20261026.json)——报告里每个数都能在里面找到出处。
 
-> 数据截止 2026-10-26（WTI 月收盘 101.25，即期 101.09）｜数据包 `output/原油//facts/原油/20261026.json`｜原文 `.cache/raw/原油/20261026/`
+> 数据截止 2026-10-26（WTI 月收盘 101.25，即期 101.09）｜数据包 `output/原油//insseek-investment-report/facts/原油/20261026.json`｜原文 `.cache/raw/原油/20261026/`
 
 ## 一句话结论
 

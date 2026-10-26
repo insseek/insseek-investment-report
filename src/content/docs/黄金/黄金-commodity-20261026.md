@@ -3,9 +3,9 @@ title: "黄金：实际利率失效的第三年，位置却回到了分母最贵
 description: "四个变量逐个说清楚，因为结论全压在这四条上。"
 ---
 
-> 数据包：[/facts/黄金/20261026.json](/facts/黄金/20261026.json)——报告里每个数都能在里面找到出处。
+> 数据包：[/insseek-investment-report/facts/黄金/20261026.json](/insseek-investment-report/facts/黄金/20261026.json)——报告里每个数都能在里面找到出处。
 
-> 数据截止 2026-10-26 盘中 | 币种 USD（美元/盎司） | 数据包 [/facts/黄金/20261026.json](/facts/黄金/20261026.json)
+> 数据截止 2026-10-26 盘中 | 币种 USD（美元/盎司） | 数据包 [/insseek-investment-report/facts/黄金/20261026.json](/insseek-investment-report/facts/黄金/20261026.json)
 > 口径：伦敦金月线收盘（东财 GC00Y 连续合约，1990-01 起 442 根）；分位一律用月末收盘价排序；实际利率用 FRED 10 年期 TIPS 日度（DFII10，2003 起 5956 条）；四个变量缺一即降级，本报告只有「成本」一项是滞后值
 
 ## 一句话结论

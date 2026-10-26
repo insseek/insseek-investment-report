@@ -3,9 +3,9 @@ title: "比特币（BTC）thesis — 状态型"
 description: "1. 供给刚性是真的，但没有信息量。 年增 0.817%、明年 4 月后 0.41%，这条曲线 2016 年就公开了；它能解释长期方向，解释不了任何一个季度。"
 ---
 
-> 数据包：[/facts/比特币/20261026.json](/facts/比特币/20261026.json)——报告里每个数都能在里面找到出处。
+> 数据包：[/insseek-investment-report/facts/比特币/20261026.json](/insseek-investment-report/facts/比特币/20261026.json)——报告里每个数都能在里面找到出处。
 
-> 本文件是**状态**，不是存档：观点变了就地改写，不新建日期文件。数值口径与 `比特币-bitcoin-20261026.md` / [/facts/比特币/20261026.json](/facts/比特币/20261026.json) 一致。
+> 本文件是**状态**，不是存档：观点变了就地改写，不新建日期文件。数值口径与 `比特币-bitcoin-20261026.md` / [/insseek-investment-report/facts/比特币/20261026.json](/insseek-investment-report/facts/比特币/20261026.json) 一致。
 
 ## 更新记录
 

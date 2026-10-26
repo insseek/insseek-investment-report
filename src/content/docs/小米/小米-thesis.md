@@ -3,9 +3,9 @@ title: "小米集团-W（01810.HK）投资论点"
 description: "观察，不买。现价 26.80 港元，中性档折现后内在价值 25.91 港元，三年期望年化 6.3%（计入回购约 8.2%），"
 ---
 
-> 数据包：[/facts/小米/20261026.json](/facts/小米/20261026.json)——报告里每个数都能在里面找到出处。
+> 数据包：[/insseek-investment-report/facts/小米/20261026.json](/insseek-investment-report/facts/小米/20261026.json)——报告里每个数都能在里面找到出处。
 
-> 更新：2026-10-26（口径改为折现）｜对应报告：`小米-research-20261026.md`｜数据包：[/facts/小米/20261026.json](/facts/小米/20261026.json)
+> 更新：2026-10-26（口径改为折现）｜对应报告：`小米-research-20261026.md`｜数据包：[/insseek-investment-report/facts/小米/20261026.json](/insseek-investment-report/facts/小米/20261026.json)
 
 ## 更新记录
 

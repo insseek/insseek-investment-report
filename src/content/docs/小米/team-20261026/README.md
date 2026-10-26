@@ -3,7 +3,7 @@ title: "小米 team 模式：分工、仲裁与流程问题"
 description: "四个视角稿是并行子代理独立写出的，彼此看不到对方结论；合成由 team-lead 完成。"
 ---
 
-> 数据包：[/facts/小米/20261026.json](/facts/小米/20261026.json)——报告里每个数都能在里面找到出处。
+> 数据包：[/insseek-investment-report/facts/小米/20261026.json](/insseek-investment-report/facts/小米/20261026.json)——报告里每个数都能在里面找到出处。
 
 **运行时间**：2026-10-26｜**数据截止**：2026-10-23｜**结论**：观察，不买
 
@@ -45,7 +45,7 @@ description: "四个视角稿是并行子代理独立写出的，彼此看不到
 
 ## 四、可复现性
 
-- 数据包：`output/小米//facts/小米/20261026.json`（45 inputs / 39 derived），原文在仓库根的 `.cache/raw/小米/20261026/`。
-- `python3 tools/reproduce.py check --facts output/小米//facts/小米/20261026.json` → 全部派生数可从本地原文重算。
+- 数据包：`output/小米//insseek-investment-report/facts/小米/20261026.json`（45 inputs / 39 derived），原文在仓库根的 `.cache/raw/小米/20261026/`。
+- `python3 tools/reproduce.py check --facts output/小米//insseek-investment-report/facts/小米/20261026.json` → 全部派生数可从本地原文重算。
 - `python3 tools/report_audit.py structure --report output/小米/team-20261026/最终报告.md` → 七项全过。
-- `python3 tools/coverage.py --report output/小米/team-20261026/最终报告.md --facts output/小米//facts/小米/20261026.json` → 44/44，100%。
+- `python3 tools/coverage.py --report output/小米/team-20261026/最终报告.md --facts output/小米//insseek-investment-report/facts/小米/20261026.json` → 44/44，100%。

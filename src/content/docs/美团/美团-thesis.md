@@ -3,9 +3,9 @@ title: "美团-W（03690.HK）投资论点"
 description: "观察，不买。现价 71.65 港元，中性档折现 75.31 港元，安全边际只有 +4.85%（3.66 港元）；"
 ---
 
-> 数据包：[/facts/美团/20261026.json](/facts/美团/20261026.json)——报告里每个数都能在里面找到出处。
+> 数据包：[/insseek-investment-report/facts/美团/20261026.json](/insseek-investment-report/facts/美团/20261026.json)——报告里每个数都能在里面找到出处。
 
-> 更新：2026-10-26（standard 与 team 两模式重跑后统一口径）｜对应报告：`美团-research-20261026.md`｜团队复核：`team-20261026/README.md`｜数据包：[/facts/美团/20261026.json](/facts/美团/20261026.json)
+> 更新：2026-10-26（standard 与 team 两模式重跑后统一口径）｜对应报告：`美团-research-20261026.md`｜团队复核：`team-20261026/README.md`｜数据包：[/insseek-investment-report/facts/美团/20261026.json](/insseek-investment-report/facts/美团/20261026.json)
 
 ## 更新记录
 
