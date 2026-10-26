@@ -26,15 +26,30 @@ SOURCE = ROOT.parent / "insseek-ai-investment-framework" / "output"
 DOCS = ROOT / "src" / "content" / "docs"
 PUBLIC_FACTS = ROOT / "public" / "facts"
 SIDEBAR = ROOT / "src" / "sidebar.generated.mjs"
+CONFIG = json.loads((ROOT / "site.config.json").read_text(encoding="utf-8"))
 
 SKIP_DIRS = {".archive", "data", "__pycache__"}
 DATA_REF = re.compile(r"data/(\d{8})/facts\.json")
 
 
-def asset_dirs() -> list[Path]:
+def asset_groups() -> list[tuple[str, list[Path]]]:
+    """按 site.config.json 的 groups 排序资产；配置里没写的资产落到「其他」，按名排序。
+
+    顺序由配置决定，不由 Unicode 码位决定——中文按码位排出来是随机的，
+    而读者需要的是稳定的、有意义的顺序。
+    """
     if not SOURCE.is_dir():
         raise SystemExit(f"找不到产物目录：{SOURCE}")
-    return sorted(p for p in SOURCE.iterdir() if p.is_dir() and p.name not in SKIP_DIRS)
+    on_disk = {p.name: p for p in SOURCE.iterdir() if p.is_dir() and p.name not in SKIP_DIRS}
+    result = []
+    for group in CONFIG.get("groups", []):
+        assets = [on_disk.pop(name) for name in group["assets"] if name in on_disk]
+        if assets:
+            result.append((group["title"], assets))
+    rest = [on_disk[name] for name in sorted(on_disk)]
+    if rest:
+        result.append(("其他", rest))
+    return result
 
 
 def split_title(text: str, fallback: str) -> tuple[str, str]:
@@ -102,29 +117,36 @@ def sync() -> int:
     PUBLIC_FACTS.mkdir(parents=True)
 
     groups = []
-    for asset in asset_dirs():
-        pages = []
-        for md in sorted(asset.rglob("*.md")):
-            if any(part in SKIP_DIRS for part in md.parts):
-                continue
-            dest = target_of(md, SOURCE)
-            dest.parent.mkdir(parents=True, exist_ok=True)
-            # 页面 URL 是 /{资产}/.../{文件名}/，深度按相对 output/ 的路径算
-            rel = md.relative_to(SOURCE).with_suffix("")
-            text = build_page(md, asset.name, len(rel.parts))
-            dest.write_text(text, encoding="utf-8")
-            pages.append((dest, page_title(text, dest.stem)))
-            changed += 1
-        for facts in sorted(asset.rglob("facts.json")):
-            date = facts.parent.name
-            dest = PUBLIC_FACTS / asset.name / f"{date}.json"
-            dest.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copy2(facts, dest)
-            changed += 1
-        if pages:
-            groups.append((asset.name, pages))
+    for category, assets in asset_groups():
+        for asset in assets:
+            pages = []
+            for md in sorted(asset.rglob("*.md")):
+                if any(part in SKIP_DIRS for part in md.parts):
+                    continue
+                dest = target_of(md, SOURCE)
+                dest.parent.mkdir(parents=True, exist_ok=True)
+                # 页面 URL 是 /{资产}/.../{文件名}/，深度按相对 output/ 的路径算
+                rel = md.relative_to(SOURCE).with_suffix("")
+                text = build_page(md, asset.name, len(rel.parts))
+                dest.write_text(text, encoding="utf-8")
+                pages.append((dest, page_title(text, dest.stem)))
+                changed += 1
+            for facts in sorted(asset.rglob("facts.json")):
+                date = facts.parent.name
+                dest = PUBLIC_FACTS / asset.name / f"{date}.json"
+                dest.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(facts, dest)
+                changed += 1
+            if pages:
+                groups.append((category, asset.name, pages))
 
-    SIDEBAR.write_text(sidebar_module(groups), encoding="utf-8")
+    nested: list[tuple[str, list[tuple[str, list]]]] = []
+    for category, asset_name, pages in groups:
+        if not nested or nested[-1][0] != category:
+            nested.append((category, []))
+        nested[-1][1].append((asset_name, pages))
+
+    SIDEBAR.write_text(sidebar_module(nested), encoding="utf-8")
     write_index(groups)
     return changed
 
@@ -150,6 +172,33 @@ KIND = {
 }
 
 
+TEAM_PREFIX = "team-"
+SERIES_PREFIX = "series-"
+
+
+def page_order(page: Path) -> tuple:
+    """组内顺序：结论卡、研究报告、团队合成、分工、视角、文章、系列。
+
+    早先按文件名倒序，结论卡因为字母 t 排在 research 前面，纯属巧合；
+    这里把「先看结论、再看论证」写成显式规则。
+    """
+    stem = page.stem
+    if "-thesis" in stem:
+        rank = 0
+    elif stem == "最终报告":
+        rank = 2
+    elif stem == "README":
+        rank = 3
+    elif re.match(r"\d+-", stem):
+        rank = 4 if TEAM_PREFIX in page.parent.name else 6
+    elif "-article-" in stem:
+        rank = 5
+    else:
+        rank = 1
+    date = re.search(r"(\d{8})", stem)
+    return (rank, "" if date is None else "0" if False else date.group(1), stem)
+
+
 def page_label(page: Path, title: str) -> str:
     stem = page.stem
     date = re.search(r"(\d{8})", stem)
@@ -169,21 +218,25 @@ def page_label(page: Path, title: str) -> str:
     return title
 
 
-def sidebar_module(groups: list[tuple[str, list[Path]]]) -> str:
+def sidebar_module(groups: list[tuple[str, list[tuple[str, list[Path]]]]]) -> str:
     lines = ["// 由 scripts/sync_reports.py 生成，不要手改。", "export default ["]
     lines.append("  { label: '关于', link: '/' },")
-    for name, pages in groups:
-        lines.append(f"  {{ label: {json.dumps(name, ensure_ascii=False)}, items: [")
-        for page, title in sorted(pages, key=lambda item: item[0].name, reverse=True):
-            slug = page.relative_to(DOCS).with_suffix("").as_posix().lower()
-            label = page_label(page, title)
-            lines.append(
-                f"    {{ label: {json.dumps(label, ensure_ascii=False)}, "
-                f"slug: {json.dumps(slug, ensure_ascii=False)} }},"
-            )
+    for category, assets in groups:
+        lines.append(f"  {{ label: {json.dumps(category, ensure_ascii=False)}, items: [")
+        for name, pages in assets:
+            lines.append(f"    {{ label: {json.dumps(name, ensure_ascii=False)}, items: [")
+            for page, title in sorted(pages, key=lambda item: page_order(item[0])):
+                slug = page.relative_to(DOCS).with_suffix("").as_posix().lower()
+                label = page_label(page, title)
+                lines.append(
+                    f"      {{ label: {json.dumps(label, ensure_ascii=False)}, "
+                    f"slug: {json.dumps(slug, ensure_ascii=False)} }},"
+                )
+            lines.append("    ] },")
         lines.append("  ] },")
     lines.append("];")
     return "\n".join(lines) + "\n"
+
 
 
 def write_index(groups: list[tuple[str, list[Path]]]) -> None:
@@ -191,13 +244,13 @@ def write_index(groups: list[tuple[str, list[Path]]]) -> None:
     rows.append("按资产分类的研究报告。每份报告都配一个数据包（`facts.json`），")
     rows.append("报告里的每个数字都能在数据包里找到出处，可离线复算。")
     rows.append("")
-    rows.append("| 资产 | 篇数 | 最近一篇 |")
-    rows.append("| --- | --- | --- |")
-    for name, pages in groups:
+    rows.append("| 类别 | 资产 | 篇数 | 最近一篇 |")
+    rows.append("| --- | --- | --- | --- |")
+    for category, name, pages in groups:
         dated = [(re.search(r"(\d{8})", page.name), title) for page, title in pages]
         dated = [(m.group(1), title) for m, title in dated if m]
         latest = max(dated)[1] if dated else pages[0][1]
-        rows.append(f"| {name} | {len(pages)} | {latest} |")
+        rows.append(f"| {category} | {name} | {len(pages)} | {latest} |")
     rows.append("")
     (DOCS / "index.md").write_text("\n".join(rows), encoding="utf-8")
 

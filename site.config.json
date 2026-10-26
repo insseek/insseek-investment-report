@@ -1,4 +1,45 @@
 {
   "site": "https://insseek.github.io",
-  "base": "/insseek-investment-report"
+  "base": "/insseek-investment-report",
+  "groups": [
+    {
+      "title": "个股",
+      "assets": [
+        "小米",
+        "美团"
+      ]
+    },
+    {
+      "title": "指数",
+      "assets": [
+        "恒生科技",
+        "沪深300",
+        "纳斯达克",
+        "标普500"
+      ]
+    },
+    {
+      "title": "行业",
+      "assets": []
+    },
+    {
+      "title": "商品",
+      "assets": [
+        "黄金",
+        "原油"
+      ]
+    },
+    {
+      "title": "加密",
+      "assets": [
+        "比特币"
+      ]
+    },
+    {
+      "title": "跨资产",
+      "assets": [
+        "跨资产"
+      ]
+    }
+  ]
 }
