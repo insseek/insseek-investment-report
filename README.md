@@ -102,6 +102,8 @@ git add -A && git commit -m "同步报告" && git push
 
 站点地址：`https://insseek.github.io/insseek-investment-report/`。子路径来自 `site.config.json` 的 `base`，不要去改工作流。
 
+Netlify 镜像（已接通）：`https://insseek-investment-report.netlify.app/`，运行在域名根，靠 `BASE=/` 抹平路径差异。
+
 ## 部署二：Netlify（备用/镜像，可选）
 
 同一份代码，只多一个环境变量：

@@ -187,7 +187,7 @@ def sidebar_module(groups: list[tuple[str, list[Path]]]) -> str:
 
 
 def write_index(groups: list[tuple[str, list[Path]]]) -> None:
-    rows = ["---", "title: 里探投资报告", "description: 公司、指数、商品与加密资产的价值投资研究。", "---", ""]
+    rows = ["---", "title: 全部报告", "description: 公司、指数、商品与加密资产的价值投资研究。", "---", ""]
     rows.append("按资产分类的研究报告。每份报告都配一个数据包（`facts.json`），")
     rows.append("报告里的每个数字都能在数据包里找到出处，可离线复算。")
     rows.append("")
