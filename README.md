@@ -30,10 +30,10 @@ npm run check       # 检查生成物是否最新（CI 用）
 ```
 insseek-ai-investment-framework/output/{资产}/
 ├── {资产}-research-{YYYYMMDD}.md   研究报告
-├── {资产}-thesis.md                结论卡
-├── {资产}-article-{YYYYMMDD}.md    对外文章
-├── articles/series-{YYYYMMDD}/     系列子篇
-├── team-{YYYYMMDD}/                团队模式：视角稿 + 合成
+├── {资产}-thesis.md                投资结论
+├── {资产}-article-{YYYYMMDD}.md    文章（单篇）
+├── articles/series-{YYYYMMDD}/     系列 01、02（主篇的展开）
+├── team-{YYYYMMDD}/                多视角投研报告 + 视角 01–04
 └── data/{YYYYMMDD}/facts.json      数据包
 ```
 
@@ -43,7 +43,13 @@ insseek-ai-investment-framework/output/{资产}/
 2. 去掉正文里的 H1（Starlight 用 frontmatter 渲染标题，留着会重复）
 3. 把 `data/{日期}/facts.json` 改写成**相对路径**（按页面深度回退，如 `../../facts/小米/20261026.json`）
    并在页首加一行下载链接。相对路径的好处：站点挂在域名根（Netlify）还是子路径（Pages 项目页）都能点开
-4. 生成 `src/sidebar.generated.mjs`（按资产分组，资产内按日期倒序）
+4. 生成 `src/sidebar.generated.mjs`（类别 → 资产 → 页面，条目名只说「这是什么」，日期进 badge）
+
+两条附加规则：
+
+- `team-{YYYYMMDD}/README.md`（团队分工与仲裁）是内部过程记录，**不同步**。
+- `多视角投研报告` 与它的四个视角稿在侧边栏里是一个折叠组：组名 `多视角投研`，第一项是报告本身。
+  Starlight 的侧边栏组不能带链接，所以报告作为组内第一项，而不是把四项挂在一份可点击的父条目下。
 
 所以：**改内容去框架仓库改，改样式在这里改。** 手改 `src/content/docs/` 会被下次同步覆盖。
 

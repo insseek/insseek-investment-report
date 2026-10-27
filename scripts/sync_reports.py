@@ -211,6 +211,8 @@ def sync() -> int:
         for md in sorted(asset.rglob("*.md")):
             if any(part in SKIP_DIRS for part in md.parts):
                 continue
+            if md.name == "README.md" and md.parent.name.startswith(TEAM_PREFIX):
+                continue  # 团队分工与仲裁是内部过程记录，不发布
             dest = target_of(md, SOURCE)
             dest.parent.mkdir(parents=True, exist_ok=True)
             rel = md.relative_to(SOURCE).with_suffix("")
@@ -291,9 +293,8 @@ def page_title(text: str, fallback: str) -> str:
 
 
 KIND = {
-    "thesis": "结论卡",
+    "thesis": "投资结论",
     "research": "研究报告",
-    "article": "文章",
     "index": "指数研究",
     "commodity": "商品研究",
     "bitcoin": "比特币研究",
@@ -313,7 +314,7 @@ TEAM_PREFIX = "team-"
 
 
 def page_order(page: Path) -> tuple:
-    """组内顺序：结论卡 → 研究 → 团队合成 → 分工 → 视角 → 文章 → 系列。
+    """组内顺序：投资结论 → 研究 → 多视角 → 视角 → 文章 → 系列。
 
     同一档内按日期倒序（新的在前），无日期的按文件名升序（视角 01→04）。
     """
@@ -322,8 +323,6 @@ def page_order(page: Path) -> tuple:
         rank = 0
     elif stem == "最终报告":
         rank = 2
-    elif stem == "README":
-        rank = 3
     elif re.match(r"\d+-", stem):
         rank = 4 if TEAM_PREFIX in page.parent.name else 6
     elif "-article-" in stem:
@@ -365,9 +364,7 @@ def page_label(page: Path, title: str) -> str:
         if f"-{key}-" in stem or stem.endswith(f"-{key}"):
             return name
     if stem == "最终报告":
-        return "团队合成报告"
-    if stem == "README":
-        return "团队分工与仲裁"
+        return "多视角投研报告"
     m = re.match(r"(\d+)-(.+)", stem)
     if m:
         parent = page.parent.name
@@ -391,6 +388,27 @@ def bucketise(pages: list[tuple[Path, str]], known: set[str]):
     return ordered
 
 
+def slug_of(page: Path) -> str:
+    return page.relative_to(DOCS).with_suffix("").as_posix().lower()
+
+
+def badge_of(page: Path) -> str:
+    date = page_date(page)
+    return f", badge: {{ text: {json.dumps(date)}, variant: 'note' }}" if date else ""
+
+
+def team_children(pages) -> dict:
+    """同目录下的「最终报告 → 0N 视角」从属关系。只有真从属才嵌套，不靠排序猜。"""
+    parents = [p for p, _ in pages if p.stem == "最终报告"]
+    children: dict = {}
+    for parent in parents:
+        kids = [(p, t) for p, t in pages
+                if p.parent == parent.parent and re.match(r"\d+-", p.stem)]
+        if kids:
+            children[parent] = kids
+    return children
+
+
 def sidebar_module(tree) -> str:
     """资产下不再分组：页面按类型顺序平铺。
 
@@ -398,11 +416,8 @@ def sidebar_module(tree) -> str:
     读者要多点一次才看得到唯一内容。类型靠标题本身表达（结论卡、指数研究、文章、系列 01）。
     """
     def item(page, title, indent):
-        slug = page.relative_to(DOCS).with_suffix("").as_posix().lower()
-        date = page_date(page)
-        tail = (f", badge: {{ text: {json.dumps(date)}, variant: 'note' }}" if date else "")
         return (f"{indent}{{ label: {json.dumps(page_label(page, title), ensure_ascii=False)}, "
-                f"slug: {json.dumps(slug, ensure_ascii=False)}{tail} }}")
+                f"slug: {json.dumps(slug_of(page), ensure_ascii=False)}{badge_of(page)} }}")
 
     lines = ["// 由 scripts/sync_reports.py 生成，不要手改。", "export default ["]
     lines.append("  { label: '关于', link: '/' },")
@@ -415,8 +430,22 @@ def sidebar_module(tree) -> str:
                     lines.append(item(page, title, "    ") + ",")
                 continue
             lines.append(f"    {{ label: {json.dumps(asset, ensure_ascii=False)}, collapsed: true, items: [")
+            children = team_children(pages)
+            nested = {kid for kids in children.values() for kid, _ in kids}
             for page, title in pages:
-                lines.append(item(page, title, "      ") + ",")
+                if page in nested:
+                    continue
+                kids = children.get(page)
+                if kids:
+                    # Starlight 的侧边栏组不带链接（组只有 label + items），
+                    # 所以报告本身作为组内第一项，四个视角跟在后面。
+                    lines.append(f"      {{ label: \"多视角投研\", collapsed: false, items: [")
+                    lines.append(item(page, title, "        ") + ",")
+                    for kid, kid_title in kids:
+                        lines.append(item(kid, kid_title, "        ") + ",")
+                    lines.append("      ] },")
+                else:
+                    lines.append(item(page, title, "      ") + ",")
             lines.append("    ] },")
         lines.append("  ] },")
     lines.append("];")
