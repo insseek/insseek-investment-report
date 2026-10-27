@@ -369,34 +369,30 @@ def bucketise(pages: list[tuple[Path, str]], known: set[str]):
 
 
 def sidebar_module(tree) -> str:
+    """资产下不再分组：页面按类型顺序平铺。
+
+    分组只在「需要跳读」时有用；一个组里只有一页时，组名与页面标题重复一次，
+    读者要多点一次才看得到唯一内容。类型靠标题本身表达（结论卡、指数研究、文章、系列 01）。
+    """
+    def item(page, title, indent):
+        slug = page.relative_to(DOCS).with_suffix("").as_posix().lower()
+        return (f"{indent}{{ label: {json.dumps(page_label(page, title), ensure_ascii=False)}, "
+                f"slug: {json.dumps(slug, ensure_ascii=False)} }}")
+
     lines = ["// 由 scripts/sync_reports.py 生成，不要手改。", "export default ["]
     lines.append("  { label: '关于', link: '/' },")
     for category, items in tree:
         lines.append(f"  {{ label: {json.dumps(category, ensure_ascii=False)}, items: [")
         for asset, groups in items:
-            indent = "      "
-            if asset is not None:
-                lines.append(f"    {{ label: {json.dumps(asset, ensure_ascii=False)}, collapsed: true, items: [")
-                indent = "        "
-            for group, pages in groups:
-                if asset is None:
-                    for page, title in pages:
-                        slug = page.relative_to(DOCS).with_suffix("").as_posix().lower()
-                        lines.append(
-                            f"      {{ label: {json.dumps(page_label(page, title), ensure_ascii=False)}, "
-                            f"slug: {json.dumps(slug, ensure_ascii=False)} }},"
-                        )
-                    continue
-                lines.append(f"{indent}{{ label: {json.dumps(group, ensure_ascii=False)}, items: [")
+            pages = [page for _, in_group in groups for page in in_group]
+            if asset is None:
                 for page, title in pages:
-                    slug = page.relative_to(DOCS).with_suffix("").as_posix().lower()
-                    lines.append(
-                        f"{indent}  {{ label: {json.dumps(page_label(page, title), ensure_ascii=False)}, "
-                        f"slug: {json.dumps(slug, ensure_ascii=False)} }},"
-                    )
-                lines.append(f"{indent}] }},")
-            if asset is not None:
-                lines.append("    ] },")
+                    lines.append(item(page, title, "    ") + ",")
+                continue
+            lines.append(f"    {{ label: {json.dumps(asset, ensure_ascii=False)}, collapsed: true, items: [")
+            for page, title in pages:
+                lines.append(item(page, title, "      ") + ",")
+            lines.append("    ] },")
         lines.append("  ] },")
     lines.append("];")
     return "\n".join(lines) + "\n"
