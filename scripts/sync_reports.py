@@ -334,13 +334,36 @@ def page_order(page: Path) -> tuple:
     return (rank, -(int(date.group(1)) if date else 0), stem)
 
 
+def _mmdd(digits: str) -> str:
+    return f"{digits[4:6]}-{digits[6:8]}"
+
+
+def page_date(page: Path) -> str:
+    """页面日期，按可信度取：正文头部「成稿」→ 文件名 → 父目录（team-/series-）。
+
+    成稿在前，是因为它对「这份内容是什么时候定稿的」负责；文件名里的日期是发布口径，
+    两者不一致时以成稿为准。视角稿与系列稿不是准出产物、没有成稿行，日期来自所在批次目录。
+    """
+    try:
+        head = "\n".join(page.read_text(encoding="utf-8").split("\n")[:20])
+    except OSError:
+        head = ""
+    m = re.search(r"成稿\s*(\d{4})-(\d{2})-(\d{2})", head)
+    if m:
+        return f"{m.group(2)}-{m.group(3)}"
+    m = re.search(r"(\d{8})", page.stem)
+    if m:
+        return _mmdd(m.group(1))
+    m = re.search(r"(?:team|series)-(\d{8})", page.parent.name)
+    return _mmdd(m.group(1)) if m else ""
+
+
 def page_label(page: Path, title: str) -> str:
+    """条目名：只说「这是什么」，日期交给 badge。"""
     stem = page.stem
-    date = re.search(r"(\d{8})", stem)
-    tail = date.group(1) if date else ""
     for key, name in KIND.items():
         if f"-{key}-" in stem or stem.endswith(f"-{key}"):
-            return name if key == "thesis" else f"{name} {tail}".strip()
+            return name
     if stem == "最终报告":
         return "团队合成报告"
     if stem == "README":
@@ -376,8 +399,10 @@ def sidebar_module(tree) -> str:
     """
     def item(page, title, indent):
         slug = page.relative_to(DOCS).with_suffix("").as_posix().lower()
+        date = page_date(page)
+        tail = (f", badge: {{ text: {json.dumps(date)}, variant: 'note' }}" if date else "")
         return (f"{indent}{{ label: {json.dumps(page_label(page, title), ensure_ascii=False)}, "
-                f"slug: {json.dumps(slug, ensure_ascii=False)} }}")
+                f"slug: {json.dumps(slug, ensure_ascii=False)}{tail} }}")
 
     lines = ["// 由 scripts/sync_reports.py 生成，不要手改。", "export default ["]
     lines.append("  { label: '关于', link: '/' },")
@@ -412,6 +437,17 @@ def write_index(entries) -> None:
         rows.append(f"| {category} | {asset or '—'} | {len(pages)} | {latest} |")
     rows.append("")
     (DOCS / "index.md").write_text("\n".join(rows), encoding="utf-8")
+
+
+def report_missing_dates() -> None:
+    """除首页外，每个条目都该有日期；取不到就提醒，不要静默留白。"""
+    missing = [p for p in DOCS.rglob("*.md")
+               if p.name != "index.md" and not page_date(p)]
+    if missing:
+        print("⚠ 这些页面取不到日期，badge 会是空的：")
+        for p in sorted(missing):
+            print("   ", p.relative_to(DOCS))
+        print("   日期来源：文件名 YYYYMMDD / 父目录 team-|series-YYYYMMDD / 头部「成稿 YYYY-MM-DD」")
 
 
 def main() -> int:

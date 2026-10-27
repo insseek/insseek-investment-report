@@ -10,3 +10,14 @@
   letter-spacing: 0.01em;
   line-height: 1.75;
 }
+
+/* 侧边栏条目：日期 badge 靠右，长标题不把 badge 挤到下一行 */
+.sidebar-content a:has(.sl-badge) {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.sidebar-content a .sl-badge {
+  margin-inline-start: auto;
+  flex: none;
+}
