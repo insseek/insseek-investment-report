@@ -5,13 +5,11 @@ export default [
     { label: "小米", collapsed: true, items: [
       { label: "投资结论", slug: "小米/小米-thesis", badge: { text: "10-26", variant: 'note' } },
       { label: "研究报告", slug: "小米/小米-research-20261026", badge: { text: "10-26", variant: 'note' } },
-      { label: "多视角投研", collapsed: false, items: [
-        { label: "多视角投研报告", slug: "小米/team-20261026/最终报告", badge: { text: "10-26", variant: 'note' } },
-        { label: "视角 01：商业模式", slug: "小米/team-20261026/01-商业模式", badge: { text: "10-26", variant: 'note' } },
-        { label: "视角 02：财务估值", slug: "小米/team-20261026/02-财务估值", badge: { text: "10-26", variant: 'note' } },
-        { label: "视角 03：行业竞争", slug: "小米/team-20261026/03-行业竞争", badge: { text: "10-26", variant: 'note' } },
-        { label: "视角 04：风险管理层", slug: "小米/team-20261026/04-风险管理层", badge: { text: "10-26", variant: 'note' } },
-      ] },
+      { label: "多视角投研报告", slug: "小米/team-20261026/最终报告", badge: { text: "10-26", variant: 'note' } },
+      { label: "视角 01：商业模式", slug: "小米/team-20261026/01-商业模式", badge: { text: "10-26", variant: 'note' } },
+      { label: "视角 02：财务估值", slug: "小米/team-20261026/02-财务估值", badge: { text: "10-26", variant: 'note' } },
+      { label: "视角 03：行业竞争", slug: "小米/team-20261026/03-行业竞争", badge: { text: "10-26", variant: 'note' } },
+      { label: "视角 04：风险管理层", slug: "小米/team-20261026/04-风险管理层", badge: { text: "10-26", variant: 'note' } },
       { label: "小米半年赚 123 亿，市盈率 23.6 倍", slug: "小米/articles/小米-article-20261026", badge: { text: "10-26", variant: 'note' } },
       { label: "系列 01：汽车的真实成本", slug: "小米/articles/series-20261026/01-汽车的真实成本", badge: { text: "10-26", variant: 'note' } },
       { label: "系列 02：互联网与估值", slug: "小米/articles/series-20261026/02-互联网与估值", badge: { text: "10-26", variant: 'note' } },
@@ -19,13 +17,11 @@ export default [
     { label: "美团", collapsed: true, items: [
       { label: "投资结论", slug: "美团/美团-thesis", badge: { text: "10-26", variant: 'note' } },
       { label: "研究报告", slug: "美团/美团-research-20261026", badge: { text: "10-26", variant: 'note' } },
-      { label: "多视角投研", collapsed: false, items: [
-        { label: "多视角投研报告", slug: "美团/team-20261026/最终报告", badge: { text: "10-26", variant: 'note' } },
-        { label: "视角 01：商业模式", slug: "美团/team-20261026/01-商业模式", badge: { text: "10-26", variant: 'note' } },
-        { label: "视角 02：财务估值", slug: "美团/team-20261026/02-财务估值", badge: { text: "10-26", variant: 'note' } },
-        { label: "视角 03：行业竞争", slug: "美团/team-20261026/03-行业竞争", badge: { text: "10-26", variant: 'note' } },
-        { label: "视角 04：风险管理层", slug: "美团/team-20261026/04-风险管理层", badge: { text: "10-26", variant: 'note' } },
-      ] },
+      { label: "多视角投研报告", slug: "美团/team-20261026/最终报告", badge: { text: "10-26", variant: 'note' } },
+      { label: "视角 01：商业模式", slug: "美团/team-20261026/01-商业模式", badge: { text: "10-26", variant: 'note' } },
+      { label: "视角 02：财务估值", slug: "美团/team-20261026/02-财务估值", badge: { text: "10-26", variant: 'note' } },
+      { label: "视角 03：行业竞争", slug: "美团/team-20261026/03-行业竞争", badge: { text: "10-26", variant: 'note' } },
+      { label: "视角 04：风险管理层", slug: "美团/team-20261026/04-风险管理层", badge: { text: "10-26", variant: 'note' } },
     ] },
   ] },
   { label: "指数", items: [

@@ -397,18 +397,6 @@ def badge_of(page: Path) -> str:
     return f", badge: {{ text: {json.dumps(date)}, variant: 'note' }}" if date else ""
 
 
-def team_children(pages) -> dict:
-    """同目录下的「最终报告 → 0N 视角」从属关系。只有真从属才嵌套，不靠排序猜。"""
-    parents = [p for p, _ in pages if p.stem == "最终报告"]
-    children: dict = {}
-    for parent in parents:
-        kids = [(p, t) for p, t in pages
-                if p.parent == parent.parent and re.match(r"\d+-", p.stem)]
-        if kids:
-            children[parent] = kids
-    return children
-
-
 def sidebar_module(tree) -> str:
     """资产下不再分组：页面按类型顺序平铺。
 
@@ -430,22 +418,8 @@ def sidebar_module(tree) -> str:
                     lines.append(item(page, title, "    ") + ",")
                 continue
             lines.append(f"    {{ label: {json.dumps(asset, ensure_ascii=False)}, collapsed: true, items: [")
-            children = team_children(pages)
-            nested = {kid for kids in children.values() for kid, _ in kids}
             for page, title in pages:
-                if page in nested:
-                    continue
-                kids = children.get(page)
-                if kids:
-                    # Starlight 的侧边栏组不带链接（组只有 label + items），
-                    # 所以报告本身作为组内第一项，四个视角跟在后面。
-                    lines.append(f"      {{ label: \"多视角投研\", collapsed: false, items: [")
-                    lines.append(item(page, title, "        ") + ",")
-                    for kid, kid_title in kids:
-                        lines.append(item(kid, kid_title, "        ") + ",")
-                    lines.append("      ] },")
-                else:
-                    lines.append(item(page, title, "      ") + ",")
+                lines.append(item(page, title, "      ") + ",")
             lines.append("    ] },")
         lines.append("  ] },")
     lines.append("];")
