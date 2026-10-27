@@ -16,7 +16,7 @@
 
 ```bash
 npm install         # 首次
-npm run dev         # 本地预览，http://localhost:4321
+npm run dev         # 本地预览，http://localhost:4321（改侧栏/配置会自动重启）
 npm run build       # 同步产物 + 构建到 dist/
 npm run check       # 检查生成物是否最新（CI 用）
 ```
@@ -85,6 +85,10 @@ git add -A && git commit -m "同步报告" && git push
 推上去之后，站点仓库自带全部 Markdown 与 `public/facts/`，GitHub Pages 只需要跑 `astro build`（可选：用官方 Astro Action），不依赖框架仓库。
 
 也就是说：**框架仓库管研究与数据，站点仓库管发布**。前者不进 git 的产物，由后者落地成可部署的页面。
+
+**改侧边栏或站点配置不用手动重启**：`npm run dev` 走的是 `scripts/dev.mjs`，它监听
+`src/sidebar.generated.mjs` 与 `site.config.json`，文件一变就重启 `astro dev`。
+原因：侧边栏是 `astro.config.mjs` 在启动时 import 的模块，Astro 的原地重启不会重新读它。
 
 ## 部署一：GitHub Pages（主站）
 

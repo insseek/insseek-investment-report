@@ -4,7 +4,7 @@
   "description": "里探投资报告：把框架仓库 output/ 的研究产物发布成静态站",
   "scripts": {
     "sync": "python3 scripts/sync_reports.py",
-    "dev": "astro dev",
+    "dev": "node scripts/dev.mjs",
     "build": "python3 scripts/sync_reports.py && astro build",
     "preview": "astro preview",
     "check": "python3 scripts/sync_reports.py --check",
