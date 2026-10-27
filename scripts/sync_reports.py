@@ -165,8 +165,16 @@ def target_of(path: Path, source_root: Path) -> Path:
     return DOCS / rel
 
 
-def build_page(path: Path, asset: str, depth: int) -> str:
+SHORT: dict[Path, str] = {}
+
+
+def build_page(path: Path, asset: str, depth: int) -> tuple[str, str]:
     text = path.read_text(encoding="utf-8")
+    short = ""
+    m_short = re.search(r"^>\s*侧栏名[：:]\s*(.+)$", text, re.M)
+    if m_short:
+        short = m_short.group(1).strip()
+        text = re.sub(r"^>\s*侧栏名[：:]\s*.+\n?", "", text, count=1, flags=re.M)
     title, body = split_title(text, path.stem)
     body = rewrite_links(body, asset, depth)
     # 反引号里的数据包路径变成可点链接，并在页首给一行下载入口
@@ -189,7 +197,7 @@ def build_page(path: Path, asset: str, depth: int) -> str:
     if desc:
         front.append(f"description: {json.dumps(desc, ensure_ascii=False)}")
     front.append("---")
-    return "\n".join(front) + "\n\n" + body.rstrip() + "\n"
+    return "\n".join(front) + "\n\n" + body.rstrip() + "\n", short
 
 
 def sync() -> int:
@@ -204,6 +212,7 @@ def sync() -> int:
         raise SystemExit(f"找不到产物目录：{SOURCE}")
 
     token_to_entry, known = parse_naming_table()
+    long_short = []
     entries = []  # (类别, 资产名或 None, [(组名, [(页面, 标题)])])
 
     for asset in sorted(p for p in SOURCE.iterdir() if p.is_dir() and p.name not in SKIP_DIRS):
@@ -216,8 +225,12 @@ def sync() -> int:
             dest = target_of(md, SOURCE)
             dest.parent.mkdir(parents=True, exist_ok=True)
             rel = md.relative_to(SOURCE).with_suffix("")
-            text = build_page(md, asset.name, len(rel.parts))
+            text, short = build_page(md, asset.name, len(rel.parts))
             dest.write_text(text, encoding="utf-8")
+            if short:
+                SHORT[dest] = short
+                if len(short) > SHORT_MAX:
+                    long_short.append(f"{md.relative_to(SOURCE).as_posix()}：{short}")
             pages.append((dest, page_title(text, dest.stem)))
             changed += 1
         for facts in sorted(asset.rglob("facts.json")):
@@ -311,6 +324,7 @@ KIND = {
 }
 
 TEAM_PREFIX = "team-"
+SHORT_MAX = 12  # 侧栏名上限，和「视角 01：商业模式」一个量级
 
 
 def page_order(page: Path) -> tuple:
@@ -370,7 +384,16 @@ def page_label(page: Path, title: str) -> str:
         parent = page.parent.name
         prefix = "视角" if TEAM_PREFIX in parent else "系列"
         return f"{prefix} {m.group(1)}：{m.group(2)}"
-    return title
+    return SHORT.get(page) or short_title(title)
+
+
+def short_title(title: str) -> str:
+    """没写侧栏名时的兜底：取第一个分句，再硬截到 12 字。
+
+    标题和侧栏名是两种东西——标题要完整、能被搜到；侧栏名要短、能一眼扫过。
+    """
+    head = re.split(r"[，。；：、,;:]", title, maxsplit=1)[0].strip()
+    return head if len(head) <= SHORT_MAX else head[: SHORT_MAX - 1] + "…"
 
 
 def bucketise(pages: list[tuple[Path, str]], known: set[str]):
@@ -439,6 +462,23 @@ def write_index(entries) -> None:
         latest = max(dated)[1] if dated else pages[0][1]
         rows.append(f"| {category} | {asset or '—'} | {len(pages)} | {latest} |")
     rows.append("")
+    latest = []
+    for category, asset, groups in entries:
+        for _, in_group in groups:
+            for page, title in in_group:
+                if page.parent.name.startswith("team-") and re.match(r"\d+-", page.stem):
+                    continue  # 视角稿是主报告的展开，不占「最新发布」
+                m = re.search(r"成稿\s*(\d{4})-(\d{2})-(\d{2})", page.read_text(encoding="utf-8")[:600])
+                if not m:
+                    continue
+                slug = page.relative_to(DOCS).with_suffix("").as_posix().lower()
+                latest.append((f"{m.group(1)}-{m.group(2)}-{m.group(3)}", slug, asset or category, title))
+    if latest:
+        rows.append("## 最新发布")
+        rows.append("")
+        for when, slug, where, title in sorted(latest, key=lambda x: (x[0], x[1]), reverse=True)[:10]:
+            rows.append(f"- {when[5:]}　{where}　[{title}]({slug}/)")
+        rows.append("")
     (DOCS / "index.md").write_text("\n".join(rows), encoding="utf-8")
 
 
